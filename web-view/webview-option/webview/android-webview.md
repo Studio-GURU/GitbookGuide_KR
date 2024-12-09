@@ -4,6 +4,16 @@ icon: android
 
 # Android WebView
 
+## 유료 결제를 위한 Scheme 등록
+
+TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
+
+자세한 내용은 아래의 링크를 확인 하세요.
+
+{% embed url="https://docs.tosspayments.com/guides/webview#android" %}
+
+***
+
 ## 신뢰하지 않는 인증서
 
 일부 웹사이트에서 신뢰할 수 없는 인증서를 사용할 경우, 사용자에게 경고창이 표시되며 계속 진행할지 여부를 묻습니다.
