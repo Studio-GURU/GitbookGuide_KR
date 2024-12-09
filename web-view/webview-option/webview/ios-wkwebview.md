@@ -10,6 +10,16 @@ icon: apple
 
 ***
 
+## 유료 결제를 위한 Scheme 등록
+
+TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
+
+자세한 내용은 아래의 링크를 확인 하세요.
+
+{% embed url="https://docs.tosspayments.com/guides/webview#ios" %}
+
+***
+
 ### Javascript window.open
 
 WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
