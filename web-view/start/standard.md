@@ -11,13 +11,9 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.
 {% endhint %}
 
-### Android WebView Config
-
 {% content-ref url="../webview-config/android-webview.md" %}
 [android-webview.md](../webview-config/android-webview.md)
 {% endcontent-ref %}
-
-### iOS WebView Config
 
 {% content-ref url="../webview-config/ios-wkwebview.md" %}
 [ios-wkwebview.md](../webview-config/ios-wkwebview.md)
