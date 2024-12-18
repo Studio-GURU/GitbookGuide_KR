@@ -1,6 +1,6 @@
 ---
-description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 icon: star-shooting
+description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 ---
 
 # 시작하기
@@ -56,9 +56,9 @@ OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 �
 
 구루 컴퍼니에서 SDK에서 사용된 웹뷰 구현 코드를 제공하고 있으며, 웹뷰 구현시 참고용으로 확인 바랍니다.
 
-* :link:[webview-option](../webview-option/ "mention")
-  * :link:[android-webview.md](../webview-option/webview/android-webview.md "mention")
-  * :link:[ios-wkwebview.md](../webview-option/webview/ios-wkwebview.md "mention")
+* :link:[Broken link](broken-reference "mention")
+  * :link:[android-webview.md](../webview-config/android-webview.md "mention")
+  * :link:[ios-wkwebview.md](../webview-config/ios-wkwebview.md "mention")
 
 
 
