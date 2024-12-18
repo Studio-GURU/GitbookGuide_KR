@@ -5,6 +5,26 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 # 채널회원 연동
 
+## 웹뷰 설정 가이드
+
+{% hint style="success" %}
+**기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.**
+{% endhint %}
+
+### Android WebView Config
+
+{% content-ref url="../../webview-config/android-webview.md" %}
+[android-webview.md](../../webview-config/android-webview.md)
+{% endcontent-ref %}
+
+### iOS WebView Config
+
+{% content-ref url="../../webview-config/ios-wkwebview.md" %}
+[ios-wkwebview.md](../../webview-config/ios-wkwebview.md)
+{% endcontent-ref %}
+
+***
+
 {% hint style="info" %}
 메인화면 진입 하기
 
@@ -46,28 +66,6 @@ https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8
 ```
 
 ***
-
-## 웹뷰 설정 가이드
-
-{% hint style="danger" %}
-기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.
-{% endhint %}
-
-### Android WebView Config
-
-{% content-ref url="../../webview-config/android-webview.md" %}
-[android-webview.md](../../webview-config/android-webview.md)
-{% endcontent-ref %}
-
-### iOS WebView Config
-
-{% content-ref url="../../webview-config/ios-wkwebview.md" %}
-[ios-wkwebview.md](../../webview-config/ios-wkwebview.md)
-{% endcontent-ref %}
-
-***
-
-
 
 ## 메인화면 진입시 안내 메시지 노출
 

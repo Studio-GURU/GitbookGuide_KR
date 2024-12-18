@@ -5,29 +5,9 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 # 채널회원 미연동
 
-{% hint style="info" %}
-보물섬 연동
-
-***
-
-:heavy\_check\_mark: 파트너사의 회원 정보를 사용하지 않습니다.
-
-:heavy\_check\_mark: 보물섬의 별도 회원 정책을 사용합니다.
-
-:heavy\_check\_mark: 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
-{% endhint %}
-
-## 메인화면 진 경로
-
-:heavy\_check\_mark: **사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
-
-`https://{env}.treasurecomics.com/`
-
-***
-
 ## 웹뷰 설정 가이드
 
-{% hint style="danger" %}
+{% hint style="success" %}
 기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.
 {% endhint %}
 
@@ -45,7 +25,27 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ***
 
-##
+{% hint style="info" %}
+보물섬 연동
+
+***
+
+:heavy\_check\_mark: 파트너사의 회원 정보를 사용하지 않습니다.
+
+:heavy\_check\_mark: 보물섬의 별도 회원 정책을 사용합니다.
+
+:heavy\_check\_mark: 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
+
+:heavy\_check\_mark: 추가 웹뷰 설정을 확인 합니다.
+{% endhint %}
+
+## 메인화면 진 경로
+
+:heavy\_check\_mark: **사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
+
+`https://{env}.treasurecomics.com/`
+
+***
 
 ## 메인화면 진입시 안내 메시지 노출
 
