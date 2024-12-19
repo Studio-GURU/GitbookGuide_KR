@@ -53,8 +53,8 @@
 
 ## REACT-NATIVE
 
-* [Page 1](react-native/page-1.md)
+* [릴리즈 노트](react-native/undefined.md)
 
 ## FLUTTER
 
-* [Page 2](flutter/page-2.md)
+* [릴리즈 노트](flutter/undefined.md)
