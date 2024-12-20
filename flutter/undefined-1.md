@@ -1,6 +1,6 @@
 ---
+description: 보물섬 Flutter PlugIn에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
 icon: star-shooting
-description: 보물섬 ReactNative PlugIn에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
 ---
 
 # 시작하기
@@ -19,7 +19,7 @@ description: 보물섬 ReactNative PlugIn에서 제공하는 서비스를 연동
 ## 요구사항
 
 {% hint style="success" %}
-요구 사양은 보물섬 ReactNative PlugIn 최신 상태를 기준으로 명시 됩니다.
+요구 사양은 보물섬 Flutter PlugIn 최신 상태를 기준으로 명시 됩니다.
 
 ***
 
@@ -63,24 +63,29 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ## 기본 모듈 적용
 
-```sh
-# yarn
-$ yarn add react-treasureisland-addon@version
+#### **pubspec.yaml 파일에 패키지 추가**
 
-# npm
-$ npm install react-treasureisland-addon@version
-```
-
-패키지가 설치되면 node\_module 폴더에 저장이 되며, package.json에 추가됩니다.
+Flutter 프로젝트의 **`pubspec.yaml`** 파일에 패키지를 추가합니다.\
+`dependencies` 섹션에 패키지를 추가하고, 버전이나 범위를 설정합니다.
 
 ```json
-"dependencies": {
-    ....
-    code
-    ....
-    "react-treasureisland-addon": ".."
-  },
+dependencies:
+  flutter:
+    sdk: flutter
+  ...
+  ...
+  flutter_treasureisland_addon:#version
+  ...
+  ...
 ```
+
+터미널에서 아래 명령어를 실행하여 추가한 패키지를 설치합니다.
+
+```bash
+$ flutter pub get
+```
+
+:heavy\_check\_mark: 이 명령어는 `pubspec.yaml` 파일에 정의된 패키지들을 설치하고, **pubspec.lock** 파일을 업데이트합니다.
 
 ***
 
