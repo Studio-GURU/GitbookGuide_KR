@@ -1,3 +1,7 @@
+---
+icon: list-timeline
+---
+
 # 릴리즈 노트
 
 ## Version 24.12.1
