@@ -1,6 +1,6 @@
 ---
-description: 보물섬 ANDROID SDK 초기화 방법에 대해 안내합니다.
 icon: laptop-code
+description: 보물섬 ANDROID SDK 초기화 방법에 대해 안내합니다.
 ---
 
 # 보물섬 서비스
@@ -68,7 +68,6 @@ class AppApplication : Application() {
         // option 상태창의 색상을 설정 합니다.
         .withStatusBarOption(
             config = SceneConfig.StatusBarOption(
-                allow = true,
                 statusBarColor = Color.parseColor("#FF6103"),
                 isWindowLight = false
             )
@@ -76,7 +75,6 @@ class AppApplication : Application() {
         // option 푸시 알림 설정
         .withNotificationOption(
             config = SceneConfig.NotificationOption(
-                allow = true,
                 channelName = "알림 채널명",
                 iconResourceId = R.drawable.ic_notification
             )
@@ -138,13 +136,12 @@ SDK 로그 출력 여부를 설정 합니다.
 
 화면의 상단 상태창의 색상을 설정합니다.
 
-:heavy\_check\_mark: 기본값 -> 안드로이드 기본 설정이 적용됩니다.
+:heavy\_check\_mark: 기본값 :arrow\_forward: 보물섬의 기본값이 사용됩니다.
 
 ⬇ TreasureConfig.StatusBarOption
 
 | Name             | Type                        | Description                                                                                                         |
 | ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `allow`          | boolean                     | 상태창 색상 적용 여부                                                                                                        |
 | `statusBarColor` | **'@'ColorInt**(`nullable`) | <p>상태창 배경 색상<br><code>기본값: Color.WHITE</code></p>                                                                   |
 | `isWindowLight`  | boolean(`nullable`)         | <p>상태창 텍스트 색상 설정<br><code>기본값: false</code><br><code>true: 어두운 색상의 텍스트</code><br><code>false: 밝은 색상의 텍스트</code></p> |
 
@@ -162,11 +159,11 @@ SDK 로그 출력 여부를 설정 합니다.
 
 기다무 푸시 알림을 설정합니다.
 
-:heavy\_check\_mark: 기본값 -> 푸시 알림을 사용하지 않습니다.
+:heavy\_check\_mark: 기본값 :arrow\_forward: 보물섬의 기본값이 사용됩니다.
 
 ⬇ TreasureConfig.NotificationOption
 
-<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allow</code></td><td>boolean</td><td>푸시 알림 사용 여부<br><code>기본값: false</code></td></tr><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>푸시 알림 채널명<br><code>기본값: '보물섬'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>푸시 알림 아이콘 리소스<br><code>기본값: 보물섬 아이콘</code></td></tr></tbody></table>
+<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>푸시 알림 채널명<br><code>기본값: '보물섬'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>푸시 알림 아이콘 리소스<br><code>기본값: 보물섬 아이콘</code></td></tr></tbody></table>
 
 
 
