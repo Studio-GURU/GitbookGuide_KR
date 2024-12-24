@@ -23,11 +23,10 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## comicsLaunchWithStandard
 
-{% tabs %}
-{% tab title="Define" %}
 ```typescript
+// define
 function comicsLaunchWithChanneling(
-  // 연동 회원키(변경되지 않는 고유키값)
+  // 연동 회원키(변경되지 않는 고유키값) *필수항목*
   userId: string,
   // 광고 아이디(optional)
   advertisingId: string = '',
@@ -40,11 +39,8 @@ function comicsLaunchWithChanneling(
   // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
   allowCloseButton: boolean = false
 )
-```
-{% endtab %}
 
-{% tab title="Usage" %}
-```typescript
+// usage
 import { comicsLaunchWithChanneling } from 'react-treasureisland-addon';
 ..
 ..
@@ -53,9 +49,8 @@ const handleButtonPressWithChanneling = () => {
     .then((result: any) => console.log(`comicsLaunchWithChanneling::Success => ${result}`))
     .catch((error: any) => console.error('comicsLaunchWithChanneling::Failed:', error));
 };
+
 ```
-{% endtab %}
-{% endtabs %}
 
 ***
 

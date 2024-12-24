@@ -25,9 +25,8 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## comicsLaunchWithStandard
 
-{% tabs %}
-{% tab title="Define" %}
 ```typescript
+// define
 function comicsLaunchWithStandard(
   // 광고 아이디(optional)
   advertisingId: string = '',
@@ -40,11 +39,8 @@ function comicsLaunchWithStandard(
   // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
   allowCloseButton: boolean = false
 )
-```
-{% endtab %}
 
-{% tab title="Usage" %}
-```typescript
+// usage
 import { comicsLaunchWithStandard } from 'react-treasureisland-addon';
 ..
 ..
@@ -54,8 +50,6 @@ const handleButtonPressWithStandard = () => {
         .catch((error: any) => console.error('comicsLaunchWithStandard::Failed:', error));
 };
 ```
-{% endtab %}
-{% endtabs %}
 
 ***
 
