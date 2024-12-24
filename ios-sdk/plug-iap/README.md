@@ -1,6 +1,6 @@
 ---
-description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
 icon: credit-card
+description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
 ---
 
 # 보물섬 인앱 구매 서비스@PLUG
@@ -12,7 +12,7 @@ icon: credit-card
 
 ***
 
-:heavy\_check\_mark:  모듈 적용 후 SDK 초기화에서 구매 모듈 추가 작업이 필요합니다.
+:heavy\_check\_mark:  모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.
 
 :heavy\_check\_mark: 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
 
@@ -26,8 +26,7 @@ icon: credit-card
 ## 연동 순서
 
 1. **TreasureIslandPlugPurchaseKit** 모듈 설치하기&#x20;
-2. **TreasureIslandPlugPurchaseKit** 모듈 연동하기
-3. **애플 앱 스토어 설정**
+2. **애플 앱 스토어 설정**
    1. [console-config.md](console-config.md "mention")
    2. [api-config.md](api-config.md "mention")
    3. [rtdn-config.md](rtdn-config.md "mention")
@@ -91,35 +90,6 @@ $ pod install
 <figure><img src="../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/apple_plug_purchase.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-## 모듈 연동 하기
-
-보물섬 초기화 부분에 다음 코드를 추가합니다.
-
-{% code lineNumbers="true" %}
-```swift
-import TreasureIslandFoundationKit
-import TreasureIslandSceneKit
-// import!!
-import TreasureIslandPlugPurchaseKit
-
-// SceneKit
-let sceneKit = SceneKit.Builder(
-    appId: "{APP-ID}", 
-    appSecret: "{APP-SECRET}"
-)
-// option: 로그 출력 여부를 설정
-.withAllowLog(allow: true)
-// PlugPurchaseKit을 추가 합니다.
-.withContractorPurchase(builder: PlugPurchaseKit.builder())
-// TreasureKit 인스턴스 생성
-.build()
-// 보물섬 SDK 초기화
-sceneKit.initialize()
-```
-{% endcode %}
 
 ***
 

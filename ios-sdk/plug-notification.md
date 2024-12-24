@@ -1,6 +1,6 @@
 ---
-description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위한 설정 방법을 안내 합니다.
 icon: bell-ring
+description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위한 설정 방법을 안내 합니다.
 ---
 
 # 보물섬 알림 서비스@PLUG
@@ -22,7 +22,6 @@ icon: bell-ring
 ## 연동 순서
 
 1. **TreasureIslandPlugNotificationKit** 모듈 설치하기&#x20;
-2. **TreasureIslandPlugNotificationKit** 모듈 연동하기
 
 ***
 
@@ -85,35 +84,6 @@ $ pod install
 <figure><img src="../.gitbook/assets/apple_plug_notify.png" alt=""><figcaption></figcaption></figure>
 
 ***
-
-## 모듈 연동 하기
-
-보물섬 초기화 부분에 다음 코드를 추가합니다.
-
-{% code lineNumbers="true" %}
-```swift
-import TreasureIslandFoundationKit
-import TreasureIslandSceneKit
-// import!!
-import TreasureIslandPlugNotificationKit
-
-// SceneKit
-let sceneKit = SceneKit.Builder(
-    appId: "{APP-ID}", 
-    appSecret: "{APP-SECRET}"
-)
-// option: 로그 출력 여부를 설정
-.withAllowLog(allow: true)
-// PlugNotificationKit을 추가 합니다.
-.withContractorNotification(builder: PlugNotificationKit.builder())
-// TreasureKit 인스턴스 생성
-.build()
-// 보물섬 SDK 초기화
-sceneKit.initialize()
-```
-{% endcode %}
-
-
 
 
 

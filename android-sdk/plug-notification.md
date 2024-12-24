@@ -1,6 +1,6 @@
 ---
-description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
 icon: bell-ring
+description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
 ---
 
 # 보물섬 알림 서비스@PLUG
@@ -101,7 +101,7 @@ public class AppApplication extends Application {
 
 기다무 푸시 알림을 설정합니다.
 
-:heavy\_check\_mark: 기본값 -> 푸시 알림을 사용하지 않습니다.
+:heavy\_check\_mark: 기본값 :arrow\_forward: 푸시 알림을 사용하지 않습니다.
 
 ⬇ SceneConfig.NotificationOption
 
