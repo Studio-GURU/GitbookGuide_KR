@@ -1,25 +1,23 @@
 ---
-icon: user
+icon: user-group
 description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
 ---
 
-# 채널회원 미연동
+# 채널회원 연동
 
 {% hint style="success" %}
-파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
+전달된 파트너사의 회원정보를 통해 보물섬 계정을 생성합니다.&#x20;
 
-***
-
-:heavy\_check\_mark: **보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
+:heavy\_check\_mark: **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/스크린샷 2024-08-22 오후 2.05.51.png" alt=""><figcaption><p>보물섬 회원 플로우</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
 
 ***
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[undefined-1.md](../undefined-1.md "mention") :arrow\_forward: :link:[.](./ "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[start.md](../start.md "mention") :arrow\_forward: :link:[.](./ "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 
@@ -27,7 +25,9 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ```typescript
 // define
-function comicsLaunchWithStandard(
+function comicsLaunchWithChanneling(
+  // 연동 회원키(변경되지 않는 고유키값) *필수항목*
+  userId: string,
   // 광고 아이디(optional)
   advertisingId: string = '',
   // 해더 표시 여부(optional)
@@ -41,13 +41,13 @@ function comicsLaunchWithStandard(
 )
 
 // usage
-import { comicsLaunchWithStandard } from 'react-treasureisland-addon';
+import { comicsLaunchWithChanneling } from 'react-treasureisland-addon';
 ..
 ..
-const handleButtonPressWithStandard = () => {
-    comicsLaunchWithStandard()
-        .then((result: any) => console.log(`comicsLaunchWithStandard::Success => ${result}`))
-        .catch((error: any) => console.error('comicsLaunchWithStandard::Failed:', error));
+const handleButtonPressWithChanneling = () => {
+    comicsLaunchWithChanneling('고유한 유저 식별자')
+    .then((result: any) => console.log(`comicsLaunchWithChanneling::Success => ${result}`))
+    .catch((error: any) => console.error('comicsLaunchWithChanneling::Failed:', error));
 };
 ..
 ..

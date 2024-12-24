@@ -53,20 +53,18 @@
 
 ## REACT-NATIVE
 
-* [릴리즈 노트](react-native/undefined.md)
-* [시작하기](react-native/undefined-1.md)
-* [보물섬 서비스](react-native/undefined-2/README.md)
-  * [채널회원 미연동](react-native/undefined-2/undefined.md)
-  * [채널회원 연동](react-native/undefined-2/undefined-1.md)
-* [보물섬 알림 서비스@ANDROID](react-native/plug-notification.md)
-* [보물섬 알림 서비스@iOS](react-native/plug-notification-1.md)
+* [릴리즈 노트](react-native/release.md)
+* [시작하기](react-native/start.md)
+* [보물섬 서비스](react-native/init/README.md)
+  * [채널회원 미연동](react-native/init/standard.md)
+  * [채널회원 연동](react-native/init/channeling.md)
+* [보물섬 알림 서비스](react-native/notification.md)
 
 ## FLUTTER
 
-* [릴리즈 노트](flutter/undefined.md)
-* [시작하기](flutter/undefined-1.md)
-* [보물섬 서비스](flutter/undefined-2/README.md)
-  * [채널회원 미연동](flutter/undefined-2/undefined.md)
-  * [채널회원 연동](flutter/undefined-2/undefined-1.md)
-* [보물섬 알림 서비스@ANDROID](flutter/plug-notification.md)
-* [보물섬 알림 서비스@iOS](flutter/plug-notification-1.md)
+* [릴리즈 노트](flutter/release.md)
+* [시작하기](flutter/start.md)
+* [보물섬 서비스](flutter/init/README.md)
+  * [채널회원 미연동](flutter/init/standard.md)
+  * [채널회원 연동](flutter/init/channeling.md)
+* [보물섬 알림 서비스](flutter/notification.md)
