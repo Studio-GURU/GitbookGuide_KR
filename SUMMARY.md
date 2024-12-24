@@ -59,6 +59,7 @@
   * [채널회원 미연동](react-native/init/standard.md)
   * [채널회원 연동](react-native/init/channeling.md)
 * [보물섬 알림 서비스](react-native/notification.md)
+* [보물섬 인앱 구매 서비스](react-native/iap.md)
 
 ## FLUTTER
 
@@ -68,3 +69,4 @@
   * [채널회원 미연동](flutter/init/standard.md)
   * [채널회원 연동](flutter/init/channeling.md)
 * [보물섬 알림 서비스](flutter/notification.md)
+* [보물섬 인앱 구매 서비스](flutter/iap.md)
