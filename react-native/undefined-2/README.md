@@ -36,14 +36,14 @@ import {
 
 ### comicsWithInitialize
 
-| Name               | Value                                  |
-| ------------------ | -------------------------------------- |
-| appId              | 연동앱의 고유 식별자                            |
-| appSecret          | 연동앱의 고유 식별자 검증키                        |
-| allowDebug         | 로그 출력 여부 (optional / default: false)   |
-| statusBarConfig    | 상태창 색상 설정(optional / only android)     |
-| notificationConfig | 푸시 알림(기다무) 설정(optional / only android) |
-| environment        | 접속 환경(optional / default: Live)        |
+| Name                 | Value                                  |
+| -------------------- | -------------------------------------- |
+| `appId`              | 연동앱의 고유 식별자                            |
+| `appSecret`          | 연동앱의 고유 식별자 검증키                        |
+| `allowDebug`         | 로그 출력 여부 (optional / default: false)   |
+| `statusBarConfig`    | 상태창 색상 설정(optional / only android)     |
+| `notificationConfig` | 푸시 알림(기다무) 설정(optional / only android) |
+| `environment`        | 접속 환경(optional / default: Live)        |
 
 {% hint style="info" %}
 고유 식별자 및 고유 식별자 검증키는 영업팀을 통해 별도 전달 됩니다.&#x20;
