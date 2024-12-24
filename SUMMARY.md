@@ -58,6 +58,7 @@
 * [보물섬 서비스](react-native/undefined-2/README.md)
   * [채널회원 미연동](react-native/undefined-2/undefined.md)
   * [채널회원 연동](react-native/undefined-2/undefined-1.md)
+* [보물섬 알림 서비스@ANDROID](react-native/plug-notification.md)
 
 ## FLUTTER
 
