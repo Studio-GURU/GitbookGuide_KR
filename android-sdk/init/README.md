@@ -39,7 +39,7 @@ dependencies {
 
 보물섬 SDK 사용을 위해 초기화를 진행 합니다.
 
-`Application`의 `onCreate()`에서 S`ceneConfig.Builder`를 통해 SDK를 초기화하세요.
+`Application`의 `onCreate()`에서 `SceneConfig.Builder`를 통해 SDK를 초기화하세요.
 
 ### **TreasureConfig.Builder**
 

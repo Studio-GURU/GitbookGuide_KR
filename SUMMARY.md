@@ -55,7 +55,9 @@
 
 * [릴리즈 노트](react-native/undefined.md)
 * [시작하기](react-native/undefined-1.md)
-* [보물섬 서비스](react-native/undefined-2.md)
+* [보물섬 서비스](react-native/undefined-2/README.md)
+  * [채널회원 미연동](react-native/undefined-2/undefined.md)
+  * [채널회원 연동](react-native/undefined-2/undefined-1.md)
 
 ## FLUTTER
 
