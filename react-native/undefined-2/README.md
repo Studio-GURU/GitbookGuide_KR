@@ -62,8 +62,24 @@ function App(): React.JSX.Element {
     const init = async () => {
       console.log('App mounted');
       const statusBarConfig = new StatusBarConfig('#FFFFFF', false);
-      const notificationConfig = new NotificationConfig('보물섬X리액트', require('./assets/icon/ic_notify.png'));
-      comicsWithInitialize('harustory', 'haruSecret', true, statusBarConfig, notificationConfig, Environment.Develop)
+      const notificationConfig = new NotificationConfig(
+        '보물섬X리액트', 
+        require('./assets/icon/ic_notify.png')
+      );
+      comicsWithInitialize(
+        // appId
+        'harustory',
+        // appSecret
+        'haruSecret',
+        // allowDebug
+        true, 
+        // StatusBarConfig
+        statusBarConfig,
+        // NotificationConfig
+        notificationConfig,
+        // environment
+        Environment.Live
+      )
       .then((result: any) => console.log(`comicsWithInitialize::Result => ${result}`))
       .catch((error: any) => console.error('comicsWithInitialize::Failed:', error));
     };
@@ -101,7 +117,10 @@ class NotificationConfig {
 }
 
 // usage
-const notificationConfig = new NotificationConfig('보물섬', require('./assets/icon/ic_notify.png'));
+const notificationConfig = new NotificationConfig(
+  '보물섬', 
+  require('./assets/icon/ic_notify.png')
+);
 ```
 
 
