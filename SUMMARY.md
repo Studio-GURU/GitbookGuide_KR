@@ -65,6 +65,8 @@
 
 * [릴리즈 노트](flutter/undefined.md)
 * [시작하기](flutter/undefined-1.md)
-* [보물섬 서비스](flutter/undefined-2.md)
+* [보물섬 서비스](flutter/undefined-2/README.md)
+  * [채널회원 미연동](flutter/undefined-2/undefined.md)
+  * [채널회원 연동](flutter/undefined-2/undefined-1.md)
 * [보물섬 알림 서비스@ANDROID](flutter/plug-notification.md)
 * [보물섬 알림 서비스@iOS](flutter/plug-notification-1.md)

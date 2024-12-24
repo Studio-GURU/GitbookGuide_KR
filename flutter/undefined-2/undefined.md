@@ -1,6 +1,6 @@
 ---
-icon: user
 description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user
 ---
 
 # 채널회원 미연동
@@ -19,36 +19,53 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[undefined-1.md](../undefined-1.md "mention") :arrow\_forward: :link:[.](./ "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[undefined-1.md](../../react-native/undefined-1.md "mention") :arrow\_forward: :link:[undefined-2](../../react-native/undefined-2/ "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 
 ## comicsLaunchWithStandard
 
-```typescript
+```dart
 // define
-function comicsLaunchWithStandard(
-  // 광고 아이디(optional)
-  advertisingId: string = '',
-  // 해더 표시 여부(optional)
-  allowHeader: boolean = false,
-  // 해더의 타이틀(optional)
-  headerTitle: string = '',
-  // 해더의 왼쪽에 표시되는 뒤로가기 버튼('<') 표시 여부 
-  allowBackButton: boolean = false,
-  // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
-  allowCloseButton: boolean = false
+Future<AddOnResult> comicsLaunchWithStandard(
+    // 광고 아이디 (빈값 사용시 PlugIn에서 추출)
+    String advertisingId, 
+    // 해더 표시 여부
+    bool allowHeader, 
+    // 해더 타이틀
+    String headerTitle,
+    // 해더의 왼쪽에 표시되는 뒤로가기 버튼('<') 표시 여부 
+    bool allowBackButton, 
+    // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
+    bool allowCloseButton
 )
 
+class AddOnResult {
+    // 성공 여부
+    final bool success;
+    // 성공 및 실패 메시지
+    final String? message;
+}
+
 // usage
-import { comicsLaunchWithStandard } from 'react-treasureisland-addon';
+import 'package:flutter_treasureisland_addon/flutter_treasureisland_addon.dart';
 ..
 ..
-const handleButtonPressWithStandard = () => {
-    comicsLaunchWithStandard()
-        .then((result: any) => console.log(`comicsLaunchWithStandard::Success => ${result}`))
-        .catch((error: any) => console.error('comicsLaunchWithStandard::Failed:', error));
-};
+Future<void> launchWithStandard() async {
+    final result = await FlutterTreasureislandAddon().comicsLaunchWithStandard(
+        // 광고 아이디
+        '00000000-0000-0000-0000-000000000000',
+        // 해더 표시 여부
+        true,
+        // 해더 타이틀
+        '보물섬',
+        // 해더의 왼쪽에 표시되는 뒤로가기 버튼('<') 표시 여부  
+        false,
+        // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
+        true,
+    );
+    print("comicsLaunchStandard { success: ${result.success}, message: ${result.message} }");
+  }
 ..
 ..
 ```
