@@ -68,7 +68,7 @@ Flutter 프로젝트의 **`pubspec.yaml`** 파일에 패키지를 추가합니�
 `dependencies` 섹션에 패키지를 추가하고, 버전이나 범위를 설정합니다.
 
 ```
-dart pub add example_package:1.0.0 --hosted-url https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
 ```
 
 ```json
