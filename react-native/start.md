@@ -65,9 +65,11 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ```sh
 # yarn
+yarn config set registry https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
 $ yarn add react-treasureisland-addon@version
 
 # npm
+npm config set registry https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
 $ npm install react-treasureisland-addon@version
 ```
 
