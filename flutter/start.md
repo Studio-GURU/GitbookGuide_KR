@@ -62,14 +62,13 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ## 기본 모듈 적용
 
-#### **pubspec.yaml 파일에 패키지 추가**
-
-Flutter 프로젝트의 **`pubspec.yaml`** 파일에 패키지를 추가합니다.\
-`dependencies` 섹션에 패키지를 추가하고, 버전이나 범위를 설정합니다.
+아래 명령어를 통해 addon 패키지를 추가합니다.
 
 ```
 dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
 ```
+
+#### **pubspec.yaml 파일에 패키지 확인**
 
 ```json
 dependencies:
@@ -77,7 +76,9 @@ dependencies:
     sdk: flutter
   ...
   ...
-  flutter_treasureisland_addon:#version
+  flutter_treasureisland_addon:
+    hosted: https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+    version: ${version}
   ...
   ...
 ```
