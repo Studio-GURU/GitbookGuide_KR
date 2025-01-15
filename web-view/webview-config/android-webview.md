@@ -14,31 +14,36 @@ TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 
 ***
 
-## 신뢰하지 않는 인증서
+## 컨텐츠 보호
 
-일부 웹사이트에서 신뢰할 수 없는 인증서를 사용할 경우, 사용자에게 경고창이 표시되며 계속 진행할지 여부를 묻습니다.
+스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.
 
-{% code lineNumbers="true" %}
-```kotlin
-class InnerWebViewClient: WebViewClient() {
-    override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-        val innerContext = view?.context ?: return
-        val alertBuilder: AlertDialog.Builder = AlertDialog.Builder(innerContext)
-        alertBuilder.setMessage("이 사이트의 보안 인증서는 신뢰하는 보안 인증서가 아닙니다.\n\n계속하시겠습니까?")
-        alertBuilder.setPositiveButton("계속하기") { _, _ -> handler?.proceed() }
-        alertBuilder.setNegativeButton("취소") { _, _ -> handler?.cancel() }
-        val alertDialog = alertBuilder.create()
-        alertDialog.show()
-        // width 90%
-        runCatching {
-            val params: WindowManager.LayoutParams? = alertDialog?.window?.attributes
-            params?.width = (innerContext.resources.displayMetrics.widthPixels * 0.9).toInt()
-            alertDialog?.window?.attributes = params as WindowManager.LayoutParams
-        }
-    }
+보물섬을 감싸고 있는 Activity에 FLAG\_SECURE 적용을 통해 쉽게 스크린 캡춰 방지를 할 수 있습니다.
+
+{% tabs %}
+{% tab title="KOTLIN" %}
+<pre class="language-kotlin"><code class="lang-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+<strong>    window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+</strong>    //..
+    // code
+    //..
 }
-```
-{% endcode %}
+</code></pre>
+{% endtab %}
+
+{% tab title="JAVA" %}
+<pre class="language-java"><code class="lang-java">@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+<strong>    getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+</strong>    //..
+    // code
+    //..
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
 
 ***
 

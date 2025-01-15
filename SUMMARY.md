@@ -20,7 +20,6 @@
 * [웹뷰 설정 가이드](web-view/webview-config/README.md)
   * [Android WebView](web-view/webview-config/android-webview.md)
   * [iOS WKWebView](web-view/webview-config/ios-wkwebview.md)
-* [컨텐츠 보호](web-view/undefined.md)
 
 ## ANDROID SDK
 

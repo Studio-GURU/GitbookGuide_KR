@@ -4,12 +4,6 @@ icon: apple
 
 # iOS WKWebView
 
-## Scheme 처리 <a href="#scheme" id="scheme"></a>
-
-웹뷰 구성에 필요한 Scheme 처리에 대한 예제 코드이며, 실 프로젝트에서는 참고만 하시길 바랍니다.
-
-***
-
 ## 유료 결제를 위한 Scheme 등록
 
 TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
@@ -19,6 +13,46 @@ TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 {% embed url="https://docs.tosspayments.com/guides/webview#ios" %}
 
 ***
+
+## 컨텐츠 보호
+
+`UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡춰를 할 수 없도록 우회 처리해야 합니다.
+
+{% code lineNumbers="true" %}
+```swift
+private let preventedView = UITextField()
+
+func applySecureContent() {
+    self.addSubview(self.preventedView)
+    self.preventedView.backgroundColor = .clear
+    self.preventedView.isSecureTextEntry = true
+    self.preventedView.isUserInteractionEnabled = false
+    self.preventedView.translatesAutoresizingMaskIntoConstraints = false
+    self.preventedView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    self.preventedView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
+    self.preventedView.leftViewMode = .always
+    self.layer.superlayer?.addSublayer(self.preventedView.layer)
+    self.preventedView.layer.sublayers?.last?.addSublayer(self.layer)
+}
+
+//..
+//..
+override func viewDidAppear(_ animated: Bool) {
+    DispatchQueue.main.async {
+        applySecureContent()
+    }
+}
+```
+{% endcode %}
+
+***
+
+## Scheme 처리 <a href="#scheme" id="scheme"></a>
+
+{% hint style="info" %}
+웹뷰 구성에 필요한 Scheme 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
+{% endhint %}
 
 ### Javascript window.open
 
