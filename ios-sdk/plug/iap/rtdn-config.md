@@ -20,11 +20,11 @@ icon: bell-on
 
 App Store Connect → 나의 앱 → 앱 선택 → 일반 정보 → 앱 정보 → App Store 서버 알림 → 프로덕션 서버 URL 또는 Sandbox 서버 URL(테스트) → URL 설정 선택
 
-<figure><img src="../../.gitbook/assets/apple_realtime_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_realtime_01.png" alt=""><figcaption></figcaption></figure>
 
 ### 서버 URL 입력
 
-<figure><img src="../../.gitbook/assets/apple_realtime_02.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_realtime_02.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 알림 URL 정보
@@ -36,4 +36,4 @@ App Store Connect → 나의 앱 → 앱 선택 → 일반 정보 → 앱 정보
 
 ### 서버 URL 확인
 
-<figure><img src="../../.gitbook/assets/apple_realtime_03.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_realtime_03.png" alt=""><figcaption></figcaption></figure>

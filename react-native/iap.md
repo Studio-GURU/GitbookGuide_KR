@@ -47,11 +47,11 @@ dependencies {
 
 구글 플레이 구매를 위해서는 아래와 같은 설정이 필요합니다.
 
-* [console-config.md](../android-sdk/undefined/plug-iap/playstore/console-config.md "mention")
+* [console-config.md](../android-sdk/plug/iap/playstore/console-config.md "mention")
   * 구글 플레이 스토어 결제 기능 활성화 및 판매 상품 등록
   * 구글 플레이 스토어 재무 데이터 접근 계정 전달
-* [api-config.md](../android-sdk/undefined/plug-iap/playstore/api-config.md "mention")
-* [rtdn-config.md](../android-sdk/undefined/plug-iap/playstore/rtdn-config.md "mention")
+* [api-config.md](../android-sdk/plug/iap/playstore/api-config.md "mention")
+* [rtdn-config.md](../android-sdk/plug/iap/playstore/rtdn-config.md "mention")
 
 ***
 
@@ -59,8 +59,8 @@ dependencies {
 자세한 스토어 설정 가이드는 "**ANDROID SDK > 보물섬 인앱 구매 서비스 > 구글 플레이 스토어**" 가이드를 참고 바랍니다.
 {% endhint %}
 
-{% content-ref url="../android-sdk/undefined/plug-iap/playstore/" %}
-[playstore](../android-sdk/undefined/plug-iap/playstore/)
+{% content-ref url="../android-sdk/plug/iap/playstore/" %}
+[playstore](../android-sdk/plug/iap/playstore/)
 {% endcontent-ref %}
 {% endtab %}
 
@@ -85,9 +85,9 @@ dependencies {
 
 1. **TreasureIslandPlugPurchaseKit** 모듈 설치하기&#x20;
 2. **애플 앱 스토어 설정**
-   1. [console-config.md](../ios-sdk/plug-iap/console-config.md "mention")
-   2. [api-config.md](../ios-sdk/plug-iap/api-config.md "mention")
-   3. [rtdn-config.md](../ios-sdk/plug-iap/rtdn-config.md "mention")
+   1. [console-config.md](../ios-sdk/plug/iap/console-config.md "mention")
+   2. [api-config.md](../ios-sdk/plug/iap/api-config.md "mention")
+   3. [rtdn-config.md](../ios-sdk/plug/iap/rtdn-config.md "mention")
 
 ***
 
@@ -148,9 +148,9 @@ $ pod install
 
 애플 앱스토어 구매를 위해서는 아래와 같은 설정이 필요합니다.
 
-* [console-config.md](../ios-sdk/plug-iap/console-config.md "mention")
-* [api-config.md](../ios-sdk/plug-iap/api-config.md "mention")
-* [rtdn-config.md](../ios-sdk/plug-iap/rtdn-config.md "mention")
+* [console-config.md](../ios-sdk/plug/iap/console-config.md "mention")
+* [api-config.md](../ios-sdk/plug/iap/api-config.md "mention")
+* [rtdn-config.md](../ios-sdk/plug/iap/rtdn-config.md "mention")
 
 ***
 
@@ -158,8 +158,8 @@ $ pod install
 자세한 스토어 설정 가이드는  "**iOS SDK > 보물섬 인앱 구매 서비스**" 가이드를 참고 바랍니다.
 {% endhint %}
 
-{% content-ref url="../ios-sdk/plug-iap/" %}
-[plug-iap](../ios-sdk/plug-iap/)
+{% content-ref url="../ios-sdk/plug/iap/" %}
+[iap](../ios-sdk/plug/iap/)
 {% endcontent-ref %}
 {% endtab %}
 {% endtabs %}

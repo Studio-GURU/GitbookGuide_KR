@@ -1,9 +1,18 @@
 ---
-description: 보물섬 iOS SDK History
 icon: list-timeline
+description: 보물섬 iOS SDK History
 ---
 
 # 릴리즈 노트
+
+***
+
+## Version 25.1.21
+
+**release date. 2025.1.22**
+
+* 채널링 회원 연동 방식 변경
+* 코드 안정화
 
 ***
 
@@ -11,6 +20,5 @@ icon: list-timeline
 
 **release date. 2024.08.01**
 
-:heavy\_check\_mark: 보물섬 릴리즈
-
-:heavy\_check\_mark: 버그 수정
+* 보물섬 릴리즈
+* 버그 수정

@@ -1,6 +1,6 @@
 ---
-description: 애플 앱스토어의 구매 검증을 위해 사용되는 API의 권한 획득 방법을 안내합니다.
 icon: cloud
+description: 애플 앱스토어의 구매 검증을 위해 사용되는 API의 권한 획득 방법을 안내합니다.
 ---
 
 # 애플 앱스토어 API 권한 설정
@@ -27,11 +27,11 @@ icon: cloud
 
 ### App Store Connect → 사용자 및 액세스 → 키 또는 통합 → 앱 내 구입
 
-<figure><img src="../../.gitbook/assets/apple_store_api_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_store_api_01.png" alt=""><figcaption></figcaption></figure>
 
 ### 앱 내 구입키 생성 (원하는 이름으로 생성)
 
-<figure><img src="../../.gitbook/assets/apple_store_api_02.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_store_api_02.png" alt=""><figcaption></figcaption></figure>
 
 ### 생성 키 확인 및 저장
 
@@ -46,5 +46,5 @@ icon: cloud
 | **IssueID** | **키 ID** | **앱 내 구입 키 다운로드 파일** |
 | ----------- | -------- | -------------------- |
 
-<figure><img src="../../.gitbook/assets/apple_store_api_03.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_store_api_03.png" alt=""><figcaption></figcaption></figure>
 

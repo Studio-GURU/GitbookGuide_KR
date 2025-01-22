@@ -1,25 +1,27 @@
 ---
-icon: user
+icon: user-group
 description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
 ---
 
-# 채널회원 미연동
+# 채널회원 연동
 
 {% hint style="success" %}
-파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
+파트너사의 회원을 보물섬 계정과 연동하여 사용하고자 하는 경우
 
 ***
 
-:heavy\_check\_mark: **보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
+전달된 파트너사의 회원정보를 통해 보물섬 계정을 생성합니다.&#x20;
+
+:heavy\_check\_mark: **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/스크린샷 2024-08-22 오후 2.05.51.png" alt=""><figcaption><p>보물섬 회원 플로우</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
 
 ***
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[start.md](start.md "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 채널링 서비스 이용을 위해서는 :link:[start.md](start.md "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 
@@ -27,7 +29,8 @@ description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실
 
 1. 기본 모듈 적용하기
 2. SDK 초기화 하기(Initialize)
-3. 화면 호출하기(Launch)
+3. 프로필 설정 하기(Profile)
+4. 화면 호출하기(Launch)
 
 ***
 
@@ -67,12 +70,12 @@ dependencies {
 
 ### **TreasureConfig.Builder**
 
-| Name         | Value                       |
-| ------------ | --------------------------- |
-| `context`    | Android Context             |
-| `appId`      | 연동앱의 고유 식별자                 |
-| `appSecret`  | 연동앱의 공유 식별자 검증키             |
-| `membership` | 연동앱의 회원 적용 방식(**Basic 선택**) |
+| Name         | Value                            |
+| ------------ | -------------------------------- |
+| `context`    | Android Context                  |
+| `appId`      | 연동앱의 고유 식별자                      |
+| `appSecret`  | 연동앱의 공유 식별자 검증키                  |
+| `membership` | 연동앱의 회원 적용 방식(**Channeling 선택**) |
 
 :heavy\_check\_mark: **생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.**
 
@@ -85,7 +88,7 @@ dependencies {
             context = this, 
             appId = "{APP-ID}", 
             appSecret = "{APP-SECRET}",
-<strong>            membership = SceneConfig.Membership.BASIC
+<strong>            membership = SceneConfig.Membership.CHANNELING
 </strong>        )
         // option 로그 출력 여부를 설정합니다.
         .withAllowLog(allowLog = true)
@@ -118,7 +121,7 @@ dependencies {
             this,
             "testAppID",
             "testSecret",
-<strong>            SceneConfig.Membership.BASIC
+<strong>            SceneConfig.Membership.CHANNELING
 </strong>        );
         builder.withAllowLog(true);
         builder.withStatusBarOption(new SceneConfig.StatusBarOption(
@@ -175,7 +178,7 @@ SDK 로그 출력 여부를 설정 합니다.
 
 ***
 
-알림 서비스 SDK 적용 방법에 대해서는 "[plug-notification.md](undefined/plug-notification.md "mention")" 가이드를 참고 바랍니다.
+알림 서비스 SDK 적용 방법에 대해서는 "[notification.md](plug/notification.md "mention")" 가이드를 참고 바랍니다.
 {% endhint %}
 
 기다무 푸시 알림을 설정합니다.
@@ -185,6 +188,82 @@ SDK 로그 출력 여부를 설정 합니다.
 ⬇ TreasureConfig.NotificationOption
 
 <table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>푸시 알림 채널명<br><code>기본값: '보물섬'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>푸시 알림 아이콘 리소스<br><code>기본값: 보물섬 아이콘</code></td></tr></tbody></table>
+
+***
+
+## 프로필 설정하기
+
+### 연동 순서
+
+1. "**SignKey**" 생성
+2. Profile.Builder -> 인스턴스를 "**SignKey**"를 통해 생성합니다.
+3. Profile.Builder Option 정보를 설정합니다.
+4. Profile.Builder build() 함수를 호출하여 프로필 인스턴스를 생성합니다.
+
+***
+
+### SignKey 생성 하기
+
+{% hint style="danger" %}
+**보안을 강화하기 위해 SignKey는 클라이언트가 아닌 서버에서 생성한 후 클라이언트로 전달해주세요.**
+
+***
+
+보물섬은 결제 서비스를 연동하고 있으므로, 유저 식별자 보안 관리가 필요합니다.
+{% endhint %}
+
+{% hint style="info" %}
+**signature 생성 (**<mark style="color:red;">**HmacSHA256 생성에 필요한 Key는 영업팀을 통해 전달 됩니다.**</mark>**)**
+
+***
+
+:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+
+위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
+
+***
+
+* timeStamp -> unix timestamp seconds
+* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
+* user 식별자 -> 회원 구분이 가능한 식별자
+{% endhint %}
+
+<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
+
+### Profile.Builder
+
+{% tabs %}
+{% tab title="KOTLIN" %}
+<pre class="language-kotlin"><code class="lang-kotlin">// 빌더 인스턴스를 생성합니다.(signKey 필수)
+<strong>val builder = Profile.Builder(signKey = ${signKey})
+</strong>// 성별을 설정합니다.(옵션)
+builder.withGender(gender = Profile.Gender.MALE 또는 Profile.Gender.FEMALE)
+// 태어난 연도를 설정합니다.(옵션)
+builder.withBirthYear(birthYear = 2000)
+// 프로필 인스턴스를 등록합니다.
+<strong>builder.build { success, message ->
+</strong>    // success: 프로필 등록 여부
+    // message: 프로필 등록과 관련된 메시지(오류 메시지)
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="JAVA" %}
+```java
+// 빌더 인스턴스를 생성합니다.(signKey 필수)
+Profile.Builder builder = new Profile.Builder(${signKey});
+// 성별을 설정합니다.(옵션)
+builder.withGender(Profile.Gender.MALE 또는 Profile.Gender.FEMALE);
+// 태어난 연도를 설정합니다.(옵션)
+builder.withBirthYear(2000);
+// 프로필 인스턴스를 등록합니다.
+builder.build((successs, message) ->
+    // success: 프로필 등록 여부
+    // message: 프로필 등록과 관련된 메시지(오류 메시지)                
+);
+```
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -203,10 +282,8 @@ SDK 로그 출력 여부를 설정 합니다.
 
 {% tabs %}
 {% tab title="KOTLIN" %}
-{% code lineNumbers="true" %}
-```kotlin
-// 빌더 인스턴스를 생성합니다.
-val builder = Launcher.StandardBuilder()
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// 빌더 인스턴스를 생성합니다.
+val builder = Launcher.Builder()
 
 // ADID값을 설정합니다
 builder.withAdvertisingId(advertisingId = "00000000-0000-0000-0000-000000000000")
@@ -231,19 +308,17 @@ launcher.launch(
     ownerActivity = {ACTIVITY}, 
     // 결과 리스너
     listener = object : Launcher.Listener {
-        override fun onLaunched(success: Boolean) {
-            // success: 성공 여부            
+<strong>        override fun onLaunched(success: Boolean, message: String) {
+</strong>            // success: 성공 여부            
+            // message: 성공/실패 관련 메시지
        }
     }
 )
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 
 {% tab title="JAVA" %}
-{% code lineNumbers="true" %}
-```java
-// 빌더 인스턴스를 생성합니다.
+<pre class="language-java" data-line-numbers><code class="lang-java">// 빌더 인스턴스를 생성합니다.
 Launcher.StandardBuilder builder = new Launcher.StandardBuilder();
 
 // ADID값을 설정합니다
@@ -270,13 +345,13 @@ launcher.launch(
     // 결과 리스너
     new Launcher.Listener() {
         @Override
-        public void onLaunched(boolean success) {
-            // success: 성공 여부
+<strong>        public void onLaunched(boolean success, String message) {
+</strong>            // success: 성공 여부
+            // message: 성공/실패 관련 메시지
         }
     }
 );
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -325,7 +400,7 @@ launcher.launch(
 
 ⬇ Launcher.Listener
 
-| Name                           | Description                  |
-| ------------------------------ | ---------------------------- |
-| `onLaunched(success: Boolean)` | 실행 여부가 'success' 값으로 전달 됩니다. |
+| Name                                                                                                                         | Description                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <p><code>onLaunched(</code><br>    <code>success: Boolean,</code> <br>    <code>message: String</code><br><code>)</code></p> | <p>실행 여부가 'success' 값으로 전달 됩니다.<br>실행 여부와 관련 'message' 값이 전달 됩니다.<br></p> |
 

@@ -30,7 +30,7 @@ Apple Developer 소유자 권한으로 로그인하여 “비즈니스” 메뉴
 
 ### 유료 앱 계약 확인
 
-<figure><img src="../../.gitbook/assets/apple_store_setup_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_store_setup_01.png" alt=""><figcaption></figcaption></figure>
 
 :heavy\_check\_mark: **새로운 유료 앱 계약을 위해서 아래의 링크의 “유료 계약서 서명” 가이드에 따라 서명을 진행합니다.**
 

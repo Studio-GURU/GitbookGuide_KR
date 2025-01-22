@@ -15,7 +15,7 @@ description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위�
 보물섬 알림 서비스는 **로컬 푸시**로 별도의 서버 연동 작업이 필요하지 않습니다.
 {% endhint %}
 
-<div><figure><img src="../.gitbook/assets/apple_notify_setting_01.png" alt=""><figcaption><p>기다무 설정 화면</p></figcaption></figure> <figure><img src="../.gitbook/assets/apple_notify_setting_02.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/apple_nofity_setting_03.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../.gitbook/assets/apple_notify_setting_01.png" alt=""><figcaption><p>기다무 설정 화면</p></figcaption></figure> <figure><img src="../../.gitbook/assets/apple_notify_setting_02.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/apple_nofity_setting_03.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
@@ -29,7 +29,7 @@ description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위�
 
 ## 모듈 설 하기
 
-### ![](../.gitbook/assets/cocoapods.png) COCOA PODS
+### ![](../../.gitbook/assets/cocoapods.png) COCOA PODS
 
 보물섬 SDK를 설치하고자 하는 프로젝트의 Podfile에 다음 항목을 추가 합니다.
 
@@ -67,7 +67,7 @@ pod install 명령어를 통해 보물섬 SDK를 설치합니다.
 $ pod install
 ```
 
-### ![](../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
+### ![](../../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
 
 {% hint style="success" %}
 **기본 모듈 적용**
@@ -81,9 +81,9 @@ $ pod install
 
 **⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
 
-<figure><img src="../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/apple_plug_notify.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apple_plug_notify.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

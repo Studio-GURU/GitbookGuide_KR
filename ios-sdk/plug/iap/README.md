@@ -35,7 +35,7 @@ description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을
 
 ## 모듈 설치 하기
 
-### ![](../../.gitbook/assets/cocoapods.png) COCOA PODS
+### ![](../../../.gitbook/assets/cocoapods.png) COCOA PODS
 
 보물섬 SDK를 설치하고자 하는 프로젝트의 Podfile에 다음 항목을 추가 합니다.
 
@@ -73,7 +73,7 @@ pod install 명령어를 통해 보물섬 SDK를 설치합니다.
 $ pod install
 ```
 
-### ![](../../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
+### ![](../../../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
 
 {% hint style="success" %}
 **기본 모듈 적용**
@@ -87,9 +87,9 @@ $ pod install
 
 **⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
 
-<figure><img src="../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/apple_plug_purchase.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apple_plug_purchase.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
