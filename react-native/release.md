@@ -17,4 +17,4 @@ icon: list-timeline
 
 **release date. 2024.12.24**
 
-:heavy\_check\_mark: 보물섬 릴리즈
+* 보물섬 플러그인 릴리즈

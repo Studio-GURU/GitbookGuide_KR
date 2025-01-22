@@ -64,28 +64,37 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 아래 명령어를 통해 addon 패키지를 추가합니다.
 
-```
+{% hint style="info" %}
+보물섬 SDK는 CloudSmith 저장소를 사용하고 있습니다.
+
+***
+
+https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+{% endhint %}
+
+### CloudSmith 저장소 등록 하기
+
+```sh
 dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
 ```
 
 #### **pubspec.yaml 파일에 패키지 확인**
 
-```json
-dependencies:
+<pre class="language-json" data-line-numbers><code class="lang-json">dependencies:
   flutter:
     sdk: flutter
   ...
   ...
-  flutter_treasureisland_addon:
-    hosted: https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
-    version: ${version}
+<strong>  flutter_treasureisland_addon:
+</strong><strong>    hosted: https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+</strong><strong>    version: ${version}
+</strong>  ...
   ...
-  ...
-```
+</code></pre>
 
 터미널에서 아래 명령어를 실행하여 추가한 패키지를 설치합니다.
 
-```bash
+```sh
 $ flutter pub get
 ```
 
@@ -97,74 +106,28 @@ $ flutter pub get
 
 **보물섬은** 🔗[**Cloud-Smith**](https://cloudsmith.com/company/about) **서비스를 이용하여 ANDROID SDK를 제공하며, 해당 서비스의 저장소 설정이 필요합니다.**
 
-{% tabs %}
-{% tab title="setting.gradle" %}
-**AGP 7.1.0 이상 또는 Android Studio Bumblebee 이상 사용시**
+{% hint style="info" %}
+Android Maven Repository URL
 
-{% code title="settings.gradle" lineNumbers="true" %}
-```gradle
-pluginManagement {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
-}
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+***
+
+https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/
+{% endhint %}
+
+
+
+<pre class="language-gradle" data-line-numbers><code class="lang-gradle">allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+<strong>            url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+</strong>        }
     }
-  }
 }
-```
-{% endcode %}
+</code></pre>
 
-{% code title="settings.gradle.kts" lineNumbers="true" %}
-```gradle
-pluginManagement {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
-}
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/")
-    }
-  }
-}
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="build.gradle" %}
-**프로젝트 수준의 "build.gradle" 파일에 다음 항목을 추가 합니다.**
-
-```
-// build.gradle(project)
-allprojects {
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-<figure><img src="../.gitbook/assets/스크린샷 2024-12-16 오전 11.41.51.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 6.58.26.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
