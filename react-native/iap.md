@@ -1,6 +1,6 @@
 ---
-description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
 icon: credit-card
+description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
 ---
 
 # 보물섬 인앱 구매 서비스
@@ -47,11 +47,11 @@ dependencies {
 
 구글 플레이 구매를 위해서는 아래와 같은 설정이 필요합니다.
 
-* [console-config.md](../android-sdk/plug-iap/playstore/console-config.md "mention")
+* [console-config.md](../android-sdk/undefined/plug-iap/playstore/console-config.md "mention")
   * 구글 플레이 스토어 결제 기능 활성화 및 판매 상품 등록
   * 구글 플레이 스토어 재무 데이터 접근 계정 전달
-* [api-config.md](../android-sdk/plug-iap/playstore/api-config.md "mention")
-* [rtdn-config.md](../android-sdk/plug-iap/playstore/rtdn-config.md "mention")
+* [api-config.md](../android-sdk/undefined/plug-iap/playstore/api-config.md "mention")
+* [rtdn-config.md](../android-sdk/undefined/plug-iap/playstore/rtdn-config.md "mention")
 
 ***
 
@@ -59,8 +59,8 @@ dependencies {
 자세한 스토어 설정 가이드는 "**ANDROID SDK > 보물섬 인앱 구매 서비스 > 구글 플레이 스토어**" 가이드를 참고 바랍니다.
 {% endhint %}
 
-{% content-ref url="../android-sdk/plug-iap/playstore/" %}
-[playstore](../android-sdk/plug-iap/playstore/)
+{% content-ref url="../android-sdk/undefined/plug-iap/playstore/" %}
+[playstore](../android-sdk/undefined/plug-iap/playstore/)
 {% endcontent-ref %}
 {% endtab %}
 

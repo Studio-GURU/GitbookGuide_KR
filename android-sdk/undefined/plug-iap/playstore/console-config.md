@@ -1,6 +1,6 @@
 ---
-description: 구글 플레이 인앱 결제를 위한 구글 플레이 콘솔의 기능 활성화 방법을 안내합니다.
 icon: square-sliders
+description: 구글 플레이 인앱 결제를 위한 구글 플레이 콘솔의 기능 활성화 방법을 안내합니다.
 ---
 
 # 플레이 스토어 결제 기능 설정
@@ -42,11 +42,11 @@ Google Play에서 유료 앱과 인앱 상품을 판매하려면 :link:[Google �
 
 ### 결제 프로필 설정 메뉴
 
-<div align="center"><figure><img src="../../../.gitbook/assets/play_store_setting_01.png" alt=""><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../../../.gitbook/assets/play_store_setting_01.png" alt=""><figcaption></figcaption></figure></div>
 
 ### 공개 판매자 프로필 설정
 
-<div align="left"><figure><img src="../../../.gitbook/assets/play_store_setting_02.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/play_store_setting_02.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
@@ -74,4 +74,4 @@ Google Play에서 유료 앱과 인앱 상품을 판매하려면 :link:[Google �
 Play Console에서 환불한 구매건이 Voided Purchase API를 통해 조회 되지 않는 경우 → 개발자가 취소 옵션을 설정하지 않고 환불하면 주문이 API 표시 되지 않습니다. → '이용 자격 취소' 체크한 환불건만 조회된다. (revoke entitlement) ([문서](https://developers.google.com/android-publisher/voided-purchases))
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/play_store_setting_03.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/play_store_setting_03.png" alt=""><figcaption></figcaption></figure>

@@ -15,9 +15,9 @@ description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 
 보물섬 알림 서비스는 로컬 푸시로 별도의 서버 연동 작업이 필요하지 않습니다.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/push_setting.png" alt=""><figcaption><p>기다무 알림 설정 예시 화면</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/push_setting.png" alt=""><figcaption><p>기다무 알림 설정 예시 화면</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/push_notification.png" alt=""><figcaption><p>기다무 알림 예시 화면</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/push_notification.png" alt=""><figcaption><p>기다무 알림 예시 화면</p></figcaption></figure>
 
 ***
 
@@ -26,7 +26,7 @@ description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 
 기본 블록을 **앱(모듈) 수준의 "build.gradle"** 파일에 설정하세요.
 
 {% hint style="info" %}
-최신 버전 사용을 권장하며, :link:[release.md](release.md "mention")를 통해 최신 버전을 확인 하세요.
+최신 버전 사용을 권장하며, :link:[release.md](../release.md "mention")를 통해 최신 버전을 확인 하세요.
 
 ***
 

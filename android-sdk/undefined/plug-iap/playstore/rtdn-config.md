@@ -1,8 +1,8 @@
 ---
+icon: bell-on
 description: >-
   Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부터 알림을 받아 구매 정보에 대한 최신 상태를 관리할 수
   있습니다.
-icon: bell-on
 ---
 
 # 구글 클라우드 실시간 알림 설정
@@ -32,17 +32,17 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 
 ### Pub/Sub 주제만들기 메뉴 진입
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_01.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_02.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_02.png" alt=""><figcaption></figcaption></figure>
 
 ### Pub/Sub 주제 만들기
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_03.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_03.png" alt=""><figcaption></figcaption></figure>
 
 ### Pub/Sub 주제에 대한 액세스 권한 부여
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_04.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_04.png" alt=""><figcaption></figcaption></figure>
 
 🔥 주제가 생성되면 구독 이벤트가 발생했을 때 주제에 게시할 게시자를 추가해야 합니다.&#x20;
 
@@ -50,7 +50,7 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 
 **새 주 구성원**은 를, **역할**은 **게시/구독 게시자**를 선택하고 저장합니다. **→ 플레이 콘솔과 연결된 서비스 계정을 선택합니다.**
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_05.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -70,15 +70,15 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 
 ### 생성된 구독 확인
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_06.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_06.png" alt=""><figcaption></figcaption></figure>
 
 ### 생선된 구독 선택 > 수정 메뉴로 이동
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_07.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_07.png" alt=""><figcaption></figcaption></figure>
 
 ### 구독 수정&#x20;
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_08.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_08.png" alt=""><figcaption></figcaption></figure>
 
 :heavy\_check\_mark: 전송 유형 → 푸시&#x20;
 
@@ -93,7 +93,7 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 * **홈** 화면에서 알림을 받을 앱을 선택 후 **수익 창출 설정**으로 들어갑니다.
 * **Google Play 결제** 항목 중 **주제 이름**에 앞서 만든 주제의 이름을 입력합니다.
 
-<figure><img src="../../../.gitbook/assets/google_cloud_setting_09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/google_cloud_setting_09.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

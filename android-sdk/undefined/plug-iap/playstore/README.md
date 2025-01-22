@@ -27,7 +27,7 @@ icon: google-play
 기본 블록을 **앱(모듈) 수준의 "build.gradle"** 파일에 설정하세요.
 
 {% hint style="info" %}
-최신 버전 사용을 권장하며, :link:[release.md](../../release.md "mention")를 통해 최신 버전을 확인 하세요.
+최신 버전 사용을 권장하며, :link:[release.md](../../../release.md "mention")를 통해 최신 버전을 확인 하세요.
 
 ***
 

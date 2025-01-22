@@ -33,7 +33,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 보물섬 **ANDROID SDK**를 연동하려면 연동하려는 앱의 고유 식별자가(AppId/AppSecret) 필요하며 영업  담당자를 통해 발급 전달 됩니다.
 {% endhint %}
 
-<table data-header-hidden><thead><tr><th width="369.3333333333333"></th><th></th><th></th></tr></thead><tbody><tr><td>AppID</td><td></td><td>앱 고유 식별자</td></tr><tr><td>AppSecret</td><td></td><td>앱 고유 식별자 검증키</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="369.3333333333333"></th><th></th></tr></thead><tbody><tr><td>AppID</td><td>앱 고유 식별자</td></tr><tr><td>AppSecret</td><td>앱 고유 식별자 검증키</td></tr></tbody></table>
 
 ***
 
