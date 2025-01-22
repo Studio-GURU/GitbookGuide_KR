@@ -17,7 +17,7 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[start.md](../../react-native/start.md "mention") :arrow\_forward: :link:[init](../../react-native/init/ "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[start.md](../../react-native/start.md "mention") :arrow\_forward: :link:[Broken link](broken-reference "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 

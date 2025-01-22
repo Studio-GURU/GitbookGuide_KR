@@ -164,11 +164,3 @@ $ pod install
 {% endtab %}
 {% endtabs %}
 
-## iOS
-
-***
-
-{% hint style="success" %}
-
-{% endhint %}
-

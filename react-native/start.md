@@ -57,11 +57,18 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 | AppID     | 앱 고유 식별자     |
 | --------- | ------------ |
 | AppSecret | 앱 고유 식별자 검증키 |
-|           |              |
 
 ***
 
 ## 기본 모듈 적용
+
+{% hint style="info" %}
+보물섬 SDK는 CloudSmith 저장소를 사용하고 있습니다.
+
+***
+
+https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
+{% endhint %}
 
 ```sh
 # yarn
@@ -79,6 +86,7 @@ $ npm install react-treasureisland-addon@version
 
 패키지가 설치되면 node\_module 폴더에 저장이 되며, package.json에 추가됩니다.
 
+{% code lineNumbers="true" %}
 ```json
 "dependencies": {
     ....
@@ -87,6 +95,7 @@ $ npm install react-treasureisland-addon@version
     "react-treasureisland-addon": ".."
   },
 ```
+{% endcode %}
 
 ***
 
@@ -94,80 +103,46 @@ $ npm install react-treasureisland-addon@version
 
 **보물섬은** 🔗[**Cloud-Smith**](https://cloudsmith.com/company/about) **서비스를 이용하여 ANDROID SDK를 제공하며, 해당 서비스의 저장소 설정이 필요합니다.**
 
-{% tabs %}
-{% tab title="setting.gradle" %}
-**AGP 7.1.0 이상 또는 Android Studio Bumblebee 이상 사용시**
+React Project > Android > build.gradle 파일에 Repository를 등록 합니다.
 
-{% code title="settings.gradle" lineNumbers="true" %}
+{% code lineNumbers="true" %}
 ```gradle
-pluginManagement {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
-}
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+buildscript {
+    ext {
+        ...
+        ...
     }
-  }
-}
-```
-{% endcode %}
-
-{% code title="settings.gradle.kts" lineNumbers="true" %}
-```gradle
-pluginManagement {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
-}
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/")
+    repositories {
+        ...
+        ...
     }
-  }
+    dependencies {
+        ...
+        ...
+    }
 }
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="build.gradle" %}
-**프로젝트 수준의 "build.gradle" 파일에 다음 항목을 추가 합니다.**
-
-```
-// build.gradle(project)
 allprojects {
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+        }
     }
-  }
 }
-```
-{% endtab %}
-{% endtabs %}
 
-<figure><img src="../.gitbook/assets/스크린샷 2024-12-16 오전 11.41.51.png" alt=""><figcaption></figcaption></figure>
+apply plugin: "com.facebook.react.rootproject"
+
+```
+{% endcode %}
+
+<figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 5.10.27.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ## iOS
 
-**패키지 설치 후 "pod install" 명령어를 통해 의존성을 추가 합니다.**
+**ReactNative 패키지 설치 후 "pod install" 명령어를 통해 의존성을 추가 합니다.**
 
 ```sh
 $ pod install
