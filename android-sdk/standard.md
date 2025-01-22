@@ -110,9 +110,7 @@ dependencies {
 {% endtab %}
 
 {% tab title="JAVA" %}
-{% code lineNumbers="true" %}
-```java
-public class AppApplication extends Application {
+<pre class="language-java" data-line-numbers><code class="lang-java">public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -120,8 +118,8 @@ public class AppApplication extends Application {
             this,
             "testAppID",
             "testSecret",
-            SceneConfig.Membership.BASIC
-        );
+<strong>            SceneConfig.Membership.BASIC
+</strong>        );
         builder.withAllowLog(true);
         builder.withStatusBarOption(new SceneConfig.StatusBarOption(
             true,
@@ -139,8 +137,7 @@ public class AppApplication extends Application {
         }
     }
 }
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
