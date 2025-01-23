@@ -13,17 +13,12 @@ description: 보물섬 ANDROID SDK에서 제공하는 서비스를 연동하기 
 OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다.
 {% endhint %}
 
-:heavy\_check\_mark: Android 5.0(API Level 21) 이상을 권장합니다.
-
-:heavy\_check\_mark: Android Studio -> 3.2 이상 (최신 버전의 IDE 사용을 권장합니다.)
-
-:heavy\_check\_mark: Android gradle plugin -> 4.0.1 이상
-
-:heavy\_check\_mark: Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
-
-:heavy\_check\_mark: Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
-
-:heavy\_check\_mark: Support AndroidX
+* Android 5.0(API Level 21) 이상을 권장합니다.
+* Android Studio -> 3.2 이상 (최신 버전의 IDE 사용을 권장합니다.)
+* Android gradle plugin -> 4.0.1 이상
+* Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+* Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
+* Support AndroidX
 
 ***
 

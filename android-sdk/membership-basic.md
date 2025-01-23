@@ -25,9 +25,27 @@ description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실
 
 ## 연동 순서
 
-1. 기본 모듈 적용하기
-2. SDK 초기화 하기(Initialize)
-3. 화면 호출하기(Launch)
+{% stepper %}
+{% step %}
+### 기본 모듈 적용
+
+Apply build.gradle dependencies
+{% endstep %}
+
+{% step %}
+### SDK 초기화
+
+Android SDK initialize
+
+**✓ Membership:Basic**
+{% endstep %}
+
+{% step %}
+### 화면 호출
+
+TreasureIsland screen launch
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -40,7 +58,7 @@ description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실
 
 ***
 
-:heavy\_check\_mark: 추가 기능 사용을 위해 보물섬 PLUG 모듈의 추가될 수 있습니다.
+**✓ 추가 기능 사용을 위해 보물섬 PLUG 모듈의 추가될 수 있습니다.**
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -74,7 +92,7 @@ dependencies {
 | `appSecret`  | 연동앱의 공유 식별자 검증키             |
 | `membership` | 연동앱의 회원 적용 방식(**Basic 선택**) |
 
-:heavy\_check\_mark: **생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.**
+**✓** **생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.**
 
 {% tabs %}
 {% tab title="KOTLIN" %}
@@ -147,7 +165,7 @@ dependencies {
 
 SDK 로그 출력 여부를 설정 합니다.
 
-:heavy\_check\_mark: 기본값 -> 로그가 출력되지 않습니다.
+**✓ 기본값** → **로그가 출력되지 않습니다.**
 
 | Name       | Type    | Description            |
 | ---------- | ------- | ---------------------- |
@@ -157,7 +175,7 @@ SDK 로그 출력 여부를 설정 합니다.
 
 화면의 상단 상태창의 색상을 설정합니다.
 
-:heavy\_check\_mark: 기본값 :arrow\_forward: 보물섬의 기본값이 사용됩니다.
+**✓ 기본값** → **보물섬의 기본값이 사용됩니다.**
 
 ⬇ TreasureConfig.StatusBarOption
 
@@ -180,7 +198,7 @@ SDK 로그 출력 여부를 설정 합니다.
 
 기다무 푸시 알림을 설정합니다.
 
-:heavy\_check\_mark: 기본값 :arrow\_forward: 보물섬의 기본값이 사용됩니다.
+**✓ 기본값** → **보물섬의 기본값이 사용됩니다.**
 
 ⬇ TreasureConfig.NotificationOption
 
@@ -192,10 +210,33 @@ SDK 로그 출력 여부를 설정 합니다.
 
 ### 연동 순서
 
-1. `Launcher.Builder` ->`Builder` 인스턴스를 생성합니다.
-2. `Launcher.Builder Option` 정보를 설정합니다.
-3. `Launcher.Builder build()` 함수를 호출하여 인스턴스를 생성합니다.
-4. 생성된 `Launcher` 인스턴스를 통해 `launch(activity)` 함수를 호출 합니다.
+{% stepper %}
+{% step %}
+### Builder 인스턴스 생성
+
+Launch.Builder::Builder()
+{% endstep %}
+
+{% step %}
+### Builder Option 설정
+
+✓ advertising id
+
+✓ header
+{% endstep %}
+
+{% step %}
+### Launch 인스턴스 생성
+
+Launch.Builder().build()
+{% endstep %}
+
+{% step %}
+### Launch 호출
+
+Launch.Builder().build()  생성된 Lauch 인스턴스의 launch() 실행
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -284,7 +325,7 @@ launcher.launch(
 
 &#x20;ANDROID ADID를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.
+**✓ 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.**
 
 | Name            | Type   | Description  |
 | --------------- | ------ | ------------ |
@@ -294,7 +335,7 @@ launcher.launch(
 
 🎈**withHeader(headerModel: SceneHeaderModel)**
 
-:heavy\_check\_mark: None, Back, Close, Custom 설정을 통해 원하는 해더를 설정 할 수 있습니다.
+**✓ None, Back, Close, Custom 설정을 통해 원하는 해더를 설정 할 수 있습니다.**
 
 | Name          | Type               | Description   |
 | ------------- | ------------------ | ------------- |

@@ -33,7 +33,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 `https://{env}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{env}.treasurecomics.com/main`
 
-:heavy\_check\_mark: returnUrl 은 UrlEncode된 값으로 전달 합니다.
+**✓ returnUrl 은 UrlEncode된 값으로 전달 합니다.**
 
 ### **signature 생성 하기**
 
@@ -42,7 +42,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 ***
 
-:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+**$timeStamp$nonce$암호화된User식별자**
 
 위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
@@ -70,7 +70,7 @@ https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8
 
 ***
 
-:heavy\_check\_mark: message : "**웹툰 사이트로 이동했어요.**"
+✓ message : "**웹툰 사이트로 이동했어요.**"
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>

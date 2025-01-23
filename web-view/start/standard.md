@@ -26,18 +26,15 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ***
 
-:heavy\_check\_mark: 파트너사의 회원 정보를 사용하지 않습니다.
-
-:heavy\_check\_mark: 보물섬의 별도 회원 정책을 사용합니다.
-
-:heavy\_check\_mark: 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
-
-:heavy\_check\_mark: 추가 웹뷰 설정을 확인 합니다.
+* 파트너사의 회원 정보를 사용하지 않습니다.
+* 보물섬의 별도 회원 정책을 사용합니다.
+* 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
+* 추가 웹뷰 설정을 확인 합니다.
 {% endhint %}
 
 ## 메인화면 진 경로
 
-:heavy\_check\_mark: **사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
+**✓** **사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
 
 `https://{env}.treasurecomics.com/`
 
@@ -50,7 +47,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ***
 
-:heavy\_check\_mark: message : "**웹툰 사이트로 이동했어요.**"
+✓ message : "**웹툰 사이트로 이동했어요.**"
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>

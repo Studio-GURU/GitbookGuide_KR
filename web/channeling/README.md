@@ -1,27 +1,27 @@
 ---
-description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합니다.
 icon: user-group
+description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합니다.
 ---
 
-# 보물섬 채널링
+# 채널회원 연동
 
 {% hint style="info" %}
 메인화면 진입 하기
 
 ***
 
-:ballot\_box\_with\_check:  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+**✓**  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
 
-:heavy\_check\_mark: 메인 화면 진입 경로에 <mark style="color:red;">**sign parameter**</mark>를 전달하여 보물섬 메인화면에 진입합니다.
+✓ 메인 화면 진입 경로에 <mark style="color:red;">**sign parameter**</mark>를 전달하여 보물섬 메인화면에 진입합니다.
 {% endhint %}
 
 ## 메인화면 진인 경로
 
 `https://{env}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{env}.treasurecomics.com/main`
 
-:heavy\_check\_mark: returnUrl 은 UrlEncode된 값으로 전달 합니다.
+**✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
 
-:white\_check\_mark: `{env}` 값은 **영업팀을 통해 별도 전달** 됩니다.
+**✓** `{env}` 값은 **영업팀을 통해 별도 전달** 됩니다.
 
 ### **signature 생성 하기**
 
@@ -30,7 +30,7 @@ icon: user-group
 
 ***
 
-:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+**$timeStamp$nonce$암호화된User식별자**
 
 위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
 

@@ -1,5 +1,5 @@
 ---
-description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+description: 보물섬 Unity Package를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
 icon: user-group
 ---
 
@@ -17,7 +17,7 @@ icon: user-group
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[start.md](../react-native/start.md "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[start.md](start.md "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 

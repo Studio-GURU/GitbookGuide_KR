@@ -42,7 +42,7 @@ description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용
 
 ***
 
-:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+**$timeStamp$nonce$암호화된User식별자**
 
 위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
 

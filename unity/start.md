@@ -1,6 +1,6 @@
 ---
 icon: star-shooting
-description: 보물섬 Flutter PlugIn에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
+description: 보물섬 Unity-Package에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
 ---
 
 # 시작하기
@@ -19,7 +19,7 @@ description: 보물섬 Flutter PlugIn에서 제공하는 서비스를 연동하�
 ## 요구사항
 
 {% hint style="success" %}
-요구 사양은 보물섬 Flutter PlugIn 최신 상태를 기준으로 명시 됩니다.
+요구 사양은 보물섬 Unity Package 최신 상태를 기준으로 명시 됩니다.
 
 ***
 
@@ -51,7 +51,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 ### 연동키 발급 <a href="#undefined-2" id="undefined-2"></a>
 
 {% hint style="info" %}
-보물섬 **ReactNative PlugIn**을 연동하려면 연동하려는 앱의 고유 식별자가(AppId/AppSecret) 필요하며 영업 담당자를 통해 발급 전달 됩니다.
+보물섬 **Unity-Package**를 연동하려면 연동하려는 앱의 고유 식별자가(AppId/AppSecret) 필요하며 영업 담당자를 통해 발급 전달 됩니다.
 {% endhint %}
 
 | AppID     | 앱 고유 식별자     |

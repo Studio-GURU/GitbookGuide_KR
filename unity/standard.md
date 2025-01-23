@@ -19,7 +19,7 @@ icon: user
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[start.md](../react-native/start.md "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[start.md](start.md "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 

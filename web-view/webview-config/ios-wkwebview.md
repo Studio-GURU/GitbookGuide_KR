@@ -69,9 +69,8 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 
 :white\_check\_mark: **여러개의 팝업이 열린 경우를 위해 해당 웹뷰에 대한 리소스 관리가 필요합니다.**
 
-:heavy\_check\_mark: 웹 뷰의 크기와 위치는 원하는 값을 넣어 사용합니다.
-
-:heavy\_check\_mark: 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
+* 웹 뷰의 크기와 위치는 원하는 값을 넣어 사용합니다.
+* 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
 {% endhint %}
 
 {% code lineNumbers="true" %}

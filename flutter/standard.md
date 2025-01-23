@@ -1,6 +1,6 @@
 ---
 icon: user
-description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+description: 보물섬 Flutter-Package을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
 ---
 
 # 채널회원 미연동
@@ -19,20 +19,20 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## 준비 사항
 
-보물섬 서비스 이용을 위해서는 :link:[start.md](../react-native/start.md "mention")의 기본 설정이 완료 되어야 합니다.
+보물섬 서비스 이용을 위해서는 :link:[start.md](../unity/start.md "mention")의 기본 설정이 완료 되어야 합니다.
 
 ***
 
 ## 연동 순서
 
-1. Plugin(SDK) 초기화 하기(Initialize)
+1. Package(SDK) 초기화 하기(Initialize)
 2. 화면 호출 하기
 
 ***
 
-## PlugIn 초기화 하기
+## Package 초기화 하기
 
-보물섬 Flutter-PlugIn 사용을 위해 초기화를 진행합니다.
+보물섬 Flutter-Package 사용을 위해 초기화를 진행합니다.
 
 {% hint style="success" %}
 Application 시작시 초기화를 진행합니다.
@@ -155,7 +155,7 @@ final notificationConfig = NotificationConfig(
 ```dart
 // define
 Future<AddOnResult> comicsLaunch(
-    // 광고 아이디 (빈값 사용시 PlugIn에서 추출)
+    // 광고 아이디 (빈값 사용시 Package에서 추출)
     String advertisingId, 
     // 해더 표시 여부
     bool allowHeader, 
@@ -205,7 +205,7 @@ Future<void> launch() async {
 
 &#x20;ANDROID/iOS ADID(IDFA)를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 PlugIn에서 별도 추출하여 사용합니다.
+:heavy\_check\_mark: 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- |

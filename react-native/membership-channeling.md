@@ -1,6 +1,6 @@
 ---
 icon: user-group
-description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+description: 보물섬 ReactNative-Package을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
 ---
 
 # 채널회원 연동
@@ -23,15 +23,15 @@ description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면
 
 ## 연동 순서
 
-1. Plugin(SDK) 초기화 하기(Initialize)
+1. Package(SDK) 초기화 하기(Initialize)
 2. 프로필 설정하기(Profile)
 3. 화면 호출 하기(Launch)
 
 ***
 
-## PlugIn 초기화 하기
+## Package 초기화 하기
 
-보물섬 ReactNative-PlugIn 사용을 위해 초기화를 진행합니다.
+보물섬 ReactNative-Package 사용을 위해 초기화를 진행합니다.
 
 {% hint style="success" %}
 Application 시작시 초기화를 진행합니다.
@@ -256,7 +256,7 @@ const handleButtonPress = () => {
 
 &#x20;ANDROID/iOS ADID(IDFA)를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 PlugIn에서 별도 추출하여 사용합니다.
+:heavy\_check\_mark: 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- |
