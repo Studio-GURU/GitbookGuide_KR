@@ -9,11 +9,39 @@ description: 보물섬 iOS SDK에서 제공하는 서비스를 연동하기 전 
 
 ## 연동 순서
 
-1. 요구 사항을 확인 합니다.
-2. 연동키를 발급 받습니다.
-3. 기본 모듈을 적용 합니다.(CocoaPods/SwiftPackage)
-4. IDFA 사용 동의 설정을 진행합니다.
-5. iOS ATS 정책을 설정합니다.
+{% stepper %}
+{% step %}
+### 요구 사항 확인
+
+OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다
+{% endstep %}
+
+{% step %}
+### 연동키 발급
+
+연동에 필요한 키를 영업 담당자를 통해 요청 합니다.
+{% endstep %}
+
+{% step %}
+### 기본 모듈 적용
+
+✓ CocoaPods
+
+✓ Swift Package
+{% endstep %}
+
+{% step %}
+### IDFA 동의 설정
+
+보물섬 SDK는 개인 맞춤 광고를 제공하기 위해 사용자 식별 정보(IDFA(ADID))를 확인 합니다.
+{% endstep %}
+
+{% step %}
+### iOS ATS  정책 설정
+
+일부 광고 제공 업체 또는 개발 모드의 경우 https를 제공하지 않는 경우로 안헤 ATS 설정이 필요합니다.
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -27,11 +55,11 @@ description: 보물섬 iOS SDK에서 제공하는 서비스를 연동하기 전 
 OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다.
 {% endhint %}
 
-:heavy\_check\_mark: iOS 15 이상을 권장합니다.
+✓ iOS 15 이상을 권장합니다.
 
-:heavy\_check\_mark: Swift 5 이상의 버전을 권장합니다.
+✓ Swift 5 이상의 버전을 권장합니다.
 
-:heavy\_check\_mark: 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
+✓ 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
 
 ***
 
@@ -95,9 +123,9 @@ $ pod init
 
 ***
 
-:heavy\_check\_mark: pod '**TreasureIslandFoundationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandFoundationKit**', '{SDK-VERSION}'
 
-:heavy\_check\_mark: pod '**TreasureIslandSceneKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandSceneKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -141,9 +169,9 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 ***
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -154,7 +182,7 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 #### Package 추가(**TreasureIsland-iOS-FounedationKit)**
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
 **⬇ 오른쪽 상단에 SwiftPackage 주소를 입력합니다.**
 
@@ -162,13 +190,13 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 #### Package 추가(**TreasureIsland-iOS-SceneKit)**
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 
 <figure><img src="../.gitbook/assets/apple_swift_package_03.png" alt=""><figcaption></figcaption></figure>
 
 #### 모듈 설치 확인
 
-:heavy\_check\_mark: Package Dependencies 항목에 추가한 모듈이 있는지 확인 합니다.
+✓ Package Dependencies 항목에 추가한 모듈이 있는지 확인 합니다.
 
 <div align="left"><figure><img src="../.gitbook/assets/apple_swift_package_04.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -178,7 +206,7 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 보물섬 SDK는 개인 맞춤 광고를 제공하기 위해 사용자 식별 정보(IDFA(ADID))를 확인 합니다.
 
-**info.plist** 또는 **TARGETS -> Info -> Custom iOS Target Properties** 값을 업데이트 합니다.
+**info.plist** 또는 **TARGETS → Info → Custom iOS Target Properties** 값을 업데이트 합니다.
 
 <table><thead><tr><th width="319">Key</th><th>Value</th></tr></thead><tbody><tr><td>Privacy - Tracking Usage Description<br>NSUserTrackingUsageDescription</td><td>개인 맞춤 광고를 제공하기 위해 사용자 식별 정보를 사용합니다.</td></tr></tbody></table>
 

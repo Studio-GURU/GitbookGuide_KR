@@ -48,10 +48,12 @@ description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용
 
 ***
 
-* timeStamp -> unix timestamp seconds
-* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 -> 회원 구분이 가능한 식별자
+* timeStamp → unix timestamp seconds
+* nonce → 문자열 32자(임의로 생성된 문자열 32자)
+* user 식별자 → 회원 구분이 가능한 식별자
 {% endhint %}
+
+
 
 <table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p> <code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
 

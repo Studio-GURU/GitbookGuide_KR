@@ -12,24 +12,36 @@ description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을
 
 ***
 
-:heavy\_check\_mark:  모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.
+✓  모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.
 
-:heavy\_check\_mark: 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
+✓ 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
 
-:heavy\_check\_mark: 보물섬 SDK는 StoreKit2 버전을 사용합니다.
+✓ 보물섬 SDK는 StoreKit2 버전을 사용합니다.
 
-:heavy\_check\_mark: 보물섬 SDK는 소비성 제품만 제공 됩니다.
+✓ 보물섬 SDK는 소비성 제품만 제공 됩니다.
 {% endhint %}
 
 ***
 
 ## 연동 순서
 
-1. **TreasureIslandPlugPurchaseKit** 모듈 설치하기&#x20;
-2. **애플 앱 스토어 설정**
-   1. [console-config.md](console-config.md "mention")
-   2. [api-config.md](api-config.md "mention")
-   3. [rtdn-config.md](rtdn-config.md "mention")
+{% stepper %}
+{% step %}
+**TreasureIslandPlugPurchaseKit** 모듈 설치하기
+
+✓ Cocoa Pod
+
+✓ Swift Package
+{% endstep %}
+
+{% step %}
+### 애플 앱 스토어 설정
+
+1. [console-config.md](console-config.md "mention")
+2. [api-config.md](api-config.md "mention")
+3. [rtdn-config.md](rtdn-config.md "mention")
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -44,11 +56,11 @@ description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을
 
 ***
 
-:heavy\_check\_mark: pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
 
-:heavy\_check\_mark: pod 'TreasureIslandSceneKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandSceneKit', '{SDK-VERSION}'
 
-:heavy\_check\_mark: pod '**TreasureIslandPlugPurchaseKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandPlugPurchaseKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -80,12 +92,12 @@ $ pod install
 
 ***
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
 
-**⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
+**⬇ Xcode** → **File** → **Add Package Dependencies...**&#x20;
 
 <figure><img src="../../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 

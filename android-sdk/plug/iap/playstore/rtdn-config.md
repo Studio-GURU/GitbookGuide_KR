@@ -17,9 +17,25 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 
 ## 연동 순서
 
-1. Google Cloud 알림 주제 생성
-2. Google Cloud 알림 주제에 게시할 구독 설정
-3. Google Play Console에 설정한 구독 주제 등록
+{% stepper %}
+{% step %}
+### 알림 주제 생성
+
+Google Cloud 알림 주제 생성
+{% endstep %}
+
+{% step %}
+### 게시 구독 설정
+
+Google Cloud 알림 주제에 게시할 구독 설정
+{% endstep %}
+
+{% step %}
+### 구독 주제 등록
+
+Google Play Console에 설정한 구독 주제 등록
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -80,11 +96,11 @@ Google Play에서 상품을 판매하는 경우 보물섬 IAP에서 Google로부
 
 <figure><img src="../../../../.gitbook/assets/google_cloud_setting_08.png" alt=""><figcaption></figcaption></figure>
 
-:heavy\_check\_mark: 전송 유형 → 푸시&#x20;
+**✓ 전송 유형 → 푸시**&#x20;
 
-:heavy\_check\_mark: 앤드포인트 URL 입력 → 보물섬 IAP 알림 수신 주소&#x20;
+**✓ 앤드포인트 URL 입력 → 보물섬 IAP 알림 수신 주소**&#x20;
 
-:heavy\_check\_mark: 만료기간 설정 → 만료되지 않음(별도 관리를 위해 만료기간을 설정해도 무방합니다.)
+**✓ 만료기간 설정 → 만료되지 않음(별도 관리를 위해 만료기간을 설정해도 무방합니다.)**
 
 ***
 

@@ -11,8 +11,9 @@ description: 보물섬 ANDROID SDK History
 
 **release date. 2025.1.22**
 
-* 채널링 회원 연동 방식 변경
-* 코드 안정화
+✓ 채널링 회원 연동 방식 변경
+
+✓ 코드 안정화
 
 ***
 
@@ -20,7 +21,7 @@ description: 보물섬 ANDROID SDK History
 
 **release date. 2024.10.30**
 
-* &#x20;javascript window.open & window.close 메모리 버그 수정
+✓  javascript window.open & window.close 메모리 버그 수정
 
 ***
 
@@ -28,8 +29,9 @@ description: 보물섬 ANDROID SDK History
 
 **release date. 2024.10.20**
 
-* KakaoTalk 로그인 버그 수정
-* 커스텀 헤더 인터페이스 수정(WebView 파리미터 추가)
+✓ KakaoTalk 로그인 버그 수정
+
+✓ 커스텀 헤더 인터페이스 수정(WebView 파리미터 추가)
 
 ***
 
@@ -37,4 +39,4 @@ description: 보물섬 ANDROID SDK History
 
 **release date. 2024.10.16**
 
-* 보물섬 릴리즈
+✓ 보물섬 릴리즈

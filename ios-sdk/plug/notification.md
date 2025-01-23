@@ -23,7 +23,7 @@ description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위�
 
 1. **TreasureIslandPlugNotificationKit** 모듈 설치하기&#x20;
 
-:heavy\_check\_mark: **모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
+**✓ 모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
 
 ***
 
@@ -38,11 +38,11 @@ description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위�
 
 ***
 
-:heavy\_check\_mark: pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
 
-:heavy\_check\_mark: pod 'TreasureIslandSceneKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandSceneKit', '{SDK-VERSION}'
 
-:heavy\_check\_mark: pod '**TreasureIslandPlugNotificationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandPlugNotificationKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -74,12 +74,12 @@ $ pod install
 
 ***
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
 
-**⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
+**⬇ Xcode** → **File** → **Add Package Dependencies...**&#x20;
 
 <figure><img src="../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 

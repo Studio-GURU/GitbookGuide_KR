@@ -269,9 +269,9 @@ Profile.Builder().register() 호출을 통한 프로필 등록
 
 ***
 
-* timeStamp -> unix timestamp seconds
-* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 -> 회원 구분이 가능한 식별자
+* timeStamp → unix timestamp seconds
+* nonce → 문자열 32자(임의로 생성된 문자열 32자)
+* user 식별자 → 회원 구분이 가능한 식별자
 {% endhint %}
 
 <table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
@@ -287,7 +287,7 @@ builder.withGender(gender = Profile.Gender.MALE 또는 Profile.Gender.FEMALE)
 // 태어난 연도를 설정합니다.(옵션)
 builder.withBirthYear(birthYear = 2000)
 // 프로필 인스턴스를 등록합니다.
-<strong>builder.build { success, message ->
+<strong>builder.register { success, message ->
 </strong>    // success: 프로필 등록 여부
     // message: 프로필 등록과 관련된 메시지(오류 메시지)
 }
@@ -303,7 +303,7 @@ builder.withGender(Profile.Gender.MALE 또는 Profile.Gender.FEMALE);
 // 태어난 연도를 설정합니다.(옵션)
 builder.withBirthYear(2000);
 // 프로필 인스턴스를 등록합니다.
-builder.build((successs, message) ->
+builder.register((successs, message) ->
     // success: 프로필 등록 여부
     // message: 프로필 등록과 관련된 메시지(오류 메시지)                
 );

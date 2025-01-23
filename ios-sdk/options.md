@@ -1,6 +1,6 @@
 ---
-description: 보물섬의 추가 기능에 대해 안내합니다.
 icon: flask-gear
+description: 보물섬의 추가 기능에 대해 안내합니다.
 ---
 
 # Options
@@ -9,7 +9,7 @@ icon: flask-gear
 
 Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 설정을 통해 구성
 
-:heavy\_check\_mark: <mark style="color:red;">**설정을 하지 않을 경우 해더는 노출되지 않습니다.**</mark>
+<mark style="color:red;">**✓ 설정을 하지 않을 경우 해더는 노출되지 않습니다.**</mark>
 
 ### Preset
 
@@ -19,7 +19,7 @@ Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 설정을 �
 | ----------- | ---------------- | ------- | ----------- |
 | 44          | option(nullable) | .title2 | #000000     |
 
-<figure><img src="../../.gitbook/assets/ios_header_preset.png" alt=""><figcaption><p>PRESET</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/ios_header_preset.png" alt=""><figcaption><p>PRESET</p></figcaption></figure>
 
 Back, Close, Title 노출 유무 설정이 가능 하며  "Back & Close" 는 창을 닫는 동일한 동작을 수행합니다.
 
@@ -49,11 +49,11 @@ launchKitBuilder.withHeader(headerModel: presetHeader)
 
 앱 스타일에 맞는 별도의 헤더를 구성할 수 있습니다.
 
-:heavy\_check\_mark: Header UIView 생성합니다.
+✓ Header UIView 생성합니다.
 
-:heavy\_check\_mark: UIViewSceneHeader(UIView 상속) 클래스를 상속받는 UIView를 설정합니다.
+✓ UIViewSceneHeader(UIView 상속) 클래스를 상속받는 UIView를 설정합니다.
 
-:heavy\_check\_mark: withHeader 함수를 통해 생성된 View를 설정합니다.
+✓ withHeader 함수를 통해 생성된 View를 설정합니다.
 
 UIViewSceneHeader에는 참조 가능한 UIViewController, WKWebView 프로퍼티가 존재합니다.
 
@@ -61,7 +61,7 @@ UIViewSceneHeader에는 참조 가능한 UIViewController, WKWebView 프로퍼�
 | ---------------------- | ------------- |
 | sceneUIViewController? | sceneWebView? |
 
-<figure><img src="../../.gitbook/assets/ios_header_custom.png" alt=""><figcaption><p>CUSTOM HEADER</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/ios_header_custom.png" alt=""><figcaption><p>CUSTOM HEADER</p></figcaption></figure>
 
 #### Custom Header Code Example
 

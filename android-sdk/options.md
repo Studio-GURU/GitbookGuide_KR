@@ -1,6 +1,6 @@
 ---
-description: 보물섬의 추가 기능에 대해 안내 합니다.
 icon: flask-gear
+description: 보물섬의 추가 기능에 대해 안내 합니다.
 ---
 
 # Options
@@ -9,7 +9,7 @@ icon: flask-gear
 
 Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 설정을 통해 구성
 
-:heavy\_check\_mark: <mark style="color:red;">**설정을 하지 않을 경우 해더는 노출되지 않습니다.**</mark>
+<mark style="color:red;">**✓ 설정을 하지 않을 경우 해더는 노출되지 않습니다.**</mark>
 
 ### Preset
 
@@ -19,7 +19,7 @@ Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 설정을 �
 | ----------- | ---------------- | ---------- | ----------- | ----------- |
 | 48.5dp      | option(nullable) | 14dp       | bold        | #212121     |
 
-<figure><img src="../../.gitbook/assets/bmskit_header_preset (1).png" alt=""><figcaption><p>PRESET</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bmskit_header_preset (1).png" alt=""><figcaption><p>PRESET</p></figcaption></figure>
 
 Back, Close, Title 노출 유무 설정이 가능 하며  "Back & Close" 는 창을 닫는 동일한 동작을 수행합니다.
 
@@ -70,11 +70,11 @@ launcherBuilder.withHeader(headerModel);
 
 앱 스타일에 맞는 별도의 헤더를 구성할 수 있습니다.
 
-:heavy\_check\_mark: Header Layout을 구성 합니다.
+✓ Header Layout을 구성 합니다.
 
-:heavy\_check\_mark: Header Layout에서 액션을 처리할 R.id 값을 정의 합니다.
+✓ Header Layout에서 액션을 처리할 R.id 값을 정의 합니다.
 
-<figure><img src="../../.gitbook/assets/bmskit_custom_header.png" alt=""><figcaption><p>CUSTOM HEADER</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bmskit_custom_header.png" alt=""><figcaption><p>CUSTOM HEADER</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="KOTLIN" %}

@@ -31,7 +31,7 @@ App Store Connect → 나의 앱 → 앱 선택 → 일반 정보 → 앱 정보
 
 ***
 
-:heavy\_check\_mark:`https://api-iap.cloud.toast.com/callback/subscription/{APP_BUNDLE_ID}/AS/v2`
+`https://api-iap.cloud.toast.com/callback/subscription/{APP_BUNDLE_ID}/AS/v2`
 {% endhint %}
 
 ### 서버 URL 확인

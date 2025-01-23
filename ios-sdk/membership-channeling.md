@@ -27,9 +27,29 @@ description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 
 
 ## 연동 순서
 
-1. SDK 초기화 하기(Initialize)
-2. 프로필 설정하기(Profile)
-3. 화면 호출 하기(Launch)
+## 연동 순서
+
+{% stepper %}
+{% step %}
+### SDK 초기화
+
+iOS SDK initialize
+
+**✓ Membership:Channeling**
+{% endstep %}
+
+{% step %}
+### 프로필 설정
+
+Profile with **SignKey**&#x20;
+{% endstep %}
+
+{% step %}
+### 화면 호출
+
+TreasureIsland screen launch
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -42,7 +62,7 @@ description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 
 
 초기화가 진행되지 않을경우 보물섬 서비스가 정상 동작하지 않습니다.
 
-:heavy\_check\_mark: [https://developer.apple.com/documentation/uikit/uiapplicationdelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate)
+✓ [https://developer.apple.com/documentation/uikit/uiapplicationdelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate)
 {% endhint %}
 
 보물섬 SDK 사용을 위한 초기화를 진행합니다.
@@ -53,7 +73,7 @@ description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 
 
 <table><thead><tr><th width="193">Name</th><th width="226">Type</th><th>Value</th></tr></thead><tbody><tr><td><code>appId</code></td><td>string</td><td>연동앱의 고유 식별자</td></tr><tr><td><code>appSecret</code></td><td>string</td><td>연동앱의 고유 식별자 검증키</td></tr><tr><td><code>membership</code></td><td>enum(basic, <strong>channeling</strong>)</td><td>연동앱의 회원 적용 방식(<strong>channeling</strong> 선택)</td></tr></tbody></table>
 
-:heavy\_check\_mark: **SceneKit.Builder 인스터스를 통해 옵션과 보물섬 SDK 초기화를 진행합니다.**
+**✓ SceneKit.Builder 인스터스를 통해 옵션과 보물섬 SDK 초기화를 진행합니다.**
 
 {% tabs %}
 {% tab title="Swift UI(App)" %}
@@ -119,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 SDK 로그 출력 여부를 설정 합니다.
 
-✔️ 기본값 -> 로그가 출력되지 않습니다.
+**✓ 기본값** → **로그가 출력되지 않습니다.**
 
 | Name       | Type    | Description            |
 | ---------- | ------- | ---------------------- |
@@ -133,10 +153,33 @@ SDK 로그 출력 여부를 설정 합니다.
 
 ### 연동 순서
 
-1. "**SignKey**" 생성
-2. Profile.Builder -> 인스턴스를 "**SignKey**"를 통해 생성합니다.
-3. Profile.Builder Option 정보를 설정합니다.
-4. Profile.Builder build() 함수를 호출하여 프로필 인스턴스를 생성합니다.
+{% stepper %}
+{% step %}
+### SignKey 생성
+
+HmacSHA256 방식을 통한 SignKey 생성
+{% endstep %}
+
+{% step %}
+### Profile Builder 생성
+
+SignKey를 통한 Builder 인스턴스 생성
+{% endstep %}
+
+{% step %}
+### Profile Option 설정
+
+✓ Gender → 성별 정보(enum)
+
+✓ BirthYear → 태어난 연도 정보(Int)
+{% endstep %}
+
+{% step %}
+### Profile 등록
+
+Profile.Builder().register() 호출을 통한 프로필 등록
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -155,15 +198,15 @@ SDK 로그 출력 여부를 설정 합니다.
 
 ***
 
-:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+**$timeStamp$nonce$암호화된User식별자**
 
 위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
 ***
 
-* timeStamp -> unix timestamp seconds
-* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 -> 회원 구분이 가능한 식별자
+* timeStamp → unix timestamp seconds
+* nonce → 문자열 32자(임의로 생성된 문자열 32자)
+* user 식별자 → 회원 구분이 가능한 식별자
 {% endhint %}
 
 <table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
@@ -177,7 +220,7 @@ Profile.Builder(signKey: AccountUtils.accountTicket())
     .withGender(gender: Profile.Gender.male 또는 Profile.Gender.female)
     // 태어난 연도를 설정합니다.(옵션)
     .withBirthYear(birthYear: 2000)
-    .build { success, message in
+    .register { success, message in
         // success: 프로필 등록 여부
         // message: 프로필 등록과 관련된 메시지(오류 메시지)                
         print("Profile.Builder { success: \(success), message: \(message) }")
@@ -190,10 +233,35 @@ Profile.Builder(signKey: AccountUtils.accountTicket())
 
 ### 연동 순서
 
-1. `Launcher.Builder` ->`Builder` 인스턴스를 생성합니다.
-2. `Launcher.Builder Option` 정보를 설정합니다.
-3. `Launcher.Builder build()` 함수를 호출하여 인스턴스를 생성합니다.
-4. 생성된 `Launcher` 인스턴스를 통해 `launch(completionHandler: (_ success: Bool, _ message: String) -> Void)` 함수를 호출 합니다.
+{% stepper %}
+{% step %}
+### Builder 인스턴스 생성
+
+Launch.Builder::Builder()
+{% endstep %}
+
+{% step %}
+### Builder Option 설정
+
+✓ advertising id
+
+✓ header
+{% endstep %}
+
+{% step %}
+### Launch 인스턴스 생성
+
+Launch.Builder().build()
+{% endstep %}
+
+{% step %}
+### Launch 호출
+
+Launch.Builder().build()  생성된 Lauch 인스턴스의 launch() 실행
+
+`launch(completionHandler: (_ success: Bool, _ message: String) → Void)`
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -223,7 +291,7 @@ launchKit.launch { completed, message in
 
 &#x20;ANDROID ADID를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.
+**✓ 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.**
 
 | Name            | Type   | Description  |
 | --------------- | ------ | ------------ |
@@ -235,9 +303,9 @@ launchKit.launch { completed, message in
 
 보물섬을 실행합니다. 상황에 따라 보물섬 메인 화면 또는 약관 동의 화면이 노출 됩니다.
 
-🎈**launch(completionHandler: (\_ success: Bool, \_ message: String) -> Void)**
+🎈**launch(completionHandler: (\_ success: Bool, \_ message: String) → Void)**
 
-:heavy\_check\_mark: completionHandler의 success 값은 launch 실행 결과를 전달합니다.
+**✓ completionHandler의 success 값은 launch 실행 결과를 전달합니다.**
 
 <table><thead><tr><th width="173">Name</th><th width="129">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>success</code></td><td>bool</td><td>success 실행 결과 <code>true: 성공 / false: 실패</code></td></tr><tr><td><code>message</code></td><td>string</td><td>실행 결과 메시지(오류시 오류 메시지 전달)</td></tr></tbody></table>
 

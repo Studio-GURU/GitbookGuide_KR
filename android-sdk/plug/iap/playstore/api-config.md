@@ -11,10 +11,10 @@ description: 영수증 검증 API 사용을 위한 구글 클라우드 API 권�
 
 API 호출을 시작하기 전에 먼저 Google Play 개발자 계정에 대한 API 액세스를 설정해야 합니다. 여기에는 Google Play Console 및 Google Cloud Console의 변경사항이 모두 포함됩니다. 다음 안내에서는 Google Play Developer API 사용을 시작하는 데 필요한 4단계를 설명합니다.
 
-1. 개발자 계정을 신규 또는 기존 Google Cloud 프로젝트에 연결합니다.
-2. 연결된 Google Cloud 프로젝트에 Google Play Developer API를 사용 설정합니다.
-3. 연결된 Google Cloud 프로젝트에서 Google Play Developer API에 대한 API 키를 승인합니다.
-4. Google Play Developer API에 액세스할 수 있는 관련 Google Play Console 권한을 가지는 서비스 계정을 설정합니다.
+1. **개발자 계정을 신규 또는 기존 Google Cloud 프로젝트에 연결합니다.**
+2. **연결된 Google Cloud 프로젝트에 Google Play Developer API를 사용 설정합니다.**
+3. **연결된 Google Cloud 프로젝트에서 Google Play Developer API에 대한 API 키를 승인합니다.**
+4. **Google Play Developer API에 액세스할 수 있는 관련 Google Play Console 권한을 가지는 서비스 계정을 설정합니다.**
 
 {% embed url="https://developers.google.com/android-publisher/getting_started?hl=ko" %}
 
@@ -22,19 +22,50 @@ API 호출을 시작하기 전에 먼저 Google Play 개발자 계정에 대한 
 
 ## 연동순서
 
-1. 구글 클라우드 서비스 계정 및 프로젝트 연결
-2. API 사용 설정
-3. 구글 클라우드 서비스 계정 생성
-4. 구글 클라우드 서비스 계정의 키생성
-5. 구글 플레이 콘솔에 구글 클라우드 서비스 계정 등록
-6. 구글 클라우드 서비스 계정의 키 전달
+{% stepper %}
+{% step %}
+### 구글 클라우드 연동
+
+구글 클라우드 서비스 계정 생성 및 프로젝트 연결
+{% endstep %}
+
+{% step %}
+### API 사용 설정
+
+Google Play Developer API 사용 설정
+{% endstep %}
+
+{% step %}
+### 구글 클라우드 서비스 계정 생성
+
+Google Play Developer API를 사용하도록 승인된 API 키 발급을 위한 계정 생성
+{% endstep %}
+
+{% step %}
+### 구글 클라우드 서비스 계정 키생성
+
+Google Play Developer API를 사용하도록 승인된 API 키 발급
+{% endstep %}
+
+{% step %}
+### 구글 플레이 콘솔 & 구글 클라우드 서비스 계정 등록
+
+구글 클라우드 서비스 계정을 구글 플레이 콘솔에 등록
+{% endstep %}
+
+{% step %}
+### 구글 클라우드 서비스 계정 키 전달
+
+생성된 계정의 키를 구루컴퍼니에 전달
+{% endstep %}
+{% endstepper %}
 
 ***
 
-구글 클라우드 서비스 계정 및 프로젝트 연결
+**✓ 구글 클라우드 서비스 계정 및 프로젝트 연결**
 
 {% hint style="info" %}
-Google Play Developer API에 액세스하려면 먼저 Google Play 개발자 계정을 Google Cloud 프로젝트에 연결해야 합니다. 대부분의 경우 Google Play 개발자 계정 전용인 새 Google Cloud 프로젝트를 만드는 것이 좋지만 기존 프로젝트를 연결해도 됩니다. 각 Google Play 개발자 계정에는 Google Cloud 프로젝트 하나만 연결할 수 있습니다. 같은 Google Play 개발자 계정에 앱이 여러 개 있다면 모두 같은 Google Cloud 프로젝트를 공유해야 합니다.
+**Google Play Developer API에 액세스하려면 먼저 Google Play 개발자 계정을 Google Cloud 프로젝트에 연결해야 합니다. 대부분의 경우 Google Play 개발자 계정 전용인 새 Google Cloud 프로젝트를 만드는 것이 좋지만 기존 프로젝트를 연결해도 됩니다. 각 Google Play 개발자 계정에는 Google Cloud 프로젝트 하나만 연결할 수 있습니다. 같은 Google Play 개발자 계정에 앱이 여러 개 있다면 모두 같은 Google Cloud 프로젝트를 공유해야 합니다.**
 {% endhint %}
 
 ***

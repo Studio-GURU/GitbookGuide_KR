@@ -101,7 +101,7 @@ public class AppApplication extends Application {
 
 기다무 푸시 알림을 설정합니다.
 
-:heavy\_check\_mark: 기본값 :arrow\_forward: 푸시 알림을 사용하지 않습니다.
+**✓ 기본값 → 푸시 알림을 사용하지 않습니다.**
 
 ⬇ SceneConfig.NotificationOption
 
