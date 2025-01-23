@@ -10,7 +10,7 @@ description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 
 
 ***
 
-✔ **보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
+**✓** **보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/스크린샷 2024-08-22 오후 2.05.51.png" alt=""><figcaption></figcaption></figure>
@@ -52,7 +52,7 @@ TreasureIsland screen launch
 
 초기화가 진행되지 않을경우 보물섬 서비스가 정상 동작하지 않습니다.
 
-✓ [https://developer.apple.com/documentation/uikit/uiapplicationdelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate)
+<mark style="color:orange;">✓</mark> [https://developer.apple.com/documentation/uikit/uiapplicationdelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate)
 {% endhint %}
 
 보물섬 SDK 사용을 위한 초기화를 진행합니다.

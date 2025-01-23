@@ -10,7 +10,7 @@ description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실
 
 ***
 
-:heavy\_check\_mark: **보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
+**✓ 보물섬 자체 계정의 경우 파트너사에서 사용중인 계정과 연동되지 않습니다.**
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/스크린샷 2024-08-22 오후 2.05.51.png" alt=""><figcaption><p>보물섬 회원 플로우</p></figcaption></figure>

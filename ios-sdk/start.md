@@ -169,9 +169,9 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 {% endhint %}
 
 #### Package Dependency 설정

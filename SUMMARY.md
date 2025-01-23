@@ -63,8 +63,8 @@
 
 * [릴리즈 노트](flutter/release.md)
 * [시작하기](flutter/start.md)
-* [채널회원 미연동](flutter/standard.md)
-* [채널회원 연동](flutter/channeling.md)
+* [채널회원 미연동](flutter/membership-standard.md)
+* [채널회원 연동](flutter/membership-channeling.md)
 * [보물섬 알림 서비스](flutter/notification.md)
 * [보물섬 인앱 구매 서비스](flutter/iap.md)
 
@@ -72,8 +72,8 @@
 
 * [릴리즈 노트](unity/undefined.md)
 * [시작하기](unity/start.md)
-* [채널회원 미연동](unity/standard.md)
-* [채널회원 연동](unity/channeling.md)
+* [채널회원 미연동](unity/membership-basic.md)
+* [채널회원 연동](unity/membership-channeling.md)
 * [보물섬 알림 서비스](unity/notification.md)
 * [보물섬 인앱 구매 서비스](unity/iap.md)
 * [Untitled](unity/untitled.md)

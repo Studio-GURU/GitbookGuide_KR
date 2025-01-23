@@ -8,7 +8,7 @@ description: 보물섬 ReactNative-Package을 사용하여 보물섬 메인화�
 {% hint style="success" %}
 전달된 파트너사의 회원정보를 통해 보물섬 계정을 생성합니다.&#x20;
 
-:heavy\_check\_mark: **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
+**✓ 파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
