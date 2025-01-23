@@ -1,6 +1,6 @@
 ---
-description: 보물섬 Flutter PlugIn에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
 icon: star-shooting
+description: 보물섬 Flutter PlugIn에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
 ---
 
 # 시작하기
@@ -62,7 +62,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ## 기본 모듈 적용
 
-#### UnityPackage Download
+### UnityPackage Download
 
 ```
 wget https://dl.cloudsmith.io/public/studio-guru/treasureisland-unity/raw/versions/null/TreasureIslnad-Unity-Plugin-1.0.0.unitypackage
@@ -70,33 +70,13 @@ wget https://dl.cloudsmith.io/public/studio-guru/treasureisland-unity/raw/versio
 
 ***
 
-## iOS
+### UnityPackage Import
 
-**패키지 설치 후 "pod install" 명령어를 통해 의존성을 추가 합니다.**
+다운로드 받은 Package 파일을 "Assets > Import Package > Custom Package..." 메뉴를 통해 불러 옵니다.
 
-```sh
-$ pod install
-```
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 7.49.21.png" alt=""><figcaption></figcaption></figure></div>
 
-### IDFA 사용동의 설정
 
-보물섬 SDK는 개인 맞춤 광고를 제공하기 위해 사용자 식별 정보(IDFA(ADID))를 확인 합니다.
 
-**info.plist** 또는 **TARGETS -> Info -> Custom iOS Target Properties** 값을 업데이트 합니다.
 
-<table><thead><tr><th width="319">Key</th><th>Value</th></tr></thead><tbody><tr><td>Privacy - Tracking Usage Description<br>NSUserTrackingUsageDescription</td><td>개인 맞춤 광고를 제공하기 위해 사용자 식별 정보를 사용합니다.</td></tr></tbody></table>
-
-<figure><img src="../.gitbook/assets/apple_idfa_01.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/apple_idfa_02.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-### iOS ATS(App Transport Security) 정책 설정
-
-일부 광고 제공 업체 또는 개발 모드의 경우 https를 제공하지 않는 경우로 안헤 ATS 설정이 필요합니다.
-
-<table><thead><tr><th width="321">Key</th><th width="276">Sub Key</th><th>Value</th></tr></thead><tbody><tr><td>App Transport Security Setting</td><td>Allow Arbitrary Loads</td><td>YES</td></tr></tbody></table>
-
-<figure><img src="../.gitbook/assets/apple_ats.png" alt=""><figcaption></figcaption></figure>
 
