@@ -1,6 +1,6 @@
 ---
-description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
 icon: bell-ring
+description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
 ---
 
 # 보물섬 알림 서비스
@@ -10,9 +10,9 @@ icon: bell-ring
 
 ***
 
-:heavy\_check\_mark:보물섬 알림 서비스는 **로컬 푸시**로 별도의 서버 연동 작업이 필요하지 않습니다.
+✓보물섬 알림 서비스는 **로컬 푸시**로 별도의 서버 연동 작업이 필요하지 않습니다.
 
-:heavy\_check\_mark: 의존성 추가 이외의 작업이 필요하지 않습니다.
+✓ 의존성 추가 이외의 작업이 필요하지 않습니다.
 {% endhint %}
 
 {% tabs %}
@@ -55,7 +55,7 @@ dependencies {
 
 1. **TreasureIslandPlugNotificationKit** 모듈 설치하기&#x20;
 
-:heavy\_check\_mark: **모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
+**✓ 모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
 
 ***
 
@@ -70,7 +70,7 @@ dependencies {
 
 ***
 
-:heavy\_check\_mark: pod '**TreasureIslandPlugNotificationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandPlugNotificationKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -99,7 +99,7 @@ $ pod install
 
 ***
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
 {% endhint %}
 
 #### Package Dependency 설정

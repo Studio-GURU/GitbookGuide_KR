@@ -21,7 +21,9 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 **✓ 사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
 
-`https://{env}.treasurecomics.com/`
+```
+https://{env}.treasurecomics.com/
+```
 
 **✓** `{env}` 값은 **영업팀을 통해 별도 전달** 됩니다.
 

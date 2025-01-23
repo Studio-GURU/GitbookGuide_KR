@@ -17,7 +17,9 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 ## 메인화면 진인 경로
 
-`https://{env}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{env}.treasurecomics.com/main`
+```
+https://{env}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{env}.treasurecomics.com/main
+```
 
 **✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
 
@@ -32,7 +34,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 **$timeStamp$nonce$암호화된User식별자**
 
-위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
+위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
 ***
 

@@ -23,9 +23,27 @@ description: 보물섬 ReactNative-Package을 사용하여 보물섬 메인화�
 
 ## 연동 순서
 
-1. Package(SDK) 초기화 하기(Initialize)
-2. 프로필 설정하기(Profile)
-3. 화면 호출 하기(Launch)
+{% stepper %}
+{% step %}
+### Package 초기화
+
+Package Initialize
+
+**✓ Membership:Channeling**
+{% endstep %}
+
+{% step %}
+### 프로필 설정
+
+Profile with **SignKey & Register**
+{% endstep %}
+
+{% step %}
+### 화면 호출
+
+**comicsLaunch ⇨ (success, message);**
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -159,8 +177,27 @@ const notificationConfig = new NotificationConfig(
 
 ### 연동 순서
 
-1. "**SignKey**" 생성
-2. 생성된 **SignKey**를 **Profile** 정보를 "**comicsProfile**" 함수를 통해 전달
+{% stepper %}
+{% step %}
+### SignKey 생성
+
+HmacSHA256 방식을 통한 **SignKey** 생성
+{% endstep %}
+
+{% step %}
+### Profile Option
+
+✓ Gender → 성별 정보(enum)
+
+✓ BirthYear → 태어난 연도 정보(Int)
+{% endstep %}
+
+{% step %}
+### Profile 등록
+
+**comicsProfile($signkey, $gender, $birthYear);**
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -179,15 +216,15 @@ const notificationConfig = new NotificationConfig(
 
 ***
 
-:heavy\_check\_mark: $timeStamp$nonce$암호화된User식별자
+**$timeStamp$nonce$암호화된User식별자**
 
-위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
+위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
 ***
 
-* timeStamp -> unix timestamp seconds
-* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 -> 회원 구분이 가능한 식별자
+* timeStamp → unix timestamp seconds
+* nonce → 문자열 32자(임의로 생성된 문자열 32자)
+* user 식별자 → 회원 구분이 가능한 식별자
 {% endhint %}
 
 <table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
@@ -256,7 +293,7 @@ const handleButtonPress = () => {
 
 &#x20;ANDROID/iOS ADID(IDFA)를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.
+**✓ 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.**
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- |
@@ -266,7 +303,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowHeader: boolean(optional)
 
-:heavy\_check\_mark: 해더 표시 여부를 설정합니다.
+**✓ 해더 표시 여부를 설정합니다.**
 
 | Name          | Type    | Description |
 | ------------- | ------- | ----------- |
@@ -274,7 +311,7 @@ const handleButtonPress = () => {
 
 #### 🎈headerTitle: string(optional)
 
-:heavy\_check\_mark: 해더의 타이틀을 설정합니다.
+**✓ 해더의 타이틀을 설정합니다.**
 
 | Name          | Type   | Description |
 | ------------- | ------ | ----------- |
@@ -282,7 +319,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowBackButton: boolean
 
-:heavy\_check\_mark: 해더 왼쪽에 표시되는 뒤로가기('<') 버튼의 표시 여부를 설정합니다.
+**✓ 해더 왼쪽에 표시되는 뒤로가기('<') 버튼의 표시 여부를 설정합니다.**
 
 | Name              | Type    | Description   |
 | ----------------- | ------- | ------------- |
@@ -290,7 +327,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowCloseButton: boolean
 
-:heavy\_check\_mark: 해더 오른쪽에 표시되는 닫기('X')  버튼의 표시 여부를 설정합니다.
+**✓ 해더 오른쪽에 표시되는 닫기('X')  버튼의 표시 여부를 설정합니다.**
 
 | Name               | Type    | Description     |
 | ------------------ | ------- | --------------- |

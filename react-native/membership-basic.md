@@ -25,8 +25,21 @@ description: 보물섬 ReactNative-Package을 사용하여 보물섬 메인화�
 
 ## 연동 순서
 
-1. Package(SDK) 초기화 하기(Initialize)
-2. 화면 호출 하기(Launch)
+{% stepper %}
+{% step %}
+### Package 초기화
+
+Package Initialize
+
+**✓ Membership:Basic**
+{% endstep %}
+
+{% step %}
+### 화면 호출
+
+**comicsLaunch ⇨ (success, message);**
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -200,7 +213,7 @@ const handleButtonPress = () => {
 
 &#x20;ANDROID/iOS ADID(IDFA)를 설정합니다.
 
-:heavy\_check\_mark: 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.
+**✓ 설정이 없을 경우 Package에서 별도 추출하여 사용합니다.**
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- |
@@ -210,7 +223,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowHeader: boolean(optional)
 
-:heavy\_check\_mark: 해더 표시 여부를 설정합니다.
+**✓ 해더 표시 여부를 설정합니다.**
 
 | Name          | Type    | Description |
 | ------------- | ------- | ----------- |
@@ -218,7 +231,7 @@ const handleButtonPress = () => {
 
 #### 🎈headerTitle: string(optional)
 
-:heavy\_check\_mark: 해더의 타이틀을 설정합니다.
+**✓ 해더의 타이틀을 설정합니다.**
 
 | Name          | Type   | Description |
 | ------------- | ------ | ----------- |
@@ -226,7 +239,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowBackButton: boolean
 
-:heavy\_check\_mark: 해더 왼쪽에 표시되는 뒤로가기('<') 버튼의 표시 여부를 설정합니다.
+**✓ 해더 왼쪽에 표시되는 뒤로가기('<') 버튼의 표시 여부를 설정합니다.**
 
 | Name              | Type    | Description   |
 | ----------------- | ------- | ------------- |
@@ -234,7 +247,7 @@ const handleButtonPress = () => {
 
 #### 🎈allowCloseButton: boolean
 
-:heavy\_check\_mark: 해더 오른쪽에 표시되는 닫기('X')  버튼의 표시 여부를 설정합니다.
+**✓ 해더 오른쪽에 표시되는 닫기('X')  버튼의 표시 여부를 설정합니다.**
 
 | Name               | Type    | Description     |
 | ------------------ | ------- | --------------- |

@@ -25,8 +25,9 @@ description: 보물섬 ReactNative-Package에서 제공하는 서비스를 연�
 {% step %}
 ### 플랫폼별 설정을 시작합니다.
 
-* Android Repository(원격 저장소) 설정
-* Pod Install & Privacy - Tracking Usage Description
+✓ Android Repository(원격 저장소) 설정
+
+✓ Pod Install & Privacy - Tracking Usage Description
 {% endstep %}
 {% endstepper %}
 
@@ -44,27 +45,27 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ### ReactNative
 
-:heavy\_check\_mark: ReactNative Version 0.73 이상에서 개발 되었습니다.
+**✓ ReactNative Version 0.73 이상에서 개발 되었습니다.**
 
 ### Android
 
-:heavy\_check\_mark: Android 5.0(API Level 21) 이상을 권장합니다.
+✓ Android 5.0(API Level 21) 이상을 권장합니다.
 
-:heavy\_check\_mark: Android gradle plugin -> 4.0.1 이상
+✓ Android gradle plugin → 4.0.1 이상
 
-:heavy\_check\_mark:️ Google Play 타겟 API 수준 -> Compile SDK Version 34(🔗[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+✓ Google Play 타겟 API 수준 → Compile SDK Version 34(🔗[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
 
-:heavy\_check\_mark:️ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
+✓ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
 
-:heavy\_check\_mark:️ Support AndroidX
+✓ Support AndroidX
 
 ### iOS
 
-:heavy\_check\_mark:️ iOS 15 이상을 권장합니다.
+✓ iOS 15 이상을 권장합니다.
 
-:heavy\_check\_mark:️ Swift 5 이상의 버전을 권장합니다.
+✓ Swift 5 이상의 버전을 권장합니다.
 
-:heavy\_check\_mark:️ 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
+✓ 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
 
 ***
 

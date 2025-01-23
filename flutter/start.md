@@ -7,12 +7,35 @@ description: 보물섬 Flutter-Package에서 제공하는 서비스를 연동하
 
 ## 연동 순서
 
-1. 요구 사항을 확인 합니다.
-2. 연동키를 발급 받습니다.
-3. 기본 모듈 적용&#x20;
-4. 플랫폼별 설정
-   1. Android 원격 저장소 설정
-   2. Pod Install & Privacy - Tracking Usage Description
+{% stepper %}
+{% step %}
+### 요구 사항 확인
+
+OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다.
+{% endstep %}
+
+{% step %}
+### 연동키 발급
+
+연동에 필요한 키를 영업 담당자를 통해 요청 합니다.
+{% endstep %}
+
+{% step %}
+### 기본 모듈 적용
+
+Flutter Package
+
+https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+{% endstep %}
+
+{% step %}
+### 플랫폼별 설정
+
+✓ Android 원격 저장소 설정
+
+✓ iOS Pod Install → Privacy - Tracking Usage Description & IDFA 동의 설정
+{% endstep %}
+{% endstepper %}
 
 ***
 
@@ -26,25 +49,31 @@ description: 보물섬 Flutter-Package에서 제공하는 서비스를 연동하
 OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다.
 {% endhint %}
 
+### Flutter
+
+**✓ Flutter 3.27.1을 이용해 개발 되었습니다.**
+
+**✓ Dart 3.6.0을 이용해 개발 되었습니다.**
+
 ### Android
 
-:heavy\_check\_mark: Android 5.0(API Level 21) 이상을 권장합니다.
+✓ Android 5.0(API Level 21) 이상을 권장합니다.
 
-:heavy\_check\_mark: Android gradle plugin -> 4.0.1 이상
+✓ Android gradle plugin → 4.0.1 이상
 
-:heavy\_check\_mark:️ Google Play 타겟 API 수준 -> Compile SDK Version 34(🔗[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+✓ Google Play 타겟 API 수준 → Compile SDK Version 34(🔗[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
 
-:heavy\_check\_mark:️ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
+✓ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
 
-:heavy\_check\_mark:️ Support AndroidX
+✓ Support AndroidX
 
 ### iOS
 
-:heavy\_check\_mark:️ iOS 15 이상을 권장합니다.
+✓ iOS 15 이상을 권장합니다.
 
-:heavy\_check\_mark:️ Swift 5 이상의 버전을 권장합니다.
+✓ Swift 5 이상의 버전을 권장합니다.
 
-:heavy\_check\_mark:️ 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
+✓ 최신 버전의 XCode 사용 권장 (개발 기준 15.4 버전 사용)
 
 ***
 
@@ -98,7 +127,7 @@ dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.c
 $ flutter pub get
 ```
 
-:heavy\_check\_mark: 이 명령어는 `pubspec.yaml` 파일에 정의된 패키지들을 설치하고, **pubspec.lock** 파일을 업데이트합니다.
+**✓ 이 명령어는 `pubspec.yaml` 파일에 정의된 패키지들을 설치하고, pubspec.lock 파일을 업데이트합니다.**
 
 ***
 
@@ -143,7 +172,7 @@ $ pod install
 
 보물섬 SDK는 개인 맞춤 광고를 제공하기 위해 사용자 식별 정보(IDFA(ADID))를 확인 합니다.
 
-**info.plist** 또는 **TARGETS -> Info -> Custom iOS Target Properties** 값을 업데이트 합니다.
+**info.plist** 또는 **TARGETS** → **Info** → **Custom iOS Target Properties** 값을 업데이트 합니다.
 
 <table><thead><tr><th width="319">Key</th><th>Value</th></tr></thead><tbody><tr><td>Privacy - Tracking Usage Description<br>NSUserTrackingUsageDescription</td><td>개인 맞춤 광고를 제공하기 위해 사용자 식별 정보를 사용합니다.</td></tr></tbody></table>
 

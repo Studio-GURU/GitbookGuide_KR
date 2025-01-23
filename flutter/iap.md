@@ -13,11 +13,11 @@ description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을
 
 ### 구글 플레이 스토어
 
-:heavy\_check\_mark: 기본 모듈 적용 후 별도 코드를 통한 연동 작업은 필요하지 않습니다.
+✓ 기본 모듈 적용 후 별도 코드를 통한 연동 작업은 필요하지 않습니다.
 
-:heavy\_check\_mark: 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
+✓ 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
 
-:heavy\_check\_mark: 보물섬 SDK는 Play 결제 라이브러리 7.0.0을 사용하고 있습니다.
+✓ 보물섬 SDK는 Play 결제 라이브러리 7.0.0을 사용하고 있습니다.
 
 ***
 
@@ -70,13 +70,13 @@ dependencies {
 
 ***
 
-:heavy\_check\_mark:  모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.
+✓  모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.
 
-:heavy\_check\_mark: 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
+✓ 인앱 구매 기능은 스토어에 유료 결제 관련 설정 및 구글 클라우드 서비스의 계정 정보 설정이 필요합니다.
 
-:heavy\_check\_mark: 보물섬 SDK는 StoreKit2 버전을 사용합니다.
+✓ 보물섬 SDK는 StoreKit2 버전을 사용합니다.
 
-:heavy\_check\_mark: 보물섬 SDK는 소비성 제품만 제공 됩니다.
+✓ 보물섬 SDK는 소비성 제품만 제공 됩니다.
 {% endhint %}
 
 ***
@@ -102,7 +102,7 @@ dependencies {
 
 ***
 
-:heavy\_check\_mark: pod '**TreasureIslandPlugPurchaseKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandPlugPurchaseKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -131,12 +131,12 @@ $ pod install
 
 ***
 
-:heavy\_check\_mark: [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
 
-**⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
+**⬇ Xcode** → **File** → **Add Package Dependencies...**&#x20;
 
 <figure><img src="../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 

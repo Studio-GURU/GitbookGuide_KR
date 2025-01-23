@@ -11,4 +11,4 @@ description: 보물섬 Unity-Package(SDK) History
 
 **release date. 2025.1.22**
 
-* 보물섬 릴리즈
+✓ 보물섬 릴리즈

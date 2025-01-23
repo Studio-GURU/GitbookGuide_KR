@@ -41,7 +41,7 @@ iOS SDK initialize
 {% step %}
 ### 프로필 설정
 
-Profile with **SignKey**&#x20;
+Profile with **SignKey & Register**
 {% endstep %}
 
 {% step %}
@@ -157,13 +157,13 @@ SDK 로그 출력 여부를 설정 합니다.
 {% step %}
 ### SignKey 생성
 
-HmacSHA256 방식을 통한 SignKey 생성
+**HmacSHA256** 방식을 통한 **SignKey** 생성
 {% endstep %}
 
 {% step %}
 ### Profile Builder 생성
 
-SignKey를 통한 Builder 인스턴스 생성
+**SignKey**를 통한 Builder 인스턴스 생성
 {% endstep %}
 
 {% step %}
@@ -200,7 +200,7 @@ Profile.Builder().register() 호출을 통한 프로필 등록
 
 **$timeStamp$nonce$암호화된User식별자**
 
-위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
+위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
 ***
 

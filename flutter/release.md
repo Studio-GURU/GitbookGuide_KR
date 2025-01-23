@@ -9,8 +9,9 @@ description: 보물섬 Flutter Package(SDK) History
 
 **release date. 2025.1.22**
 
-* 채널링 회원 연동 방식 변경
-* 코드 안정화
+✓ 채널링 회원 연동 방식 변경
+
+✓ 코드 안정화
 
 ***
 
@@ -18,4 +19,4 @@ description: 보물섬 Flutter Package(SDK) History
 
 **release date. 2024.12.24**
 
-* 보물섬 플러그인 릴리즈
+✓ 보물섬 플러그인 릴리즈
