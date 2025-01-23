@@ -16,7 +16,7 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 ***
 
-**✓**  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+<mark style="color:red;">**✓**</mark>  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
 {% endhint %}
 
 ***

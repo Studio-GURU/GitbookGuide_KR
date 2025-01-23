@@ -10,7 +10,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 ***
 
-**✓**  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+<mark style="color:red;">**✓**</mark>  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
 
 ✓ 메인 화면 진입 경로에 <mark style="color:red;">**sign parameter**</mark>를 전달하여 보물섬 메인화면에 진입합니다.
 {% endhint %}

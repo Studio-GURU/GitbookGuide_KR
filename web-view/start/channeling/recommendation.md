@@ -15,9 +15,11 @@ description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용
 
 ## Rcommendation Contents
 
-<mark style="color:green;">`GET`</mark> `https://api-{env}.treasurecomics.com/external/recommendation?sign={value}`
+```
+GET https://api-{env}.treasurecomics.com/external/recommendation?sign={value}
+```
 
-추천 컨텐츠 목록을 반환 합니다.
+**추천 컨텐츠 목록을 반환 합니다.**
 
 ### Security
 

@@ -17,18 +17,23 @@ OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 �
 
 ### ANDROID
 
-* Android 5.0(API Level 21) 이상을 권장합니다.
-* Android Studio -> 3.2 이상 (최신 버전의 IDE 사용을 권장합니다.)
-* Android gradle plugin -> 4.0.1 이상
-* &#x20;Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
-* Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
-* Support AndroidX
+✓ Android 5.0(API Level 21) 이상을 권장합니다.
+
+✓ Android Studio -> 3.2 이상 (최신 버전의 IDE 사용을 권장합니다.)
+
+✓ Android gradle plugin -> 4.0.1 이상
+
+✓ Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+
+✓ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
+
+✓ Support AndroidX
 
 ***
 
 ### iOS
 
-* &#x20;iOS 15 이상의 버전을 권장합니다.
+✓  iOS 15 이상의 버전을 권장합니다.
 
 ***
 

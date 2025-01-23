@@ -26,10 +26,13 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ***
 
-* 파트너사의 회원 정보를 사용하지 않습니다.
-* 보물섬의 별도 회원 정책을 사용합니다.
-* 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
-* 추가 웹뷰 설정을 확인 합니다.
+✓ 파트너사의 회원 정보를 사용하지 않습니다.
+
+✓ 보물섬의 별도 회원 정책을 사용합니다.
+
+✓ 카카오톡 로그인을 사용하며, 관련 설정이 필요합니다.
+
+✓ 추가 웹뷰 설정을 확인 합니다.
 {% endhint %}
 
 ## 메인화면 진 경로
@@ -62,16 +65,13 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 Android 11 이상에서 JavaScript SDK을 이용하여 카카오 로그인과 카카오톡 공유를 사용할 경우, 반드시 **AndroidManifest.xml**에 카카오톡의 패키지명을 명시해야 합니다. 카카오톡 패키지명 미등록 시, Android Framework에서 호출을 차단하여 해당 기능을 사용할 수 없습니다.
 
-{% code lineNumbers="true" %}
-```xml
-<manifest package="com.example.sample">
-    <queries>
-        <package android:name="com.kakao.talk" />
-    </queries>
+<pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;manifest package="com.example.sample">
+    &#x3C;queries>
+<strong>        &#x3C;package android:name="com.kakao.talk" />
+</strong>    &#x3C;/queries>
     ...
-</manifest>
-```
-{% endcode %}
+&#x3C;/manifest>
+</code></pre>
 
 #### 카카오톡 실행
 

@@ -14,7 +14,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ✓ 보물섬의 별도 회원 정책을 사용합니다.
 
-**✓**  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+<mark style="color:red;">**✓**</mark>  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
 {% endhint %}
 
 ## 메인화면 진 경로
