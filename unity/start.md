@@ -113,10 +113,6 @@ https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
 
 <div align="left"><figure><img src="../.gitbook/assets/unity_import_003.png" alt=""><figcaption></figcaption></figure></div>
 
-관련 모듈이 정상적으로 추가 되었는지 확인 합니다.
-
-<div align="left"><figure><img src="../.gitbook/assets/unity_import_004.png" alt=""><figcaption></figcaption></figure></div>
-
 ***
 
 ## 프로젝트 설정(Android)
