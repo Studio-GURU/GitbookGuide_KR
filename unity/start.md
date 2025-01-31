@@ -23,9 +23,19 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 {% step %}
 ### 기본 모듈 적용
 
-Unity Package
+Unity Package Manager
+{% endstep %}
 
-→ https://dl.cloudsmith.io/public/studio-guru/treasureisland-unity/raw/versions/null/TreasureIslnad-Unity-Plugin-${version}.unitypackage
+{% step %}
+### 프로젝트 설정
+
+android gradle & setting
+{% endstep %}
+
+{% step %}
+### 기타 설정
+
+android manifest 오류시 설정 처리
 {% endstep %}
 {% endstepper %}
 
@@ -81,19 +91,152 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ## 기본 모듈 적용
 
-### UnityPackage Download
+### Unity Package Manager (Git)
 
 ```
-wget https://dl.cloudsmith.io/public/studio-guru/treasureisland-unity/raw/versions/null/TreasureIslnad-Unity-Plugin-${version}.unitypackage
+https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
 ```
+
+Window > Unity Package Manager를 실행합니다.
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_import_001.png" alt=""><figcaption></figcaption></figure></div>
+
+Unity Package Manager > **install package from git URL**
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_import_002.png" alt=""><figcaption></figcaption></figure></div>
+
+GitHub URL을 입력합니다.
+
+```
+https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
+```
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_import_003.png" alt=""><figcaption></figcaption></figure></div>
+
+관련 모듈이 정상적으로 추가 되었는지 확인 합니다.
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_import_004.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
-### UnityPackage Import
+## 프로젝트 설정(Android)
 
-다운로드 받은 Package 파일을 "Assets > Import Package > Custom Package..." 메뉴를 통해 불러 옵니다.
+안드로이드 의존성 추가 작업을 진행합니다.
 
-<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 7.49.21.png" alt=""><figcaption></figcaption></figure></div>
+### Project Settings
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_aos_config_001.png" alt=""><figcaption></figcaption></figure></div>
+
+### Android Publishing Settings
+
+**✓ Build > Custom Main Gradle Template Check**
+
+**✓ Build > Custom Gradle Settings Template Check**
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_aos_config_002.png" alt=""><figcaption></figcaption></figure></div>
+
+### Template File 수정
+
+생성된 파일을 확인 합니다.
+
+<div align="left"><figure><img src="../.gitbook/assets/unity_aos_config_003.png" alt=""><figcaption></figcaption></figure></div>
+
+#### mainTemplate
+
+Android 관련 의존성을 추가 합니다.
+
+<pre><code><strong>implementation "kr.co.studioguru.sdk:treasureisland-bridge:$android-sdk-version"
+</strong></code></pre>
+
+<pre class="language-gradle" data-line-numbers><code class="lang-gradle">apply plugin: 'com.android.library'
+apply from: '../shared/keepUnitySymbols.gradle'
+...
+...
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+<strong>    // 의존성을 추가 합니다.
+</strong><strong>    implementation "kr.co.studioguru.sdk:treasureisland-bridge:$version"
+</strong>}
+...
+...
+</code></pre>
+
+#### settingTemplate
+
+Android 관련 의존성 Repository URL을 설정 합니다.
+
+<pre><code><strong>https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/
+</strong></code></pre>
+
+<pre class="language-gradle" data-line-numbers><code class="lang-gradle">...
+...
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        google()
+        mavenCentral()
+<strong>        // 의존성 관련 Repository URL 설정
+</strong><strong>        maven { url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/") }
+</strong>        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}
+...
+...
+</code></pre>
+
+***
+
+## Android Manifest Error
+
+### enableOnBackInvokeCallback 오류
+
+{% hint style="danger" %}
+Manifest merger failed : Attribute application@enableOnBackInvokedCallback value=(false) from \[:unityLibrary] AndroidManifest.xml:25:9-52 is also present at \[kr.co.studioguru.sdk:treasureisland-scene:25.1.21.21] AndroidManifest.xml:15:9-51 value=(true). Suggestion: add 'tools:replace="android:enableOnBackInvokedCallback"' to element at AndroidManifest.xml:3:3-83 to override.
+{% endhint %}
+
+Project Settings > Android Publishing Settings
+
+**✓ Build > Custom Launcher Manifest Check**
+
+<figure><img src="../.gitbook/assets/unity_aos_config_error.png" alt=""><figcaption></figcaption></figure>
+
+생성된 파일에 아래의 내용을 참고하여 수정 합니다.
+
+<pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;?xml version="1.0" encoding="utf-8"?>
+&#x3C;manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="preferExternal">
+    &#x3C;supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"/>
+
+    &#x3C;application 
+<strong>        tools:replace="android:enableOnBackInvokedCallback"
+</strong><strong>        android:enableOnBackInvokedCallback="false"
+</strong>        android:label="@string/app_name"
+        android:icon="@mipmap/app_icon"/>
+&#x3C;/manifest>
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
