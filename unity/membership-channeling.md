@@ -49,6 +49,22 @@ Profile with **SignKey & Register**
 
 ***
 
+## Namespace
+
+iOS / Android 별도의 Namespace를 사용합니다.
+
+**✓ iOS** → **TreasureIslandPlugin.iOS**
+
+**✓ Android** → **TreasureIslandPlugin.Android**
+
+```csharp
+#if UNITY_IOS
+...
+#elif UNITY_ANDROID
+...
+#endif
+```
+
 ## Callback
 
 모든 함수는 Completion 결과를 반환합니다.
@@ -102,9 +118,7 @@ public InitModel(
 
 ### StatusbarOptionModel
 
-{% code lineNumbers="true" %}
-```csharp
-// define
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">// define
 public class StatusbarOptionModel {
   // StatusBar 색상을 설정 합니다.색상 HEX값을 사용합니다. #FFFFFF
   public string statusbarColor;
@@ -114,18 +128,22 @@ public class StatusbarOptionModel {
 }
 
 // usage
-ComicsModel.StatusbarOptionModel model = new(
+<strong>#if UNITY_IOS
+</strong>TreasureIslandPlugin.iOS.ComicsModel.StatusbarOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
-```
-{% endcode %}
+<strong>#elif UNITY_ANDROID
+</strong>TreasureIslandPlugin.Android.ComicsModel.StatusbarOptionModel model = new(
+  channelName: "보물섬",
+  notificationIconName: "app_icon"
+);
+<strong>#endif
+</strong></code></pre>
 
 ### NotificationOptionModel
 
-{% code lineNumbers="true" %}
-```csharp
-// define
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">// define
 public class NotificationOptionModel {
   // 푸시알림의 채널명을 설정합니다.
   // 별도 설정이 없는 경우 기본값인 '보물섬'으로 표시됩니다.
@@ -136,12 +154,18 @@ public class NotificationOptionModel {
 }
 
 // usage
-ComicsModel.NotificationOptionModel model = new(
+<strong>#if UNITY_IOS
+</strong>TreasureIslandPlugin.iOS.ComicsModel.NotificationOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
-```
-{% endcode %}
+<strong>#elif UNITY_ANDROID
+</strong>TreasureIslandPlugin.Android.ComicsModel.NotificationOptionModel model = new(
+  channelName: "보물섬",
+  notificationIconName: "app_icon"
+);
+<strong>#endif
+</strong></code></pre>
 
 ### ComicsScript.Initialize
 
@@ -159,28 +183,52 @@ ComicsModel.NotificationOptionModel model = new(
 고유 식별자 및 고유 식별자 검증키는 영업팀을 통해 별도 전달 됩니다.&#x20;
 {% endhint %}
 
-<pre class="language-csharp" data-line-numbers><code class="lang-csharp">ComicsModel.InitModel entity = new(
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp"><strong>#if UNITY_IOS
+</strong>TreasureIslandPlugin.iOS.ComicsModel.InitModel entity = new(
     appId: "harustory",
     appSecret: "haruSecret",
-<strong>    membership: ComicsModel.Membership.Channeling,
-</strong>    allowLog: true,
-<strong>    environment: ComicsModel.Environment.Live,
-</strong>    notificationOption: new ComicsModel.NotificationOptionModel(
+    membership: TreasureIslandPlugin.iOS.ComicsModel.Membership.Basic,
+    allowLog: true,
+    environment: TreasureIslandPlugin.iOS.ComicsModel.Environment.Live,
+    notificationOption: new TreasureIslandPlugin.iOS.ComicsModel.NotificationOptionModel(
         channelName: "보물섬",
         notificationIconName: "app_icon"                          
     ),
-    statusbarOption: new ComicsModel.StatusbarOptionModel(
+    statusbarOption: new TreasureIslandPlugin.iOS.ComicsModel.StatusbarOptionModel(
         statusbarColor: "#FFFFFF",
         isWindwoLight: false
     )
 );
 
 //Action&#x3C;ComicsModel.Completion> completionHandler
-ComicsScript.Initialize(entity: entity, completionHandler => {
+TreasureIslandPlugin.iOS.ComicsScript.Initialize(entity: entity, completionHandler => {
     Debug.Log("###completionHandler => " + completionHandler.success);
     Debug.Log("###completionHandler => " + completionHandler.message);
 });            
-</code></pre>
+<strong>#elif UNITY_ANDROID
+</strong>TreasureIslandPlugin.Android.ComicsModel.InitModel entity = new(
+    appId: "harustory",
+    appSecret: "haruSecret",
+    membership: TreasureIslandPlugin.Android.ComicsModel.Membership.Basic,
+    allowLog: true,
+    environment: TreasureIslandPlugin.Android.ComicsModel.Environment.Live,
+    notificationOption: new TreasureIslandPlugin.Android.ComicsModel.NotificationOptionModel(
+        channelName: "보물섬",
+        notificationIconName: "app_icon"                          
+    ),
+    statusbarOption: new TreasureIslandPlugin.Android.ComicsModel.StatusbarOptionModel(
+        statusbarColor: "#FFFFFF",
+        isWindwoLight: false
+    )
+);
+
+//Action&#x3C;ComicsModel.Completion> completionHandler
+TreasureIslandPlugin.Android.ComicsScript.Initialize(entity: entity, completionHandler => {
+    Debug.Log("###completionHandler => " + completionHandler.success);
+    Debug.Log("###completionHandler => " + completionHandler.message);
+});
+<strong>#endif
+</strong></code></pre>
 
 ***
 
@@ -242,6 +290,7 @@ HmacSHA256 방식을 통한 **SignKey** 생성
 
 ### ComicsScript.SetProfile
 
+{% code lineNumbers="true" %}
 ```csharp
 // define
 public class ProfileModel {
@@ -256,17 +305,31 @@ public class ProfileModel {
 }
 
 // usage
-ComicsModel.ProfileModel entity = new(
+#if UNITY_IOS
+TreasureIslandPlugin.iOS.ComicsModel.ProfileModel entity = new(
   signKey: $SignKey,
   gender: Gender.Male,
   birthYear: 2000
 );
 // Action<ComicsModel.Completion> completionHandler
-ComicsScript.SetProfile(entity: entity, completionHandler => {
+TreasureIslandPlugin.iOS.ComicsScript.SetProfile(entity: entity, completionHandler => {
     Debug.Log("###completionHandler => " + completionHandler.success);
     Debug.Log("###completionHandler => " + completionHandler.message);
 });
+#elif UNITY_ANDROID
+TreasureIslandPlugin.Android.ComicsModel.ProfileModel entity = new(
+  signKey: $SignKey,
+  gender: Gender.Male,
+  birthYear: 2000
+);
+// Action<ComicsModel.Completion> completionHandler
+TreasureIslandPlugin.Android.ComicsScript.SetProfile(entity: entity, completionHandler => {
+    Debug.Log("###completionHandler => " + completionHandler.success);
+    Debug.Log("###completionHandler => " + completionHandler.message);
+});
+#endif
 ```
+{% endcode %}
 
 ***
 
@@ -274,8 +337,7 @@ ComicsScript.SetProfile(entity: entity, completionHandler => {
 
 ### ComicsScript.Launch
 
-```csharp
-// define
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">// define
 public class LaunchModel{
     // 광고 아이디 (빈값 사용시 Package에서 추출)
     public string advertisingId;
@@ -283,30 +345,41 @@ public class LaunchModel{
     public bool allowHeader;
     // 해더 타이틀
     public string headerTitle;
-    // 해더의 왼쪽에 표시되는 뒤로가기 버튼('<') 표시 여부 
+    // 해더의 왼쪽에 표시되는 뒤로가기 버튼('&#x3C;') 표시 여부 
     public bool allowBackButton;
     // 해더의 오른쪽에 표시되는 닫기('X') 표시 여부
     public bool allowCloseButton;
 }
 
 // usage
-..
-..
-ComicsModel.LaunchModel entity = new(
+<strong>#if UNITY_IOS
+</strong>TreasureIslandPlugin.iOS.ComicsModel.LaunchModel entity = new(
     advertisingId: "0000-0000-0000",
     allowHeader: false,
     headerTitle: "",
     allowBackButton: false,
     allowCloseButton: false
 );
-// Action<ComicsModel.Completion> completionHandler
-ComicsScript.Launch(entity: entity, completionHandler => {
+// Action&#x3C;ComicsModel.Completion> completionHandler
+TreasureIslandPlugin.iOS.ComicsScript.Launch(entity: entity, completionHandler => {
     Debug.Log("###completionHandler => " + completionHandler.success);
     Debug.Log("###completionHandler => " + completionHandler.message);
 });
-..
-..
-```
+<strong>#elif UNITY_ANDROID
+</strong>TreasureIslandPlugin.Android.ComicsModel.LaunchModel entity = new(
+    advertisingId: "0000-0000-0000",
+    allowHeader: false,
+    headerTitle: "",
+    allowBackButton: false,
+    allowCloseButton: false
+);
+// Action&#x3C;ComicsModel.Completion> completionHandler
+TreasureIslandPlugin.Android.ComicsScript.Launch(entity: entity, completionHandler => {
+    Debug.Log("###completionHandler => " + completionHandler.success);
+    Debug.Log("###completionHandler => " + completionHandler.message);
+});
+<strong>#endif
+</strong></code></pre>
 
 ***
 

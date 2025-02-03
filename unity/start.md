@@ -97,11 +97,11 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
 ```
 
-Window > Unity Package Manager를 실행합니다.
+Window → Unity Package Manager를 실행합니다.
 
 <div align="left"><figure><img src="../.gitbook/assets/unity_import_001.png" alt=""><figcaption></figcaption></figure></div>
 
-Unity Package Manager > **install package from git URL**
+Unity Package Manager → **install package from git URL**
 
 <div align="left"><figure><img src="../.gitbook/assets/unity_import_002.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -125,9 +125,9 @@ https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
 
 ### Android Publishing Settings
 
-**✓ Build > Custom Main Gradle Template Check**
+**✓ Build** → **Custom Main Gradle Template Check**
 
-**✓ Build > Custom Gradle Settings Template Check**
+**✓ Build** → **Custom Gradle Settings Template Check**
 
 <div align="left"><figure><img src="../.gitbook/assets/unity_aos_config_002.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -195,7 +195,7 @@ Manifest merger failed : Attribute application@enableOnBackInvokedCallback value
 
 Project Settings > Android Publishing Settings
 
-**✓ Build > Custom Launcher Manifest Check**
+**✓ Build** → **Custom Launcher Manifest Check**
 
 <figure><img src="../.gitbook/assets/unity_aos_config_error.png" alt=""><figcaption></figcaption></figure>
 
