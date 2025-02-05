@@ -11,12 +11,12 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 **기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.**
 {% endhint %}
 
-{% content-ref url="../../webview-config/android-webview.md" %}
-[android-webview.md](../../webview-config/android-webview.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="../../webview-config/ios-wkwebview.md" %}
-[ios-wkwebview.md](../../webview-config/ios-wkwebview.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ***

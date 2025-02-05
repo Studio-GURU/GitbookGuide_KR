@@ -17,9 +17,7 @@
   * [채널회원 연동](web-view/start/channeling/README.md)
     * [추천 컨텐츠 목록 조회](web-view/start/channeling/recommendation.md)
     * [최근 본 작품 조회](web-view/start/channeling/recently.md)
-* [웹뷰 설정 가이드](web-view/webview-config/README.md)
-  * [Android WebView](web-view/webview-config/android-webview.md)
-  * [iOS WKWebView](web-view/webview-config/ios-wkwebview.md)
+* [웹뷰 설정 가이드](web-view/webview-config.md)
 
 ## ANDROID SDK
 
