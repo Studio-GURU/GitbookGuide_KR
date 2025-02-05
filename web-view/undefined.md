@@ -9,7 +9,7 @@ icon: comments
 
 ✓ 웹에서 네이티브로 요청하는 Javascript interface 정보입니다.
 
-✓ **BridgeName → "treasureKit"**
+**✓ BridgeName → "treasureKit"**
 
 ✓ Javascript interface 호출은 "postMessage" 메서드만 사용하며, 미리 정의한 JSONObject 값으로 전달됩니다.
 
