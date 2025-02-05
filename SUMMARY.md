@@ -18,6 +18,7 @@
     * [추천 컨텐츠 목록 조회](web-view/start/channeling/recommendation.md)
     * [최근 본 작품 조회](web-view/start/channeling/recently.md)
 * [웹뷰 설정 가이드](web-view/webview-config.md)
+* [자바스크립트 통신](web-view/undefined.md)
 
 ## ANDROID SDK
 
@@ -25,7 +26,7 @@
 * [시작하기](android-sdk/start.md)
 * [채널회원 미연동](android-sdk/membership-basic.md)
 * [채널회원 연동](android-sdk/membership-channeling.md)
-* [Options](android-sdk/options.md)
+* [헤더 옵션](android-sdk/options.md)
 * [보물섬 추가 기능](android-sdk/plug/README.md)
   * [보물섬 알림 서비스@PLUG](android-sdk/plug/notification.md)
   * [보물섬 인앱 구매 서비스@PLUG](android-sdk/plug/iap/README.md)
@@ -40,7 +41,7 @@
 * [시작하기](ios-sdk/start.md)
 * [채널회원 미연동](ios-sdk/membership-basic.md)
 * [채널회원 연동](ios-sdk/membership-channeling.md)
-* [Options](ios-sdk/options.md)
+* [헤더 옵션](ios-sdk/options.md)
 * [보물섬 추가 기능](ios-sdk/plug/README.md)
   * [보물섬 알림 서비스@PLUG](ios-sdk/plug/notification.md)
   * [보물섬 인앱 구매 서비스@PLUG](ios-sdk/plug/iap/README.md)
