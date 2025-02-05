@@ -18,7 +18,7 @@
     * [추천 컨텐츠 목록 조회](web-view/start/channeling/recommendation.md)
     * [최근 본 작품 조회](web-view/start/channeling/recently.md)
 * [웹뷰 설정 가이드](web-view/webview-config.md)
-* [자바스크립트 통신](web-view/undefined.md)
+* [자바스크립트 통신](web-view/javascriptinterface.md)
 
 ## ANDROID SDK
 
