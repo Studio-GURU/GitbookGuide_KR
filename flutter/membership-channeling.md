@@ -208,7 +208,9 @@ HmacSHA256 방식을 통한 **SignKey** 생성
 
 ***
 
-**$timeStamp$nonce$암호화된User식별자**
+<mark style="color:red;">**{} 표현은 변수 입니다 ({}값이 포함되지 않도록 주의 바랍니다.)**</mark>
+
+**{timeStamp}{nonce}{암호화된User식별자}**
 
 위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
 
