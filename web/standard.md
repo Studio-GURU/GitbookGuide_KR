@@ -22,8 +22,11 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 **✓ 웹뷰(인앱 브라우져)에 아래의 주소를 호출합니다.**
 
 ```
-메인화면 주소 : https://{channel}.treasurecomics.com/
-오늘의추천 주소 : 
+메인화면
+https://{channel}.treasurecomics.com/
+
+오늘의추천
+https://{channel}.treasurecomics.com/ 
 ```
 
 **✓** `{channel}` 값은 **별도 전달** 됩니다.

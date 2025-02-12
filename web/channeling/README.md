@@ -15,15 +15,16 @@ description: 식보물섬 채널링 서비스 연동을 위한 방법을 안내�
 ✓ 메인 화면 진입 경로에 <mark style="color:red;">**sign parameter**</mark>를 전달하여 보물섬 메인화면에 진입합니다.
 {% endhint %}
 
-## 메인화면 진인 경로
+## 웹뷰에 보물섬 URL 호출
 
 ```
-https://{env}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{env}.treasurecomics.com/main
+메인화면
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/mainhttps://{calasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
 ```
 
 **✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
 
-**✓** `{env}` 값은 **영업팀을 통해 별도 전달** 됩니다.
+**✓** `{channel}` 값은 **별도 전달** 됩니다.
 
 ### **signature 생성 하기**
 
@@ -56,6 +57,11 @@ https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8
 ```
 
 ***
+
+## 사이트이동 토스트 표시
+
+**✓ 앱내에서 웹툰 웹사이트로 이동했다라는 안내 토스트를 사용자에게 노출합니다.**\
+예) "웹툰 사이트로 이동했어요"
 
 <figure><img src="../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
 
