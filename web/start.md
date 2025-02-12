@@ -23,14 +23,14 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 ## 서비스 소개
 
-### [보물섬 서비스](standard.md)
+### [채널회원 미연동 방식](start.md#undefined-1)
 
 * 파트너사의 회원 정보를 사용하지 않습니다.
 * 보물섬의 별도 회원 정책을 사용합니다.
 
 ***
 
-### [보물섬 채널링 서비스](channeling/)
+### [채널회원 연동 방식](channeling/)
 
 * 파트너사의 회원 정보를 연동합니다.
 * 파트너사의 회원 정책을 사용합니다.
@@ -38,5 +38,5 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 #### 컨텐트 조회
 
-* &#x20;[추천 컨텐트 목록 조회](channeling/recommendation.md)
+* [추천 컨텐트 목록 조회](channeling/recommendation.md)
 * [최근 본 작품 조회](channeling/recently.md)
