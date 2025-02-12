@@ -1,9 +1,9 @@
 ---
 icon: thumbs-up
-description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용 방법에 대해 알아 보세요.
+description: 보물섬이 제공하는 "오늘의추천" 페이지를 사용하지 않고, 별도 화면을 구성하려면 API 이용하시면 됩니다.
 ---
 
-# 추천 컨텐츠 목록 조회
+# \[API] 추천 컨텐츠 목록 조회
 
 ## Version
 
@@ -197,13 +197,13 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### 예시1
 
-<div align="left"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>예시1</p></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>예시1</p></figcaption></figure></div>
 
 ***
 
 ### 예시2
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
