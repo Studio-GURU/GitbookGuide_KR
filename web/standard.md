@@ -23,7 +23,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 ```
 메인화면
-https://{channel}.treasurecomics.com/
+https://{channel}.treasurecomics.com/main
 
 오늘의추천
 https://{channel}.treasurecomics.com/recommendation/{channel}
