@@ -20,7 +20,7 @@ description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용
 GET https://api-test.treasurecomics.com/external/recommendation?sign={value}
 
 라이브
-GET https://api.treasurecomics.com/external/recommendation?sign={value}={value}
+GET https://api.treasurecomics.com/external/recommendation?sign={value}
 ```
 
 **추천 컨텐츠 목록을 반환 합니다.**
