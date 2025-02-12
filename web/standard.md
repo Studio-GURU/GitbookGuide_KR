@@ -26,7 +26,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 https://{channel}.treasurecomics.com/
 
 오늘의추천
-https://{channel}.treasurecomics.com/ 
+https://{channel}.treasurecomics.com/recommendation/{channel}
 ```
 
 **✓** `{channel}` 값은 **별도 전달** 됩니다.
