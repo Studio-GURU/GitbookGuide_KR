@@ -37,7 +37,7 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 
 **{timeStamp}{nonce}{userID}**
 
-위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
+위 값을 HmacSHA256 Hash → Base64 Url Encoding을 통해 Signature를 생성합니다.
 
 ***
 
@@ -50,7 +50,7 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 
 
 
-<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.userID.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userID  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestamp.nonce.userID.signature</code></p><hr><p><mark style="background-color:red;">timestamp, nonce, userID, signature 4가지 값을 순서대로 구분자 .(full stop)을 붙여 sign 값을 생성합니다.</mark></p></td></tr></tbody></table>
 
 ### 사용 예
 
@@ -69,9 +69,7 @@ https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8
 
 ***
 
-## 메인화면
 
-<div align="left"><figure><img src="../../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
 
 
 
