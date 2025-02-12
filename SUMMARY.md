@@ -4,7 +4,7 @@
 
 ## WEB
 
-* [보물섬 시작하기](web/start.md)
+* [시작하기](web/start.md)
 * [채널회원 미연동 방식](web/standard.md)
 * [채널회원 연동 방식](web/channeling/README.md)
   * [추천 컨텐츠 목록 조회](web/channeling/recommendation.md)
