@@ -16,7 +16,11 @@ description: 유저가 조회한 컨텐츠 기반으로 추천 목록 API 사용
 ## Rcommendation Contents
 
 ```
-GET https://api-{env}.treasurecomics.com/external/recommendation?sign={value}
+테스트
+GET https://api-test.treasurecomics.com/external/recommendation?sign={value}
+
+라이브
+GET https://api.treasurecomics.com/external/recommendation?sign={value}={value}
 ```
 
 **추천 컨텐츠 목록을 반환 합니다.**
@@ -57,9 +61,7 @@ GET https://api-{env}.treasurecomics.com/external/recommendation?sign={value}
 * user 식별자 -> 회원 구분이 가능한 식별자
 {% endhint %}
 
-<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p> <code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
-
-
+<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>text</td><td>true</td><td><p><code>timestamp.nonce.userID.signature</code></p><hr><p><mark style="background-color:red;">timestamp, nonce, userID, signature 4가지 값을 순서대로 구분자 .(full stop)을 붙여 sign 값을 생성합니다.</mark></p><hr><p><mark style="background-color:yellow;">sign값은 보안상 채널사의 서버에서 생성하며 보물섬에서는 sign 값이 1)사용된것인지 2)생성한지 5분이 지난 값인지 확인하여 유효하지 않음으로 판단할 수 있음으로 사용자의 액션이 있을 시 마다 즉시 생성하여 호출하도록 개발합니다.</mark></p></td></tr><tr><td>adid</td><td>text</td><td>false</td><td>광고식별값 : android ADID / iOS IDFA</td></tr><tr><td>gender</td><td>numeric</td><td>false</td><td>성별 : 1=남자 / 2=여자</td></tr><tr><td>age</td><td>numeric</td><td>false</td><td>나이</td></tr><tr><td>isAdult</td><td>numeric</td><td>false</td><td>성인여부: 0=성인아님 / 1=성인</td></tr></tbody></table>
 
 ```
 // get usage example
@@ -191,7 +193,7 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ## 추천 컨텐츠 목록 구현 화면 예시
 
-<div align="left"><figure><img src="../../../.gitbook/assets/bms_recommendation_2.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/bms_recommendation_2.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 
 
