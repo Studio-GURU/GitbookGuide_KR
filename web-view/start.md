@@ -43,8 +43,8 @@ OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 �
 
 ### 실행하기
 
-* :link:[recommendation.md](channeling/recommendation.md "mention")
-* :link:[recently.md](channeling/recently.md "mention")
+* :link:[recommendation.md](recommendation.md "mention")
+* :link:[recently.md](recently.md "mention")
 
 ***
 
