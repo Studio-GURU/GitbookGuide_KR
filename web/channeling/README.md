@@ -19,7 +19,7 @@ description: 식보물섬 채널링 서비스 연동을 위한 방법을 안내�
 
 ```
 메인화면
-https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/mainhttps://{calasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
 ```
 
 **✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
