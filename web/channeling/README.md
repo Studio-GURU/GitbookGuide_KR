@@ -59,16 +59,7 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8a782c2604883924.lymanTest.M21MZORoc4NbVzq1ZaSC8LgcOKYH9SBIljHYjVOfX5o%3D&returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fmain
 ```
 
-***
 
-## 사이트이동 토스트 표시
-
-**✓ 앱내에서 웹툰 웹사이트로 이동했다라는 안내 토스트를 사용자에게 노출합니다.**\
-예) "웹툰 사이트로 이동했어요"
-
-<figure><img src="../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
-
-***
 
 
 
