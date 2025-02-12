@@ -14,12 +14,109 @@ TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 
 ***
 
+## 웹뷰 셋팅
+
+**✓ 웹뷰 셋팅 값 설정에 대한 방법을 안내합니다.**
+
+{% hint style="info" %}
+웹뷰 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
+
+***
+
+<mark style="color:red;">**✓ WebView(WKWebView) Javascript 및 DomStorage는 기본적으로 허용이 필수 입니다.**</mark>
+{% endhint %}
+
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}
-## 컨텐츠 보호
+{% tabs %}
+{% tab title="KOTLIN" %}
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">with(webView.settings) {
+<strong>    // ---------- 필수 ---------- //
+</strong><strong>    domStorageEnabled = true // DOM 스토리지 활성화
+</strong><strong>    javaScriptEnabled = true // JavaScript 사용 가능
+</strong><strong>    javaScriptCanOpenWindowsAutomatically = true // JavaScript에서 새 창 열기 허용
+</strong><strong>    setSupportMultipleWindows(true) // 다중 창 지원
+</strong><strong>    mediaPlaybackRequiresUserGesture = false // 사용자 제스처 없이 미디어 재생 허용
+</strong>    // ---------- 옵션 ---------- //
+    databaseEnabled = true // 데이터베이스 사용 가능
+    cacheMode = WebSettings.LOAD_DEFAULT // 기본 캐시 모드 설정
+    textZoom = 100 // 텍스트 확대/축소 비율 설정
+    setSupportZoom(false) // 확대/축소 지원 비활성화
+    displayZoomControls = false // 확대/축소 컨트롤 비활성화
+    defaultTextEncodingName = "utf-8" // 기본 텍스트 인코딩 설정
+    loadWithOverviewMode = true // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
+    mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)    
+    // WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
+    // WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
+    // WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
+    if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
+        // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
+        layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
+    }
+}
+</code></pre>
+{% endtab %}
 
-스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.
+{% tab title="JAVA" %}
+<pre class="language-java" data-line-numbers><code class="lang-java">WebSettings webSettings = wView.getSettings();    
+<strong>// ---------- 필수 ---------- //
+</strong><strong>webSettings.setDomStorageEnabled(true); // DOM 스토리지 활성화
+</strong><strong>webSettings.setJavaScriptEnabled(true); // JavaScript 사용 가능
+</strong><strong>webSettings.setJavaScriptCanOpenWindowsAutomatically(true); // JavaScript에서 새 창 열기 허용
+</strong><strong>webSettings.setSupportMultipleWindows(true); // 다중 창 지원
+</strong><strong>webSettings.setMediaPlaybackRequiresUserGesture(false); // 사용자 제스처 없이 미디어 재생 허용
+</strong>// ---------- 옵션 ---------- //
+webSettings.setDatabaseEnabled(true); // 데이터베이스 사용 가능
+webSettings.setCacheMode(WebSettings.LOAD_DEFAULT); // 기본 캐시 모드 설정
+webSettings.setTextZoom(100); // 텍스트 확대/축소 비율 설정
+webSettings.setSupportZoom(false); // 확대/축소 지원 비활성화
+webSettings.setDisplayZoomControls(false); // 확대/축소 컨트롤 비활성화
+webSettings.setDefaultTextEncodingName("utf-8"); // 기본 텍스트 인코딩 설정
+webSettings.setLoadWithOverviewMode(true); // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
+webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)    
+// WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
+// WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
+// WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
+if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
+    // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
+    webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 레이아웃 알고리즘 설정 (오래된 버전 지원)
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+{% endtab %}
 
+{% tab title="iOS(WKWebView)" %}
+{% code lineNumbers="true" %}
+```swift
+// ---------- 필수 ---------- //
+// WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
+let configuration = WKWebViewConfiguration()
+// JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
+configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+// 기본적인 웹사이트 데이터 저장소를 설정합니다.
+// 캐시, 쿠키, 세션 저장 등의 데이터를 관리하는 역할을 합니다.
+configuration.websiteDataStore = WKWebsiteDataStore.default()
+// Javascript 허용을 설정합니다.
+// 버전에 따라 분기 처리하여 Javascript를 허용합니다.
+if #available(iOS 14.0, *) {
+    configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+} else {
+    configuration.preferences.javaScriptEnabled = true
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+***
+
+## 웹뷰 컨텐츠 보호
+
+**✓ 스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
+
+{% tabs %}
+{% tab title="ANDROID(WebView)" %}
 보물섬을 감싸고 있는 Activity에 FLAG\_SECURE 적용을 통해 쉽게 스크린 캡춰 방지를 할 수 있습니다.
 
 {% tabs %}
@@ -46,12 +143,52 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 </code></pre>
 {% endtab %}
 {% endtabs %}
+{% endtab %}
+
+{% tab title="iOS(WKWebView)" %}
+`UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡춰를 할 수 없도록 우회 처리해야 합니다.
+
+{% code lineNumbers="true" %}
+```swift
+private let preventedView = UITextField()
+
+func applySecureContent() {
+    self.addSubview(self.preventedView)
+    self.preventedView.backgroundColor = .clear
+    self.preventedView.isSecureTextEntry = true
+    self.preventedView.isUserInteractionEnabled = false
+    self.preventedView.translatesAutoresizingMaskIntoConstraints = false
+    self.preventedView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    self.preventedView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
+    self.preventedView.leftViewMode = .always
+    self.layer.superlayer?.addSublayer(self.preventedView.layer)
+    self.preventedView.layer.sublayers?.last?.addSublayer(self.layer)
+}
+
+//..
+//..
+override func viewDidAppear(_ animated: Bool) {
+    DispatchQueue.main.async {
+        applySecureContent()
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
 ## Scheme 처리
 
-WebView::shouldOverrideUrlLoading을 통해 전달된 scheme 처리에 대한 방법을 가이드합니다.
+{% hint style="info" %}
+웹뷰 구성에 필요한 **Scheme** 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
+{% endhint %}
+
+{% tabs %}
+{% tab title="ANDROID(WebView)" %}
+✓ WebView::shouldOverrideUrlLoading을 통해 전달된 scheme 처리에 대한 방법을 가이드합니다.
 
 ### intent
 
@@ -184,46 +321,6 @@ private fun actionTelTask(viewContext: Context, uri: Uri): Boolean {
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-## 컨텐츠 보호
-
-`UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡춰를 할 수 없도록 우회 처리해야 합니다.
-
-{% code lineNumbers="true" %}
-```swift
-private let preventedView = UITextField()
-
-func applySecureContent() {
-    self.addSubview(self.preventedView)
-    self.preventedView.backgroundColor = .clear
-    self.preventedView.isSecureTextEntry = true
-    self.preventedView.isUserInteractionEnabled = false
-    self.preventedView.translatesAutoresizingMaskIntoConstraints = false
-    self.preventedView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    self.preventedView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-    self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
-    self.preventedView.leftViewMode = .always
-    self.layer.superlayer?.addSublayer(self.preventedView.layer)
-    self.preventedView.layer.sublayers?.last?.addSublayer(self.layer)
-}
-
-//..
-//..
-override func viewDidAppear(_ animated: Bool) {
-    DispatchQueue.main.async {
-        applySecureContent()
-    }
-}
-```
-{% endcode %}
-
-***
-
-## Scheme 처리 <a href="#scheme" id="scheme"></a>
-
-{% hint style="info" %}
-웹뷰 구성에 필요한 Scheme 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
-{% endhint %}
-
 ### Javascript window.open
 
 WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
