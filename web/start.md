@@ -3,7 +3,7 @@ icon: star-shooting
 description: 보물섬에서 제공하는 서비스를 일반 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 ---
 
-# 보물섬 시작하기
+# 시작하기
 
 {% hint style="warning" %}
 요구 사항은 보물섬 API의 최신 상태를 기준으로 명시됩니다.
@@ -30,7 +30,7 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 ***
 
-### [채널회원 연동 방식](channeling/)
+### [채널회원 연동 방식](channeling.md)
 
 * 파트너사의 회원 정보를 연동합니다.
 * 파트너사의 회원 정책을 사용합니다.
@@ -38,5 +38,5 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 #### 컨텐트 조회
 
-* [추천 컨텐트 목록 조회](channeling/recommendation.md)
-* [최근 본 작품 조회](channeling/recently.md)
+* [추천 컨텐트 목록 조회](recommendation.md)
+* [최근 본 작품 조회](recently.md)

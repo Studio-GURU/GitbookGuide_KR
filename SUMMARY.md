@@ -6,17 +6,17 @@
 
 * [시작하기](web/start.md)
 * [채널회원 미연동 방식](web/standard.md)
-* [채널회원 연동 방식](web/channeling/README.md)
-  * [추천 컨텐츠 목록 조회](web/channeling/recommendation.md)
-  * [최근 본 작품 조회](web/channeling/recently.md)
+* [채널회원 연동 방식](web/channeling.md)
+* [\[채널회원API\] 추천 컨텐츠 목록 조회](web/recommendation.md)
+* [\[채널회원API\] 최근 본 작품 조회](web/recently.md)
 
 ## WEB VIEW
 
 * [시작하기](web-view/start.md)
 * [채널회원 미연동 방식](web-view/standard.md)
 * [채널회원 연동 방식](web-view/channeling/README.md)
-  * [추천 컨텐츠 목록 조회](web-view/channeling/recommendation.md)
-  * [최근 본 작품 조회](web-view/channeling/recently.md)
+  * [\[API\] 추천 컨텐츠 목록 조회](web-view/channeling/recommendation.md)
+  * [\[API\] 최근 본 작품 조회](web-view/channeling/recently.md)
 * [웹뷰 설정 가이드](web-view/webview-config.md)
 * [자바스크립트 통신](web-view/javascriptinterface.md)
 
