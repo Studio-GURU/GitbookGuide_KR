@@ -16,7 +16,11 @@ description: 최근 본 작품을 조회하는 API 사용 방법을 알아 보�
 ## Recent View Contents
 
 ```
-GET https://api-{env}.treasurecomics.com/external/recentView?sign={value}
+테스트
+GET https://api-test.treasurecomics.com/external/recentView?sign={value}
+
+라이브
+GET https://api.treasurecomics.com/external/recentView?sign={value}
 ```
 
 유저의 최근 감상 컨텐츠 목록을 반환 합니다.
