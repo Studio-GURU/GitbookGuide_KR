@@ -1,11 +1,11 @@
 ---
-description: Android & iOS Javascript interface
 icon: comments
+description: Android & iOS Javascript interface
 ---
 
 # 자바스크립트 통신
 
-## 공통 정보
+## 공통 정보 <a href="#common" id="common"></a>
 
 ✓ 웹에서 네이티브로 요청하는 Javascript interface 정보입니다.
 
@@ -35,15 +35,13 @@ icon: comments
 
 ***
 
-## 웹 브라우져 오픈 요청
+## 웹 브라우져 오픈 요청 <a href="#window.open" id="window.open"></a>
 
 ✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
 
 | request        |
 | -------------- |
 | openWebBrowser |
-
-
 
 | parameter | description               |
 | --------- | ------------------------- |

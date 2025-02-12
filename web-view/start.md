@@ -52,7 +52,7 @@ OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 �
 
 구루 컴퍼니에서 SDK에서 사용된 웹뷰 구현 코드를 제공하고 있으며, 웹뷰 구현시 참고용으로 확인 바랍니다.
 
-* :link: [webview-config.md](../webview-config.md "mention")
+* :link: [webview-config.md](webview-config.md "mention")
 
 
 

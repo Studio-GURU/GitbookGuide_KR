@@ -12,11 +12,11 @@
 
 ## WEB VIEW
 
-* [시작하기](web-view/start/README.md)
-  * [채널회원 미연동](web-view/start/standard.md)
-  * [채널회원 연동](web-view/start/channeling/README.md)
-    * [추천 컨텐츠 목록 조회](web-view/start/channeling/recommendation.md)
-    * [최근 본 작품 조회](web-view/start/channeling/recently.md)
+* [시작하기](web-view/start.md)
+* [채널회원 미연동 방식](web-view/standard.md)
+* [채널회원 연동 방식](web-view/channeling/README.md)
+  * [추천 컨텐츠 목록 조회](web-view/channeling/recommendation.md)
+  * [최근 본 작품 조회](web-view/channeling/recently.md)
 * [웹뷰 설정 가이드](web-view/webview-config.md)
 * [자바스크립트 통신](web-view/javascriptinterface.md)
 
