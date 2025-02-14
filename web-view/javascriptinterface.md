@@ -29,24 +29,21 @@ description: Android & iOS Javascript interface
 ```
 {% endcode %}
 
-
-
 <table><thead><tr><th width="170">name</th><th width="138">data</th><th>description</th></tr></thead><tbody><tr><td>request(필수)</td><td>String</td><td>호출할 함수명</td></tr><tr><td>parameter(옵션)</td><td>JSON Object</td><td>호출 함수에 전달되는 파라미터 정보</td></tr><tr><td>callback(옵션)</td><td>String</td><td>호출 결과 전달을 위한 콜백 함수명 → callback을 통해 전달되는 값은 기능별로 설정 됩니다.</td></tr></tbody></table>
 
 ***
 
-## 웹 브라우져 오픈 요청 <a href="#window.open" id="window.open"></a>
+## 외부 웹 브라우져 오픈 요청 <a href="#window.open" id="window.open"></a>
 
 ✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
 
-| request        |
-| -------------- |
-| openWebBrowser |
+| request           |
+| ----------------- |
+| openOutWebBrowser |
 
-| parameter | description               |
-| --------- | ------------------------- |
-| openType  | 신규 브라우져 타입(1: 인앱 / 2: 외부) |
-| openUrl   | 웹 브라우져를 통해 접근 하려는 주소값     |
+| parameter | description           |
+| --------- | --------------------- |
+| openUrl   | 웹 브라우져를 통해 접근 하려는 주소값 |
 
 ### 웹에서의 호출 예제
 
@@ -56,9 +53,8 @@ description: Android & iOS Javascript interface
 // 외부 웹브라우져 열기
 function openOuterWebBrowser() {
     let request = {
-        request: "openWebBrowser",
+        request: "openOutWebBrowser",
         parameter: {
-            openType : 2,
             openUrl: "https://www.naver.com"
         }
     }
@@ -74,9 +70,8 @@ function openOuterWebBrowser() {
 // 외부 웹브라우져 열기
 function openOuterWebBrowser() {
     let request = {
-        request: "openWebBrowser",
+        request: "openOutWebBrowser",
         parameter: {
-            openType : 2,
             openUrl: "https://www.naver.com"
         }
     }
@@ -102,18 +97,18 @@ function openOuterWebBrowser() {
 </strong>
 @JavascriptInterface
 class TreasureKitJavascriptInterface {
-    fun postMessage(message: String) {        
+    fun postMessage(message: String) {     
         // message를 JSON-Object로 변환
         // JSONObject -> request
-        // JSONObject -> parameter.openType
         // JSONObject -> parameter.openUrl
         // requestType에 따라 실행
         JSONObject(contractMessage).let {
             val request = it.getString("request")
             val parameter = it.getJSONObject("parameter")
-            val openType = parameter.getInt("openType")
             val openUrl = parameter.getString("openUrl")
-<strong>            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
+<strong>            if(request == "openOutWebBrowser") {
+</strong><strong>                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
+</strong><strong>            }
 </strong>        }
     }
 }
@@ -143,25 +138,23 @@ class TreasureKitJavascriptInterface {
                 // make contract
                 let request = (json["request"] as? String) ?? ""
                 let params = json["parameter"] as? [String: AnyObject]  
-                let openType = params["openType"] as? Int
                 let openUrl = params["openUrl"] as? String
-<strong>                onOpenWebBrowser(openType: openType, openUrl: openUrl)
+                if request == "openOutWebBrowser" {
+<strong>                    onOpenWebBrowser(openUrl: openUrl)
+</strong><strong>                }
 </strong>            } catch {
                 self = WebContentBehavior()
             }
         }
     }
     
-    func onOpenWebBrowser(openType: Int, openUrl: String) {
-        if openType == 2 {
-            if let openUri = URL(string: openUrl) {
-<strong>                if UIApplication.shared.canOpenURL(openUri) {
-</strong><strong>                    UIApplication.shared.open(openUri, completionHandler: { (success) in
-</strong>                        print("onOpenWebBrowser opened: \(success)")
-                    })
-                }
+    func onOpenWebBrowser(openUrl: String) {
+        if let openUri = URL(string: openUrl) {
+<strong>            if UIApplication.shared.canOpenURL(openUri) {
+</strong><strong>                UIApplication.shared.open(openUri, completionHandler: { (success) in
+</strong>                    print("onOpenWebBrowser opened: \(success)")
+                })
             }
-            return
         }
     }
     ...
