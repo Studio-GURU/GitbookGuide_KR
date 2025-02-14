@@ -9,7 +9,7 @@ description: Android & iOS Javascript interface
 
 ✓ 웹에서 네이티브로 요청하는 Javascript interface 정보입니다.
 
-**✓ BridgeName → "treasureKit"**
+**✓ BridgeName → "treasureComics"**
 
 ✓ Javascript interface 호출은 "postMessage" 메서드만 사용하며, 미리 정의한 JSONObject 값으로 전달됩니다.
 
@@ -59,7 +59,7 @@ function openOuterWebBrowser() {
         }
     }
     let message = JSON.stringify(request);
-<strong>    treasureKit.postMessage(message.toString());
+<strong>    treasureComics.postMessage(message.toString());
 </strong>}
 &#x3C;/script>
 </code></pre>
@@ -76,7 +76,7 @@ function openOuterWebBrowser() {
         }
     }
     let message = JSON.stringify(request);
-<strong>    window.webkit.messageHandlers.treasureKit.postMessage(message.toString());
+<strong>    window.webkit.messageHandlers.treasureComics.postMessage(message.toString());
 </strong>}
 &#x3C;/script>
 </code></pre>
@@ -93,7 +93,7 @@ function openOuterWebBrowser() {
 
 {% tabs %}
 {% tab title="ANDROID" %}
-<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin"><strong>WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasure-kit")
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin"><strong>WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 </strong>
 @JavascriptInterface
 class TreasureKitJavascriptInterface {
@@ -120,12 +120,12 @@ class TreasureKitJavascriptInterface {
     ...
     ...
     // userContentController 설정
-<strong>    WKWebView.configuration.userContentController.add(self, name: "treasureKit")
+<strong>    WKWebView.configuration.userContentController.add(self, name: "treasureComics")
 </strong>    ...
     ...
     // MARK: - webview content javascript interface message handler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "treasureKit", let messageBody = message.body as? String {
+        if message.name == "treasureComics", let messageBody = message.body as? String {
             do {
                 // check data
                 guard let withData = messageBody.data(using: .utf8) else {
