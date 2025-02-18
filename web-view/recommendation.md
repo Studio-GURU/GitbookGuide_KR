@@ -48,17 +48,25 @@ GET https://api.treasurecomics.com/external/recommendation?sign={value}
 
 ***
 
+***
+
 <mark style="color:red;">**{} 표현은 변수 입니다 ({}값이 포함되지 않도록 주의 바랍니다.)**</mark>
 
 **{timeStamp}{nonce}{userID}**
 
-위 값을 HmacSHA256 Hash -> Base64 Url Encodeing을 통해 Signature를 생성합니다.
+위 값을 HmacSHA256 Hash → Base64 Url Encoding을 통해 Signature를 생성합니다.
 
 ***
 
-* timeStamp -> unix timestamp seconds
-* nonce -> 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 -> 회원 구분이 가능한 식별자
+* timeStamp → unix timestamp seconds
+* nonce → 문자열 32자(임의로 생성된 문자열 32자)
+* userID → 채널사에서 사용되는 유저식별자\
+  1\) 포인트 지급기능 등을 추가 연동할 때 보물섬서비스에서 채널사에 전달할 시에도 사용 될 수 있음과 \
+  2\) 채널사의 유저식별자 전달에 따른 보안정책기준을 고려하여 (암호화안함/대칭형암호화/비대칭형암호화) 유저식별자 전달
+
+***
+
+nonce 값은 signature 생성 시 매번 새로운 값을 생성하여 입력이 필요합니다.
 {% endhint %}
 
 <table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td>true</td><td><p><code>timestamp.nonce.userID.signature</code></p><hr><p><mark style="background-color:red;">timestamp, nonce, userID, signature 4가지 값을 순서대로 구분자 .(full stop)을 붙여 sign 값을 생성합니다.</mark></p><hr><p><mark style="background-color:yellow;">sign값은 보안상 채널사의 서버에서 생성하며 보물섬에서는 sign 값이 1)사용된것인지 2)생성한지 5분이 지난 값인지 확인하여 유효하지 않음으로 판단할 수 있음으로 사용자의 액션이 있을 시 마다 즉시 생성하여 호출하도록 개발합니다.</mark></p><hr><p><mark style="background-color:green;">채널회원 미연동방식에서는 userID 값을 제외하고 sign 을 만들어 사용가능합니다.</mark></p></td></tr><tr><td>adid</td><td>string</td><td>false</td><td>광고식별값 : android ADID / iOS IDFA</td></tr><tr><td>gender</td><td>number</td><td>false</td><td>성별 : 1=남자 / 2=여자</td></tr><tr><td>age</td><td>number</td><td>false</td><td>나이</td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td>성인여부: 0=성인아님 / 1=성인</td></tr></tbody></table>
