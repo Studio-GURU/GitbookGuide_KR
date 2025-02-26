@@ -1,9 +1,9 @@
 ---
-description: 보물섬이 제공하는 "오늘의 추천" 페이지를 사용하지 않고, 별도 화면을 구성하는 커스텀 방식에 사용합니다.
 icon: thumbs-up
+description: 보물섬이 제공하는 "오늘의 추천" 페이지를 사용하지 않고, 별도 화면을 구성하는 커스텀 방식에 사용합니다.
 ---
 
-# \[API] 추천 컨텐츠 목록 조회
+# \[ API ] 추천 컨텐츠 목록 조회
 
 ## Version
 
@@ -43,33 +43,7 @@ GET https://api.treasurecomics.com/external/recommendation?sign={value}
 
 ### **Body**
 
-{% hint style="info" %}
-**signature 생성 (**<mark style="color:red;">**HmacSHA256 생성에 필요한 Key는 영업팀을 통해 전달 됩니다.**</mark>**)**
-
-***
-
-***
-
-<mark style="color:red;">**{} 표현은 변수 입니다 ({}값이 포함되지 않도록 주의 바랍니다.)**</mark>
-
-**{timeStamp}{nonce}{userID}**
-
-위 값을 HmacSHA256 Hash → Base64 Url Encoding을 통해 Signature를 생성합니다.
-
-***
-
-* timeStamp → unix timestamp seconds
-* nonce → 문자열 32자(임의로 생성된 문자열 32자)
-* userID → 채널사에서 사용되는 유저식별자\
-  1\) 포인트 지급기능 등을 추가 연동할 때 보물섬서비스에서 채널사에 전달할 시에도 사용 될 수 있음과 \
-  2\) 채널사의 유저식별자 전달에 따른 보안정책기준을 고려하여 (암호화안함/대칭형암호화/비대칭형암호화) 유저식별자 전달
-
-***
-
-nonce 값은 signature 생성 시 매번 새로운 값을 생성하여 입력이 필요합니다.
-{% endhint %}
-
-<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td>true</td><td><p><code>timestamp.nonce.userID.signature</code></p><hr><p><mark style="background-color:red;">timestamp, nonce, userID, signature 4가지 값을 순서대로 구분자 .(full stop)을 붙여 sign 값을 생성합니다.</mark></p><hr><p><mark style="background-color:yellow;">sign값은 보안상 채널사의 서버에서 생성하며 보물섬에서는 sign 값이 1)사용된것인지 2)생성한지 5분이 지난 값인지 확인하여 유효하지 않음으로 판단할 수 있음으로 사용자의 액션이 있을 시 마다 즉시 생성하여 호출하도록 개발합니다.</mark></p><hr><p><mark style="background-color:green;">채널회원 미연동방식에서는 userID 값을 제외하고 sign 을 만들어 사용가능합니다.</mark></p></td></tr><tr><td>adid</td><td>string</td><td>false</td><td>광고식별값 : android ADID / iOS IDFA</td></tr><tr><td>gender</td><td>number</td><td>false</td><td>성별 : 1=남자 / 2=여자</td></tr><tr><td>age</td><td>number</td><td>false</td><td>나이</td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td>성인여부: 0=성인아님 / 1=성인</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td>sign</td><td>string</td><td>true</td><td><a data-mention href="sign.md">sign.md</a></td></tr><tr><td>adid</td><td>string</td><td>false</td><td><p>광고 식별 ID </p><p>AOS : ADID값 전달<br>IOS : IDFA값 전달</p></td></tr><tr><td>gender</td><td>number</td><td>false</td><td><p>성별 </p><p>1 : 남자</p><p>2 : 여자</p></td></tr><tr><td>age</td><td>number</td><td>false</td><td>나이</td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td><p>성인여부</p><p>0 : 성인 X</p><p>1 : 성인</p></td></tr></tbody></table>
 
 ```
 // get usage example
@@ -78,7 +52,7 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### **Response**
 
-<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>sequence</td></tr><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>이미지 경로</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품키</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>회차번호</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크(참고용)</td></tr><tr><td><code>order</code></td><td>number</td><td>노출 우선 숭위(같은 값 존재)</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>추천일(yyyy-MM-dd)</td></tr></tbody></table>
+<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>sequence</td></tr><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>썸네일 이미지 경로</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품 키</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>회차 번호</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크 ( 참고용 )</td></tr><tr><td><code>order</code></td><td>number</td><td>노출 우선 순위 ( 같은 값이 존재할 수 있습니다 )</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>추천일 ( YYYY-MM-DD )</td></tr></tbody></table>
 
 **Response Code**
 

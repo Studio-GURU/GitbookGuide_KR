@@ -1,15 +1,9 @@
 ---
-description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 icon: user
+description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 ---
 
 # 채널회원 미연동 방식
-
-## 웹뷰 설정 가이드
-
-{% hint style="success" %}
-기본 가이드 설정 완료 후 웹뷰 설정 가이드를 통해 추가 기능 연동 확인을 진행 부탁 드립니다.
-{% endhint %}
 
 ***
 
@@ -27,24 +21,36 @@ icon: user
 ✓ 추가 웹뷰 설정을 확인 합니다.
 {% endhint %}
 
-## 웹뷰에 보물섬 URL 호출
+## WebView에 보물섬 URL 호출
 
-**✓ 웹뷰(인앱 브라우져)에 아래의 주소를 호출합니다.**
+**✓ WebView ( IN APP ) 에 아래의 주소를 호출합니다.**
+
+Live 대역
 
 ```
-메인화면
+메인
 https://{channel}.treasurecomics.com/main
-
-오늘의추천
+오늘의 추천
 https://{channel}.treasurecomics.com/recommendation/{channel}
+```
+
+Test 대역
+
+```
+메인
+https://{channel}-test.treasurecomics.com/main
+오늘의 추천
+https://{channel}-test.treasurecomics.com/recommendation/{channel}
 ```
 
 **✓** `{channel}` 값은 **별도 전달** 됩니다.
 
-## 사이트이동 토스트 표시
 
-**✓ 앱내에서 웹툰 웹사이트로 이동했다라는 안내 토스트를 사용자에게 노출합니다.**\
-예) "웹툰 사이트로 이동했어요"
+
+## 사이트 이동 토스트 표시
+
+**✓ App 내에서 \[ 웹툰 사이트로 이동했다 ] 라는 안내 토스트를 사용자에게 노출합니다.**\
+EX ) "웹툰 사이트로 이동했어요"
 
 <figure><img src="../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
 
@@ -52,7 +58,7 @@ https://{channel}.treasurecomics.com/recommendation/{channel}
 
 ## 카카오톡 로그인을 위한 웹뷰 설정
 
-웹뷰에서 카카오톡 Javascript SDK가 올바르게 동작하기 위해서는 아래의 설정이 필요합니다.
+WebView에서 카카오톡 Javascript SDK가 올바르게 동작하기 위해서는 아래의 설정이 필요합니다.
 
 ### ANDROID
 

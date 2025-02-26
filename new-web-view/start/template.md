@@ -1,6 +1,6 @@
 ---
-description: 보물섬에서 제공하는 템플릿 연동 가이드입니다.
 icon: hand-point-right
+description: 보물섬에서 제공하는 템플릿 연동 가이드입니다.
 ---
 
 # 템플릿 연동
@@ -17,7 +17,7 @@ icon: hand-point-right
 [webview-config.md](../webview-config.md)
 {% endcontent-ref %}
 
-* **채널 회원을 여부에 따라 아래의 가이드 중 하나를 참고해주세요.**
+* **채널 회원 사용 여부에 따라 아래의 가이드 중 하나를 참고해주세요.**
 
 {% content-ref url="../channeling.md" %}
 [channeling.md](../channeling.md)

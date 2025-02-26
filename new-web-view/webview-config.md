@@ -113,7 +113,7 @@ if #available(iOS 14.0, *) {
 
 ## 웹뷰 컨텐츠 보호 <a href="#secure" id="secure"></a>
 
-**✓ 스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
+**✓ 스크린 캡쳐 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
 
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}

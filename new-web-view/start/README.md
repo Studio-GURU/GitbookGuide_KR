@@ -1,6 +1,6 @@
 ---
-description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 icon: star-shooting
+description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 ---
 
 # 시작하기
@@ -19,20 +19,8 @@ icon: star-shooting
 * 빠르고 간편하게 적용할 수 있습니다.
 * 아래 가이드에 따라 연동을 진행해주세요.
 
-{% content-ref url="../webview-config.md" %}
-[webview-config.md](../webview-config.md)
-{% endcontent-ref %}
-
-{% content-ref url="../channeling.md" %}
-[channeling.md](../channeling.md)
-{% endcontent-ref %}
-
-{% content-ref url="../standard.md" %}
-[standard.md](../standard.md)
-{% endcontent-ref %}
-
-{% content-ref url="../javascriptinterface.md" %}
-[javascriptinterface.md](../javascriptinterface.md)
+{% content-ref url="template.md" %}
+[template.md](template.md)
 {% endcontent-ref %}
 
 
@@ -43,23 +31,9 @@ icon: star-shooting
 * 기존 App의 디자인 및 기능처럼 일관된 경험 제공이 가능합니다.
 * 아래 가이드에 따라 연동을 진행해주세요.
 
-{% content-ref url="../channeling.md" %}
-[channeling.md](../channeling.md)
+{% content-ref url="api.md" %}
+[api.md](api.md)
 {% endcontent-ref %}
-
-{% content-ref url="../standard.md" %}
-[standard.md](../standard.md)
-{% endcontent-ref %}
-
-{% content-ref url="../recommendation.md" %}
-[recommendation.md](../recommendation.md)
-{% endcontent-ref %}
-
-{% content-ref url="../recently.md" %}
-[recently.md](../recently.md)
-{% endcontent-ref %}
-
-
 
 ## 권장사항
 

@@ -25,14 +25,13 @@
 * [시작하기](new-web-view/start/README.md)
   * [템플릿 연동](new-web-view/start/template.md)
   * [커스텀 연동 \[ API 연동 \]](new-web-view/start/api.md)
-* [채널회원 미연동 방식](new-web-view/standard.md)
 * [채널회원 연동 방식](new-web-view/channeling.md)
-* [\[API\] 추천 컨텐츠 목록 조회](new-web-view/recommendation.md)
-* [Copy of \[API\] 추천 컨텐츠 목록 조회](new-web-view/recommendation-1.md)
-* [\[API\] 최근 본 작품 조회](new-web-view/recently.md)
-* [Copy of \[API\] 최근 본 작품 조회](new-web-view/recently-1.md)
+* [채널회원 미연동 방식](new-web-view/standard.md)
+* [\[ API \] 추천 컨텐츠 목록 조회](new-web-view/recommendation.md)
+* [\[ API \] 최근 본 작품 조회](new-web-view/recently.md)
 * [웹뷰 설정 가이드](new-web-view/webview-config.md)
 * [자바스크립트 통신](new-web-view/javascriptinterface.md)
+* [Sign 생성](new-web-view/sign.md)
 
 ## ANDROID SDK
 

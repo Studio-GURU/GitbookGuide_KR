@@ -1,6 +1,6 @@
 ---
-description: Android & iOS Javascript interface
 icon: comments
+description: Android & iOS Javascript interface
 ---
 
 # 자바스크립트 통신
@@ -29,13 +29,13 @@ icon: comments
 ```
 {% endcode %}
 
-<table><thead><tr><th width="170">name</th><th width="138">data</th><th>description</th></tr></thead><tbody><tr><td>request(필수)</td><td>String</td><td>호출할 함수명</td></tr><tr><td>parameter(옵션)</td><td>JSON Object</td><td>호출 함수에 전달되는 파라미터 정보</td></tr><tr><td>callback(옵션)</td><td>String</td><td>호출 결과 전달을 위한 콜백 함수명 → callback을 통해 전달되는 값은 기능별로 설정 됩니다.</td></tr></tbody></table>
+<table><thead><tr><th width="170">name</th><th width="138">data</th><th width="144">Required</th><th>description</th></tr></thead><tbody><tr><td>request</td><td>String</td><td>true</td><td>호출할 함수명</td></tr><tr><td>parameter</td><td>JSON Object</td><td>false</td><td>호출 함수에 전달되는 파라미터 정보</td></tr><tr><td>callback</td><td>String</td><td>false</td><td>호출 결과 전달을 위한 콜백 함수명 → callback을 통해 전달되는 값은 기능별로 설정 됩니다.</td></tr></tbody></table>
 
 ***
 
 ## 외부 웹 브라우져 오픈 요청 <a href="#window.open" id="window.open"></a>
 
-✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
+**✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.**
 
 | request           |
 | ----------------- |
@@ -45,50 +45,12 @@ icon: comments
 | --------- | --------------------- |
 | openUrl   | 웹 브라우져를 통해 접근 하려는 주소값 |
 
-### 웹에서의 호출 예제
-
-{% tabs %}
-{% tab title="ANDROID" %}
-<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
-// 외부 웹브라우져 열기
-function openOuterWebBrowser() {
-    let request = {
-        request: "openOutWebBrowser",
-        parameter: {
-            openUrl: "https://www.naver.com"
-        }
-    }
-    let message = JSON.stringify(request);
-<strong>    treasureComics.postMessage(message.toString());
-</strong>}
-&#x3C;/script>
-</code></pre>
-{% endtab %}
-
-{% tab title="iOS" %}
-<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
-// 외부 웹브라우져 열기
-function openOuterWebBrowser() {
-    let request = {
-        request: "openOutWebBrowser",
-        parameter: {
-            openUrl: "https://www.naver.com"
-        }
-    }
-    let message = JSON.stringify(request);
-<strong>    window.webkit.messageHandlers.treasureComics.postMessage(message.toString());
-</strong>}
-&#x3C;/script>
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
 ***
 
 ### 호출 처리
 
-{% hint style="warning" %}
-**예제로 작성된 코드로 참고용으로 확인 부탁드립니다.**
+{% hint style="success" %}
+**앱에서 구현이 필요한 부분이며, 참고 가능한 예제 코드입니다.**
 {% endhint %}
 
 {% tabs %}
@@ -165,6 +127,54 @@ class TreasureKitJavascriptInterface {
 
 {% endtab %}
 {% endtabs %}
+
+***
+
+### 보물섬 웹에서의 호출 예제
+
+{% hint style="danger" %}
+**보물섬 웹에서 호출하는 예제입니다. 참고용으로 확인 부탁드립니다.**
+{% endhint %}
+
+{% tabs %}
+{% tab title="ANDROID" %}
+<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
+// 외부 웹브라우져 열기
+function openOuterWebBrowser() {
+    let request = {
+        request: "openOutWebBrowser",
+        parameter: {
+            openUrl: "https://www.naver.com"
+        }
+    }
+    let message = JSON.stringify(request);
+<strong>    treasureComics.postMessage(message.toString());
+</strong>}
+&#x3C;/script>
+</code></pre>
+{% endtab %}
+
+{% tab title="iOS" %}
+<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
+// 외부 웹브라우져 열기
+function openOuterWebBrowser() {
+    let request = {
+        request: "openOutWebBrowser",
+        parameter: {
+            openUrl: "https://www.naver.com"
+        }
+    }
+    let message = JSON.stringify(request);
+<strong>    window.webkit.messageHandlers.treasureComics.postMessage(message.toString());
+</strong>}
+&#x3C;/script>
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+
+
+
 
 
 
