@@ -299,24 +299,6 @@ private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
 ```
 {% endcode %}
 
-***
-
-### Tel
-
-{% code lineNumbers="true" %}
-```kotlin
-private fun actionTelTask(viewContext: Context, uri: Uri): Boolean {
-    val activity = viewContext as? Activity ?: return false
-    kotlin.runCatching {
-        activity.startActivity(Intent(Intent.ACTION_DIAL, uri))
-    }.onFailure {
-        // error
-    }
-    return true
-}
-```
-{% endcode %}
-
 
 {% endtab %}
 

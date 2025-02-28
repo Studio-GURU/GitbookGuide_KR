@@ -13,23 +13,17 @@ description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 �
 
 
 
-## 템플릿 연동
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th></tr></thead><tbody><tr><td><img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-17 001.jpeg" alt="" data-size="original"></td><td><strong>템플릿 연동</strong><br><br>보물섬에서 제공하는 <strong>기본 템플릿을 사용</strong>하여 구성된 첫 화면을 사용합니다.<br><br><strong>빠르고 간편하게 적용</strong>할 수 있습니다.</td><td></td></tr><tr><td><img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-18 002.jpeg" alt=""></td><td><strong>커스텀 연동 (API 연동)</strong><br><br>API를 통해 보물섬의 추천 컨텐츠를 조회하여 <strong>자체 UI에 맞게</strong> 구성합니다.<br><br>기존 App의 디자인 및 기능처럼<br><strong>일관된 경험 제공</strong>이 가능합니다.</td><td></td></tr></tbody></table>
 
-* 보물섬에서 제공하는 기본 템플릿을 사용하여 구성된 첫 화면을 사용합니다.
-* 빠르고 간편하게 적용할 수 있습니다.
-* 아래 가이드에 따라 연동을 진행해주세요.
+
+
+## 연동 가이드
+
+* 원하는 연동 방식에 맞춰, 아래의 가이드를 확인해주세요 !
 
 {% content-ref url="template/" %}
 [template](template/)
 {% endcontent-ref %}
-
-
-
-## 커스텀 연동 ( API 연동 )
-
-* API를 통해 보물섬의 추천 컨텐츠를 조회하여 자체 UI에 맞게 구성합니다.
-* 기존 App의 디자인 및 기능처럼 일관된 경험 제공이 가능합니다.
-* 아래 가이드에 따라 연동을 진행해주세요.
 
 {% content-ref url="api/" %}
 [api](api/)
@@ -43,21 +37,15 @@ description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 �
 ***
 
 OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 바랍니다.
+
+보물섬이 원활하게 작동하기 위한 최소한의 사항입니다.
 {% endhint %}
 
 ### ANDROID
 
 ✓ Android 5.0(API Level 21) 이상을 권장합니다.
 
-✓ Android Studio -> 3.2 이상 (최신 버전의 IDE 사용을 권장합니다.)
-
-✓ Android gradle plugin -> 4.0.1 이상
-
 ✓ Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
-
-✓ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
-
-✓ Support AndroidX
 
 ***
 
