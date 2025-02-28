@@ -1,6 +1,6 @@
 ---
-description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 icon: star-shooting
+description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
 ---
 
 # Copy of 시작하기
@@ -13,7 +13,6 @@ icon: star-shooting
 
 
 
-````
 ```html
 <div style="display: flex; gap: 20px; justify-content: center;">
 
@@ -35,7 +34,6 @@ icon: star-shooting
   
   </div>
 ```
-````
 
 
 
