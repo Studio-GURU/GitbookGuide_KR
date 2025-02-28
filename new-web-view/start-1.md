@@ -13,29 +13,21 @@ description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 �
 
 
 
-```html
-<div style="display: flex; gap: 20px; justify-content: center;">
+\<div style="display: flex; gap: 20px; justify-content: center;">
 
-    <div style="flex: 1; max-width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 12px; 
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
-      <img src="템플릿_연동_이미지_URL" alt="템플릿 연동" style="width: 120px; height: 120px; object-fit: cover; margin-bottom: 10px;">
-      <h2 style="font-size: 25px; font-weight: bold;">템플릿 연동</h2>
-      <p>- 보물섬에서 제공하는 기본 템플릿을 사용하여 구성된 <br />첫 화면을 사용합니다.</p>
-      <p>- 빠르고 간편하게 적용할 수 있습니다.</p>
-    </div>
-  
-    <div style="flex: 1; max-width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 12px; 
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
-      <img src="커스텀_연동_이미지_URL" alt="커스텀 연동" style="width: 120px; height: 120px; object-fit: cover; margin-bottom: 10px;">
-      <h2 style="font-size: 25px; font-weight: bold;">커스텀 연동 (API 연동)</h2>
-      <p>- API를 통해 보물섬의 추천 컨텐츠를 조회하여<br /> 자체 UI에 맞게 구성합니다.</p>
-      <p>- 기존 App의 디자인 및 기능처럼 <br />일관된 경험 제공이 가능합니다.</p>
-    </div>
-  
-  </div>
-```
+\<div style="flex: 1; max-width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 12px;
 
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;">
 
+\<img src="템플릿\_연동\_이미지\_URL" alt="템플릿 연동" style="width: 120px; height: 120px; object-fit: cover; margin-bottom: 10px;">
+
+\<h2 style="font-size: 25px; font-weight: bold;">템플릿 연동\</h2>
+
+\<p>- 보물섬에서 제공하는 기본 템플릿을 사용하여 구성된 \<br />첫 화면을 사용합니다.\</p>
+
+\<p>- 빠르고 간편하게 적용할 수 있습니다.\</p>
+
+\</div>
 
 ## 가이드
 
