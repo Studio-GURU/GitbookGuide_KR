@@ -1,6 +1,6 @@
 ---
 icon: user-group
-description: 식보물섬 채널링 서비스 연동을 위한 방법을 안내합니다.
+description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합니다.
 ---
 
 # 채널회원 연동 방식

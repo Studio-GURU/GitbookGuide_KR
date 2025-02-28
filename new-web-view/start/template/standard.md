@@ -25,7 +25,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 
 **✓ WebView ( IN APP ) 에 아래의 주소를 호출합니다.**
 
-Live 대역
+**Live 대역**
 
 ```
 메인
@@ -34,7 +34,7 @@ https://{channel}.treasurecomics.com/main
 https://{channel}.treasurecomics.com/recommendation/{channel}
 ```
 
-Test 대역
+**Test 대역**
 
 ```
 메인
@@ -52,7 +52,7 @@ https://{channel}-test.treasurecomics.com/recommendation/{channel}
 **✓ App 내에서 \[ 웹툰 사이트로 이동했다 ] 라는 안내 토스트를 사용자에게 노출합니다.**\
 EX ) "웹툰 사이트로 이동했어요"
 
-<figure><img src="../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
 
 ***
 
@@ -292,7 +292,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
 ## 메인화면
 
-<div align="left"><figure><img src="../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
 
 
 
