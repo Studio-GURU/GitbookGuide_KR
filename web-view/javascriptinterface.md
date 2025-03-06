@@ -168,11 +168,53 @@ class TreasureKitJavascriptInterface {
 
 
 
+## 기기 광고 식별값 수집 요청 <a href="#window.open" id="window.open"></a>
 
+✓ 보물섬 내부에서 기기 광고 식별값을 수집해야 하는 경우 웹에서 네이티브에 전달하는 메세지입니다.
 
+✓ AOS의 경우 ADID, IOS일 경우 IDFA를 전달주시면 됩니다.
 
+| request       |
+| ------------- |
+| getDeviceADID |
 
+### 웹에서의 호출 예제
 
+{% tabs %}
+{% tab title="ANDROID" %}
+<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
+// 광고 식별값 수집
+function openOuterWebBrowser() {
+    let request = {
+        request: "getDeviceADID"
+    }
+    let message = JSON.stringify(request);
+<strong>    treasureComics.postMessage(message.toString());
+</strong>}
+&#x3C;/script>
+</code></pre>
+{% endtab %}
+
+{% tab title="iOS" %}
+<pre class="language-javascript" data-line-numbers><code class="lang-javascript">&#x3C;script type="text/javascript">
+// 광고 식별값 수집
+function openOuterWebBrowser() {
+    let request = {
+        request: "getDeviceADID"
+    }
+    let message = JSON.stringify(request);
+<strong>    window.webkit.messageHandlers.treasureComics.postMessage(message.toString());
+</strong>}
+&#x3C;/script>
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+### 응답 예제
+
+| parameter  | description                              |
+| ---------- | ---------------------------------------- |
+| deviceADID | <p>AOS : deviceADID</p><p>IOS : IDFA</p> |
 
 
 
