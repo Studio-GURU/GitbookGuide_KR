@@ -22,7 +22,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 ### **커스텀 연동**
 
 ```
-EX ) 추천 컨텐츠
+EX ) 추천 컨텐츠 API 응답값
 https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommandtion/{channel}
 ```
 

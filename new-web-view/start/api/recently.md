@@ -45,7 +45,7 @@ GET https://api.treasurecomics.com/external/recentView?sign={value}
 
 
 
-<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td>true</td><td><a data-mention href="sign.md">sign.md</a></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td>true</td><td><a data-mention href="../../sign.md">sign.md</a></td></tr></tbody></table>
 
 ```
 // get usage example
@@ -109,7 +109,7 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 
 ## 최근 본 작품 조회 구현 예시 화면
 
-<div align="left"><figure><img src="../.gitbook/assets/bms_recently.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/bms_recently.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 
 

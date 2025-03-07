@@ -13,12 +13,12 @@ description: 보물섬에서 제공하는 커스텀 연동 가이드입니다.
 
 * **커스텀 설정을 위한 데이터를 가져오는 API 가이드입니다.**
 
-{% content-ref url="../../recommendation.md" %}
-[recommendation.md](../../recommendation.md)
+{% content-ref url="recommendation.md" %}
+[recommendation.md](recommendation.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../recently.md" %}
-[recently.md](../../recently.md)
+{% content-ref url="recently.md" %}
+[recently.md](recently.md)
 {% endcontent-ref %}
 
 * **연동의 가장 기본이 되는 Web View 설정 가이드입니다.**
