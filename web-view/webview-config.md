@@ -4,13 +4,13 @@ icon: window-flip
 
 # 웹뷰 설정 가이드
 
-## 유료 결제를 위한 Scheme 등록 <a href="#payment" id="payment"></a>
+유료 결제를 위한 Scheme 등록
 
 TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 
 자세한 내용은 아래의 링크를 확인 하세요.
 
-{% embed url="https://docs.tosspayments.com/guides/webview#android" %}
+{% embed url="https://docs.tosspayments.com/guides/v2/webview" %}
 
 ***
 
