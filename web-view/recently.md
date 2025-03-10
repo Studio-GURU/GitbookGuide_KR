@@ -99,7 +99,8 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 	    chargedTicket: true,
 	    baseDate: "2024-09-27T03:00:00Z",
 	    chargedDate: "2024-09-27T03:00:00Z"
-    }
+    },
+    "freeEpisode": 3
   }
 ]
 ```

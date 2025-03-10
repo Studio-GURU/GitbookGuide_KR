@@ -73,7 +73,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fwebtoon%2Fviewer%2Fcw631ac7ba1f%2F1",
     "returnUrl": "https://test.treasurecomics.com/webtoon/viewer/cw631ac7ba1f/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 3
   },
   {
     "recommendationSN": 8,
@@ -87,7 +88,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fnovel%2Fviewer%2Fcn718f1595fc%2F1",
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn718f1595fc/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 0
   },
   {
     "recommendationSN": 7,
@@ -101,7 +103,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fnovel%2Fviewer%2Fcn0d3b6afccd%2F1",
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn0d3b6afccd/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 8
   },
   {
     "recommendationSN": 9,
@@ -115,7 +118,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fnovel%2Fviewer%2Fcn3a0d0de7e6%2F1",
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn3a0d0de7e6/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 2
   },
   {
     "recommendationSN": 4,
@@ -129,7 +133,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fwebtoon%2Fviewer%2Fcw3a81e99b70%2F1",
     "returnUrl": "https://test.treasurecomics.com/webtoon/viewer/cw3a81e99b70/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 1
   },
   {
     "recommendationSN": 6,
@@ -143,7 +148,8 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
     "link": "https://test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fnovel%2Fviewer%2Fcnb998dc34fc%2F1",
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cnb998dc34fc/1",
     "order": 1,
-    "recommendationDate": "2024-08-22"
+    "recommendationDate": "2024-08-22",
+    "freeEpisode": 25
   }
 ]
 ```
