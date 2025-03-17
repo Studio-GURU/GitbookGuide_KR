@@ -1,6 +1,6 @@
 ---
-icon: user-group
 description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합니다.
+icon: user-group
 ---
 
 # 채널회원 연동 방식
@@ -19,16 +19,32 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 
 
 
-### **커스텀 연동**
+**Live 대역**
 
 ```
-EX ) 추천 컨텐츠 API 응답값
+메인화면
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
+
+오늘의추천
 https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommandtion/{channel}
 ```
 
-**✓** **API를 통해 받은 링크에 `sign` 파라미터를 추가해 주시면 됩니다.**
+**Test 대역**
+
+```
+메인화면
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
+
+오늘의추천
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommandtion/{channel}
+
+```
+
+**✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
 
 **✓ `sign` 외의 추가 정보 전달이 필요할 경우 아래 표의 값을 추가로 넘겨주시면 됩니다.**
+
+**✓** `{channel}` 값은 **별도 전달** 됩니다.
 
 
 
@@ -39,19 +55,6 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 ```
 https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8a782c2604883924.lymanTest.M21MZORoc4NbVzq1ZaSC8LgcOKYH9SBIljHYjVOfX5o%3D&returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fmain
 ```
-
-***
-
-## 사이트 이동 토스트 표시
-
-**✓ App 내에서 \[ 웹툰 사이트로 이동했다 ] 라는 안내 토스트를 사용자에게 노출합니다.**\
-EX ) "웹툰 사이트로 이동했어요"
-
-<figure><img src="../../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
-
-***
-
-
 
 
 

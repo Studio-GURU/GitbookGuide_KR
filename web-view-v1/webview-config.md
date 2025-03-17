@@ -19,7 +19,7 @@ TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 **✓ 웹뷰 셋팅 값 설정에 대한 방법을 안내합니다.**
 
 {% hint style="info" %}
-WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
+웹뷰 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
 
 ***
 
@@ -113,11 +113,11 @@ if #available(iOS 14.0, *) {
 
 ## 웹뷰 컨텐츠 보호 <a href="#secure" id="secure"></a>
 
-**✓ 스크린 캡쳐 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
+**✓ 스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
 
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}
-보물섬을 감싸고 있는 Activity에 FLAG\_SECURE 적용을 통해 쉽게 스크린 캡쳐 방지를 할 수 있습니다.
+보물섬을 감싸고 있는 Activity에 FLAG\_SECURE 적용을 통해 쉽게 스크린 캡춰 방지를 할 수 있습니다.
 
 {% tabs %}
 {% tab title="KOTLIN" %}
@@ -146,7 +146,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-`UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡쳐를 할 수 없도록 우회 처리해야 합니다.
+`UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡춰를 할 수 없도록 우회 처리해야 합니다.
 
 {% code lineNumbers="true" %}
 ```swift
@@ -180,7 +180,7 @@ override func viewDidAppear(_ animated: Bool) {
 
 ***
 
-## Scheme 처리 <a href="#scheme" id="scheme"></a>
+## Javascript Window 처리 <a href="#scheme" id="scheme"></a>
 
 {% hint style="info" %}
 웹뷰 구성에 필요한 **Scheme** 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
@@ -188,118 +188,292 @@ override func viewDidAppear(_ animated: Bool) {
 
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}
-✓ WebView::shouldOverrideUrlLoading을 통해 전달된 scheme 처리에 대한 방법을 가이드합니다.
+### Javascript window.open
 
-### intent
+WebView에서 `window.open()`을 처리하려면 **WebChromeClient**를 설정하고, `onCreateWindow()`를 오버라이드해야 합니다.
 
+{% tabs %}
+{% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-private fun actionIntentTask(viewContext: Context, webView: WebView?, url: String): Boolean {
-    val actionWebView = webView ?: return false
-    val actionActivity = viewContext as? Activity ?: return false
-    val actionIntent = try {
-        Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
-    } catch (e: Exception) {
-        // error
-        null        
-    }
+webView.webChromeClient = object : WebChromeClient() {
+    override fun onCreateWindow(
+        view: WebView?,
+        isDialog: Boolean,
+        isUserGesture: Boolean,
+        resultMsg: Message?
+    ): Boolean {
+        val newWebView = WebView(view?.context!!)
+        newWebView.webViewClient = WebViewClient()
+        newWebView.webChromeClient = WebChromeClient()
 
-    // check intent
-    if (actionIntent == null) {
-        Log.e("TAG", "intent is null")
-        return false
-    }
+        // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
+        val dialog = Dialog(view.context)
+        dialog.setContentView(newWebView)
+        dialog.show()
 
-    try {
-        // Fallback URL -> Loading WebView For Kakao
-        val fallbackUrl = actionIntent.getStringExtra("browser_fallback_url")
-        if (fallbackUrl != null) {
-            actionWebView.loadUrl(fallbackUrl)
-            return true
-        }
-        
-        // action
-        val actionPackageName = actionIntent.`package` ?: ""
-        if (actionPackageName.isNotEmpty()) {
-            // launch activity
-            val launchIntent = viewContext.packageManager.getLaunchIntentForPackage(actionPackageName)
-            if (launchIntent != null) {
-                actionActivity.startActivity(launchIntent)
-                return true
-            }
-        }
-        
-        // market
-        if (actionPackageName.isNotEmpty()) {
-            try {
-                val marketIntent = Intent(Intent.ACTION_VIEW)
-                marketIntent.data = Uri.parse("market://details?id=$actionPackageName")
-                actionActivity.startActivity(marketIntent)
-                return true
-            } catch (e: Exception) {
-                // error
-            }
-        }
-    } catch (e: Exception) {
-            // error
-        }
+        val transport = resultMsg?.obj as? WebView.WebViewTransport
+        transport?.webView = newWebView
+        resultMsg?.sendToTarget()
+
+        return true
     }
-    return false
 }
 ```
 {% endcode %}
+
+
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.setWebChromeClient(new WebChromeClient() {
+    @Override
+    public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
+        WebView newWebView = new WebView(view.getContext());
+        newWebView.setWebViewClient(new WebViewClient());
+        newWebView.setWebChromeClient(new WebChromeClient());
+
+        // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 등을 생성
+        Dialog dialog = new Dialog(view.getContext());
+        dialog.setContentView(newWebView);
+        dialog.show();
+
+        WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+        transport.setWebView(newWebView);
+        resultMsg.sendToTarget();
+
+        return true;
+    }
+});
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
-### Market
+### Javascript Alert
 
-schem market 처리 방식을 안내합니다.
+`Android WebView`에서 `window.alert()`을 처리하려면 `WebChromeClient`의 `onJsAlert()` 메서드를 오버라이드해야 합니다. 이 메서드는 JavaScript의 `alert()` 창이 호출될 때 반응할 수 있게 해줍니다.
 
+{% tabs %}
+{% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-private fun actionMarketTask(viewContext: Context, url: String): Boolean {
-    val activity = viewContext as? Activity ?: return false
-    kotlin.runCatching {
-        val id = Uri.parse(url).getQueryParameter("id")
-        val marketIntent = Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse("market://details?id=$id")
-        }
-        if (marketIntent.resolveActivity(viewContext.packageManager) != null) {
-            activity.startActivity(marketIntent)
-        } else {
-            val viewIntent = Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://play.google.com/store/apps/details?id=$id")
+webView.webChromeClient = object : WebChromeClient() {
+    override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+        // Create a custom AlertDialog to handle the JavaScript alert
+        val builder = AlertDialog.Builder(view?.context)
+        builder.setMessage(message) // The message from JavaScript alert
+            .setCancelable(false)
+            .setPositiveButton("OK") { _, _ ->
+                result?.confirm() // Confirm the alert
             }
-            activity.startActivity(viewIntent)
-        }
-    }.onFailure {
-        // error
+        val alert = builder.create()
+        alert.show()
+        return true // Indicate that the alert has been handled
     }
-    return true
 }
 ```
 {% endcode %}
+
+
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.setWebChromeClient(new WebChromeClient() {
+    @Override
+    public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+        // Create a custom AlertDialog to handle the JavaScript alert
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setMessage(message) // The message from JavaScript alert
+            .setCancelable(false)
+            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    result.confirm(); // Confirm the alert
+                }
+            });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+        return true; // Indicate that the alert has been handled
+    }
+});
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
-### Mailto
+### Javascript Confirm
 
+`Android WebView`에서 `window.confirm()`을 처리하려면 `WebChromeClient`의 `onJsConfirm()` 메서드를 오버라이드해야 합니다. 이 메서드는 JavaScript의 `confirm()` 창이 호출될 때 반응할 수 있게 해줍니다.
+
+{% tabs %}
+{% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
-    val activity = viewContext as? Activity ?: return false
-    kotlin.runCatching {
-        activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
-    }.onFailure {
-        tales.error(moduleName = moduleName, throwable = it, trace = { "actionMailToTask { uri: $uri }" })
-        it.message?.produce { message -> ToastView.show(context = viewContext, message = message) }
+webView.webChromeClient = object : WebChromeClient() {
+    override fun onJsConfirm(
+        view: WebView?,
+        url: String?,
+        message: String?,
+        result: JsResult?
+    ): Boolean {
+        // 확인 대화상자를 직접 처리
+        val builder = AlertDialog.Builder(view?.context)
+        builder.setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton("OK") { _, _ -> 
+                result?.confirm() // 확인 버튼 클릭 시 확인 응답
+            }
+            .setNegativeButton("Cancel") { _, _ -> 
+                result?.cancel() // 취소 버튼 클릭 시 취소 응답
+            }
+        val alert = builder.create()
+        alert.show()
+
+        return true // 대화상자를 직접 처리했음을 알림
     }
-    return true
 }
+
 ```
 {% endcode %}
 
 
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.setWebChromeClient(new WebChromeClient() {
+    @Override
+    public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+        // Handle the confirmation dialog directly
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    result.confirm(); // Confirm response when "OK" is clicked
+                }
+            })
+            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    result.cancel(); // Cancel response when "Cancel" is clicked
+                }
+            });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+        return true; // Indicate that the dialog was handled
+    }
+});
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+***
+
+### Javascript Alert(Confirm) TextInput
+
+JavaScript의 `window.prompt()`를 WebView에서 처리하려면, `WebChromeClient`의 `onJsPrompt()` 메서드를 오버라이드하여 사용자 입력을 받을 수 있는 맞춤형 다이얼로그를 생성할 수 있습니다.
+
+{% tabs %}
+{% tab title="KOTLIN" %}
+{% code lineNumbers="true" %}
+```kotlin
+webView.webChromeClient = object : WebChromeClient() {
+    override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
+        // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
+        val builder = AlertDialog.Builder(view?.context)
+        builder.setTitle("Prompt")
+            .setMessage(message) // JavaScript prompt에서 전달된 메시지
+            .setCancelable(false)
+
+        // 입력 필드를 생성
+        val input = EditText(view?.context)
+        input.setText(defaultValue) // 기본값이 있다면 기본값을 미리 설정
+        builder.setView(input)
+
+        builder.setPositiveButton("OK") { _, _ ->
+            val userInput = input.text.toString()
+            result?.confirm(userInput) // 사용자가 입력한 값으로 JavaScript에 응답
+        }
+
+        builder.setNegativeButton("Cancel") { _, _ ->
+            result?.cancel() // "Cancel" 클릭 시 null을 JavaScript로 반환
+        }
+
+        val alert = builder.create()
+        alert.show()
+
+        return true // prompt가 처리되었음을 WebView에 알림
+    }
+}
+
+```
+{% endcode %}
+
+
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.setWebChromeClient(new WebChromeClient() {
+    @Override
+    public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+        // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setTitle("Prompt")
+            .setMessage(message) // JavaScript prompt에서 전달된 메시지
+            .setCancelable(false);
+
+        // 입력 필드를 생성
+        final EditText input = new EditText(view.getContext());
+        input.setText(defaultValue); // 기본값이 있다면 기본값을 미리 설정
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String userInput = input.getText().toString();
+                result.confirm(userInput); // 사용자가 입력한 값으로 JavaScript에 응답
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                result.cancel(); // "Cancel" 클릭 시 null을 JavaScript로 반환
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+        return true; // prompt가 처리되었음을 WebView에 알림
+    }
+});
+
+```
+{% endcode %}
+
+
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
@@ -470,13 +644,156 @@ func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt:
         completionHandler(nil)
     }))
     self.viewController?.present(alertController, animated: true, completion: nil)
+
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+***
+
+## Scheme 처리 <a href="#scheme" id="scheme"></a>
+
+{% hint style="info" %}
+웹뷰 구성에 필요한 **Scheme** 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
+{% endhint %}
+
+{% tabs %}
+{% tab title="ANDROID(WebView)" %}
+✓ WebView::shouldOverrideUrlLoading을 통해 전달된 scheme 처리에 대한 방법을 가이드합니다.
+
+### intent
+
+{% code lineNumbers="true" %}
+```kotlin
+private fun actionIntentTask(viewContext: Context, webView: WebView?, url: String): Boolean {
+    val actionWebView = webView ?: return false
+    val actionActivity = viewContext as? Activity ?: return false
+    val actionIntent = try {
+        Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+    } catch (e: Exception) {
+        // error
+        null        
+    }
+
+    // check intent
+    if (actionIntent == null) {
+        Log.e("TAG", "intent is null")
+        return false
+    }
+
+    try {
+        // Fallback URL -> Loading WebView For Kakao
+        val fallbackUrl = actionIntent.getStringExtra("browser_fallback_url")
+        if (fallbackUrl != null) {
+            actionWebView.loadUrl(fallbackUrl)
+            return true
+        }
+        
+        // action
+        val actionPackageName = actionIntent.`package` ?: ""
+        if (actionPackageName.isNotEmpty()) {
+            // launch activity
+            val launchIntent = viewContext.packageManager.getLaunchIntentForPackage(actionPackageName)
+            if (launchIntent != null) {
+                actionActivity.startActivity(launchIntent)
+                return true
+            }
+        }
+        
+        // market
+        if (actionPackageName.isNotEmpty()) {
+            try {
+                val marketIntent = Intent(Intent.ACTION_VIEW)
+                marketIntent.data = Uri.parse("market://details?id=$actionPackageName")
+                actionActivity.startActivity(marketIntent)
+                return true
+            } catch (e: Exception) {
+                // error
+            }
+        }
+    } catch (e: Exception) {
+            // error
+        }
+    }
+    return false
 }
 ```
 {% endcode %}
 
 ***
 
-### Mailto, Tel&#x20;
+### Market
+
+schem market 처리 방식을 안내합니다.
+
+{% code lineNumbers="true" %}
+```kotlin
+private fun actionMarketTask(viewContext: Context, url: String): Boolean {
+    val activity = viewContext as? Activity ?: return false
+    kotlin.runCatching {
+        val id = Uri.parse(url).getQueryParameter("id")
+        val marketIntent = Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse("market://details?id=$id")
+        }
+        if (marketIntent.resolveActivity(viewContext.packageManager) != null) {
+            activity.startActivity(marketIntent)
+        } else {
+            val viewIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://play.google.com/store/apps/details?id=$id")
+            }
+            activity.startActivity(viewIntent)
+        }
+    }.onFailure {
+        // error
+    }
+    return true
+}
+```
+{% endcode %}
+
+***
+
+### Mailto
+
+{% code lineNumbers="true" %}
+```kotlin
+private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
+    val activity = viewContext as? Activity ?: return false
+    kotlin.runCatching {
+        activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
+    }.onFailure {
+        tales.error(moduleName = moduleName, throwable = it, trace = { "actionMailToTask { uri: $uri }" })
+        it.message?.produce { message -> ToastView.show(context = viewContext, message = message) }
+    }
+    return true
+}
+```
+{% endcode %}
+
+***
+
+### Tel
+
+{% code lineNumbers="true" %}
+```kotlin
+private fun actionTelTask(viewContext: Context, uri: Uri): Boolean {
+    val activity = viewContext as? Activity ?: return false
+    kotlin.runCatching {
+        activity.startActivity(Intent(Intent.ACTION_DIAL, uri))
+    }.onFailure {
+        // error
+    }
+    return true
+}
+```
+{% endcode %}
+
+
+{% endtab %}
+
+{% tab title="iOS(WKWebView)" %}
+### Mailto & Tel&#x20;
 
 mailto, tel scheme 처리에 방법에 대한 안내
 

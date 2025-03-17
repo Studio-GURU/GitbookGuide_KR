@@ -10,30 +10,34 @@
 * [\[API\] 추천 컨텐츠 목록 조회](web/recommendation.md)
 * [\[API\] 최근 본 작품 조회](web/recently.md)
 
+## WEB VIEW ( V1 )
+
+* [시작하기](web-view-v1/start.md)
+* [채널회원 미연동 방식](web-view-v1/standard.md)
+* [채널회원 연동 방식](web-view-v1/channeling.md)
+* [\[API\] 추천 컨텐츠 목록 조회](web-view-v1/recommendation.md)
+* [\[API\] 최근 본 작품 조회](web-view-v1/recently.md)
+* [웹뷰 설정 가이드](web-view-v1/webview-config.md)
+* [자바스크립트 통신](web-view-v1/javascriptinterface.md)
+
+***
+
+* [Postback API 가이드](postback-api.md)
+
 ## WEB VIEW
 
-* [시작하기](web-view/start.md)
-* [채널회원 미연동 방식](web-view/standard.md)
-* [채널회원 연동 방식](web-view/channeling.md)
-* [\[API\] 추천 컨텐츠 목록 조회](web-view/recommendation.md)
-* [\[API\] 최근 본 작품 조회](web-view/recently.md)
+* [시작하기](web-view/start/README.md)
+  * [템플릿 연동](web-view/start/template/README.md)
+    * [채널회원 연동 방식](web-view/start/template/channeling.md)
+    * [채널회원 미연동 방식](web-view/start/template/standard.md)
+  * [커스텀 연동 \[ API 연동 \]](web-view/start/api/README.md)
+    * [\[ API \] 추천 컨텐츠 목록 조회](web-view/start/api/recommendation.md)
+    * [\[ API \] 최근 본 작품 조회](web-view/start/api/recently.md)
+    * [채널회원 연동 방식](web-view/start/api/channeling.md)
+    * [채널회원 미연동 방식](web-view/start/api/standard.md)
 * [웹뷰 설정 가이드](web-view/webview-config.md)
 * [자바스크립트 통신](web-view/javascriptinterface.md)
-
-## \[ NEW ] WEB VIEW ( 신규 가이드 제작 중입니다 )
-
-* [시작하기](new-web-view/start/README.md)
-  * [템플릿 연동](new-web-view/start/template/README.md)
-    * [채널회원 연동 방식](new-web-view/start/template/channeling.md)
-    * [채널회원 미연동 방식](new-web-view/start/template/standard.md)
-  * [커스텀 연동 \[ API 연동 \]](new-web-view/start/api/README.md)
-    * [\[ API \] 추천 컨텐츠 목록 조회](new-web-view/start/api/recommendation.md)
-    * [\[ API \] 최근 본 작품 조회](new-web-view/start/api/recently.md)
-    * [채널회원 연동 방식](new-web-view/start/api/channeling.md)
-    * [채널회원 미연동 방식](new-web-view/start/api/standard.md)
-* [웹뷰 설정 가이드](new-web-view/webview-config.md)
-* [자바스크립트 통신](new-web-view/javascriptinterface.md)
-* [Sign 생성](new-web-view/sign.md)
+* [Sign 생성](web-view/sign.md)
 
 ## ANDROID SDK
 

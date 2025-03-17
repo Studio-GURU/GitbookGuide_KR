@@ -45,15 +45,6 @@ https://{channel}-test.treasurecomics.com/recommendation/{channel}
 
 **✓** `{channel}` 값은 **별도 전달** 됩니다.
 
-
-
-## 사이트 이동 토스트 표시
-
-**✓ App 내에서 \[ 웹툰 사이트로 이동했다 ] 라는 안내 토스트를 사용자에게 노출합니다.**\
-EX ) "웹툰 사이트로 이동했어요"
-
-<figure><img src="../../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
-
 ***
 
 ## 카카오톡 로그인을 위한 웹뷰 설정
@@ -287,16 +278,6 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 }
 ```
 {% endcode %}
-
-***
-
-## 메인화면
-
-<div align="left"><figure><img src="../../../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬에서 제공하는 서비스를 일반 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -12,7 +12,7 @@ description: 보물섬에서 제공하는 서비스를 일반 브라우저를 �
 
 일반적인 브라우져를 통해 서비스 연동시 참고 바랍니다.
 
-[WEB VIEW(인앱 브라우져)](../web-view/start.md) 또는 [ANDROID SDK](broken-reference), [iOS SDK](broken-reference) 연동 방식은 별도 가이드를 참고 바랍니다.
+[WEB VIEW(인앱 브라우져)](../web-view-v1/start.md) 또는 [ANDROID SDK](broken-reference), [iOS SDK](broken-reference) 연동 방식은 별도 가이드를 참고 바랍니다.
 
 ***
 

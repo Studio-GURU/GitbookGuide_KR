@@ -1,6 +1,6 @@
 ---
-icon: rectangle-history-circle-user
 description: 사용자가 최근 본 작품을 조회하는 API 로 채널회원이 연동되어 있는 방식에서만 동작합니다.
+icon: rectangle-history-circle-user
 ---
 
 # \[ API ] 최근 본 작품 조회
@@ -77,7 +77,8 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 	    chargedTicket: true,
 	    baseDate: "2024-09-27T03:00:00Z",
 	    chargedDate: "2024-09-27T03:00:00Z"
-    }
+    },
+    "freeEpisode": 3
   }
 ]
 ```

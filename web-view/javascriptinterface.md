@@ -33,9 +33,11 @@ icon: comments
 
 ***
 
-## 외부 웹 브라우져 오픈 요청 <a href="#window.open" id="window.open"></a>
+## 외부 웹 브라우져 오픈 요청 ( Require ) <a href="#window.open" id="window.open"></a>
 
 ✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
+
+✓ 앱스토어 및 CP ( 웹툰, 웹소설 ) 제공자의 정책 변경에 유연하게 대응하기 위해, 보물섬에서 인앱 또는 아웃브라우저를 효과적으로 선택 · 운영하기 위해 필요한 작업입니다.
 
 | request           |
 | ----------------- |
@@ -168,7 +170,7 @@ class TreasureKitJavascriptInterface {
 
 ***
 
-## 기기 광고 식별값 수집 요청 <a href="#window.open" id="window.open"></a>
+## 기기 광고 식별값 수집 요청 ( Require ) <a href="#window.open" id="window.open"></a>
 
 ✓ 보물섬 내부에서 기기 광고 식별값을 수집해야 하는 경우 웹에서 네이티브에 전달하는 메세지입니다.
 
