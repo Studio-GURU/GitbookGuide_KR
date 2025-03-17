@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -11,11 +11,31 @@ description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 �
 
 각 OS에서 제공하는 In-App WebView(WebView, WKWebView)를 사용하여 필요한 API를 호출한 후, 생성된 URL을 로드합니다. WebView의 추가 구성에 대한 자세한 내용은 옵션으로 제공되는 가이드를 참고해 주세요.
 
+***
+
+## 연동 방식
+
+템플릿 적립과 API 적립 **두 가지 방법 중 하나를 선택**하여, 하단 [연동 가이드](./#undefined-3)를 참고해 주세요.
+
+### &#x20;  [**템플릿 연동**](template/)
+
+<img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-17 001.jpeg" alt="" data-size="original">
 
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th></tr></thead><tbody><tr><td><img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-17 001.jpeg" alt="" data-size="original"></td><td><strong>템플릿 연동</strong><br><br>보물섬에서 제공하는 <strong>기본 템플릿을 사용</strong>하여 구성된 첫 화면을 사용합니다.<br><br><strong>빠르고 간편하게 적용</strong>할 수 있습니다.</td><td></td></tr><tr><td><img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-18 002.jpeg" alt=""></td><td><strong>커스텀 연동 (API 연동)</strong><br><br>API를 통해 보물섬의 추천 컨텐츠를 조회하여 <strong>자체 UI에 맞게</strong> 구성합니다.<br><br>기존 App의 디자인 및 기능처럼<br><strong>일관된 경험 제공</strong>이 가능합니다.</td><td></td></tr></tbody></table>
+
+보물섬에서 제공하는 **기본 연동 메인 웹페이지**로 웹뷰로 로드하여 사용합니다.\
+**빠르고 간편하게 적용**할 수 있습니다.
 
 
+
+### &#x20;[ **커스텀 연동 (API 연동)**](api/)
+
+![](<../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-18 002.jpeg>)
+
+API를 통해 보물섬의 추천 컨텐츠를 조회하여 **자체 UI ( 네이티브 혹은 웹페이지 )** 에 원하시는 형태로 적용 할 수 있습니다.\
+기존 App의 디자인 및 기능처럼 **일관된 경험 제공**이 가능합니다.
+
+***
 
 ## 연동 가이드
 
@@ -28,6 +48,8 @@ description: 보물섬에서 제공하는 서비스를 인앱 브라우저를 �
 {% content-ref url="api/" %}
 [api](api/)
 {% endcontent-ref %}
+
+***
 
 ## 권장사항
 

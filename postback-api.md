@@ -50,25 +50,18 @@ hidden: true
 
 ```
 {
-  "result": {
-    "data": {
-      "code": "Success"
-    }
-  }
+  "result": code, // 하단 표를 참고해주세요.
+  "msg": 응답 메세지 // 코드에 해당하는 메세지를 보내주세요.
 }
 ```
 
-#### ❌ 실패 응답 예시
 
-```
-{
-  "result": {
-    "data": {
-      "code": "AlreadyAccumulated"
-    }
-  }
-}
-```
+
+| code | description |
+| ---- | ----------- |
+| 0000 | 적립 완료       |
+| 9001 | 중복 적립       |
+| 9003 | 적립 요청 중     |
 
 ***
 

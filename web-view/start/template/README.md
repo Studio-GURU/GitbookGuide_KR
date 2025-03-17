@@ -1,6 +1,6 @@
 ---
-icon: hand-point-right
 description: 보물섬에서 제공하는 템플릿 연동 가이드입니다.
+icon: hand-point-right
 ---
 
 # 템플릿 연동
@@ -13,8 +13,8 @@ description: 보물섬에서 제공하는 템플릿 연동 가이드입니다.
 
 * **연동의 가장 기본이 되는 Web View 설정 가이드입니다.**
 
-{% content-ref url="../../webview-config.md" %}
-[webview-config.md](../../webview-config.md)
+{% content-ref url="../../webview-config/" %}
+[webview-config](../../webview-config/)
 {% endcontent-ref %}
 
 * **채널 회원 사용 여부에 따라 아래의 가이드 중 하나를 참고해주세요.**
@@ -29,7 +29,7 @@ description: 보물섬에서 제공하는 템플릿 연동 가이드입니다.
 
 * **Web에서 Native로 요청을 전달하는 방식에 대한 통신 가이드입니다.**
 
-{% content-ref url="../../javascriptinterface.md" %}
-[javascriptinterface.md](../../javascriptinterface.md)
+{% content-ref url="../../webview-config/javascriptinterface.md" %}
+[javascriptinterface.md](../../webview-config/javascriptinterface.md)
 {% endcontent-ref %}
 

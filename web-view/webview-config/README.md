@@ -14,7 +14,7 @@ TossPayments를 통한 유료 결제에 필요한 은행앱 패키지 등록
 
 ***
 
-## 웹뷰 셋팅 <a href="#config" id="config"></a>
+## 웹뷰 셋팅 ( Require ) <a href="#config" id="config"></a>
 
 **✓ 웹뷰 셋팅 값 설정에 대한 방법을 안내합니다.**
 
@@ -111,7 +111,7 @@ if #available(iOS 14.0, *) {
 
 ***
 
-## 웹뷰 컨텐츠 보호 <a href="#secure" id="secure"></a>
+## 웹뷰 컨텐츠 보호 ( Require ) <a href="#secure" id="secure"></a>
 
 **✓ 스크린 캡쳐 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.**
 
@@ -180,7 +180,7 @@ override func viewDidAppear(_ animated: Bool) {
 
 ***
 
-## Javascript Window 처리 <a href="#scheme" id="scheme"></a>
+## Javascript Window 처리 ( Require ) <a href="#scheme" id="scheme"></a>
 
 {% hint style="info" %}
 웹뷰 구성에 필요한 **Scheme** 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
@@ -652,7 +652,7 @@ func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt:
 
 ***
 
-## Scheme 처리 <a href="#scheme" id="scheme"></a>
+## Scheme 처리 ( Require ) <a href="#scheme" id="scheme"></a>
 
 {% hint style="info" %}
 웹뷰 구성에 필요한 **Scheme** 처리에 대한 **예제 코드**이며, 실 프로젝트에서는 **참고만 하시길 바랍니다**.
