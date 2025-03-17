@@ -17,7 +17,7 @@ icon: star-shooting
 
 템플릿 적립과 API 적립 **두 가지 방법 중 하나를 선택**하여, 하단 [연동 가이드](./#undefined-3)를 참고해 주세요.
 
-### &#x20;  [**템플릿 연동**](template/)
+### &#x20;  **템플릿 연동**
 
 <img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-17 001.jpeg" alt="" data-size="original">
 
@@ -28,7 +28,7 @@ icon: star-shooting
 
 
 
-### &#x20;[ **커스텀 연동 (API 연동)**](api/)
+### &#x20; **커스텀 연동 (API 연동)**
 
 ![](<../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-18 002.jpeg>)
 
