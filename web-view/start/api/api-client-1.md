@@ -1,9 +1,9 @@
 ---
 description: 사용자가 최근 본 작품을 조회하는 API 로 채널회원이 연동되어 있는 방식에서만 동작합니다.
-icon: rectangle-history-circle-user
+icon: mobile
 ---
 
-# \[ API ] 최근 본 작품 조회
+# \[ API ] 최근 본 작품 조회 ( Client )
 
 ## Version
 
@@ -11,19 +11,21 @@ icon: rectangle-history-circle-user
 
 | Version | Date       | Description |
 | ------- | ---------- | ----------- |
-| 1.0.0   | 2024.08.23 | Create      |
+| 1.0.0   | 2025.03.19 | Create      |
 
 ## Recent View Contents
 
 ```
 테스트
-GET https://api-test.treasurecomics.com/external/recentView?sign={value}
+GET https://api-test.treasurecomics.com/external/open/{channel}/recentView?sign={value}
 
 라이브
-GET https://api.treasurecomics.com/external/recentView?sign={value}
+GET https://api.treasurecomics.com/external/open/{channel}/recentView?sign={value}
 ```
 
-**유저의 최근 감상 컨텐츠 목록을 반환 합니다.**
+**✓ 유저의 최근 감상 컨텐츠 목록을 반환 합니다.**
+
+**✓** `{channel}` 값은 **별도 전달** 됩니다.
 
 ### Security
 
@@ -38,7 +40,6 @@ GET https://api.treasurecomics.com/external/recentView?sign={value}
 | Name           | Value              |
 | -------------- | ------------------ |
 | Content-Type   | `application/json` |
-| Authorization  | `Basic token`      |
 | Accept-Version | `1.0.0`            |
 
 ### **Request Params**
@@ -47,7 +48,7 @@ GET https://api.treasurecomics.com/external/recentView?sign={value}
 
 ```
 // get usage example
-https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ
+https://api-{env}.treasurecomics.com/external/open/{channel}/recentView?sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ
 ```
 
 ### **Response**
@@ -77,6 +78,25 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 	    chargedDate: "2024-09-27T03:00:00Z"
     },
     "freeEpisode": 3
+  },
+    {
+    "title": "내 인생에서 사라져 주세요",
+    "description": "마지막이라고 생각했을 때 다시 찾아온 기회,이번엔 놓치지 않겠어!",
+    "thumbnail": "https://s.treasurecomics.com/images/test/novel/cnc0e5f2fa7a/posterThumbnail_1723080834.jpg",
+    "contentType": "웹소설",
+    "contentCName": "cnc0e5f2fa7a",
+    "contentEpisodeTitle": "1화",
+    "episodeNo": 1,
+    "genre": "로맨스판타지",
+    "link": "https://bitbunny-test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Fbitbunny-test.treasurecomics.com%2Fcontent%2Flist%2Fcnc0e5f2fa7a",
+    "returnUrl": "https://bitbunny-test.treasurecomics.com/content/list/cnc0e5f2fa7a",
+    "isWaitFree": true,
+    "waitFreeInfo": {
+      "chargedTicket": true,
+      "baseDate": "2025-03-19T05:00:01.650Z",
+      "chargedDate": "2025-03-19T05:00:01.650Z"
+    },
+    "freeEpisode": 5
   }
 ]
 ```
@@ -100,9 +120,9 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 {% endtab %}
 {% endtabs %}
 
-#### Reponse Error Code
+**Response Error Code**
 
-<table><thead><tr><th width="307">Code</th><th>Reason</th><th>Message</th></tr></thead><tbody><tr><td><mark style="color:red;"><code>err_invalid_signature</code></mark></td><td>Signature 검증 실패</td><td>잘못된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_already_used_signature</code></mark></td><td>사용된 Signature 재사용<br>-> 5분간 제한</td><td>이미 사용된 Signature 입니다.</td></tr></tbody></table>
+<table><thead><tr><th width="307">Code</th><th>Reason</th><th>Message</th></tr></thead><tbody><tr><td><mark style="color:red;"><code>err_invalid_signature</code></mark></td><td>Signature 검증 실패</td><td>잘못된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_already_used_signature</code></mark></td><td>사용된 Signature 재사용<br>-> 5분간 제한</td><td>이미 사용된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_not_exists_app</code></mark></td><td>확인되지 않은 channel</td><td>등록된 앱이 없습니다.</td></tr></tbody></table>
 
 ***
 

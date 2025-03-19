@@ -1,9 +1,9 @@
 ---
 description: 보물섬이 제공하는 "오늘의 추천" 페이지를 사용하지 않고, 별도 화면을 구성하는 커스텀 방식에 사용합니다.
-icon: thumbs-up
+icon: mobile-notch
 ---
 
-# \[ API ] 추천 컨텐츠 목록 조회
+# \[ API ] 추천 컨텐츠 목록 조회 ( Client )
 
 ## Version
 
@@ -11,19 +11,21 @@ icon: thumbs-up
 
 | Version | Date       | Description |
 | ------- | ---------- | ----------- |
-| 1.0.0   | 2024.08.23 | Create      |
+| 1.0.0   | 2025.03.19 | Create      |
 
 ## Rcommendation Contents
 
 ```
 테스트
-GET https://api-test.treasurecomics.com/external/recommendation?sign={value}
+GET https://api-test.treasurecomics.com/external/open/{channel}/recommendation?sign={value}
 
 라이브
-GET https://api.treasurecomics.com/external/recommendation?sign={value}
+GET https://api.treasurecomics.com/external/open/{channel}/recommendation?sign={value}
 ```
 
 &#x20;**✓ 추천 컨텐츠 목록을 반환 합니다.**
+
+**✓** `{channel}` 값은 **별도 전달** 됩니다.
 
 ### Security
 
@@ -38,16 +40,15 @@ GET https://api.treasurecomics.com/external/recommendation?sign={value}
 | Name           | Value              |
 | -------------- | ------------------ |
 | Content-Type   | `application/json` |
-| Authorization  | `Basic token`      |
 | Accept-Version | `1.0.0`            |
 
 ### **Request Params**
 
-<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td>sign</td><td>string</td><td>true</td><td><a data-mention href="../../sign.md">sign.md</a></td></tr><tr><td>adid</td><td>string</td><td>false</td><td><p>광고 식별 ID </p><p>AOS : ADID값 전달<br>IOS : IDFA값 전달</p></td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td><p>성인여부</p><p>0 : 성인 X</p><p>1 : 성인</p></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td>sign</td><td>string</td><td>true</td><td><a data-mention href="../../sign.md">sign.md</a></td></tr></tbody></table>
 
 ```
 // get usage example
-https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ
+https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ
 ```
 
 ### **Response**
@@ -175,7 +176,7 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 #### Reponse Error Code
 
-<table><thead><tr><th width="307">Code</th><th>Reason</th><th>Message</th></tr></thead><tbody><tr><td><mark style="color:red;"><code>err_invalid_signature</code></mark></td><td>Signature 검증 실패</td><td>잘못된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_already_used_signature</code></mark></td><td>사용된 Signature 재사용<br>-> 5분간 제한</td><td>이미 사용된 Signature 입니다.</td></tr></tbody></table>
+<table><thead><tr><th width="307">Code</th><th>Reason</th><th>Message</th></tr></thead><tbody><tr><td><mark style="color:red;"><code>err_invalid_signature</code></mark></td><td>Signature 검증 실패</td><td>잘못된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_already_used_signature</code></mark></td><td>사용된 Signature 재사용<br>-> 5분간 제한</td><td>이미 사용된 Signature 입니다.</td></tr><tr><td><mark style="color:red;"><code>err_not_exists_app</code></mark></td><td>확인되지 않은 channel</td><td>등록된 앱이 없습니다.</td></tr></tbody></table>
 
 ***
 
