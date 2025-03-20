@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬 Unity-Package에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -94,7 +94,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 ### Unity Package Manager (Git)
 
 ```
-https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
+https://github.com/Studio-GURU/TreasureIslandX-Unity-Package.git
 ```
 
 Window → Unity Package Manager를 실행합니다.
@@ -108,10 +108,8 @@ Unity Package Manager → **install package from git URL**
 GitHub URL을 입력합니다.
 
 ```
-https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
+https://github.com/Studio-GURU/TreasureIslandX-Unity-Package.git
 ```
-
-<div align="left"><figure><img src="../.gitbook/assets/unity_import_003.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
@@ -141,7 +139,7 @@ https://github.com/Studio-GURU/TreasureIsland-Unity-Package.git
 
 Android 관련 의존성을 추가 합니다.
 
-<pre><code><strong>implementation "kr.co.studioguru.sdk:treasureisland-bridge:$android-sdk-version"
+<pre><code><strong>implementation "kr.co.studioguru.sdk:treasureislandx-bridge:$android-sdk-version"
 </strong></code></pre>
 
 <pre class="language-gradle" data-line-numbers><code class="lang-gradle">apply plugin: 'com.android.library'
@@ -151,7 +149,7 @@ apply from: '../shared/keepUnitySymbols.gradle'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 <strong>    // 의존성을 추가 합니다.
-</strong><strong>    implementation "kr.co.studioguru.sdk:treasureisland-bridge:$version"
+</strong><strong>    implementation "kr.co.studioguru.sdk:treasureislandx-bridge:$version"
 </strong>}
 ...
 ...
@@ -161,7 +159,7 @@ dependencies {
 
 Android 관련 의존성 Repository URL을 설정 합니다.
 
-<pre><code><strong>https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/
+<pre><code><strong>https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/
 </strong></code></pre>
 
 <pre class="language-gradle" data-line-numbers><code class="lang-gradle">...
@@ -173,7 +171,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 <strong>        // 의존성 관련 Repository URL 설정
-</strong><strong>        maven { url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/") }
+</strong><strong>        maven { url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/") }
 </strong>        flatDir {
             dirs "${project(':unityLibrary').projectDir}/libs"
         }

@@ -1,6 +1,6 @@
 ---
-icon: credit-card
 description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
+icon: credit-card
 ---
 
 # 보물섬 인앱 구매 서비스
@@ -36,7 +36,7 @@ description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureisland-plug-purchase:{SDK-VERSION}'
+  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-purchase:{SDK-VERSION}'
 }
 ```
 {% endcode %}
@@ -102,7 +102,7 @@ dependencies {
 
 ***
 
-✓ pod '**TreasureIslandPlugPurchaseKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandXPlugPurchaseKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -113,7 +113,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # 보물섬 구매 서비스 SDK(PurchaseKit PLUG)
-  pod 'TreasureIslandPlugPurchaseKit', '{SDK-VERSION}''
+  pod 'TreasureIslandXPlugPurchaseKit', '{SDK-VERSION}''
 end
 ```
 {% endcode %}
@@ -131,7 +131,7 @@ $ pod install
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -140,7 +140,7 @@ $ pod install
 
 <figure><img src="../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/apple_plug_purchase.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오후 12.03.51.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

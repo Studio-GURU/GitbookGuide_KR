@@ -1,9 +1,9 @@
 ---
-icon: user
 description: 보물섬 ReactNative-PlugIn을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user
 ---
 
-# 채널회원 미연동
+# 채널회원 미연동 방식
 
 {% hint style="success" %}
 파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
@@ -37,9 +37,7 @@ Package Initialize
 {% step %}
 ### 화면 호출
 
-**comicsLaunch ⇨ (success, message);**
-
-**callback(Action\<ComicsModel.Completion>);**
+**comicsLaunch ⇨ callback(ITaskListener\<boo>);**
 {% endstep %}
 {% endstepper %}
 
@@ -49,36 +47,36 @@ Package Initialize
 
 iOS / Android 별도의 Namespace를 사용합니다.
 
-**✓ iOS** → **TreasureIslandPlugin.iOS**
+**✓ iOS** → **TreasureIslandXPlugin.iOS**
 
-**✓ Android** → **TreasureIslandPlugin.Android**
+**✓ Android** → **TreasureIslandXPlugin.Android**
 
+{% code lineNumbers="true" %}
 ```csharp
 #if UNITY_IOS
-...
+using TreasureIslandXPlugin.iOS;
 #elif UNITY_ANDROID
-...
+using TreasureIslandXPlugin.Android;
 #endif
 ```
+{% endcode %}
 
 ## Callback
 
-모든 함수는 Completion 결과를 반환합니다.
+모든 함수는 ITaskListener\<T> 결과를 반환합니다.
 
-**✓ Action\<ComicsModel.Completion> completionHandler**
+**✓ ITaskListener\<T> callback**
 
+{% code lineNumbers="true" %}
 ```csharp
 // callback
-public class Completion {
-    // 성공 여부
-    public bool success;
-    // 성공 여부 관련 메시지
-    public string message;
+public interface ITaskListener<T>
+{
+    void OnSuccess(T result);
+    void OnFailure(string message);
 }
-
-// return
-Action<ComicsModel.Completion> completionHandler
 ```
+{% endcode %}
 
 ## Package 초기화 하기
 
@@ -125,12 +123,12 @@ public class StatusbarOptionModel {
 
 // usage
 <strong>#if UNITY_IOS
-</strong>TreasureIslandPlugin.iOS.ComicsModel.StatusbarOptionModel model = new(
+</strong>TreasureIslandXPlugin.iOS.StatusbarOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
 <strong>#elif UNITY_ANDROID
-</strong>TreasureIslandPlugin.Android.ComicsModel.StatusbarOptionModel model = new(
+</strong>TreasureIslandXPlugin.Android.StatusbarOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
@@ -151,12 +149,12 @@ public class NotificationOptionModel {
 
 // usage
 <strong>#if UNITY_IOS
-</strong>TreasureIslandPlugin.iOS.ComicsModel.NotificationOptionModel model = new(
+</strong>TreasureIslandXPlugin.iOS.NotificationOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
 <strong>#elif UNITY_ANDROID
-</strong>TreasureIslandPlugin.Android.ComicsModel.NotificationOptionModel model = new(
+</strong>TreasureIslandXPlugin.Android.NotificationOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
@@ -179,52 +177,50 @@ public class NotificationOptionModel {
 고유 식별자 및 고유 식별자 검증키는 영업팀을 통해 별도 전달 됩니다.&#x20;
 {% endhint %}
 
-<pre class="language-csharp" data-line-numbers><code class="lang-csharp"><strong>#if UNITY_IOS
-</strong>TreasureIslandPlugin.iOS.ComicsModel.InitModel entity = new(
-    appId: "harustory",
-    appSecret: "haruSecret",
-<strong>    membership: TreasureIslandPlugin.iOS.ComicsModel.Membership.Basic,
-</strong>    allowLog: true,
-<strong>    environment: TreasureIslandPlugin.iOS.ComicsModel.Environment.Live,
-</strong>    notificationOption: new TreasureIslandPlugin.iOS.ComicsModel.NotificationOptionModel(
-        channelName: "보물섬",
-        notificationIconName: "app_icon"                          
-    ),
-    statusbarOption: new TreasureIslandPlugin.iOS.ComicsModel.StatusbarOptionModel(
-        statusbarColor: "#FFFFFF",
-        isWindwoLight: false
-    )
-);
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">using UnityEngine;
+<strong>#if UNITY_IOS
+</strong><strong>using TreasureIslandXPlugin.iOS;
+</strong><strong>#elif UNITY_ANDROID
+</strong><strong>using TreasureIslandXPlugin.Android;
+</strong><strong>#endif
+</strong>public class ButtonInitScript : MonoBehaviour
+{
+    public void OnClickButton() {        
+        Membership membership = Membership.Basic;
+        Environment environment = Environment.Live;
+        InitModel entity = new(
+            appId: "{발급받은 appId}",
+            appSecret: "{발급받은 appSecret}",
+            membership: membership,
+            allowLog: true,
+            environment: environment,
+            notificationOption: new NotificationOptionModel(
+                channelName: "보물섬",
+                notificationIconName: "app_icon"                          
+            ),
+            statusbarOption: new StatusbarOptionModel(
+                statusbarColor: "#FFFFFF",
+                isWindwoLight: false
+            )
+        );
+<strong>        TaskListenerImplementation taskImplementation = new();
+</strong><strong>        ComicsScript.Initialize(entity: entity, callback: taskImplementation);
+</strong>    }
 
-//Action&#x3C;ComicsModel.Completion> completionHandler
-TreasureIslandPlugin.iOS.ComicsScript.Initialize(entity: entity, completionHandler => {
-    Debug.Log("###completionHandler => " + completionHandler.success);
-    Debug.Log("###completionHandler => " + completionHandler.message);
-});            
-<strong>#elif UNITY_ANDROID
-</strong>TreasureIslandPlugin.Android.ComicsModel.InitModel entity = new(
-    appId: "harustory",
-    appSecret: "haruSecret",
-<strong>    membership: TreasureIslandPlugin.Android.ComicsModel.Membership.Basic,
-</strong>    allowLog: true,
-<strong>    environment: TreasureIslandPlugin.Android.ComicsModel.Environment.Live,
-</strong>    notificationOption: new TreasureIslandPlugin.Android.ComicsModel.NotificationOptionModel(
-        channelName: "보물섬",
-        notificationIconName: "app_icon"                          
-    ),
-    statusbarOption: new TreasureIslandPlugin.Android.ComicsModel.StatusbarOptionModel(
-        statusbarColor: "#FFFFFF",
-        isWindwoLight: false
-    )
-);
+<strong>    public class TaskListenerImplementation : ITaskListener&#x3C;bool>
+</strong>    {
+        public void OnSuccess(bool result)
+        {
+            Debug.Log("Initialization Successful: " + result);
+        }
 
-//Action&#x3C;ComicsModel.Completion> completionHandler
-TreasureIslandPlugin.Android.ComicsScript.Initialize(entity: entity, completionHandler => {
-    Debug.Log("###completionHandler => " + completionHandler.success);
-    Debug.Log("###completionHandler => " + completionHandler.message);
-});
-<strong>#endif
-</strong></code></pre>
+        public void OnFailure(string message)
+        {
+            Debug.Log("Initialization Failed: " + message);
+        }
+    }
+}
+</code></pre>
 
 ***
 
@@ -232,7 +228,7 @@ TreasureIslandPlugin.Android.ComicsScript.Initialize(entity: entity, completionH
 
 ### ComicsScript.Launch
 
-<pre class="language-csharp"><code class="lang-csharp">// define
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">// define
 public class LaunchModel{
     // 광고 아이디 (빈값 사용시 Package에서 추출)
     public string advertisingId;
@@ -247,34 +243,42 @@ public class LaunchModel{
 }
 
 // usage
-<strong>#if UNITY_IOS
-</strong>TreasureIslandPlugin.iOS.ComicsModel.LaunchModel entity = new(
-    advertisingId: "0000-0000-0000",
-    allowHeader: false,
-    headerTitle: "",
-    allowBackButton: false,
-    allowCloseButton: false
-);
-// Action&#x3C;ComicsModel.Completion> completionHandler
-TreasureIslandPlugin.iOS.ComicsScript.Launch(entity: entity, completionHandler => {
-    Debug.Log("###completionHandler => " + completionHandler.success);
-    Debug.Log("###completionHandler => " + completionHandler.message);
-});
-<strong>#elif UNITY_ANDROID
-</strong>TreasureIslandPlugin.Android.ComicsModel.LaunchModel entity = new(
-    advertisingId: "0000-0000-0000",
-    allowHeader: false,
-    headerTitle: "",
-    allowBackButton: false,
-    allowCloseButton: false
-);
-// Action&#x3C;ComicsModel.Completion> completionHandler
-TreasureIslandPlugin.Android.ComicsScript.Launch(entity: entity, completionHandler => {
-    Debug.Log("###completionHandler => " + completionHandler.success);
-    Debug.Log("###completionHandler => " + completionHandler.message);
-});
-<strong>#endif
-</strong></code></pre>
+<strong>using UnityEngine;
+</strong><strong>#if UNITY_IOS
+</strong><strong>using TreasureIslandXPlugin.iOS;
+</strong><strong>#elif UNITY_ANDROID
+</strong><strong>using TreasureIslandXPlugin.Android;
+</strong><strong>#endif
+</strong>public class ButtonLaunchScript : MonoBehaviour
+{
+    public void OnClickButton()
+    {
+<strong>        LaunchModel entity = new(
+</strong>            advertisingId: "0000-0000-0000",
+            allowHeader: false,
+            headerTitle: "",
+            allowBackButton: false,
+            allowCloseButton: false
+        );
+<strong>        TaskListenerImplementation taskImplementation = new();
+</strong><strong>        ComicsScript.Launch(entity: entity, callback: taskImplementation);
+</strong>    }
+
+<strong>    public class TaskListenerImplementation : ITaskListener&#x3C;bool>
+</strong>    {
+        public void OnSuccess(bool result)
+        {
+            Debug.Log("Launch Successful: " + result);
+        }
+
+        public void OnFailure(string message)
+        {
+            Debug.Log("Launch Failed: " + message);
+        }
+    }
+}
+
+</code></pre>
 
 ***
 
