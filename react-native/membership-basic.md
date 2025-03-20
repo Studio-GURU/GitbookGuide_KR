@@ -1,9 +1,9 @@
 ---
-icon: user
 description: 보물섬 ReactNative-Package을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user
 ---
 
-# 채널회원 미연동
+# 채널회원 미연동 방식
 
 {% hint style="success" %}
 파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
@@ -67,7 +67,7 @@ import {
   NotificationConfig,
   comicsInitialize,  
   comicsLaunch,
-} from 'react-treasureisland-addon';
+} from 'react-treasureislandx-addon';
 ```
 
 <table><thead><tr><th width="248">Module Name</th><th width="129">Type</th><th>Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><strong>Basic</strong> / Channeling</td></tr><tr><td><code>StatusBarConfig</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>NotificationConfig</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr><tr><td><code>comicsWithInitialize</code></td><td>function</td><td>초기화 함수</td><td></td></tr></tbody></table>
@@ -95,7 +95,7 @@ import {
   NotificationConfig,
   comicsInitialize,  
   comicsLaunch,
-} from 'react-treasureisland-addon';
+} from 'react-treasureislandx-addon';
 
 function App(): React.JSX.Element {
   useEffect(() => {
@@ -192,7 +192,7 @@ function comicsLaunch(
 )
 
 // usage
-import { comicsLaunch } from 'react-treasureisland-addon';
+import { comicsLaunch } from 'react-treasureislandx-addon';
 ..
 ..
 const handleButtonPress = () => {

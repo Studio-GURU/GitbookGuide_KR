@@ -1,6 +1,6 @@
 ---
-icon: bell-ring
 description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위한 설정 방법을 안내 합니다.
+icon: bell-ring
 ---
 
 # 보물섬 알림 서비스@PLUG
@@ -38,11 +38,11 @@ description: 보물섬 기다리면 무료 컨텐츠의 모바일 알림을 위�
 
 ***
 
-✓ pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
 
-✓ pod 'TreasureIslandSceneKit', '{SDK-VERSION}'
+✓ pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
 
-✓ pod '**TreasureIslandPlugNotificationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandXPlugNotificationKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -53,10 +53,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # 보물섬 필수 SDK
-  pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
-  pod 'TreasureIslandSceneKit', '{SDK-VERSION}''
+  pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
+  pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
   # 보물섬 알림 서비스 SDK(Notififatioin PLUG)
-  pod 'TreasureIslandPlugNotificationKit', '{SDK-VERSION}''
+  pod 'TreasureIslandXPlugNotificationKit', '{SDK-VERSION}'
 end
 ```
 {% endcode %}
@@ -74,7 +74,7 @@ $ pod install
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -83,7 +83,7 @@ $ pod install
 
 <figure><img src="../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/apple_plug_notify.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/스크린샷 2025-03-20 오후 12.02.44.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

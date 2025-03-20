@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬 Flutter-Package에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -25,7 +25,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 Flutter Package
 
-https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
 {% endstep %}
 
 {% step %}
@@ -98,13 +98,13 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ***
 
-https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
 {% endhint %}
 
 ### CloudSmith 저장소 등록 하기
 
 ```sh
-dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+dart pub add flutter_treasureislandx_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
 ```
 
 #### **pubspec.yaml 파일에 패키지 확인**
@@ -114,8 +114,8 @@ dart pub add flutter_treasureisland_addon:${version} --hosted-url https://dart.c
     sdk: flutter
   ...
   ...
-<strong>  flutter_treasureisland_addon:
-</strong><strong>    hosted: https://dart.cloudsmith.io/studio-guru/treasureisland-flutter/
+<strong>  flutter_treasureislandx_addon:
+</strong><strong>    hosted: https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
 </strong><strong>    version: ${version}
 </strong>  ...
   ...
@@ -140,7 +140,7 @@ Android Maven Repository URL
 
 ***
 
-https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/
+https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/
 {% endhint %}
 
 
@@ -150,13 +150,11 @@ https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/
         google()
         mavenCentral()
         maven {
-<strong>            url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+<strong>            url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
 </strong>        }
     }
 }
 </code></pre>
-
-<figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 6.58.26.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

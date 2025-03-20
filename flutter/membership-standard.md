@@ -1,9 +1,9 @@
 ---
-icon: user
 description: 보물섬 Flutter-Package을 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user
 ---
 
-# 채널회원 미연동
+# 채널회원 미연동 방식
 
 {% hint style="success" %}
 파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
@@ -61,11 +61,11 @@ Application 시작시 초기화를 진행합니다.
 
 {% code lineNumbers="true" %}
 ```dart
-import 'package:flutter_treasureisland_addon/flutter_treasureisland_addon.dart';
-import 'package:flutter_treasureisland_addon/models/environment_config.dart';
-import 'package:flutter_treasureisland_addon/models/membership_config.dart';
-import 'package:flutter_treasureisland_addon/models/notification_config.dart';
-import 'package:flutter_treasureisland_addon/models/statusbar_config.dart';
+import 'package:flutter_treasureislandx_addon/flutter_treasureislandx_addon.dart';
+import 'package:flutter_treasureislandx_addon/models/environment_config.dart';
+import 'package:flutter_treasureislandx_addon/models/membership_config.dart';
+import 'package:flutter_treasureislandx_addon/models/notification_config.dart';
+import 'package:flutter_treasureislandx_addon/models/statusbar_config.dart';
 ```
 {% endcode %}
 
@@ -86,11 +86,11 @@ import 'package:flutter_treasureisland_addon/models/statusbar_config.dart';
 고유 식별자 및 고유 식별자 검증키는 영업팀을 통해 별도 전달 됩니다.&#x20;
 {% endhint %}
 
-<pre class="language-dart" data-line-numbers><code class="lang-dart">import 'package:flutter_treasureisland_addon/flutter_treasureisland_addon.dart';
-import 'package:flutter_treasureisland_addon/models/environment_config.dart';
-import 'package:flutter_treasureisland_addon/models/membership_config.dart';
-import 'package:flutter_treasureisland_addon/models/notification_config.dart';
-import 'package:flutter_treasureisland_addon/models/statusbar_config.dart';
+<pre class="language-dart" data-line-numbers><code class="lang-dart">import 'package:flutter_treasureislandx_addon/flutter_treasureislandx_addon.dart';
+import 'package:flutter_treasureislandx_addon/models/environment_config.dart';
+import 'package:flutter_treasureislandx_addon/models/membership_config.dart';
+import 'package:flutter_treasureislandx_addon/models/notification_config.dart';
+import 'package:flutter_treasureislandx_addon/models/statusbar_config.dart';
 
 // 앱의 시작점에 아래 코드를 참고하여 초기화를 진행합니다.
 Future&#x3C;void> initComics() async {
@@ -188,7 +188,7 @@ class AddOnResult {
 }
 
 // usage
-import 'package:flutter_treasureisland_addon/flutter_treasureisland_addon.dart';
+import 'package:flutter_treasureislandx_addon/flutter_treasureislandx_addon.dart';
 ..
 ..
 Future<void> launch() async {

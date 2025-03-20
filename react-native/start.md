@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬 ReactNative-Package에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -94,15 +94,15 @@ https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
 ```sh
 # yarn
 # yarn 저장소 등록
-$ yarn config set registry https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
+$ yarn config set registry https://npm.cloudsmith.io/studio-guru/treasureislandx-reactnative/
 # yarn 모둘 추가
-$ yarn add react-treasureisland-addon@version
+$ yarn add react-treasureislandx-addon@version
 
 # npm
 # npm 저장소 등록
-$ npm config set registry https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
+$ npm config set registry https://npm.cloudsmith.io/studio-guru/treasureislandx-reactnative/
 # npm 모둘 추가
-$ npm install react-treasureisland-addon@version
+$ npm install react-treasureislandx-addon@version
 ```
 
 패키지가 설치되면 node\_module 폴더에 저장이 되며, package.json에 추가됩니다.
@@ -113,7 +113,7 @@ $ npm install react-treasureisland-addon@version
     ....
     code
     ....
-    "react-treasureisland-addon": ".."
+    "react-treasureislandx-addon": ".."
   },
 ```
 {% endcode %}
@@ -147,7 +147,7 @@ allprojects {
         google()
         mavenCentral()
         maven {
-            url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+            url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
         }
     }
 }
@@ -156,8 +156,6 @@ apply plugin: "com.facebook.react.rootproject"
 
 ```
 {% endcode %}
-
-<figure><img src="../.gitbook/assets/스크린샷 2025-01-22 오후 5.10.27.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

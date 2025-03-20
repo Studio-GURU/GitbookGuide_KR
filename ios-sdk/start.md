@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬 iOS SDK에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아 보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -123,9 +123,9 @@ $ pod init
 
 ***
 
-✓ pod '**TreasureIslandFoundationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandXFoundationKit**', '{SDK-VERSION}'
 
-✓ pod '**TreasureIslandSceneKit**', '{SDK-VERSION}'
+✓ pod '**TreasureIslandXSceneKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -136,8 +136,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # TreasureIsland SDK
-  pod 'TreasureIslandFoundationKit', '{SDK-VERSION}'
-  pod 'TreasureIslandSceneKit', '{SDK-VERSION}''
+  pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
+  pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
 end
 ```
 {% endcode %}
@@ -152,7 +152,7 @@ $ pod install
 
 workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치 되었는지 확인 합니다.
 
-<figure><img src="../.gitbook/assets/apple_cocoapod_01.png" alt=""><figcaption></figcaption></figure>
+<div align="left"><figure><img src="../.gitbook/assets/apple_cocoapod_01 (3).png" alt=""><figcaption></figcaption></figure></div>
 
 ### ![](../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
 
@@ -169,9 +169,9 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 ***
 
-<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIslandX-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
-<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIslandX-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -182,23 +182,23 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 #### Package 추가(**TreasureIsland-iOS-FounedationKit)**
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
 **⬇ 오른쪽 상단에 SwiftPackage 주소를 입력합니다.**
 
-<figure><img src="../.gitbook/assets/apple_swift_package_02.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오전 10.54.16.png" alt=""><figcaption></figcaption></figure>
 
 #### Package 추가(**TreasureIsland-iOS-SceneKit)**
 
-✓ [https://github.com/Studio-GURU/TreasureIsland-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 
-<figure><img src="../.gitbook/assets/apple_swift_package_03.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오후 12.07.19.png" alt=""><figcaption></figcaption></figure>
 
 #### 모듈 설치 확인
 
 ✓ Package Dependencies 항목에 추가한 모듈이 있는지 확인 합니다.
 
-<div align="left"><figure><img src="../.gitbook/assets/apple_swift_package_04.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오전 10.56.19.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 

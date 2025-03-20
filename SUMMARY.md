@@ -61,8 +61,8 @@
 
 * [릴리즈 노트](ios-sdk/release.md)
 * [시작하기](ios-sdk/start.md)
-* [채널회원 미연동](ios-sdk/membership-basic.md)
-* [채널회원 연동](ios-sdk/membership-channeling.md)
+* [채널회원 미연동 방식](ios-sdk/membership-basic.md)
+* [채널회원 연동 방식](ios-sdk/membership-channeling.md)
 * [헤더 옵션](ios-sdk/options.md)
 * [보물섬 추가 기능](ios-sdk/plug/README.md)
   * [보물섬 알림 서비스@PLUG](ios-sdk/plug/notification.md)
@@ -75,8 +75,8 @@
 
 * [릴리즈 노트](react-native/release.md)
 * [시작하기](react-native/start.md)
-* [채널회원 미연동](react-native/membership-basic.md)
-* [채널회원 연동](react-native/membership-channeling.md)
+* [채널회원 미연동 방식](react-native/membership-basic.md)
+* [채널회원 연동 방식](react-native/membership-channeling.md)
 * [보물섬 알림 서비스](react-native/notification.md)
 * [보물섬 인앱 구매 서비스](react-native/iap.md)
 
@@ -84,8 +84,8 @@
 
 * [릴리즈 노트](flutter/release.md)
 * [시작하기](flutter/start.md)
-* [채널회원 미연동](flutter/membership-standard.md)
-* [채널회원 연동](flutter/membership-channeling.md)
+* [채널회원 미연동 방식](flutter/membership-standard.md)
+* [채널회원 연동 방식](flutter/membership-channeling.md)
 * [보물섬 알림 서비스](flutter/notification.md)
 * [보물섬 인앱 구매 서비스](flutter/iap.md)
 
