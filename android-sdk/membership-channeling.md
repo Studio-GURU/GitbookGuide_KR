@@ -1,9 +1,9 @@
 ---
-icon: user-group
 description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user-group
 ---
 
-# 채널회원 연동
+# 채널회원 연동 방식
 
 {% hint style="success" %}
 파트너사의 회원을 보물섬 계정과 연동하여 사용하고자 하는 경우
@@ -72,7 +72,7 @@ TreasureIsland screen launch
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureisland-scene:{SDK-VERSION}'
+  implementation 'kr.co.studioguru.sdk:treasureislandx-scene:{SDK-VERSION}'
 }
 ```
 {% endcode %}

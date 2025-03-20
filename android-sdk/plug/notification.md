@@ -1,6 +1,6 @@
 ---
-icon: bell-ring
 description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
+icon: bell-ring
 ---
 
 # 보물섬 알림 서비스@PLUG
@@ -36,7 +36,7 @@ description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureisland-plug-notify:{SDK-VERSION}'
+  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-notify:{SDK-VERSION}'
 }
 ```
 {% endcode %}

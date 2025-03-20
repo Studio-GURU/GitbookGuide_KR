@@ -37,7 +37,7 @@ icon: google-play
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureisland-plug-purchase:{SDK-VERSION}'
+  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-purchase:{SDK-VERSION}'
 }
 ```
 {% endcode %}

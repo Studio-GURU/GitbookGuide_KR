@@ -46,8 +46,8 @@
 
 * [릴리즈 노트](android-sdk/release.md)
 * [시작하기](android-sdk/start.md)
-* [채널회원 미연동](android-sdk/membership-basic.md)
-* [채널회원 연동](android-sdk/membership-channeling.md)
+* [채널회원 미연동 방식](android-sdk/membership-basic.md)
+* [채널회원 연동 방식](android-sdk/membership-channeling.md)
 * [헤더 옵션](android-sdk/options.md)
 * [보물섬 추가 기능](android-sdk/plug/README.md)
   * [보물섬 알림 서비스@PLUG](android-sdk/plug/notification.md)

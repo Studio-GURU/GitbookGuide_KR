@@ -1,6 +1,6 @@
 ---
-icon: star-shooting
 description: 보물섬 ANDROID SDK에서 제공하는 서비스를 연동하기 전 완료해야 하는 설정에 대해 알아 보세요.
+icon: star-shooting
 ---
 
 # 시작하기
@@ -19,7 +19,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ✓ Android gradle plugin → 4.0.1 이상
 
-✓Google Play 타겟 API 수준 → Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+✓ Google Play 타겟 API 수준 → Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
 
 ✓ Kotlin version 1.8.X 이상의 버전 권장 (개발 설정 1.9.0)
 
@@ -60,7 +60,7 @@ dependencyResolutionManagement {
     google()
     mavenCentral()
     maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+      url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
     }
   }
 }
@@ -82,7 +82,7 @@ dependencyResolutionManagement {
     google()
     mavenCentral()
     maven {
-      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/")
+      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/")
     }
   }
 }
@@ -101,7 +101,7 @@ allprojects {
     google()
     mavenCentral()
     maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureisland-android/maven/"
+      url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
     }
   }
 }

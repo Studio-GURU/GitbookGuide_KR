@@ -1,9 +1,17 @@
 ---
-icon: list-timeline
 description: 보물섬 ANDROID SDK History
+icon: list-timeline
 ---
 
 # 릴리즈 노트
+
+***
+
+## Version 25.3.3.25
+
+**release date. 2025.3.20**
+
+✓ 커스텀 UI 구현을 위한 "최근 본 컨텐츠", "추천 컨텐츠" API 추가
 
 ***
 
@@ -40,3 +48,5 @@ description: 보물섬 ANDROID SDK History
 **release date. 2024.10.16**
 
 ✓ 보물섬 릴리즈
+
+***
