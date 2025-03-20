@@ -32,7 +32,7 @@ icon: bell-ring
 
 ***
 
-알림서비스(treasureisland-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+알림서비스(treasureislandx-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -53,7 +53,7 @@ dependencies {
 
 ## 연동 순서
 
-1. **TreasureIslandPlugNotificationKit** 모듈 설치하기&#x20;
+1. **TreasureIslandXPlugNotificationKit** 모듈 설치하기&#x20;
 
 **✓ 모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
 
@@ -99,7 +99,7 @@ $ pod install
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIslandx-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
+✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
 {% endhint %}
 
 #### Package Dependency 설정

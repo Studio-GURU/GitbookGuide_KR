@@ -30,7 +30,7 @@ icon: credit-card
 
 ***
 
-인앱 구매(treasureisland-plug-purchase) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+인앱 구매(treasureislandx-plug-purchase) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -83,7 +83,7 @@ dependencies {
 
 ## 연동 순서
 
-1. **TreasureIslandPlugPurchaseKit** 모듈 설치하기&#x20;
+1. **TreasureIslandXPlugPurchaseKit** 모듈 설치하기&#x20;
 2. **애플 앱 스토어 설정**
    1. [console-config.md](../ios-sdk/plug/iap/console-config.md "mention")
    2. [api-config.md](../ios-sdk/plug/iap/api-config.md "mention")
