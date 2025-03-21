@@ -68,7 +68,7 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
     "contentType": "웹툰",
     "contentCName": "cw4357a295d0",
     "contentEpisodeTitle": "1화",
-    "episodeNo": 1
+    "episodeNo": 1,
     "genre": "드라마,공포/스릴러",
     "link": "https://test.treasurecomics.com/gateway/toss?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fcontent%2Flist%2Fcw4357a295d0",
     "returnUrl": "https://test.treasurecomics.com/content/list/cw4357a295d0",
