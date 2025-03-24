@@ -22,11 +22,11 @@ hidden: true
 
 ### 3. 요청 파라미터
 
-| parameter       | type    | require | description                 |
-| --------------- | ------- | ------- | --------------------------- |
-| `transactionID` | String  | true    | 트랜잭션 고유 ID (이벤트별 고유 값)      |
-| `userID`        | String  | true    | 매체사에서 sign 생성 시 포함되는 userID |
-| `reward`        | Integer | true    | 지급될 리워드 금액                  |
+| parameter       | type    | require | description                  |
+| --------------- | ------- | ------- | ---------------------------- |
+| `transactionID` | String  | true    | 트랜잭션 고유 ID ( 이벤트별 고유 값 32자 ) |
+| `userID`        | String  | true    | 매체사에서 sign 생성 시 포함되는 userID  |
+| `reward`        | Integer | true    | 지급될 리워드 금액                   |
 
 ***
 
