@@ -39,7 +39,7 @@
     * [채널회원 연동 방식](web-view/start/api/channeling.md)
     * [채널회원 미연동 방식](web-view/start/api/standard.md)
 * [웹뷰 설정 가이드](web-view/webview-config/README.md)
-  * [자바스크립트 통신](web-view/webview-config/javascriptinterface.md)
+  * [자바스크립트 통신](web-view/webview-config/javascript.md)
 * [Sign 생성](web-view/sign.md)
 
 ## ANDROID SDK
