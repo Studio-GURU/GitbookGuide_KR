@@ -53,7 +53,7 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
 
 ### **Response**
 
-<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>sequence</td></tr><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 세로 )</td></tr><tr><td><code>subThumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 가로 )</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품 키</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>회차 번호</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크 ( 참고용 )</td></tr><tr><td><code>order</code></td><td>number</td><td>노출 우선 순위 ( 같은 값이 존재할 수 있습니다 )</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>추천일 ( YYYY-MM-DD )</td></tr><tr><td><code>freeEpisode</code></td><td>number</td><td>무료 회차 수</td></tr></tbody></table>
+<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>sequence</td></tr><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 세로 )</td></tr><tr><td><code>subThumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 가로 )</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품 키</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>회차 번호</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크 ( 참고용 )</td></tr><tr><td><code>order</code></td><td>number</td><td>노출 우선 순위 ( 같은 값이 존재할 수 있습니다 )</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>추천일 ( YYYY-MM-DD )</td></tr><tr><td><code>freeEpisode</code></td><td>number</td><td>무료 회차 수</td></tr><tr><td><code>isRewardAvailable</code></td><td>boolean</td><td>포인트 지급 가능 여부</td></tr><tr><td><code>minReward</code></td><td>number</td><td>지급 가능 최소 금액 ( 지급 불가능일 경우 0으로 반환 )</td></tr><tr><td><code>maxReward</code></td><td>number</td><td>지급 가능 최대 금액 ( 지급 불가능일 경우 0으로 반환 )</td></tr></tbody></table>
 
 **Response Code**
 
@@ -75,7 +75,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/webtoon/viewer/cw631ac7ba1f/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 3
+    "freeEpisode": 3,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   },
   {
     "recommendationSN": 8,
@@ -90,7 +93,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn718f1595fc/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 0
+    "freeEpisode": 0,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   },
   {
     "recommendationSN": 7,
@@ -105,7 +111,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn0d3b6afccd/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 8
+    "freeEpisode": 8,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   },
   {
     "recommendationSN": 9,
@@ -120,7 +129,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cn3a0d0de7e6/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 2
+    "freeEpisode": 2,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   },
   {
     "recommendationSN": 4,
@@ -135,7 +147,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/webtoon/viewer/cw3a81e99b70/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 1
+    "freeEpisode": 1,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   },
   {
     "recommendationSN": 6,
@@ -150,7 +165,10 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recommendation?sign
     "returnUrl": "https://test.treasurecomics.com/novel/viewer/cnb998dc34fc/1",
     "order": 1,
     "recommendationDate": "2024-08-22",
-    "freeEpisode": 25
+    "freeEpisode": 25,
+    "isRewardAvailable": true,
+    "minReward": 1,
+    "maxReward": 5
   }
 ]
 ```

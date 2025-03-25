@@ -34,6 +34,7 @@
     * [\[ API \] 추천 컨텐츠 목록 조회](web-view/start/api/recommendation.md)
     * [\[ API \] 최근 본 작품 조회](web-view/start/api/recently.md)
     * [\[ API \] 추천 컨텐츠 목록 조회 ( Client )](web-view/start/api/recommendaition_client.md)
+    * [\[ API \] 추천 컨텐츠 리워드 지급 가능 여부 조회 ( Client )](web-view/start/api/rewardcheck_client.md)
     * [\[ API \] 최근 본 작품 조회 ( Client )](web-view/start/api/recentview_client.md)
     * [\[ API \] 인기 작품 조회 ( Client )](web-view/start/api/top_client.md)
     * [채널회원 연동 방식](web-view/start/api/channeling.md)
