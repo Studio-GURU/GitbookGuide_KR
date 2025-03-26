@@ -173,7 +173,15 @@ final notificationConfig = NotificationConfig(
 {% step %}
 ### SignKey 생성
 
-HmacSHA256 방식을 통한 **SignKey** 생성
+✓ HmacSHA256 방식을 통한 [**SignKey 생성 하기**](sign.md)
+
+{% hint style="danger" %}
+**보안을 강화하기 위해 SignKey는 클라이언트가 아닌 서버에서 생성한 후 클라이언트로 전달해주세요.**
+
+***
+
+보물섬은 결제 서비스를 연동하고 있으므로, 유저 식별자 보안 관리가 필요합니다.
+{% endhint %}
 {% endstep %}
 
 {% step %}
@@ -192,36 +200,6 @@ HmacSHA256 방식을 통한 **SignKey** 생성
 {% endstepper %}
 
 ***
-
-### SignKey 생성 하기
-
-{% hint style="danger" %}
-**보안을 강화하기 위해 SignKey는 클라이언트가 아닌 서버에서 생성한 후 클라이언트로 전달해주세요.**
-
-***
-
-보물섬은 결제 서비스를 연동하고 있으므로, 유저 식별자 보안 관리가 필요합니다.
-{% endhint %}
-
-{% hint style="info" %}
-**signature 생성 (**<mark style="color:red;">**HmacSHA256 생성에 필요한 Key는 영업팀을 통해 전달 됩니다.**</mark>**)**
-
-***
-
-<mark style="color:red;">**{} 표현은 변수 입니다 ({}값이 포함되지 않도록 주의 바랍니다.)**</mark>
-
-**{timeStamp}{nonce}{암호화된User식별자}**
-
-위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
-
-***
-
-* timeStamp → unix timestamp seconds
-* nonce → 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 → 회원 구분이 가능한 식별자
-{% endhint %}
-
-<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
 
 ### comicsProfile
 

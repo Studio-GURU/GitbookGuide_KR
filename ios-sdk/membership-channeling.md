@@ -1,9 +1,9 @@
 ---
-icon: user-group
 description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user-group
 ---
 
-# 채널회원 연동
+# 채널회원 연동 방식
 
 {% hint style="success" %}
 파트너사의 회원을 보물섬 계정과 연동하여 사용하고자 하는 경우
@@ -157,13 +157,21 @@ SDK 로그 출력 여부를 설정 합니다.
 {% step %}
 ### SignKey 생성
 
-**HmacSHA256** 방식을 통한 **SignKey** 생성
+✓ **HmacSHA256** 방식을 통한 [**SignKey 생성 하기**](sign.md)
+
+{% hint style="danger" %}
+**보안을 강화하기 위해 SignKey는 클라이언트가 아닌 서버에서 생성한 후 클라이언트로 전달해주세요.**
+
+***
+
+보물섬은 결제 서비스를 연동하고 있으므로, 유저 식별자 보안 관리가 필요합니다.
+{% endhint %}
 {% endstep %}
 
 {% step %}
 ### Profile Builder 생성
 
-**SignKey**를 통한 Builder 인스턴스 생성
+[**SignKey**](sign.md)를 통한 Builder 인스턴스 생성
 {% endstep %}
 
 {% step %}
@@ -184,14 +192,6 @@ Profile.Builder().register() 호출을 통한 프로필 등록
 ***
 
 ### SignKey 생성 하기
-
-{% hint style="danger" %}
-**보안을 강화하기 위해 SignKey는 클라이언트가 아닌 서버에서 생성한 후 클라이언트로 전달해주세요.**
-
-***
-
-보물섬은 결제 서비스를 연동하고 있으므로, 유저 식별자 보안 관리가 필요합니다.
-{% endhint %}
 
 {% hint style="info" %}
 **signature 생성 (**<mark style="color:red;">**HmacSHA256 생성에 필요한 Key는 영업팀을 통해 전달 됩니다.**</mark>**)**
