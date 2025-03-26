@@ -23,8 +23,8 @@
 ***
 
 * [Postback API 가이드](postback-api.md)
-* [\[ API \] 회원 탈퇴](recommendaition_client.md)
-* [\[ API \] 회원 코인 조회](recommendaition_client-1.md)
+* [\[ API \] 회원 탈퇴](withdraw.md)
+* [\[ API \] 회원 코인 조회](cashbalance.md)
 
 ## WEB VIEW
 
