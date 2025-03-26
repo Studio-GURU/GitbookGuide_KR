@@ -14,7 +14,7 @@ icon: mobile-notch
 | ------- | ---------- | ----------- |
 | 1.0.0   | 2024.03.26 | Create      |
 
-## Account Withdraw
+## Coin Balacne
 
 ```
 테스트
