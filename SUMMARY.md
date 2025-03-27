@@ -42,7 +42,11 @@
     * [채널회원 연동 방식](web-view/start/api/channeling.md)
     * [채널회원 미연동 방식](web-view/start/api/standard.md)
 * [웹뷰 설정 가이드](web-view/webview-config/README.md)
-  * [자바스크립트 통신](web-view/webview-config/javascript.md)
+  * [자바스크립트 통신](web-view/webview-config/javascript/README.md)
+    * [외부 웹 브라우져 오픈 요청(Require)](web-view/webview-config/javascript/require.md)
+    * [기기 광고 식별값 수집 요청(Require)](web-view/webview-config/javascript/require-1.md)
+    * [추가 정보 수집 요청(Optional)](web-view/webview-config/javascript/optional.md)
+    * [Text To Speech(TTS)](web-view/webview-config/javascript/text-to-speech-tts.md)
 * [Sign 생성](web-view/sign.md)
 
 ## ANDROID SDK

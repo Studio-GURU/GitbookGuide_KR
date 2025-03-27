@@ -39,7 +39,7 @@ icon: hand-point-right
 
 * **Web에서 Native로 요청을 전달하는 방식에 대한 통신 가이드입니다.**
 
-{% content-ref url="../../webview-config/javascript.md" %}
-[javascript.md](../../webview-config/javascript.md)
+{% content-ref url="../../webview-config/javascript/" %}
+[javascript](../../webview-config/javascript/)
 {% endcontent-ref %}
 
