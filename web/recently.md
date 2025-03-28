@@ -1,6 +1,6 @@
 ---
-icon: rectangle-history-circle-user
 description: 사용자가 최근 본 작품을 조회하는 API 로 채널회원이 연동되어 있는 방식에서만 동작합니다.
+icon: rectangle-history-circle-user
 ---
 
 # \[API] 최근 본 작품 조회
@@ -131,7 +131,7 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 
 ## 최근 본 작품 조회 구현 예시 화면
 
-<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
 

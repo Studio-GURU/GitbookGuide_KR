@@ -18,10 +18,10 @@ icon: mobile-notch
 
 ```
 테스트
-GET https://api-test.treasurecomics.com/account/cash/balance?sign={value}
+GET https://api-test.treasurecomics.com/external/account/cash/balance?sign={value}
 
 라이브
-GET https://api.treasurecomics.com/account/cash/balance?sign={value}
+GET https://api.treasurecomics.com/external/account/cash/balance?sign={value}
 ```
 
 ### Security
@@ -46,7 +46,7 @@ GET https://api.treasurecomics.com/account/cash/balance?sign={value}
 
 ```
 // get usage example
-GET https://api-{env}.treasurecomics.com/account/cash/balance?sign={value}
+GET https://api-{env}.treasurecomics.com/external/account/cash/balance?sign={value}
 ```
 
 ### **Response**

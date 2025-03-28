@@ -25,6 +25,7 @@
 * [Postback API 가이드](postback-api.md)
 * [\[ API \] 회원 탈퇴](withdraw.md)
 * [\[ API \] 회원 코인 조회](cashbalance.md)
+* [Ticket 생성](ticket.md)
 
 ## WEB VIEW
 

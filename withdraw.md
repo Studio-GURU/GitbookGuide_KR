@@ -18,10 +18,10 @@ icon: mobile-notch
 
 ```
 테스트
-POST https://api-test.treasurecomics.com/account/withdraw
+POST https://api-test.treasurecomics.com/external/account/withdraw
 
 라이브
-POST https://api.treasurecomics.com/account/withdraw
+POST https://api.treasurecomics.com/external/account/withdraw
 ```
 
 ### Security
@@ -46,7 +46,7 @@ POST https://api.treasurecomics.com/account/withdraw
 
 ```
 // usage example
-POST https://api-{env}.treasurecomics.com/account/withdraw
+POST https://api-{env}.treasurecomics.com/external/account/withdraw
 Accept-Version: 1.0.0
 Content-Type: application/json
 Authorization: Basic Token
