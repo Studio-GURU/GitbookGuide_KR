@@ -131,7 +131,7 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 
 ## 최근 본 작품 조회 구현 예시 화면
 
-<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
 

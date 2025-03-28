@@ -1,18 +1,18 @@
 ---
-description: 로그인 시 추가 정보를 전달하는 방식에 사용되는 OTT ( One-Time Ticket ) 생성 가이드입니다.
+description: 로그인 시 추가 정보를 전달하는 방식에 사용되는 OTT ( One-Time Token ) 생성 가이드입니다.
 hidden: true
 icon: mobile-notch
 ---
 
-# Ticket 생성
+# Token 생성
 
 ## Flow
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-&#x20;**✓ WebView 를 열때 sign값이 아닌 ticket, ticketType 값을 쿼리스트링으로 넘겨줍니다.**
+&#x20;**✓ WebView 를 열때 sign값이 아닌 token 값을 쿼리스트링으로 넘겨줍니다.**
 
-&#x20;**✓ ticket의 유효 시간은 20초입니다.**&#x20;
+&#x20;**✓ token의 유효 시간은 20초입니다.**&#x20;
 
 &#x20;**✓ WebView를 열기 전 호출하고 바로 사용합니다.**
 
@@ -28,10 +28,10 @@ icon: mobile-notch
 
 ```
 테스트
-POST https://api-test.treasurecomics.com/external/account/ticket
+POST https://api-test.treasurecomics.com/external/account/ott
 
 라이브
-POST https://api.treasurecomics.com/external/account/ticket
+POST https://api.treasurecomics.com/external/account/ott
 ```
 
 ### Security
@@ -56,7 +56,7 @@ POST https://api.treasurecomics.com/external/account/ticket
 
 ```
 // usage example
-POST https://api-{env}.treasurecomics.com/external/account/ticket
+POST https://api-{env}.treasurecomics.com/external/account/ott
 Accept-Version: 1.0.0
 Content-Type: application/json
 Authorization: Basic Token
@@ -75,7 +75,7 @@ Authorization: Basic Token
 
 ### **Response**
 
-<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>ticket</code></td><td>string</td><td>32 글자의 티켓</td></tr><tr><td><code>ticketType</code></td><td>string</td><td>보물섬 로그인을 위해 판단되는 유저의 값<br>ex ) agree, login</td></tr></tbody></table>
+<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>token</code></td><td>string</td><td>32 글자의 One-Time Token</td></tr></tbody></table>
 
 **Response Code**
 
@@ -84,8 +84,7 @@ Authorization: Basic Token
 {% code lineNumbers="true" %}
 ```json
   {
-    "ticket": "1432b8ea0b9311f09c8d02d57e3413e1",
-    "ticketType": "login"
+    "token": "1432b8ea0b9311f09c8d02d57e3413e1"
   }
 ```
 {% endcode %}

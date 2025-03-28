@@ -201,13 +201,13 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### 예시1
 
-<div align="left"><figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>예시1</p></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>예시1</p></figcaption></figure></div>
 
 ***
 
 ### 예시2
 
-<div align="left"><figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
 

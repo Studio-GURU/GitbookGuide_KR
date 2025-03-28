@@ -11,7 +11,7 @@ icon: user-group
 **✓** **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
 
 ***
 
