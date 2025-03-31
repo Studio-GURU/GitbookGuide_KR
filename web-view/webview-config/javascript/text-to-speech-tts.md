@@ -7,7 +7,7 @@ icon: js
 
 ## Text To Speech 기능 <a href="#window.open" id="window.open"></a>
 
-✓ 보물섬 웹소설의 TTS 기능을 사용하지 위한 가이드입니다.
+✓ 보물섬 웹소설의 TTS 기능을 사용하기 위한 가이드입니다.
 
 | request   |
 | --------- |

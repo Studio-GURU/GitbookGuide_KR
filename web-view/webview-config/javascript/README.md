@@ -33,3 +33,39 @@ icon: comments
 
 ***
 
+### Require
+
+{% content-ref url="require.md" %}
+[require.md](require.md)
+{% endcontent-ref %}
+
+✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
+
+✓ 앱스토어 및 CP ( 웹툰, 웹소설 ) 제공자의 정책 변경에 유연하게 대응하기 위해, 보물섬에서 인앱 또는 아웃브라우저를 효과적으로 선택 · 운영하기 위해 필요한 작업입니다.
+
+{% content-ref url="require-1.md" %}
+[require-1.md](require-1.md)
+{% endcontent-ref %}
+
+✓ 보물섬 내부에서 기기 광고 식별값을 수집해야 하는 경우 웹에서 네이티브에 전달하는 메세지입니다.
+
+✓ AOS의 경우 ADID, IOS일 경우 IDFA를 전달주시면 됩니다.
+
+
+
+### Optional
+
+{% content-ref url="optional.md" %}
+[optional.md](optional.md)
+{% endcontent-ref %}
+
+✓ 보물섬 내부에서 추가 정보를 수집해야 하는 경우 웹에서 네이티브에 전달하는 메세지입니다.
+
+✓ 보물섬에서 추가 데이터가 필요할 시 요청하며, 협의된 데이터를 전달 주시면 됩니다.
+
+{% content-ref url="text-to-speech-tts.md" %}
+[text-to-speech-tts.md](text-to-speech-tts.md)
+{% endcontent-ref %}
+
+✓ 보물섬 웹소설의 TTS 기능을 사용하기 위한 가이드입니다.
+
