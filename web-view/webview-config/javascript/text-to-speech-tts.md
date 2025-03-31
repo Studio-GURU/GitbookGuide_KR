@@ -1,5 +1,6 @@
 ---
 description: TTS 기능 구현을 위한 안내입니다.
+hidden: true
 icon: js
 ---
 
