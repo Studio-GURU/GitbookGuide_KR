@@ -2,9 +2,9 @@
 icon: js
 ---
 
-# 외부 웹 브라우져 오픈 요청(Require)
+# 외부 웹 브라우저 오픈 요청
 
-## 외부 웹 브라우져 오픈 요청 ( Require ) <a href="#window.open" id="window.open"></a>
+## 외부 웹 브라우저 오픈 요청 ( Require ) <a href="#window.open" id="window.open"></a>
 
 ✓ 웹 브라우져를 새창으로 오픈해야 하는 경우 웹에서 네이티브에 전달하는 메시지입니다.
 
