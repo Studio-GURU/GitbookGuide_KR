@@ -1,5 +1,4 @@
 ---
-hidden: true
 icon: js
 ---
 
@@ -67,26 +66,63 @@ function openOuterWebBrowser() {
 
 {% tabs %}
 {% tab title="ANDROID" %}
-<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin"><strong>WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
-</strong>
-@JavascriptInterface
+{% tabs %}
+{% tab title="KOTLIN" %}
+{% code lineNumbers="true" %}
+```kotlin
+WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
+
 class TreasureKitJavascriptInterface {
-    fun postMessage(message: String) {     
-        // message를 JSON-Object로 변환
-        // JSONObject -> request
-        // JSONObject -> parameter.openUrl
-        // requestType에 따라 실행
-        JSONObject(contractMessage).let {
-            val request = it.getString("request")
-            val parameter = it.getJSONObject("parameter")
-            val openUrl = parameter.getString("openUrl")
-<strong>            if(request == "openOutWebBrowser") {
-</strong><strong>                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
-</strong><strong>            }
-</strong>        }
+    @JavascriptInterface
+    class TreasureKitJavascriptInterface {
+        fun postMessage(message: String) {     
+            // message를 JSON-Object로 변환
+            // JSONObject -> request
+            // JSONObject -> parameter.openUrl
+            // requestType에 따라 실행
+            JSONObject(message).let {
+                val request = it.getString("request")
+                val parameter = it.getJSONObject("parameter")
+                val openUrl = parameter.getString("openUrl")
+                if(request == "openOutWebBrowser") {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
+                }
+            }
+        }
     }
 }
-</code></pre>
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
+
+public class TreasureKitJavascriptInterface {
+    @JavascriptInterface
+    public void postMessage(String message) {
+        try {
+            JSONObject jsonObject = new JSONObject(message);
+            String request = jsonObject.getString("request");
+            JSONObject parameter = jsonObject.getJSONObject("parameter");
+            String openUrl = parameter.getString("openUrl");
+
+            if ("openOutWebBrowser".equals(request)) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(openUrl));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="iOS" %}
@@ -117,7 +153,7 @@ class TreasureKitJavascriptInterface {
 <strong>                    onOpenWebBrowser(openUrl: openUrl)
 </strong><strong>                }
 </strong>            } catch {
-                self = WebContentBehavior()
+                print("error")
             }
         }
     }
@@ -135,11 +171,7 @@ class TreasureKitJavascriptInterface {
     ...
 }
 </code></pre>
-
-
 {% endtab %}
 {% endtabs %}
 
 ***
-
-## &#x20;<a href="#window.open" id="window.open"></a>

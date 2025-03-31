@@ -1,5 +1,4 @@
 ---
-hidden: true
 icon: js
 ---
 
@@ -52,9 +51,12 @@ function openOuterWebBrowser() {
 
 ### 응답 예제
 
-| parameter                                      | description                                                                                                         |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <p>{<br>  "deviceADID": "$deviceADID"<br>}</p> | <p>callback으로 전달된 함수에 파라미터 값을 포함하여 호출합니다.<br>JSON 값을 stringfy하여 전달합니다.<br><br>AOS : deviceADID</p><p>IOS : IDFA</p> |
+| parameter                                                                                            | description                                                                                                         |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| <pre class="language-json"><code class="lang-json">{
+  "deviceADID" : "$deviceADID",
+}
+</code></pre> | <p>callback으로 전달된 함수에 파라미터 값을 포함하여 호출합니다.<br>JSON 값을 stringfy하여 전달합니다.<br><br>AOS : deviceADID</p><p>IOS : IDFA</p> |
 
 ***
 
@@ -66,32 +68,91 @@ function openOuterWebBrowser() {
 
 {% tabs %}
 {% tab title="ANDROID" %}
-<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin"><strong>WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
-</strong>
-@JavascriptInterface
+{% tabs %}
+{% tab title="KOTLIN" %}
+{% code lineNumbers="true" %}
+```kotlin
+WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
+
 class TreasureKitJavascriptInterface {
-    fun postMessage(message: String) {     
-        // message를 JSON-Object로 변환
-        // JSONObject -> request
-        // requestType에 따라 실행
-        JSONObject(contractMessage).let {
-            val request = it.getString("request")
-<strong>            if(request == "getDeviceADID") {
-</strong><strong>                
-</strong><strong>            }
-</strong>        }
+    @JavascriptInterface
+    class TreasureKitJavascriptInterface {
+        fun postMessage(message: String) {     
+            // message를 JSON-Object로 변환
+            // JSONObject -> request
+            // requestType에 따라 실행
+            JSONObject(contractMessage).let {
+                val request = it.getString("request")
+                val callback = it.getString("callback")
+                if(request == "getDeviceADID") {
+                    // 광고 아이디를 javascript를 통해 callback에 전달합니다.
+                    val params = JSONObject().apply {
+                        put("deviceADID", "${광고아이디}")
+                    }
+                    val paramString = if (params != null) "'${params.toString().replace("\"", "\\\"")}'" else ""
+                    weakWebView.get()?.evaluateJavascript(
+                        "(function(){$callback($paramString);})();", null
+                    )
+                }
+            }
+        }
     }
 }
-</code></pre>
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
+
+public class TreasureKitJavascriptInterface {
+    @JavascriptInterface
+    public void postMessage(String message) {
+        try {
+            JSONObject jsonObject = new JSONObject(message);
+            String request = jsonObject.getString("request");
+            String callback = jsonObject.getString("callback");
+
+            if ("getDeviceADID".equals(request)) {
+                JSONObject params = new JSONObject();
+                try {
+                    params.put("deviceADID", "광고아이디"); // 실제 광고 ID로 변경 필요
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                String paramString = "'" + params.toString().replace("\"", "\\\"") + "'";
+                WebView webView = weakWebView.get();
+                if (webView != null) {
+                    webView.post(() -> webView.evaluateJavascript(
+                        "(function(){" + callback + "(" + paramString + ");})();", null
+                    ));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+{% endcode %}
+
+
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="iOS" %}
-<pre class="language-swift" data-line-numbers><code class="lang-swift">class ViewController: WKScriptMessageHandler {
+{% code lineNumbers="true" %}
+```swift
+class ViewController: WKScriptMessageHandler {
     ...
     ...
     // userContentController 설정
-<strong>    WKWebView.configuration.userContentController.add(self, name: "treasureComics")
-</strong>    ...
+    WKWebView.configuration.userContentController.add(self, name: "treasureComics")
+    ...
     ...
     // MARK: - webview content javascript interface message handler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -107,38 +168,35 @@ class TreasureKitJavascriptInterface {
                 }
                 // make contract
                 let request = (json["request"] as? String) ?? ""
-                let params = json["parameter"] as? [String: AnyObject]  
-                let openUrl = params["openUrl"] as? String
-                if request == "openOutWebBrowser" {
-<strong>                    onOpenWebBrowser(openUrl: openUrl)
-</strong><strong>                }
-</strong>            } catch {
-                self = WebContentBehavior()
+                let callback = (json["callback"] as? String) ?? ""
+                if request == "getDeviceADID" {
+                    var param: [String: Any] = [:]
+                    param["deviceADID"] = "$광고아이디값"
+                    var paramString: String = ""
+                    if params != nil {
+                        guard let json = try? JSONSerialization.data(withJSONObject: params!, options: .fragmentsAllowed) else {
+                            print("Something is wrong while converting dictionary to JSON data.")
+                            return
+                        }
+                        guard let paramStringify = String(data: json, encoding: .utf8) else {
+                            print("Something is wrong while converting JSON data to JSON string.")
+                            return
+                        }
+                        paramString = paramStringify.replacingOccurrences(of: "\"", with: "\\\"")
+                        paramString = "'\(paramString)'"
+                        DispatchQueue.main.async {
+                            $WebView.evaluateJavaScript("(function(){\(callback)(\(paramString));})();")
+                        }
+                    }                
+                }
+            } catch {
+                print("error")
             }
         }
     }
-    
-    func onOpenWebBrowser(openUrl: String) {
-        if let openUri = URL(string: openUrl) {
-<strong>            if UIApplication.shared.canOpenURL(openUri) {
-</strong><strong>                UIApplication.shared.open(openUri, completionHandler: { (success) in
-</strong>                    print("onOpenWebBrowser opened: \(success)")
-                })
-            }
-        }
-    }
-    ...
-    ...
 }
-</code></pre>
-
-
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-***
-
-## &#x20;<a href="#window.open" id="window.open"></a>
-
-***
 
