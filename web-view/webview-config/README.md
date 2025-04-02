@@ -104,10 +104,21 @@ if #available(iOS 14.0, *) {
 } else {
     configuration.preferences.javaScriptEnabled = true
 }
+// WebView History Back&Forward
+// 화면 Swipe시 웹뷰가 닫히는 것을 방지합니다.
+WKWebView.allowsBackForwardNavigationGestures = true
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+***
+
+## 웹뷰 네비게이션 바 ( Require ) <a href="#config" id="config"></a>
+
+**✓ 웹뷰의 네비게이션 바는 우측에 닫기 버튼만 포함하도록 구성합니다.**
+
+<figure><img src="../../.gitbook/assets/KakaoTalk_Photo_2025-04-02-15-02-29.jpeg" alt=""><figcaption></figcaption></figure>
 
 ***
 
