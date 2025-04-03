@@ -29,7 +29,7 @@ icon: user-group
 
 Package Initialize
 
-**✓ Membership:Channeling**
+**✓&#x20;**<mark style="color:red;">**Membership:Channeling**</mark>
 {% endstep %}
 
 {% step %}

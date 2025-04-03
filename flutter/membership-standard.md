@@ -31,7 +31,7 @@ icon: user
 
 Package Initialize
 
-**✓ Membership:Basic**
+**✓&#x20;**<mark style="color:red;">**Membership:Basic**</mark>
 {% endstep %}
 
 {% step %}

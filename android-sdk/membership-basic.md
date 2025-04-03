@@ -37,7 +37,7 @@ Apply build.gradle dependencies
 
 Android SDK initialize
 
-**✓ Membership:Basic**
+**✓&#x20;**<mark style="color:red;">**Membership:Basic**</mark>
 {% endstep %}
 
 {% step %}

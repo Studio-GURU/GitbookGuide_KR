@@ -1,9 +1,9 @@
 ---
-icon: user
 description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+icon: user
 ---
 
-# 채널회원 미연동
+# 채널회원 미연동 방식
 
 {% hint style="success" %}
 파트너사의 회원이 존재하지 않거나, 보물섬에서 제공하는 자체 계정을 사용하고자 하는 경우
@@ -31,7 +31,7 @@ description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 
 
 iOS SDK initialize
 
-**✓ Membership:Basic**
+**✓&#x20;**<mark style="color:red;">**Membership:Basic**</mark>
 {% endstep %}
 
 {% step %}

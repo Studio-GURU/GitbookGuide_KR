@@ -35,7 +35,7 @@ icon: user-group
 
 iOS SDK initialize
 
-**✓ Membership:Channeling**
+**✓&#x20;**<mark style="color:red;">**Membership:Channeling**</mark>
 {% endstep %}
 
 {% step %}
