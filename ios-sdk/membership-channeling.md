@@ -33,15 +33,15 @@ icon: user-group
 {% step %}
 ### SDK 초기화
 
-iOS SDK initialize
+**iOS SDK initialize**
 
-**✓&#x20;**<mark style="color:red;">**Membership:Channeling**</mark>
+<mark style="color:red;">**✓**</mark> <mark style="color:red;">**Membership:Channeling**</mark>
 {% endstep %}
 
 {% step %}
 ### 프로필 설정
 
-Profile with **SignKey & Register**
+Profile with <mark style="color:red;">**SignKey & Register**</mark>
 {% endstep %}
 
 {% step %}
@@ -71,7 +71,7 @@ TreasureIsland screen launch
 
 ### SceneKit.Builder
 
-<table><thead><tr><th width="193">Name</th><th width="226">Type</th><th>Value</th></tr></thead><tbody><tr><td><code>appId</code></td><td>string</td><td>연동앱의 고유 식별자</td></tr><tr><td><code>appSecret</code></td><td>string</td><td>연동앱의 고유 식별자 검증키</td></tr><tr><td><code>membership</code></td><td>enum(basic, <strong>channeling</strong>)</td><td>연동앱의 회원 적용 방식(<strong>channeling</strong> 선택)</td></tr></tbody></table>
+<table><thead><tr><th width="193">Name</th><th width="226">Type</th><th>Value</th></tr></thead><tbody><tr><td><code>appId</code></td><td>string</td><td>연동앱의 고유 식별자</td></tr><tr><td><code>appSecret</code></td><td>string</td><td>연동앱의 고유 식별자 검증키</td></tr><tr><td><code>membership</code></td><td>enum(Basic, <mark style="color:red;"><strong>Channeling</strong></mark>)</td><td>연동앱의 회원 적용 방식(<mark style="color:red;"><strong>Channeling</strong></mark> 선택)</td></tr></tbody></table>
 
 **✓ SceneKit.Builder 인스터스를 통해 옵션과 보물섬 SDK 초기화를 진행합니다.**
 

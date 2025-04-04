@@ -35,9 +35,9 @@ Apply build.gradle dependencies
 {% step %}
 ### SDK 초기화
 
-Android SDK initialize
+**Android SDK initialize**
 
-**✓&#x20;**<mark style="color:red;">**Membership:Basic**</mark>
+<mark style="color:red;">**✓**</mark> <mark style="color:red;">**Membership:Basic**</mark>
 {% endstep %}
 
 {% step %}
@@ -85,12 +85,12 @@ dependencies {
 
 ### **TreasureConfig.Builder**
 
-| Name         | Value                       |
-| ------------ | --------------------------- |
-| `context`    | Android Context             |
-| `appId`      | 연동앱의 고유 식별자                 |
-| `appSecret`  | 연동앱의 공유 식별자 검증키             |
-| `membership` | 연동앱의 회원 적용 방식(**Basic 선택**) |
+| Name         | Value                                                                |
+| ------------ | -------------------------------------------------------------------- |
+| `context`    | Android Context                                                      |
+| `appId`      | 연동앱의 고유 식별자                                                          |
+| `appSecret`  | 연동앱의 공유 식별자 검증키                                                      |
+| `membership` | 연동앱의 회원 적용 방식(<mark style="color:red;">**Basic**</mark>**&#x20;선택**) |
 
 **✓** **생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.**
 

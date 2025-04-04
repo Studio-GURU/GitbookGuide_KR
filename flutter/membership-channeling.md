@@ -29,7 +29,7 @@ icon: user-group
 
 Package Initialize
 
-**✓&#x20;**<mark style="color:red;">**Membership:Channeling**</mark>
+<mark style="color:red;">**✓**</mark> <mark style="color:red;">**Membership:Channeling**</mark>
 {% endstep %}
 
 {% step %}
@@ -73,7 +73,7 @@ import 'package:flutter_treasureislandx_addon/models/statusbar_config.dart';
 ```
 {% endcode %}
 
-<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>environment_config.dart</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>membership_config.dart</code></td><td>enum</td><td>회원 정책 설정</td><td>Basic / <strong>Channeling</strong></td></tr><tr><td><code>statusbar_config.dart</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>notification_config.datd</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
+<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>environment_config.dart</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>membership_config.dart</code></td><td>enum</td><td>회원 정책 설정</td><td>Basic / <mark style="color:red;"><strong>Channeling</strong></mark></td></tr><tr><td><code>statusbar_config.dart</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>notification_config.datd</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
 
 ### comicsWithInitialize
 

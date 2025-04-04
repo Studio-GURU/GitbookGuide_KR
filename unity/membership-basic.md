@@ -31,7 +31,7 @@ icon: user
 
 Package Initialize
 
-**✓&#x20;**<mark style="color:red;">**Membership:Basic**</mark>
+<mark style="color:red;">**✓**</mark> <mark style="color:red;">**Membership:Basic**</mark>
 {% endstep %}
 
 {% step %}
@@ -108,7 +108,7 @@ public InitModel(
 ```
 {% endcode %}
 
-<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><strong>Basic</strong> / Channeling</td></tr><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>NotificationOptionModel</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>StatusbarOptionModel</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
+<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>NotificationOptionModel</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>StatusbarOptionModel</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
 
 ### StatusbarOptionModel
 
@@ -163,15 +163,15 @@ public class NotificationOptionModel {
 
 ### ComicsScript.Initialize
 
-| Name                 | Value                                      |
-| -------------------- | ------------------------------------------ |
-| `appId`              | 연동앱의 고유 식별자                                |
-| `appSecret`          | 연동앱의 고유 식별자 검증키                            |
-| `membership`         | 연동앱의 회원 정책 설정(**Basic** / Channeling)      |
-| `allowDebug`         | 로그 출력 여부 (optional / **default: false**)   |
-| `statusBarConfig`    | 상태창 색상 설정(optional / **only android**)     |
-| `notificationConfig` | 푸시 알림(기다무) 설정(optional / **only android**) |
-| `environment`        | 접속 환경(optional / **default: Live**)        |
+| Name                 | Value                                                                 |
+| -------------------- | --------------------------------------------------------------------- |
+| `appId`              | 연동앱의 고유 식별자                                                           |
+| `appSecret`          | 연동앱의 고유 식별자 검증키                                                       |
+| `membership`         | 연동앱의 회원 정책 설정(<mark style="color:red;">**Basic**</mark> / Channeling) |
+| `allowDebug`         | 로그 출력 여부 (optional / **default: false**)                              |
+| `statusBarConfig`    | 상태창 색상 설정(optional / **only android**)                                |
+| `notificationConfig` | 푸시 알림(기다무) 설정(optional / **only android**)                            |
+| `environment`        | 접속 환경(optional / **default: Live**)                                   |
 
 {% hint style="info" %}
 고유 식별자 및 고유 식별자 검증키는 영업팀을 통해 별도 전달 됩니다.&#x20;
