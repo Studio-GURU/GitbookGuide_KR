@@ -45,7 +45,7 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
     displayZoomControls = false // 확대/축소 컨트롤 비활성화
     defaultTextEncodingName = "utf-8" // 기본 텍스트 인코딩 설정
     loadWithOverviewMode = true // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
-    mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)    
+    mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
     // WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
     // WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
     // WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
@@ -54,6 +54,7 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
         layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
     }
 }
+WebView.overScrollMode = View.OVER_SCROLL_NEVER
 </code></pre>
 {% endtab %}
 
@@ -73,7 +74,7 @@ webSettings.setSupportZoom(false); // 확대/축소 지원 비활성화
 webSettings.setDisplayZoomControls(false); // 확대/축소 컨트롤 비활성화
 webSettings.setDefaultTextEncodingName("utf-8"); // 기본 텍스트 인코딩 설정
 webSettings.setLoadWithOverviewMode(true); // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
-webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)    
+webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
 // WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
 // WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
 // WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
@@ -81,6 +82,7 @@ if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
     // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
     webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 레이아웃 알고리즘 설정 (오래된 버전 지원)
 }
+WebView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
 </code></pre>
 {% endtab %}
 {% endtabs %}
@@ -107,6 +109,7 @@ if #available(iOS 14.0, *) {
 // WebView History Back&Forward
 // 화면 Swipe시 웹뷰가 닫히는 것을 방지합니다.
 WKWebView.allowsBackForwardNavigationGestures = true
+WKWebView.scrollView.bounces = false
 ```
 {% endcode %}
 {% endtab %}
