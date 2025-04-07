@@ -86,8 +86,8 @@ struct PartnerApp: App {
     init() {
         // SceneKit
         let sceneKit = SceneKit.Builder(
-            appId: "{APP-ID}", 
-            appSecret: "{APP-SECRET}",
+            appId: "{발급받은 appId}", 
+            appSecret: "{발급받은 appSecret}",
 <strong>            membership: SceneKit.Membership.CHANNELING
 </strong>        )
         // option: 로그 출력 여부를 설정

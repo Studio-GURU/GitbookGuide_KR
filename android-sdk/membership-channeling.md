@@ -109,8 +109,8 @@ dependencies {
         super.onCreate()
         SceneConfig.Builder(
             context = this, 
-            appId = "{APP-ID}", 
-            appSecret = "{APP-SECRET}",
+            appId = "{발급받은 appId}", 
+            appSecret = "{발급받은 appSecret}",
 <strong>            membership = SceneConfig.Membership.CHANNELING
 </strong>        )
         // option 로그 출력 여부를 설정합니다.

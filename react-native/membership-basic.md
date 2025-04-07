@@ -108,9 +108,9 @@ function App(): React.JSX.Element {
       );
       comicsInitialize(
         // appId
-        'harustory',
+        '{발급받은 appId}',
         // appSecret
-        'haruSecret',
+        '{발급받은 appSecret}',
         // membership
 <strong>        Membership.Basic
 </strong>        // allowDebug

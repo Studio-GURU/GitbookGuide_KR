@@ -102,9 +102,9 @@ Future&#x3C;void> initComics() async {
     final notificationConfig = NotificationConfig(channelName: "플러터", smallIconResourceName: "ic_flutter_notify");
     final result = await FlutterTreasureislandAddon().comicsInitialize(
         // AppID
-        'harustory',
+        '{발급받은 appId}',
         // AppSecret
-        'haruSecret',
+        '{발급받은 appSecret}',
         // Membership
 <strong>        Membership.Channeling,
 </strong>        // Log

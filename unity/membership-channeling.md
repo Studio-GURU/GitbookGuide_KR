@@ -193,8 +193,8 @@ public class NotificationOptionModel {
 <strong>        Membership membership = Membership.Channeling;
 </strong><strong>        Environment environment = Environment.Live;
 </strong>        InitModel entity = new(
-            appId: "bitbunny",
-            appSecret: "bitbSecret",
+            appId: "{발급받은 appId}",
+            appSecret: "{발급받은 appSecret}",
             membership: membership,
             allowLog: true,
             environment: environment,
