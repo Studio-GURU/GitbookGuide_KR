@@ -78,7 +78,7 @@ struct PartnerApp: App {
         let sceneKit = SceneKit.Builder(
             appId: "{APP-ID}", 
             appSecret: "{APP-SECRET}",
-<strong>            membership: SceneKit.Membership.basic
+<strong>            membership: SceneKit.Membership.BASIC
 </strong>        )
         // option: 로그 출력 여부를 설정
 <strong>        .withAllowLog(allow: true)

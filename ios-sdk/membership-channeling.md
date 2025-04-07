@@ -71,7 +71,7 @@ TreasureIsland screen launch
 
 ### SceneKit.Builder
 
-<table><thead><tr><th width="193">Name</th><th width="226">Type</th><th>Value</th></tr></thead><tbody><tr><td><code>appId</code></td><td>string</td><td>연동앱의 고유 식별자</td></tr><tr><td><code>appSecret</code></td><td>string</td><td>연동앱의 고유 식별자 검증키</td></tr><tr><td><code>membership</code></td><td>enum(Basic, <mark style="color:red;"><strong>Channeling</strong></mark>)</td><td>연동앱의 회원 적용 방식(<mark style="color:red;"><strong>Channeling</strong></mark> 선택)</td></tr></tbody></table>
+<table><thead><tr><th width="149">Name</th><th width="250">Type</th><th>Value</th></tr></thead><tbody><tr><td><code>appId</code></td><td>string</td><td>연동앱의 고유 식별자</td></tr><tr><td><code>appSecret</code></td><td>string</td><td>연동앱의 고유 식별자 검증키</td></tr><tr><td><code>membership</code></td><td>enum(Basic, <mark style="color:red;"><strong>Channeling</strong></mark>)</td><td>연동앱의 회원 적용 방식(<mark style="color:red;"><strong>Channeling</strong></mark> 선택)</td></tr></tbody></table>
 
 **✓ SceneKit.Builder 인스터스를 통해 옵션과 보물섬 SDK 초기화를 진행합니다.**
 
@@ -88,7 +88,7 @@ struct PartnerApp: App {
         let sceneKit = SceneKit.Builder(
             appId: "{APP-ID}", 
             appSecret: "{APP-SECRET}",
-<strong>            membership: SceneKit.Membership.channeling
+<strong>            membership: SceneKit.Membership.CHANNELING
 </strong>        )
         // option: 로그 출력 여부를 설정
 <strong>        .withAllowLog(allow: true)
