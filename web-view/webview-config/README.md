@@ -54,8 +54,9 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
         layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
     }
 }
-WebView.overScrollMode = View.OVER_SCROLL_NEVER
-</code></pre>
+<strong>// 웹뷰의 오버스크롤을 제한합니다.
+</strong><strong>WebView.overScrollMode = View.OVER_SCROLL_NEVER
+</strong></code></pre>
 {% endtab %}
 
 {% tab title="JAVA" %}
@@ -82,16 +83,16 @@ if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
     // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
     webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 레이아웃 알고리즘 설정 (오래된 버전 지원)
 }
-WebView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-</code></pre>
+
+<strong>// 웹뷰의 오버스크롤을 제한합니다.
+</strong><strong>WebView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+</strong></code></pre>
 {% endtab %}
 {% endtabs %}
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-{% code lineNumbers="true" %}
-```swift
-// ---------- 필수 ---------- //
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ---------- 필수 ---------- //
 // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
 let configuration = WKWebViewConfiguration()
 // JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
@@ -106,12 +107,12 @@ if #available(iOS 14.0, *) {
 } else {
     configuration.preferences.javaScriptEnabled = true
 }
-// WebView History Back&Forward
-// 화면 Swipe시 웹뷰가 닫히는 것을 방지합니다.
-WKWebView.allowsBackForwardNavigationGestures = true
-WKWebView.scrollView.bounces = false
-```
-{% endcode %}
+// WebView History Back&#x26;Forward
+// 웹뷰의 스와이프 동작으로 앞으로가기 &#x26; 뒤로가기 동작을 설정합니다.
+<strong>WKWebView.allowsBackForwardNavigationGestures = true
+</strong>// 웹뷰의 오버스크롤을 제한합니다.
+<strong>WKWebView.scrollView.bounces = false
+</strong></code></pre>
 {% endtab %}
 {% endtabs %}
 
