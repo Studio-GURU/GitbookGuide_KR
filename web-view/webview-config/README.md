@@ -515,37 +515,40 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 * 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
 {% endhint %}
 
-{% code lineNumbers="true" %}
-```swift
-// MARK: - Javascript window.open { WKUIDelegate }
-func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
-    let viewControllerToPresent = UIViewController()
-    viewControllerToPresent.view.backgroundColor = UIColor.white
-    viewControllerToPresent.modalPresentationStyle = .automatic
-    if let sheet = viewControllerToPresent.sheetPresentationController {
-        sheet.prefersGrabberVisible = true
+<pre class="language-swift" data-line-numbers><code class="lang-swift">class XXXViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
+    // MARK: - Javascript window.open { WKUIDelegate }
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
+        let viewControllerToPresent = UIViewController()
+        viewControllerToPresent.view.backgroundColor = UIColor.white
+        viewControllerToPresent.modalPresentationStyle = .automatic
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+        }
+        // 웹뷰를 생성하여 리턴하면 현재 웹뷰와 parent 관계가 형성됩니다.
+        let modalView = WKWebView(frame: CGRect(x: 0, y: 12, width: self.bounds.width, height: self.bounds.height), configuration: configuration)
+        // set delegate
+        modalView.uiDelegate = self
+        modalView.navigationDelegate = self
+        // setup scrollview
+        modalView.scrollView.bounces = false
+        modalView.scrollView.isPagingEnabled = false
+        modalView.scrollView.alwaysBounceVertical = false
+        modalView.scrollView.showsVerticalScrollIndicator = false
+        modalView.scrollView.showsHorizontalScrollIndicator = false
+        modalView.scrollView.contentInsetAdjustmentBehavior = .never
+        // addview
+        viewControllerToPresent.view.addSubview(modalView)
+<strong>        viewControllerToPresent.presentationController?.delegate = self
+</strong>        // present
+        self.viewController.present(viewControllerToPresent, animated: true);
+        return modalView
     }
-    // 웹뷰를 생성하여 리턴하면 현재 웹뷰와 parent 관계가 형성됩니다.
-    let modalView = WKWebView(frame: CGRect(x: 0, y: 12, width: self.bounds.width, height: self.bounds.height), configuration: configuration)
-    // set delegate
-    modalView.uiDelegate = self
-    modalView.navigationDelegate = self
-    // setup scrollview
-    modalView.scrollView.bounces = false
-    modalView.scrollView.isPagingEnabled = false
-    modalView.scrollView.alwaysBounceVertical = false
-    modalView.scrollView.showsVerticalScrollIndicator = false
-    modalView.scrollView.showsHorizontalScrollIndicator = false
-    modalView.scrollView.contentInsetAdjustmentBehavior = .never
-    // addview
-    viewControllerToPresent.view.addSubview(modalView)
-    viewControllerToPresent.presentationController?.delegate = self
-    // present
-    self.viewController.present(viewControllerToPresent, animated: true);
-    return modalView
 }
-```
-{% endcode %}
+
+<strong>func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+</strong><strong>    // 팝업 종료 처리
+</strong>}
+</code></pre>
 
 ***
 
