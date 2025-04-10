@@ -92,6 +92,10 @@ if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
+{% hint style="info" %}
+<mark style="color:red;">**WKWebView의 경우 모든 컨텐츠가 가려지지 않도록 SafeArea 내부에 위치 하도록 설정 바랍니다.**</mark>
+{% endhint %}
+
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ---------- 필수 ---------- //
 // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
 let configuration = WKWebViewConfiguration()
