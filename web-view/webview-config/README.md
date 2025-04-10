@@ -1062,8 +1062,8 @@ mailto scheme 처리에 방법에 대한 안내
             print("알 수 없는 결과")
         }
         // 반드시 dismiss 해야 함!
-        controller.dismiss(animated: true, completion: nil)
-    }
+<strong>        controller.dismiss(animated: true, completion: nil)
+</strong>    }
 }
 </code></pre>
 
