@@ -501,7 +501,7 @@ webView.setWebChromeClient(new WebChromeClient() {
 WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 
 {% hint style="success" %}
-**public protocol UIWebViewDelegate**
+**public protocol UIWebViewDelegate, UIAdaptivePresentationControllerDelegate**
 
 ***
 
@@ -515,8 +515,8 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 * 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift">class XXXViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
-    // MARK: - Javascript window.open { WKUIDelegate }
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>class XXXViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
+</strong>    // MARK: - Javascript window.open { WKUIDelegate }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
         let viewControllerToPresent = UIViewController()
         viewControllerToPresent.view.backgroundColor = UIColor.white
@@ -547,8 +547,8 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 
 <strong>func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
 </strong><strong>    // 팝업 종료 처리
-</strong>}
-</code></pre>
+</strong><strong>}
+</strong></code></pre>
 
 ***
 
@@ -1044,6 +1044,25 @@ mailto scheme 처리에 방법에 대한 안내
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             viewController?.present(alert, animated: true, completion: nil)
         }
+    }
+    
+<strong>    // MARK: - MFMailComposeViewControllerDelegate
+</strong><strong>    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+</strong>        // 필요시 구현
+        switch result {
+        case .cancelled:
+            print("메일 전송 취소됨")
+        case .saved:
+            print("메일 임시 저장됨")
+        case .sent:
+            print("메일 전송 성공")
+        case .failed:
+            print("메일 전송 실패: \(error?.localizedDescription ?? "알 수 없는 오류")")
+        @unknown default:
+            print("알 수 없는 결과")
+        }
+        // 반드시 dismiss 해야 함!
+        controller.dismiss(animated: true, completion: nil)
     }
 }
 </code></pre>
