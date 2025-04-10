@@ -963,9 +963,78 @@ func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt:
 
 ***
 
-### Mailto, Tel&#x20;
+### Mailto
 
-mailto, tel scheme 처리에 방법에 대한 안내
+mailto scheme 처리에 방법에 대한 안내
+
+**✓ update** → **subject, messageBody**
+
+{% hint style="success" %}
+**public protocol UIWebViewDelegate, MFMailComposeViewControllerDelegate**
+
+***
+
+`func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void)`
+{% endhint %}
+
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>import MessageUI
+</strong><strong>// MFMailComposeViewControllerDelegate 선언이 필요합니다.
+</strong>
+// MARK: - mailto: { UIWebViewDelegate }
+func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+    // check url
+    guard let url = navigationAction.request.url else {
+        self.error(stackMessage: "scheme -> url is null")
+        decisionHandler(.allow)
+        return
+    }
+    // check sheme
+    guard let scheme = url.scheme else {
+        decisionHandler(.allow)
+        return
+    }
+    // mailto
+    if scheme == "mailto" {
+<strong>        hadleMailtoLink(url: url)
+</strong><strong>        decisionHandler(.cancel)
+</strong>        return
+    }
+}
+
+<strong>private func hadleMailtoLink(url: URL) {
+</strong>    if MFMailComposeViewController.canSendMail() {
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        // 1. mailto:주소?subject=...&#x26;body=... 에서 주소와 쿼리 분리
+        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            // 받는 사람 설정
+            if let toAddress = components.path.removingPercentEncoding {
+                mailVC.setToRecipients([toAddress])
+            }
+            // 쿼리 파라미터 처리
+            if let queryItems = components.queryItems {
+                for item in queryItems {
+                    switch item.name.lowercased() {
+                    case "subject":
+                        mailVC.setSubject(item.value ?? "")
+                    case "body":
+                        mailVC.setMessageBody(item.value ?? "", isHTML: false)
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        viewController?.present(mailVC, animated: true)
+    }
+}
+</code></pre>
+
+***
+
+### Tel
+
+tel scheme 처리에 방법에 대한 안내
 
 {% hint style="success" %}
 **public protocol UIWebViewDelegate**
@@ -975,9 +1044,7 @@ mailto, tel scheme 처리에 방법에 대한 안내
 `func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void)`
 {% endhint %}
 
-{% code lineNumbers="true" %}
-```swift
-// MARK: - mailto:, tel: { UIWebViewDelegate }
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// MARK: - tel: { UIWebViewDelegate }
 func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
     // check url
     guard let url = navigationAction.request.url else {
@@ -985,43 +1052,26 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
         decisionHandler(.allow)
         return
     }
-    // check scheme
+    // check sheme
     guard let scheme = url.scheme else {
-        self.error(stackMessage: "scheme -> protocol is null")
         decisionHandler(.allow)
         return
     }
-    // check mailto, tel
-    let schemeOpenUrl = switch scheme {
-    case "mailto": url.absoluteString.replacingOccurrences(of: "mailto:", with: "")
-    case "tel": url.absoluteString.replacingOccurrences(of: "tel:", with: "")
-    default: ""
-    }
-    // check empty
-    if schemeOpenUrl.isEmpty {
-        decisionHandler(.allow)
-        return
-    }
-    // create URLComponents
-    var components = URLComponents()
-    components.scheme = url.scheme
-    components.path = schemeOpenUrl
-    guard let componentUrl = components.url else {
-        decisionHandler(.allow)
-        return
-    }
-    // open application
-    if UIApplication.shared.canOpenURL(componentUrl) {
-        UIApplication.shared.open(componentUrl)
-        decisionHandler(.cancel)
-    } else {
-        decisionHandler(.allow)
+    // tel
+    if scheme == "tel" {
+<strong>        handleTelLink(url: url)
+</strong><strong>        decisionHandler(.cancel)
+</strong>        return
     }
 }
-```
-{% endcode %}
 
+<strong>private func handleTelLink(url: URL) {
+</strong>    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+}
 
+</code></pre>
 {% endtab %}
 {% endtabs %}
+
+
 
