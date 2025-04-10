@@ -974,7 +974,8 @@ mailto scheme 처리에 방법에 대한 안내
 **✓ update** → **subject, messageBody**
 
 {% hint style="success" %}
-**public protocol UIWebViewDelegate, MFMailComposeViewControllerDelegate**
+**public protocol UIWebViewDelegate, MFMailComposeViewControllerDelegate**\
+**WebView를 포함한 ViewController에 "MFMailComposeViewControllerDelegate" 선언이 필요합니다.**
 
 ***
 
