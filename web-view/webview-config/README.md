@@ -1031,6 +1031,15 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
             }
         }
         viewController?.present(mailVC, animated: true)
+    } else {
+        // 메일을 보낼 수 없는 경우: 사용자에게 안내
+        let alert = UIAlertController(
+            title: "메일 설정 오류",
+            message: "메일 앱이 설정되어 있지 않거나 메일을 보낼 수 없습니다. 메일 계정을 설정해주세요.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }
 </code></pre>
