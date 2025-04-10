@@ -983,63 +983,64 @@ mailto scheme 처리에 방법에 대한 안내
 {% endhint %}
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>import MessageUI
-</strong><strong>// MFMailComposeViewControllerDelegate 선언이 필요합니다.
+</strong><strong>class WebContentViewController:..., ..., MFMailComposeViewControllerDelegate {
 </strong>
-// MARK: - mailto: { UIWebViewDelegate }
-func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
-    // check url
-    guard let url = navigationAction.request.url else {
-        self.error(stackMessage: "scheme -> url is null")
-        decisionHandler(.allow)
-        return
+    // MARK: - mailto: { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        // check url
+        guard let url = navigationAction.request.url else {
+            self.error(stackMessage: "scheme -> url is null")
+            decisionHandler(.allow)
+            return
+        }
+        // check sheme
+        guard let scheme = url.scheme else {
+            decisionHandler(.allow)
+            return
+        }
+        // mailto
+        if scheme == "mailto" {
+<strong>            hadleMailtoLink(url: url)
+</strong><strong>            decisionHandler(.cancel)
+</strong>            return
+        }
     }
-    // check sheme
-    guard let scheme = url.scheme else {
-        decisionHandler(.allow)
-        return
-    }
-    // mailto
-    if scheme == "mailto" {
-<strong>        hadleMailtoLink(url: url)
-</strong><strong>        decisionHandler(.cancel)
-</strong>        return
-    }
-}
-
-<strong>private func hadleMailtoLink(url: URL) {
-</strong>    if MFMailComposeViewController.canSendMail() {
-        let mailVC = MFMailComposeViewController()
-        mailVC.mailComposeDelegate = self
-        // 1. mailto:주소?subject=...&#x26;body=... 에서 주소와 쿼리 분리
-        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
-            // 받는 사람 설정
-            if let toAddress = components.path.removingPercentEncoding {
-                mailVC.setToRecipients([toAddress])
-            }
-            // 쿼리 파라미터 처리
-            if let queryItems = components.queryItems {
-                for item in queryItems {
-                    switch item.name.lowercased() {
-                    case "subject":
-                        mailVC.setSubject(item.value ?? "")
-                    case "body":
-                        mailVC.setMessageBody(item.value ?? "", isHTML: false)
-                    default:
-                        break
+    
+<strong>    private func hadleMailtoLink(url: URL) {
+</strong>        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            // 1. mailto:주소?subject=...&#x26;body=... 에서 주소와 쿼리 분리
+            if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+                // 받는 사람 설정
+                if let toAddress = components.path.removingPercentEncoding {
+                    mailVC.setToRecipients([toAddress])
+                }
+                // 쿼리 파라미터 처리
+                if let queryItems = components.queryItems {
+                    for item in queryItems {
+                        switch item.name.lowercased() {
+                        case "subject":
+                            mailVC.setSubject(item.value ?? "")
+                        case "body":
+                            mailVC.setMessageBody(item.value ?? "", isHTML: false)
+                        default:
+                            break
+                        }
                     }
                 }
             }
+            viewController?.present(mailVC, animated: true)
+        } else {
+            // 메일을 보낼 수 없는 경우: 사용자에게 안내
+            let alert = UIAlertController(
+                title: "메일 설정 오류",
+                message: "메일 앱이 설정되어 있지 않거나 메일을 보낼 수 없습니다. 메일 계정을 설정해주세요.",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            viewController?.present(alert, animated: true, completion: nil)
         }
-        viewController?.present(mailVC, animated: true)
-    } else {
-        // 메일을 보낼 수 없는 경우: 사용자에게 안내
-        let alert = UIAlertController(
-            title: "메일 설정 오류",
-            message: "메일 앱이 설정되어 있지 않거나 메일을 보낼 수 없습니다. 메일 계정을 설정해주세요.",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        viewController?.present(alert, animated: true, completion: nil)
     }
 }
 </code></pre>
