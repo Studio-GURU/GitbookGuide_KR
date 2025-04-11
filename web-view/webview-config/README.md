@@ -92,10 +92,6 @@ if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-{% hint style="info" %}
-<mark style="color:red;">**WKWebView의 경우 모든 컨텐츠가 가려지지 않도록 SafeArea 내부에 위치 하도록 설정 바랍니다.**</mark>
-{% endhint %}
-
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ---------- 필수 ---------- //
 // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
 let configuration = WKWebViewConfiguration()
@@ -222,19 +218,22 @@ webView.webChromeClient = object : WebChromeClient() {
         isUserGesture: Boolean,
         resultMsg: Message?
     ): Boolean {
-        val newWebView = WebView(view?.context!!)
-        newWebView.webViewClient = WebViewClient()
-        newWebView.webChromeClient = WebChromeClient()
+        val popupWebView = WebView(view?.context!!)
+        popupWebView?.webViewClient = WebViewClient()
+        popupWebView?.webChromeClient = WebChromeClient()
 
         // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
-        val dialog = Dialog(view.context)
-        dialog.setContentView(newWebView)
-        dialog.show()
+        val webViewDialog = Dialog(view.context)
+        webViewDialog?.setContentView(newWebView)
+        webViewDialog?.setOnDismissListener {
+            popupWebView?.removeAllViews()
+            popupWebView?.destroy()
+        }
+        webViewDialog?.show()
 
         val transport = resultMsg?.obj as? WebView.WebViewTransport
         transport?.webView = newWebView
         resultMsg?.sendToTarget()
-
         return true
     }
 }
@@ -250,17 +249,22 @@ webView.webChromeClient = object : WebChromeClient() {
 webView.setWebChromeClient(new WebChromeClient() {
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        WebView newWebView = new WebView(view.getContext());
-        newWebView.setWebViewClient(new WebViewClient());
-        newWebView.setWebChromeClient(new WebChromeClient());
+        Context context = view.getContext();
+        WebView popupWebView = new WebView(context);
+        popupWebView.setWebViewClient(new WebViewClient());
+        popupWebView.setWebChromeClient(new WebChromeClient());
 
-        // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 등을 생성
-        Dialog dialog = new Dialog(view.getContext());
-        dialog.setContentView(newWebView);
-        dialog.show();
+        // 새 창을 다룰 수 있도록 Dialog에 WebView 추가
+        Dialog webViewDialog = new Dialog(context);
+        webViewDialog.setContentView(popupWebView);
+        webViewDialog.setOnDismissListener(dialog -> {
+            popupWebView.removeAllViews();
+            popupWebView.destroy();
+        });
+        webViewDialog.show();
 
         WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-        transport.setWebView(newWebView);
+        transport.setWebView(popupWebView);
         resultMsg.sendToTarget();
 
         return true;
