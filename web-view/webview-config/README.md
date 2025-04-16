@@ -118,6 +118,16 @@ if #available(iOS 14.0, *) {
 
 ***
 
+## WebView History 관리 <a href="#config" id="config"></a>
+
+
+
+***
+
+
+
+## &#x20;<a href="#config" id="config"></a>
+
 ## 웹뷰 네비게이션 바 ( Require ) <a href="#config" id="config"></a>
 
 **✓ 웹뷰의 네비게이션 바는 우측에 닫기 버튼만 포함하도록 구성합니다.**

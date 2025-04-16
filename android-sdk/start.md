@@ -11,6 +11,13 @@ icon: star-shooting
 **요구 사양은 보물섬 SDK의 최신 상태를 기준으로 명시됩니다.**
 
 OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권장합니다.
+
+***
+
+**SDK Size**
+
+* Foundation - 570KB
+* Scene - 170KB
 {% endhint %}
 
 ✓ Android 5.0(API Level 21) 이상을 권장합니다.
@@ -109,3 +116,4 @@ allprojects {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
