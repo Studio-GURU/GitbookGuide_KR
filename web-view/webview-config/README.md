@@ -118,7 +118,7 @@ if #available(iOS 14.0, *) {
 
 ***
 
-## WebView History 관리 <a href="#config" id="config"></a>
+## WebView History 관리 ( Require ) <a href="#config" id="config"></a>
 
 {% hint style="info" %}
 물리 키, 버튼 또는 제스처를 통해 WebView의 뒤로가기를 구현할 때는 웹 브라우저의 히스토리 상태를 확인한 후, 상황에 맞는 처리를 수행해야 합니다.
