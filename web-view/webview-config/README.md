@@ -120,13 +120,41 @@ if #available(iOS 14.0, *) {
 
 ## WebView History 관리 <a href="#config" id="config"></a>
 
+{% hint style="info" %}
+물리 키, 버튼 또는 제스처를 통해 WebView의 뒤로가기를 구현할 때는 웹 브라우저의 히스토리 상태를 확인한 후, 상황에 맞는 처리를 수행해야 합니다.
+{% endhint %}
 
+{% tabs %}
+{% tab title="ANDROID(WebView)" %}
+{% code lineNumbers="true" %}
+```kotlin
+// 뒤로가기가 가능할 경우 HistoryBack 처리
+// 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
+if (${WebView}.canGoBack() && ${WebView}.copyBackForwardList().size > 0) {
+    ${WebView}.goBack()
+} else {
+    // Activity 종료 처리 또는 View 종료 처리 로직 추가
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="iOS(WKWebView)" %}
+{% code lineNumbers="true" %}
+```swift
+// 뒤로가기가 가능할 경우 HistoryBack 처리
+// 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
+if ${WKWebView}.canGoBack && ${WKWebView}.backForwardList.backList.count > 0 {
+    ${WKWebView}.goBack()
+} else {
+    // 화면 종료 처리
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
-
-
-
-## &#x20;<a href="#config" id="config"></a>
 
 ## 웹뷰 네비게이션 바 ( Require ) <a href="#config" id="config"></a>
 
