@@ -207,32 +207,55 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 
 {% code lineNumbers="true" %}
 ```swift
-class MainViewControll: UIVIewController {
-    private let preventedView = UITextField()
+//
+//  SampleViewController.swift
+//  TreasureIslandXSceneKit
+//
+//
 
-    func applySecureContent() {
-        self.view.addSubview(self.preventedView)
-        self.preventedView.backgroundColor = .clear
-        self.preventedView.isSecureTextEntry = true
-        self.preventedView.isUserInteractionEnabled = false
-        self.preventedView.translatesAutoresizingMaskIntoConstraints = false
-        self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
-        self.preventedView.leftViewMode = .always
-        self.view.layer.superlayer?.addSublayer(self.preventedView.layer)
-        self.preventedView.layer.sublayers?.last?.addSublayer(self.view.layer)
+import Foundation
+import UIKit
+import WebKit
+
+class SampleViewController: UIViewController {
+    
+    private let preventedView = UITextField()
+    private lazy var webView: WKWebView = {
+        let view = WKWebView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.addSubview(self.webView)
+        NSLayoutConstraint.activate([
+            self.webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        self.webView.load(URLRequest(url: URL(string: "https://www.harustory.co.kr")!))
+        self.applySecureContent()
     }
 
-    //..
-    //..
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func applySecureContent() {
         DispatchQueue.main.async {
-            applySecureContent()
+            self.webView.addSubview(self.preventedView)
+            self.preventedView.backgroundColor = .clear
+            self.preventedView.isSecureTextEntry = true
+            self.preventedView.isUserInteractionEnabled = false
+            self.preventedView.translatesAutoresizingMaskIntoConstraints = false
+            self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
+            self.preventedView.leftViewMode = .always
+            self.webView.layer.superlayer?.addSublayer(self.preventedView.layer)
+            self.preventedView.layer.sublayers?.last?.addSublayer(self.webView.layer)
         }
     }
 }
+
 ```
 {% endcode %}
 {% endtab %}
