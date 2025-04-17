@@ -201,6 +201,10 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 {% tab title="iOS(WKWebView)" %}
 `UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡쳐를 할 수 없도록 우회 처리해야 합니다.
 
+{% hint style="info" %}
+스크린 캡쳐 방지 기능은 실기기에서만 동작 합니다.
+{% endhint %}
+
 {% code lineNumbers="true" %}
 ```swift
 class MainViewControll: UIVIewController {
@@ -223,6 +227,7 @@ class MainViewControll: UIVIewController {
     //..
     //..
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         DispatchQueue.main.async {
             applySecureContent()
         }
