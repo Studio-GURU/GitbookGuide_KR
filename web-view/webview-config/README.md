@@ -226,8 +226,8 @@ class SampleViewController: UIViewController {
         return view
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.view.addSubview(self.webView)
         NSLayoutConstraint.activate([
             self.webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
