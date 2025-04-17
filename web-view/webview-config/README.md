@@ -587,8 +587,9 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 * 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>class XXXViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
-</strong>    // MARK: - Javascript window.open { WKUIDelegate }
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>class SampleViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
+</strong>
+    // MARK: - Javascript window.open { WKUIDelegate }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
         let viewControllerToPresent = UIViewController()
         viewControllerToPresent.view.backgroundColor = UIColor.white
@@ -610,17 +611,17 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
         modalView.scrollView.contentInsetAdjustmentBehavior = .never
         // addview
         viewControllerToPresent.view.addSubview(modalView)
-<strong>        viewControllerToPresent.presentationController?.delegate = self
-</strong>        // present
+        viewControllerToPresent.presentationController?.delegate = self
+        // present
         self.viewController.present(viewControllerToPresent, animated: true);
         return modalView
     }
-}
 
-<strong>func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-</strong><strong>    // 팝업 종료 처리
-</strong><strong>}
-</strong></code></pre>
+<strong>    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+</strong><strong>        // 팝업 종료 처리
+</strong><strong>    }
+</strong>}
+</code></pre>
 
 ***
 
@@ -719,11 +720,9 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 `func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void)`
 {% endhint %}
 
-{% code lineNumbers="true" %}
-```swift
-// MARK: - Javascript InputText Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
-    let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// MARK: - Javascript InputText Controll { UIWebViewDelegate }
+<strong>func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
+</strong>    let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
     alertController.addTextField { (textField) in
         textField.text = defaultText
     }
@@ -738,9 +737,9 @@ func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt:
         completionHandler(nil)
     }))
     self.viewController?.present(alertController, animated: true, completion: nil)
+}
 
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -1058,6 +1057,7 @@ mailto scheme 처리에 방법에 대한 안내
 {% endhint %}
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>import MessageUI
+</strong><strong>
 </strong><strong>class WebContentViewController:..., ..., MFMailComposeViewControllerDelegate {
 </strong>
     // MARK: - mailto: { UIWebViewDelegate }
