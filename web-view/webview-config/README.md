@@ -203,27 +203,29 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 
 {% code lineNumbers="true" %}
 ```swift
-private let preventedView = UITextField()
+class MainViewControll: UIVIewController {
+    private let preventedView = UITextField()
 
-func applySecureContent() {
-    self.addSubview(self.preventedView)
-    self.preventedView.backgroundColor = .clear
-    self.preventedView.isSecureTextEntry = true
-    self.preventedView.isUserInteractionEnabled = false
-    self.preventedView.translatesAutoresizingMaskIntoConstraints = false
-    self.preventedView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    self.preventedView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-    self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
-    self.preventedView.leftViewMode = .always
-    self.layer.superlayer?.addSublayer(self.preventedView.layer)
-    self.preventedView.layer.sublayers?.last?.addSublayer(self.layer)
-}
+    func applySecureContent() {
+        self.view.addSubview(self.preventedView)
+        self.preventedView.backgroundColor = .clear
+        self.preventedView.isSecureTextEntry = true
+        self.preventedView.isUserInteractionEnabled = false
+        self.preventedView.translatesAutoresizingMaskIntoConstraints = false
+        self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
+        self.preventedView.leftViewMode = .always
+        self.view.layer.superlayer?.addSublayer(self.preventedView.layer)
+        self.preventedView.layer.sublayers?.last?.addSublayer(self.view.layer)
+    }
 
-//..
-//..
-override func viewDidAppear(_ animated: Bool) {
-    DispatchQueue.main.async {
-        applySecureContent()
+    //..
+    //..
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            applySecureContent()
+        }
     }
 }
 ```
