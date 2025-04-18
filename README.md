@@ -15,7 +15,7 @@ layout:
 
 # 제품 안내
 
-·웹소설로 앱 성과를 높이세요
+웹소설로 앱 성과를 높이세요
 
 앱이나 웹을 운영하고 계세요? 그렇다면 보물섬 솔루션을 도입해서 유저 인게이지먼트를 개선하세요. 아무런 비용 없이 유저들에게 웹툰·웹소설 서비스를 제공할 수 있습니다.
 
@@ -61,6 +61,6 @@ layout:
 
 ## 구현 하기
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th><th data-type="files"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>WEB VIEW</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/web_cover.png">web_cover.png</a></td></tr><tr><td>ANDROID SDK</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/icons8-안드로이드-os-512.png">icons8-안드로이드-os-512.png</a></td></tr><tr><td>iOS SDK</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/ios_cover (1).png">ios_cover (1).png</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>WEB VIEW</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/web_cover.png">web_cover.png</a></td><td><a href="web/start.md">start.md</a></td></tr><tr><td>ANDROID SDK</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/icons8-안드로이드-os-512.png">icons8-안드로이드-os-512.png</a></td><td></td></tr><tr><td>iOS SDK</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/ios_cover (1).png">ios_cover (1).png</a></td><td></td></tr></tbody></table>
 
 ***

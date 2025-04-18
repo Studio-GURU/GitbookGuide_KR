@@ -2,7 +2,7 @@
 icon: js
 ---
 
-# 추가 정보 수집 요청(Optional)
+# 추가 정보 수집 요청
 
 ## 추가 정보 수집 요청 ( Optional ) <a href="#window.open" id="window.open"></a>
 
@@ -145,13 +145,16 @@ public class TreasureKitJavascriptInterface {
 {% tab title="iOS" %}
 {% code lineNumbers="true" %}
 ```swift
+// ... import ...
 class ViewController: WKScriptMessageHandler {
-    ...
-    ...
+    // ... other code ...
+    // <code>
+    // ... other code ...
     // userContentController 설정
     WKWebView.configuration.userContentController.add(self, name: "treasureComics")
-    ...
-    ...
+    // ... other code ...
+    // <code>
+    // ... other code ...
     // MARK: - webview content javascript interface message handler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "treasureComics", let messageBody = message.body as? String {
@@ -193,6 +196,9 @@ class ViewController: WKScriptMessageHandler {
             }
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}

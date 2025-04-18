@@ -71,52 +71,60 @@ JavaScript SDK가 카카오톡 실행을 위한 `Intent URI`를 생성해 호출
 
 {% code lineNumbers="true" %}
 ```kotlin
-webView = // 메인 웹뷰
-
-// 공통 설정
-webView.settings.run {
-    javaScriptEnabled = true
-    javaScriptCanOpenWindowsAutomatically = true
-    setSupportMultipleWindows(true)
-}
-
-webView.webViewClient = object: WebViewClient() {
-    override fun shouldOverrideUrlLoading(
-        view: WebView,
-        request: WebResourceRequest
-    ): Boolean {
-        Log.d(TAG, request.url.toString())
-        if (request.url.scheme == "intent") {
-            try {
-                // Intent 생성
-                val intent = Intent.parseUri(
-                    request.url.toString(), 
-                    Intent.URI_INTENT_SCHEME
-                )
-                // 실행 가능한 앱이 있으면 앱 실행
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                    Log.d(TAG, "ACTIVITY: ${intent.`package`}")
-                    return true
-                }
-                // Fallback URL이 있으면 현재 웹뷰에 로딩
-                val fallbackUrl = intent.getStringExtra("browser_fallback_url")
-                if (fallbackUrl != null) {
-                    view.loadUrl(fallbackUrl)
-                    Log.d(TAG, "FALLBACK: $fallbackUrl")
-                    return true
-                }
-                Log.e(TAG, "Could not parse anythings")
-            } catch (e: URISyntaxException) {
-                Log.e(TAG, "Invalid intent request", e)
-            }
-        }
-        // 나머지 서비스 로직 구현
-        // ....
-        // ....
-        // ....
-        return false
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...    
+    webView = // 메인 웹뷰    
+    // 공통 설정
+    webView.settings.run {
+        javaScriptEnabled = true
+        javaScriptCanOpenWindowsAutomatically = true
+        setSupportMultipleWindows(true)
     }
+    
+    webView.webViewClient = object: WebViewClient() {
+        override fun shouldOverrideUrlLoading(
+            view: WebView,
+            request: WebResourceRequest
+        ): Boolean {
+            Log.d(TAG, request.url.toString())
+            if (request.url.scheme == "intent") {
+                try {
+                    // Intent 생성
+                    val intent = Intent.parseUri(
+                        request.url.toString(), 
+                        Intent.URI_INTENT_SCHEME
+                    )
+                    // 실행 가능한 앱이 있으면 앱 실행
+                    if (intent.resolveActivity(packageManager) != null) {
+                        startActivity(intent)
+                        Log.d(TAG, "ACTIVITY: ${intent.`package`}")
+                        return true
+                    }
+                    // Fallback URL이 있으면 현재 웹뷰에 로딩
+                    val fallbackUrl = intent.getStringExtra("browser_fallback_url")
+                    if (fallbackUrl != null) {
+                        view.loadUrl(fallbackUrl)
+                        Log.d(TAG, "FALLBACK: $fallbackUrl")
+                        return true
+                    }
+                    Log.e(TAG, "Could not parse anythings")
+                } catch (e: URISyntaxException) {
+                    Log.e(TAG, "Invalid intent request", e)
+                }
+            }
+            // 나머지 서비스 로직 구현
+            // ....
+            // ....
+            // ....
+            return false
+        }
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -125,65 +133,73 @@ webView.webViewClient = object: WebViewClient() {
 
 {% code lineNumbers="true" %}
 ```kotlin
-webView = // 메인 웹뷰
-webViewLayout = // 웹뷰가 속한 레이아웃
-
-// 공통 설정
-webView.settings.run {
-    javaScriptEnabled = true
-    javaScriptCanOpenWindowsAutomatically = true
-    setSupportMultipleWindows(true)
-}
-
-webView.webChromeClient = object: WebChromeClient() {
-    /// ---------- 팝업 열기 ----------
-    /// - 카카오 JavaScript SDK의 로그인 기능은 popup을 이용합니다.
-    /// - window.open() 호출 시 별도 팝업 webview가 생성되어야 합니다.
-    ///
-    override fun onCreateWindow(
-        view: WebView,
-        isDialog: Boolean,
-        isUserGesture: Boolean,
-        resultMsg: Message
-    ): Boolean {
-        // 웹뷰 만들기
-        var childWebView = WebView(view.context)
-        // 부모 웹뷰와 동일하게 웹뷰 설정
-        childWebView.run {
-            settings.run {
-                javaScriptEnabled = true
-                javaScriptCanOpenWindowsAutomatically = true
-                setSupportMultipleWindows(true)
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...    
+    webView = // 메인 웹뷰
+    webViewLayout = // 웹뷰가 속한 레이아웃
+    
+    // 공통 설정
+    webView.settings.run {
+        javaScriptEnabled = true
+        javaScriptCanOpenWindowsAutomatically = true
+        setSupportMultipleWindows(true)
+    }
+    
+    webView.webChromeClient = object: WebChromeClient() {
+        /// ---------- 팝업 열기 ----------
+        /// - 카카오 JavaScript SDK의 로그인 기능은 popup을 이용합니다.
+        /// - window.open() 호출 시 별도 팝업 webview가 생성되어야 합니다.
+        ///
+        override fun onCreateWindow(
+            view: WebView,
+            isDialog: Boolean,
+            isUserGesture: Boolean,
+            resultMsg: Message
+        ): Boolean {
+            // 웹뷰 만들기
+            var childWebView = WebView(view.context)
+            // 부모 웹뷰와 동일하게 웹뷰 설정
+            childWebView.run {
+                settings.run {
+                    javaScriptEnabled = true
+                    javaScriptCanOpenWindowsAutomatically = true
+                    setSupportMultipleWindows(true)
+                }
+                layoutParams = view.layoutParams
+                webViewClient = view.webViewClient
+                webChromeClient = view.webChromeClient
             }
-            layoutParams = view.layoutParams
-            webViewClient = view.webViewClient
-            webChromeClient = view.webChromeClient
+            // 화면에 추가하기
+            webViewLayout.addView(childWebView)
+            // TODO: 화면 추가 이외에 onBackPressed() 와 같이
+            //       사용자의 내비게이션 액션 처리를 위해
+            //       별도 웹뷰 관리를 권장함
+            //   ex) childWebViewList.add(childWebView)
+    
+            // 웹뷰 간 연동
+            val transport = resultMsg.obj as WebView.WebViewTransport
+            transport.webView = childWebView
+            resultMsg.sendToTarget()
+            return true
         }
-        // 화면에 추가하기
-        webViewLayout.addView(childWebView)
-        // TODO: 화면 추가 이외에 onBackPressed() 와 같이
-        //       사용자의 내비게이션 액션 처리를 위해
-        //       별도 웹뷰 관리를 권장함
-        //   ex) childWebViewList.add(childWebView)
-
-        // 웹뷰 간 연동
-        val transport = resultMsg.obj as WebView.WebViewTransport
-        transport.webView = childWebView
-        resultMsg.sendToTarget()
-        return true
-    }
-    /// ---------- 팝업 닫기 ----------
-    /// - window.close()가 호출되면 앞에서 생성한 팝업 webview를 닫아야 합니다.
-    ///
-    override fun onCloseWindow(window: WebView) {
-        super.onCloseWindow(window)
-        // 화면에서 제거하기
-        webViewLayout.removeView(window)
-        // TODO: 화면 제거 이외에 onBackPressed() 와 같이
-        //       사용자의 내비게이션 액션 처리를 위해
-        //       별도 웹뷰 array 관리를 권장함
-        //   ex) childWebViewList.remove(childWebView)
-    }
+        /// ---------- 팝업 닫기 ----------
+        /// - window.close()가 호출되면 앞에서 생성한 팝업 webview를 닫아야 합니다.
+        ///
+        override fun onCloseWindow(window: WebView) {
+            super.onCloseWindow(window)
+            // 화면에서 제거하기
+            webViewLayout.removeView(window)
+            // TODO: 화면 제거 이외에 onBackPressed() 와 같이
+            //       사용자의 내비게이션 액션 처리를 위해
+            //       별도 웹뷰 array 관리를 권장함
+            //   ex) childWebViewList.remove(childWebView)
+        }
+    }    
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -198,22 +214,31 @@ iOS 앱의 경우, :link:[유니버설 링크](https://developers.kakao.com/docs
 
 {% code lineNumbers="true" %}
 ```swift
-func webView(
-    _ webView: WKWebView, 
-    decidePolicyFor navigationAction: WKNavigationAction, 
-    decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
-    ) { 
-    print(navigationAction.request.url?.absoluteString ?? "") 
-    // 카카오 SDK가 호출하는 커스텀 URL 스킴인 경우 open(_ url:) 메서드를 호출합니다. 
-    if let url = navigationAction.request.url , ["kakaolink"].contains(url.scheme) {
-        // 카카오톡 실행 가능 여부 확인 후 실행
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-        decisionHandler(.cancel) return 
-    } 
-    // 서비스에 필요한 나머지 로직을 구현합니다. 
-    decisionHandler(.allow) 
+// ... import ...
+class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    func webView(
+        _ webView: WKWebView, 
+        decidePolicyFor navigationAction: WKNavigationAction, 
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+        ) { 
+        print(navigationAction.request.url?.absoluteString ?? "") 
+        // 카카오 SDK가 호출하는 커스텀 URL 스킴인 경우 open(_ url:) 메서드를 호출합니다. 
+        if let url = navigationAction.request.url , ["kakaolink"].contains(url.scheme) {
+            // 카카오톡 실행 가능 여부 확인 후 실행
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            decisionHandler(.cancel) return 
+        } 
+        // 서비스에 필요한 나머지 로직을 구현합니다. 
+        decisionHandler(.allow) 
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -222,7 +247,11 @@ func webView(
 
 {% code lineNumbers="true" %}
 ```swift
+// ... import ...
 class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
     // 웹뷰 목록 관리
     var webViews = [WKWebView]()
     ...
@@ -275,6 +304,9 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         // 웹뷰 목록과 화면에서 제거하기
         self.webViews.popLast()?.removeFromSuperview()
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}

@@ -70,6 +70,9 @@ function openOuterWebBrowser() {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
+// ... other code ...
+// <code>
+// ... other code ...
 WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
 class TreasureKitJavascriptInterface {
@@ -91,6 +94,9 @@ class TreasureKitJavascriptInterface {
         }
     }
 }
+// ... other code ...
+// <code>
+// ... other code ...
 ```
 {% endcode %}
 {% endtab %}
@@ -98,6 +104,9 @@ class TreasureKitJavascriptInterface {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
+// ... other code ...
+// <code>
+// ... other code ...
 webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
 
 public class TreasureKitJavascriptInterface {
@@ -119,6 +128,9 @@ public class TreasureKitJavascriptInterface {
         }
     }
 }
+// ... other code ...
+// <code>
+// ... other code ...
 ```
 {% endcode %}
 {% endtab %}
@@ -126,13 +138,16 @@ public class TreasureKitJavascriptInterface {
 {% endtab %}
 
 {% tab title="iOS" %}
-<pre class="language-swift" data-line-numbers><code class="lang-swift">class ViewController: WKScriptMessageHandler {
-    ...
-    ...
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+class ViewController: WKScriptMessageHandler {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
     // userContentController 설정
 <strong>    WKWebView.configuration.userContentController.add(self, name: "treasureComics")
-</strong>    ...
-    ...
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
     // MARK: - webview content javascript interface message handler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "treasureComics", let messageBody = message.body as? String {
@@ -167,8 +182,9 @@ public class TreasureKitJavascriptInterface {
             }
         }
     }
-    ...
-    ...
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
 </code></pre>
 {% endtab %}

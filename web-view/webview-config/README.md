@@ -30,89 +30,115 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
 {% tab title="ANDROID(WebView)" %}
 {% tabs %}
 {% tab title="KOTLIN" %}
-<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">with(webView.settings) {
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    with(webView.settings) {
+<strong>        // ---------- 필수 ---------- //
+</strong><strong>        domStorageEnabled = true // DOM 스토리지 활성화
+</strong><strong>        javaScriptEnabled = true // JavaScript 사용 가능
+</strong><strong>        javaScriptCanOpenWindowsAutomatically = true // JavaScript에서 새 창 열기 허용
+</strong><strong>        setSupportMultipleWindows(true) // 다중 창 지원
+</strong><strong>        mediaPlaybackRequiresUserGesture = false // 사용자 제스처 없이 미디어 재생 허용
+</strong>        // ---------- 옵션 ---------- //
+        databaseEnabled = true // 데이터베이스 사용 가능
+        cacheMode = WebSettings.LOAD_DEFAULT // 기본 캐시 모드 설정
+        textZoom = 100 // 텍스트 확대/축소 비율 설정
+        setSupportZoom(false) // 확대/축소 지원 비활성화
+        displayZoomControls = false // 확대/축소 컨트롤 비활성화
+        defaultTextEncodingName = "utf-8" // 기본 텍스트 인코딩 설정
+        loadWithOverviewMode = true // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
+        mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
+        // WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
+        // WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
+        // WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
+        if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
+            // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
+            layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
+        }
+    }
+<strong>    // 웹뷰의 오버스크롤을 제한합니다.
+</strong><strong>    ${WebView}.overScrollMode = View.OVER_SCROLL_NEVER
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="JAVA" %}
+<pre class="language-java" data-line-numbers><code class="lang-java">// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...   
+    WebSettings webSettings = wView.getSettings();    
 <strong>    // ---------- 필수 ---------- //
-</strong><strong>    domStorageEnabled = true // DOM 스토리지 활성화
-</strong><strong>    javaScriptEnabled = true // JavaScript 사용 가능
-</strong><strong>    javaScriptCanOpenWindowsAutomatically = true // JavaScript에서 새 창 열기 허용
-</strong><strong>    setSupportMultipleWindows(true) // 다중 창 지원
-</strong><strong>    mediaPlaybackRequiresUserGesture = false // 사용자 제스처 없이 미디어 재생 허용
+</strong><strong>    webSettings.setDomStorageEnabled(true); // DOM 스토리지 활성화
+</strong><strong>    webSettings.setJavaScriptEnabled(true); // JavaScript 사용 가능
+</strong><strong>    webSettings.setJavaScriptCanOpenWindowsAutomatically(true); // JavaScript에서 새 창 열기 허용
+</strong><strong>    webSettings.setSupportMultipleWindows(true); // 다중 창 지원
+</strong><strong>    webSettings.setMediaPlaybackRequiresUserGesture(false); // 사용자 제스처 없이 미디어 재생 허용
 </strong>    // ---------- 옵션 ---------- //
-    databaseEnabled = true // 데이터베이스 사용 가능
-    cacheMode = WebSettings.LOAD_DEFAULT // 기본 캐시 모드 설정
-    textZoom = 100 // 텍스트 확대/축소 비율 설정
-    setSupportZoom(false) // 확대/축소 지원 비활성화
-    displayZoomControls = false // 확대/축소 컨트롤 비활성화
-    defaultTextEncodingName = "utf-8" // 기본 텍스트 인코딩 설정
-    loadWithOverviewMode = true // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
-    mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
+    webSettings.setDatabaseEnabled(true); // 데이터베이스 사용 가능
+    webSettings.setCacheMode(WebSettings.LOAD_DEFAULT); // 기본 캐시 모드 설정
+    webSettings.setTextZoom(100); // 텍스트 확대/축소 비율 설정
+    webSettings.setSupportZoom(false); // 확대/축소 지원 비활성화
+    webSettings.setDisplayZoomControls(false); // 확대/축소 컨트롤 비활성화
+    webSettings.setDefaultTextEncodingName("utf-8"); // 기본 텍스트 인코딩 설정
+    webSettings.setLoadWithOverviewMode(true); // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
+    webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
     // WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
     // WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
     // WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
     if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
         // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
-        layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
-    }
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 레이아웃 알고리즘 설정 (오래된 버전 지원)
+    }    
+<strong>    // 웹뷰의 오버스크롤을 제한합니다.
+</strong><strong>    ${WebView}.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
-<strong>// 웹뷰의 오버스크롤을 제한합니다.
-</strong><strong>WebView.overScrollMode = View.OVER_SCROLL_NEVER
-</strong></code></pre>
-{% endtab %}
-
-{% tab title="JAVA" %}
-<pre class="language-java" data-line-numbers><code class="lang-java">WebSettings webSettings = wView.getSettings();    
-<strong>// ---------- 필수 ---------- //
-</strong><strong>webSettings.setDomStorageEnabled(true); // DOM 스토리지 활성화
-</strong><strong>webSettings.setJavaScriptEnabled(true); // JavaScript 사용 가능
-</strong><strong>webSettings.setJavaScriptCanOpenWindowsAutomatically(true); // JavaScript에서 새 창 열기 허용
-</strong><strong>webSettings.setSupportMultipleWindows(true); // 다중 창 지원
-</strong><strong>webSettings.setMediaPlaybackRequiresUserGesture(false); // 사용자 제스처 없이 미디어 재생 허용
-</strong>// ---------- 옵션 ---------- //
-webSettings.setDatabaseEnabled(true); // 데이터베이스 사용 가능
-webSettings.setCacheMode(WebSettings.LOAD_DEFAULT); // 기본 캐시 모드 설정
-webSettings.setTextZoom(100); // 텍스트 확대/축소 비율 설정
-webSettings.setSupportZoom(false); // 확대/축소 지원 비활성화
-webSettings.setDisplayZoomControls(false); // 확대/축소 컨트롤 비활성화
-webSettings.setDefaultTextEncodingName("utf-8"); // 기본 텍스트 인코딩 설정
-webSettings.setLoadWithOverviewMode(true); // 콘텐츠를 웹뷰에 맞게 축소하여 전체 내용을 한눈에 볼 수 있도록 설정 // 개요 모드로 로드 설정
-webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 혼합 컨텐츠 허용 (HTTPS 페이지에서 HTTP 컨텐츠 로드 가능)
-// WebSettings.MIXED_CONTENT_NEVER_ALLOW: 보안상의 이유로 HTTPS 페이지에서 HTTP 컨텐츠 로드를 차단
-// WebSettings.MIXED_CONTENT_ALWAYS_ALLOW: 모든 HTTP 및 HTTPS 컨텐츠 로드를 허용
-// WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE: 기본적으로 HTTPS를 유지하지만 일부 HTTP 컨텐츠 로드를 허용 // 혼합 컨텐츠 허용
-if (Build.VERSION.SDK_INT &#x3C;= Build.VERSION_CODES.O) {
-    // 콘텐츠를 단일 열로 정렬하여 화면 너비에 맞게 표시
-    webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 레이아웃 알고리즘 설정 (오래된 버전 지원)
-}
-
-<strong>// 웹뷰의 오버스크롤을 제한합니다.
-</strong><strong>WebView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-</strong></code></pre>
+</code></pre>
 {% endtab %}
 {% endtabs %}
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-<pre class="language-swift" data-line-numbers><code class="lang-swift">// ---------- 필수 ---------- //
-// WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
-let configuration = WKWebViewConfiguration()
-// JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
-configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-// 기본적인 웹사이트 데이터 저장소를 설정합니다.
-// 캐시, 쿠키, 세션 저장 등의 데이터를 관리하는 역할을 합니다.
-configuration.websiteDataStore = WKWebsiteDataStore.default()
-// Javascript 허용을 설정합니다.
-// 버전에 따라 분기 처리하여 Javascript를 허용합니다.
-if #available(iOS 14.0, *) {
-    configuration.defaultWebpagePreferences.allowsContentJavaScript = true
-} else {
-    configuration.preferences.javaScriptEnabled = true
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+class SampleViewController: UIViewController {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    // ---------- 필수 ---------- //
+    // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
+    let configuration = WKWebViewConfiguration()
+    // JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
+<strong>    configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+</strong>    // 기본적인 웹사이트 데이터 저장소를 설정합니다.
+    // 캐시, 쿠키, 세션 저장 등의 데이터를 관리하는 역할을 합니다.
+<strong>    configuration.websiteDataStore = WKWebsiteDataStore.default()
+</strong>    // Javascript 허용을 설정합니다.
+    // 버전에 따라 분기 처리하여 Javascript를 허용합니다.
+<strong>    if #available(iOS 14.0, *) {
+</strong><strong>        configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+</strong><strong>    } else {
+</strong><strong>        configuration.preferences.javaScriptEnabled = true
+</strong><strong>    }
+</strong>    // WebView History Back&#x26;Forward
+    // 웹뷰의 스와이프 동작으로 앞으로가기 &#x26; 뒤로가기 동작을 설정합니다.
+<strong>    ${WKWebView}.allowsBackForwardNavigationGestures = true
+</strong>    // 웹뷰의 오버스크롤을 제한합니다.
+<strong>    ${WKWebView}.scrollView.bounces = false
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
-// WebView History Back&#x26;Forward
-// 웹뷰의 스와이프 동작으로 앞으로가기 &#x26; 뒤로가기 동작을 설정합니다.
-<strong>WKWebView.allowsBackForwardNavigationGestures = true
-</strong>// 웹뷰의 오버스크롤을 제한합니다.
-<strong>WKWebView.scrollView.bounces = false
-</strong></code></pre>
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -174,24 +200,42 @@ if ${WKWebView}.canGoBack && ${WKWebView}.backForwardList.backList.count > 0 {
 
 {% tabs %}
 {% tab title="KOTLIN" %}
-<pre class="language-kotlin"><code class="lang-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-<strong>    window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-</strong>    //..
-    // code
-    //..
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+<strong>        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+</strong>        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
+    }
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
 </code></pre>
 {% endtab %}
 
 {% tab title="JAVA" %}
-<pre class="language-java"><code class="lang-java">@Override
-protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-<strong>    getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
-</strong>    //..
-    // code
-    //..
+<pre class="language-java" data-line-numbers><code class="lang-java">// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+<strong>        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+</strong>        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
+    }
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
 </code></pre>
 {% endtab %}
@@ -205,29 +249,24 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 스크린 캡쳐 방지 기능은 실기기에서만 동작 합니다.
 {% endhint %}
 
-{% code lineNumbers="true" %}
-```swift
-//
-//  SampleViewController.swift
-//  TreasureIslandXSceneKit
-//
-//
-
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 import Foundation
 import UIKit
 import WebKit
 
 class SampleViewController: UIViewController {
-    
-    private let preventedView = UITextField()
-    private lazy var webView: WKWebView = {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...    
+<strong>    private let preventedView = UITextField()
+</strong>    private lazy var webView: WKWebView = {
         let view = WKWebView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+<strong>    override func viewDidAppear(_ animated: Bool) {
+</strong>        super.viewDidAppear(animated)
         self.view.addSubview(self.webView)
         NSLayoutConstraint.activate([
             self.webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -239,25 +278,27 @@ class SampleViewController: UIViewController {
         self.applySecureContent()
     }
 
-    func applySecureContent() {
-        DispatchQueue.main.async {
-            self.webView.addSubview(self.preventedView)
-            self.preventedView.backgroundColor = .clear
-            self.preventedView.isSecureTextEntry = true
-            self.preventedView.isUserInteractionEnabled = false
-            self.preventedView.translatesAutoresizingMaskIntoConstraints = false
-            self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
-            self.preventedView.leftViewMode = .always
-            self.webView.layer.superlayer?.addSublayer(self.preventedView.layer)
-            self.preventedView.layer.sublayers?.last?.addSublayer(self.webView.layer)
-        }
-    }
+<strong>    func applySecureContent() {
+</strong><strong>        DispatchQueue.main.async {
+</strong><strong>            self.webView.addSubview(self.preventedView)
+</strong><strong>            self.preventedView.backgroundColor = .clear
+</strong><strong>            self.preventedView.isSecureTextEntry = true
+</strong><strong>            self.preventedView.isUserInteractionEnabled = false
+</strong><strong>            self.preventedView.translatesAutoresizingMaskIntoConstraints = false
+</strong><strong>            self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+</strong><strong>            self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+</strong><strong>            self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
+</strong><strong>            self.preventedView.leftViewMode = .always
+</strong><strong>            self.webView.layer.superlayer?.addSublayer(self.preventedView.layer)
+</strong><strong>            self.preventedView.layer.sublayers?.last?.addSublayer(self.webView.layer)
+</strong><strong>        }
+</strong><strong>    }
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
 
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -279,31 +320,38 @@ WebView에서 `window.open()`을 처리하려면 **WebChromeClient**를 설정�
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-webView.webChromeClient = object : WebChromeClient() {
-    override fun onCreateWindow(
-        view: WebView?,
-        isDialog: Boolean,
-        isUserGesture: Boolean,
-        resultMsg: Message?
-    ): Boolean {
-        val popupWebView = WebView(view?.context!!)
-        popupWebView?.webViewClient = WebViewClient()
-        popupWebView?.webChromeClient = WebChromeClient()
-
-        // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
-        val webViewDialog = Dialog(view.context)
-        webViewDialog?.setContentView(newWebView)
-        webViewDialog?.setOnDismissListener {
-            popupWebView?.removeAllViews()
-            popupWebView?.destroy()
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.webChromeClient = object : WebChromeClient() {
+        override fun onCreateWindow(
+            view: WebView?,
+            isDialog: Boolean,
+            isUserGesture: Boolean,
+            resultMsg: Message?
+        ): Boolean {
+            val popupWebView = WebView(view?.context!!)
+            popupWebView?.webViewClient = WebViewClient()
+            popupWebView?.webChromeClient = WebChromeClient()
+            // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
+            val webViewDialog = Dialog(view.context)
+            webViewDialog?.setContentView(newWebView)
+            webViewDialog?.setOnDismissListener {
+                popupWebView?.removeAllViews()
+                popupWebView?.destroy()
+            }
+            webViewDialog?.show()
+            val transport = resultMsg?.obj as? WebView.WebViewTransport
+            transport?.webView = newWebView
+            resultMsg?.sendToTarget()
+            return true
         }
-        webViewDialog?.show()
-
-        val transport = resultMsg?.obj as? WebView.WebViewTransport
-        transport?.webView = newWebView
-        resultMsg?.sendToTarget()
-        return true
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -314,30 +362,36 @@ webView.webChromeClient = object : WebChromeClient() {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.setWebChromeClient(new WebChromeClient() {
-    @Override
-    public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        Context context = view.getContext();
-        WebView popupWebView = new WebView(context);
-        popupWebView.setWebViewClient(new WebViewClient());
-        popupWebView.setWebChromeClient(new WebChromeClient());
-
-        // 새 창을 다룰 수 있도록 Dialog에 WebView 추가
-        Dialog webViewDialog = new Dialog(context);
-        webViewDialog.setContentView(popupWebView);
-        webViewDialog.setOnDismissListener(dialog -> {
-            popupWebView.removeAllViews();
-            popupWebView.destroy();
-        });
-        webViewDialog.show();
-
-        WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-        transport.setWebView(popupWebView);
-        resultMsg.sendToTarget();
-
-        return true;
-    }
-});
+// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.setWebChromeClient(new WebChromeClient() {
+        @Override
+        public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
+            Context context = view.getContext();
+            WebView popupWebView = new WebView(context);
+            popupWebView.setWebViewClient(new WebViewClient());
+            popupWebView.setWebChromeClient(new WebChromeClient());
+            // 새 창을 다룰 수 있도록 Dialog에 WebView 추가
+            Dialog webViewDialog = new Dialog(context);
+            webViewDialog.setContentView(popupWebView);
+            webViewDialog.setOnDismissListener(dialog -> {
+                popupWebView.removeAllViews();
+                popupWebView.destroy();
+            });
+            webViewDialog.show();
+            WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+            transport.setWebView(popupWebView);
+            resultMsg.sendToTarget();
+            return true;
+        }
+    });
+    // ... other code ...
+    // <code>
+    // ... other code ...
+}
 ```
 {% endcode %}
 {% endtab %}
@@ -353,19 +407,27 @@ webView.setWebChromeClient(new WebChromeClient() {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-webView.webChromeClient = object : WebChromeClient() {
-    override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
-        // Create a custom AlertDialog to handle the JavaScript alert
-        val builder = AlertDialog.Builder(view?.context)
-        builder.setMessage(message) // The message from JavaScript alert
-            .setCancelable(false)
-            .setPositiveButton("OK") { _, _ ->
-                result?.confirm() // Confirm the alert
-            }
-        val alert = builder.create()
-        alert.show()
-        return true // Indicate that the alert has been handled
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.webChromeClient = object : WebChromeClient() {
+        override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+            val builder = AlertDialog.Builder(view?.context)
+            builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK") { _, _ ->
+                    result?.confirm()
+                }
+            val alert = builder.create()
+            alert.show()
+            return true
+        }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -376,26 +438,33 @@ webView.webChromeClient = object : WebChromeClient() {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.setWebChromeClient(new WebChromeClient() {
-    @Override
-    public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-        // Create a custom AlertDialog to handle the JavaScript alert
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setMessage(message) // The message from JavaScript alert
-            .setCancelable(false)
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    result.confirm(); // Confirm the alert
-                }
-            });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-
-        return true; // Indicate that the alert has been handled
-    }
-});
+// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.setWebChromeClient(new WebChromeClient() {
+        @Override
+        public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        result.confirm();
+                    }
+                });
+    
+            AlertDialog alert = builder.create();
+            alert.show();    
+            return true; 
+        }
+    });
+    // ... other code ...
+    // <code>
+    // ... other code ...
+}
 ```
 {% endcode %}
 {% endtab %}
@@ -411,30 +480,36 @@ webView.setWebChromeClient(new WebChromeClient() {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-webView.webChromeClient = object : WebChromeClient() {
-    override fun onJsConfirm(
-        view: WebView?,
-        url: String?,
-        message: String?,
-        result: JsResult?
-    ): Boolean {
-        // 확인 대화상자를 직접 처리
-        val builder = AlertDialog.Builder(view?.context)
-        builder.setMessage(message)
-            .setCancelable(false)
-            .setPositiveButton("OK") { _, _ -> 
-                result?.confirm() // 확인 버튼 클릭 시 확인 응답
-            }
-            .setNegativeButton("Cancel") { _, _ -> 
-                result?.cancel() // 취소 버튼 클릭 시 취소 응답
-            }
-        val alert = builder.create()
-        alert.show()
-
-        return true // 대화상자를 직접 처리했음을 알림
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.webChromeClient = object : WebChromeClient() {
+        override fun onJsConfirm(
+            view: WebView?,
+            url: String?,
+            message: String?,
+            result: JsResult?
+        ): Boolean {
+            val builder = AlertDialog.Builder(view?.context)
+            builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK") { _, _ -> 
+                    result?.confirm()
+                }
+                .setNegativeButton("Cancel") { _, _ -> 
+                    result?.cancel()
+                }
+            val alert = builder.create()
+            alert.show()    
+            return true // 대화상자를 직접 처리했음을 알림
+        }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
-
 ```
 {% endcode %}
 
@@ -444,32 +519,39 @@ webView.webChromeClient = object : WebChromeClient() {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.setWebChromeClient(new WebChromeClient() {
-    @Override
-    public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
-        // Handle the confirmation dialog directly
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setMessage(message)
-            .setCancelable(false)
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    result.confirm(); // Confirm response when "OK" is clicked
-                }
-            })
-            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    result.cancel(); // Cancel response when "Cancel" is clicked
-                }
-            });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-
-        return true; // Indicate that the dialog was handled
-    }
-});
+// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.setWebChromeClient(new WebChromeClient() {
+        @Override
+        public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        result.confirm();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        result.cancel();
+                    }
+                });
+    
+            AlertDialog alert = builder.create();
+            alert.show();    
+            return true;
+        }
+    });
+    // ... other code ...
+    // <code>
+    // ... other code ...
+}
 ```
 {% endcode %}
 {% endtab %}
@@ -485,35 +567,42 @@ JavaScript의 `window.prompt()`를 WebView에서 처리하려면, `WebChromeClie
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-webView.webChromeClient = object : WebChromeClient() {
-    override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
-        // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
-        val builder = AlertDialog.Builder(view?.context)
-        builder.setTitle("Prompt")
-            .setMessage(message) // JavaScript prompt에서 전달된 메시지
-            .setCancelable(false)
-
-        // 입력 필드를 생성
-        val input = EditText(view?.context)
-        input.setText(defaultValue) // 기본값이 있다면 기본값을 미리 설정
-        builder.setView(input)
-
-        builder.setPositiveButton("OK") { _, _ ->
-            val userInput = input.text.toString()
-            result?.confirm(userInput) // 사용자가 입력한 값으로 JavaScript에 응답
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.webChromeClient = object : WebChromeClient() {
+        override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
+            // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
+            val builder = AlertDialog.Builder(view?.context)
+            builder.setTitle("Prompt")
+                .setMessage(message) // JavaScript prompt에서 전달된 메시지
+                .setCancelable(false)    
+            // 입력 필드를 생성
+            val input = EditText(view?.context)
+            input.setText(defaultValue) // 기본값이 있다면 기본값을 미리 설정
+            builder.setView(input)
+    
+            builder.setPositiveButton("OK") { _, _ ->
+                val userInput = input.text.toString()
+                result?.confirm(userInput) // 사용자가 입력한 값으로 JavaScript에 응답
+            }
+    
+            builder.setNegativeButton("Cancel") { _, _ ->
+                result?.cancel() // "Cancel" 클릭 시 null을 JavaScript로 반환
+            }
+    
+            val alert = builder.create()
+            alert.show()
+    
+            return true // prompt가 처리되었음을 WebView에 알림
         }
-
-        builder.setNegativeButton("Cancel") { _, _ ->
-            result?.cancel() // "Cancel" 클릭 시 null을 JavaScript로 반환
-        }
-
-        val alert = builder.create()
-        alert.show()
-
-        return true // prompt가 처리되었음을 WebView에 알림
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
-
 ```
 {% endcode %}
 
@@ -523,42 +612,50 @@ webView.webChromeClient = object : WebChromeClient() {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.setWebChromeClient(new WebChromeClient() {
-    @Override
-    public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
-        // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setTitle("Prompt")
-            .setMessage(message) // JavaScript prompt에서 전달된 메시지
-            .setCancelable(false);
-
-        // 입력 필드를 생성
-        final EditText input = new EditText(view.getContext());
-        input.setText(defaultValue); // 기본값이 있다면 기본값을 미리 설정
-        builder.setView(input);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String userInput = input.getText().toString();
-                result.confirm(userInput); // 사용자가 입력한 값으로 JavaScript에 응답
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                result.cancel(); // "Cancel" 클릭 시 null을 JavaScript로 반환
-            }
-        });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-
-        return true; // prompt가 처리되었음을 WebView에 알림
-    }
-});
-
+// ... import ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.setWebChromeClient(new WebChromeClient() {
+        @Override
+        public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+            // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setTitle("Prompt")
+                .setMessage(message) // JavaScript prompt에서 전달된 메시지
+                .setCancelable(false);
+    
+            // 입력 필드를 생성
+            final EditText input = new EditText(view.getContext());
+            input.setText(defaultValue); // 기본값이 있다면 기본값을 미리 설정
+            builder.setView(input);
+    
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String userInput = input.getText().toString();
+                    result.confirm(userInput); // 사용자가 입력한 값으로 JavaScript에 응답
+                }
+            });
+    
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    result.cancel(); // "Cancel" 클릭 시 null을 JavaScript로 반환
+                }
+            });
+    
+            AlertDialog alert = builder.create();
+            alert.show();
+    
+            return true; // prompt가 처리되었음을 WebView에 알림
+        }
+    });
+    // ... other code ...
+    // <code>
+    // ... other code ...
+}    
 ```
 {% endcode %}
 
@@ -587,8 +684,11 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 * 모달 윈도우의 옵션은 앱의 상황에 따라 변경 후 사용하세요.
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>class SampleViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
-</strong>
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>// ... import ...
+</strong><strong>class SampleViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
     // MARK: - Javascript window.open { WKUIDelegate }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
         let viewControllerToPresent = UIViewController()
@@ -620,7 +720,10 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 <strong>    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
 </strong><strong>        // 팝업 종료 처리
 </strong><strong>    }
-</strong>}
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+}
 </code></pre>
 
 ***
@@ -639,10 +742,19 @@ WKWebView javascript window.close() 명령어 처리 방법에 대한 안내
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - window.close { UIWebViewDelegate }
-func webViewDidClose(_ webView: WKWebView) {
-    webView.removeFromSuperView()
-    //webView = nil
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - window.close { UIWebViewDelegate }
+    func webViewDidClose(_ webView: WKWebView) {
+        webView.removeFromSuperView()
+        //webView = nil
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -663,15 +775,24 @@ Javascript alert 팝업 윈도우 처리에 대한 가이드
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript Alert Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
-    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        completionHandler()
-    }))
-    DispatchQueue.main.async{
-        self.viewController?.present(alertController, animated: true, completion: nil)
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript Alert Controll { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            completionHandler()
+        }))
+        DispatchQueue.main.async{
+            self.viewController?.present(alertController, animated: true, completion: nil)
+        }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -692,16 +813,25 @@ javascript confirm 팝업 윈도우 처리에 대한 가이드
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript Confirm Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
-    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        completionHandler(true)
-    }))
-    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
-        completionHandler(false)
-    }))
-    self.viewController?.present(alertController, animated: true, completion: nil)
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript Confirm Controll { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            completionHandler(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
+            completionHandler(false)
+        }))
+        self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -720,25 +850,33 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 `func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void)`
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift">// MARK: - Javascript InputText Controll { UIWebViewDelegate }
-<strong>func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
-</strong>    let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
-    alertController.addTextField { (textField) in
-        textField.text = defaultText
-    }
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        if let text = alertController.textFields?.first?.text {
-            completionHandler(text)
-        } else {
-            completionHandler(defaultText)
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    // MARK: - Javascript InputText Controll { UIWebViewDelegate }
+<strong>    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
+</strong>        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
+        alertController.addTextField { (textField) in
+            textField.text = defaultText
         }
-    }))
-    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
-        completionHandler(nil)
-    }))
-    self.viewController?.present(alertController, animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            if let text = alertController.textFields?.first?.text {
+                completionHandler(text)
+            } else {
+                completionHandler(defaultText)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
+            completionHandler(nil)
+        }))
+        self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
-
 </code></pre>
 {% endtab %}
 {% endtabs %}
@@ -757,62 +895,151 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 
 ### intent
 
-{% code lineNumbers="true" %}
-```kotlin
-private fun actionIntentTask(viewContext: Context, webView: WebView?, url: String): Boolean {
-    val actionWebView = webView ?: return false
-    val actionActivity = viewContext as? Activity ?: return false
-    val actionIntent = try {
-        Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
-    } catch (e: Exception) {
-        // error
-        null        
-    }
-
-    // check intent
-    if (actionIntent == null) {
-        Log.e("TAG", "intent is null")
-        return false
-    }
-
-    try {
-        // Fallback URL -> Loading WebView For Kakao
-        val fallbackUrl = actionIntent.getStringExtra("browser_fallback_url")
-        if (fallbackUrl != null) {
-            actionWebView.loadUrl(fallbackUrl)
-            return true
+{% tabs %}
+{% tab title="KOTLIN" %}
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import code ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...    
+    private fun actionIntentTask(viewContext: Context, webView: WebView?, url: String): Boolean {
+        val actionWebView = webView ?: return false
+        val actionActivity = viewContext as? Activity ?: return false
+        val actionIntent = try {
+            Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+        } catch (e: Exception) {
+            // error
+            null        
         }
-        
-        // action
-        val actionPackageName = actionIntent.`package` ?: ""
-        if (actionPackageName.isNotEmpty()) {
-            // launch activity
-            val launchIntent = viewContext.packageManager.getLaunchIntentForPackage(actionPackageName)
-            if (launchIntent != null) {
-                actionActivity.startActivity(launchIntent)
+    
+        // check intent
+        if (actionIntent == null) {
+            Log.e("TAG", "intent is null")
+            return false
+        }
+    
+        try {
+            // Fallback URL -> Loading WebView For Kakao
+            val fallbackUrl = actionIntent.getStringExtra("browser_fallback_url")
+            if (fallbackUrl != null) {
+                actionWebView.loadUrl(fallbackUrl)
                 return true
             }
-        }
-        
-        // market
-        if (actionPackageName.isNotEmpty()) {
-            try {
-                val marketIntent = Intent(Intent.ACTION_VIEW)
-                marketIntent.data = Uri.parse("market://details?id=$actionPackageName")
-                actionActivity.startActivity(marketIntent)
-                return true
-            } catch (e: Exception) {
+            
+            // action
+            val actionPackageName = actionIntent.`package` ?: ""
+            if (actionPackageName.isNotEmpty()) {
+                // launch activity
+                val launchIntent = viewContext.packageManager.getLaunchIntentForPackage(actionPackageName)
+                if (launchIntent != null) {
+                    actionActivity.startActivity(launchIntent)
+                    return true
+                }
+            }
+            
+            // market
+            if (actionPackageName.isNotEmpty()) {
+                try {
+                    val marketIntent = Intent(Intent.ACTION_VIEW)
+                    marketIntent.data = Uri.parse("market://details?id=$actionPackageName")
+                    actionActivity.startActivity(marketIntent)
+                    return true
+                } catch (e: Exception) {
+                    // error
+                }
+            }
+        } catch (e: Exception) {
                 // error
             }
         }
-    } catch (e: Exception) {
-            // error
+<strong>        return false
+</strong>    }
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+// ... import code ...   
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    private boolean actionIntentTask(Context viewContext, WebView webView, String url) {
+        final WebView actionWebView = webView;
+        if (actionWebView == null) {
+            return false;
         }
+
+        if (!(viewContext instanceof Activity)) {
+            return false;
+        }
+        final Activity actionActivity = (Activity) viewContext;
+
+        Intent actionIntent = null;
+        try {
+            actionIntent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+        } catch (Exception e) {
+            // error handling if needed, but the original code just catches and sets to null
+             Log.e("TAG", "Error parsing URI: " + e.getMessage());
+            actionIntent = null; // Explicitly set to null on error
+        }
+
+        // check intent
+        if (actionIntent == null) {
+            Log.e("TAG", "intent is null");
+            return false;
+        }
+
+        try {
+            // Fallback URL -> Loading WebView For Kakao
+            String fallbackUrl = actionIntent.getStringExtra("browser_fallback_url");
+            if (fallbackUrl != null) {
+                actionWebView.loadUrl(fallbackUrl);
+                return true;
+            }
+
+            // action
+            String actionPackageName = actionIntent.getPackage(); // Use getPackage() in Java
+            if (actionPackageName != null && !actionPackageName.isEmpty()) { // Check for null and empty
+                // launch activity
+                Intent launchIntent = viewContext.getPackageManager().getLaunchIntentForPackage(actionPackageName);
+                if (launchIntent != null) {
+                    actionActivity.startActivity(launchIntent);
+                    return true;
+                }
+            }
+
+            // market
+            if (actionPackageName != null && !actionPackageName.isEmpty()) { // Check for null and empty
+                try {
+                    Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+                    marketIntent.setData(Uri.parse("market://details?id=" + actionPackageName)); // Use setData() in Java
+                    actionActivity.startActivity(marketIntent);
+                    return true;
+                } catch (Exception e) {
+                    // error handling if needed
+                     Log.e("TAG", "Error opening Market: " + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            // error handling for the outer try block
+             Log.e("TAG", "Error during intent handling: " + e.getMessage());
+        }
+        return false;
     }
-    return false
+    // ... other code ...
+    // </code>
+    // ... other code ...
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
@@ -820,51 +1047,158 @@ private fun actionIntentTask(viewContext: Context, webView: WebView?, url: Strin
 
 schem market 처리 방식을 안내합니다.
 
+{% tabs %}
+{% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-private fun actionMarketTask(viewContext: Context, url: String): Boolean {
-    val activity = viewContext as? Activity ?: return false
-    kotlin.runCatching {
-        val id = Uri.parse(url).getQueryParameter("id")
-        val marketIntent = Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse("market://details?id=$id")
-        }
-        if (marketIntent.resolveActivity(viewContext.packageManager) != null) {
-            activity.startActivity(marketIntent)
-        } else {
-            val viewIntent = Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://play.google.com/store/apps/details?id=$id")
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    private fun actionMarketTask(viewContext: Context, url: String): Boolean {
+        val activity = viewContext as? Activity ?: return false
+        kotlin.runCatching {
+            val id = Uri.parse(url).getQueryParameter("id")
+            val marketIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("market://details?id=$id")
             }
-            activity.startActivity(viewIntent)
+            if (marketIntent.resolveActivity(viewContext.packageManager) != null) {
+                activity.startActivity(marketIntent)
+            } else {
+                val viewIntent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://play.google.com/store/apps/details?id=$id")
+                }
+                activity.startActivity(viewIntent)
+            }
+        }.onFailure {
+            // error
         }
-    }.onFailure {
-        // error
+        return true
     }
-    return true
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
+
+
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+// ... import code ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    private boolean actionMarketTask(Context viewContext, String url) {
+        if (!(viewContext instanceof Activity)) {
+            return false;
+        }
+        final Activity activity = (Activity) viewContext;
+
+        try {
+            Uri uri = Uri.parse(url);
+            String id = uri.getQueryParameter("id");
+            if (id == null || id.isEmpty()) {
+                // Handle cases where id is missing in the URL
+                Log.e("TAG", "App ID missing from URL: " + url);
+                return false;
+            }
+            Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+            marketIntent.setData(Uri.parse("market://details?id=" + id));
+            if (marketIntent.resolveActivity(viewContext.getPackageManager()) != null) {
+                activity.startActivity(marketIntent);
+            } else {
+                Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+                viewIntent.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + id));
+                activity.startActivity(viewIntent);
+            }
+        } catch (Exception e) {
+            Log.e("TAG", "Error handling market intent: " + e.getMessage());
+        }
+        return true;
+    }
+    // ... other code ...
+    // </code>
+    // ... other code ...
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
 ### Mailto
 
+{% tabs %}
+{% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
-    val activity = viewContext as? Activity ?: return false
-    kotlin.runCatching {
-        activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
-    }.onFailure {
-        tales.error(moduleName = moduleName, throwable = it, trace = { "actionMailToTask { uri: $uri }" })
-        it.message?.produce { message -> ToastView.show(context = viewContext, message = message) }
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
+        val activity = viewContext as? Activity ?: return false
+        kotlin.runCatching {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
+        }.onFailure {
+            tales.error(moduleName = moduleName, throwable = it, trace = { "actionMailToTask { uri: $uri }" })
+            it.message?.produce { message -> ToastView.show(context = viewContext, message = message) }
+        }
+        return true
     }
-    return true
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
 
 
+{% endtab %}
+
+{% tab title="JAVA" %}
+{% code lineNumbers="true" %}
+```java
+// ... import code ...
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    private boolean actionMailToTask(Context viewContext, Uri uri) {
+        if (!(viewContext instanceof Activity)) {
+            return false;
+        }
+        final Activity activity = (Activity) viewContext;
+
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+        } catch (Exception e) {
+            Log.e("TAG", "actionMailToTask { uri: " + uri.toString() + " }", e);
+            String message = e.getMessage();
+            if (message != null) {
+                 Toast.makeText(viewContext, message, Toast.LENGTH_SHORT).show();
+            } else {
+                 Toast.makeText(viewContext, "Error handling mailto link", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return true;
+    }
+    // ... other code ...
+    // </code>
+    // ... other code ...
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
@@ -889,32 +1223,41 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript window.open { WKUIDelegate }
-func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
-    let viewControllerToPresent = UIViewController()
-    viewControllerToPresent.view.backgroundColor = UIColor.white
-    viewControllerToPresent.modalPresentationStyle = .automatic
-    if let sheet = viewControllerToPresent.sheetPresentationController {
-        sheet.prefersGrabberVisible = true
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript window.open { WKUIDelegate }
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
+        let viewControllerToPresent = UIViewController()
+        viewControllerToPresent.view.backgroundColor = UIColor.white
+        viewControllerToPresent.modalPresentationStyle = .automatic
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+        }
+        // 웹뷰를 생성하여 리턴하면 현재 웹뷰와 parent 관계가 형성됩니다.
+        let modalView = WKWebView(frame: CGRect(x: 0, y: 12, width: self.bounds.width, height: self.bounds.height), configuration: configuration)
+        // set delegate
+        modalView.uiDelegate = self
+        modalView.navigationDelegate = self
+        // setup scrollview
+        modalView.scrollView.bounces = false
+        modalView.scrollView.isPagingEnabled = false
+        modalView.scrollView.alwaysBounceVertical = false
+        modalView.scrollView.showsVerticalScrollIndicator = false
+        modalView.scrollView.showsHorizontalScrollIndicator = false
+        modalView.scrollView.contentInsetAdjustmentBehavior = .never
+        // addview
+        viewControllerToPresent.view.addSubview(modalView)
+        viewControllerToPresent.presentationController?.delegate = self
+        // present
+        self.viewController.present(viewControllerToPresent, animated: true);
+        return modalView
     }
-    // 웹뷰를 생성하여 리턴하면 현재 웹뷰와 parent 관계가 형성됩니다.
-    let modalView = WKWebView(frame: CGRect(x: 0, y: 12, width: self.bounds.width, height: self.bounds.height), configuration: configuration)
-    // set delegate
-    modalView.uiDelegate = self
-    modalView.navigationDelegate = self
-    // setup scrollview
-    modalView.scrollView.bounces = false
-    modalView.scrollView.isPagingEnabled = false
-    modalView.scrollView.alwaysBounceVertical = false
-    modalView.scrollView.showsVerticalScrollIndicator = false
-    modalView.scrollView.showsHorizontalScrollIndicator = false
-    modalView.scrollView.contentInsetAdjustmentBehavior = .never
-    // addview
-    viewControllerToPresent.view.addSubview(modalView)
-    viewControllerToPresent.presentationController?.delegate = self
-    // present
-    self.viewController.present(viewControllerToPresent, animated: true);
-    return modalView
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -935,10 +1278,19 @@ WKWebView javascript window.close() 명령어 처리 방법에 대한 안내
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - window.close { UIWebViewDelegate }
-func webViewDidClose(_ webView: WKWebView) {
-    webView.removeFromSuperView()
-    //webView = nil
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - window.close { UIWebViewDelegate }
+    func webViewDidClose(_ webView: WKWebView) {
+        webView.removeFromSuperView()
+        //webView = nil
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -959,15 +1311,24 @@ Javascript alert 팝업 윈도우 처리에 대한 가이드
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript Alert Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
-    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        completionHandler()
-    }))
-    DispatchQueue.main.async{
-        self.viewController?.present(alertController, animated: true, completion: nil)
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript Alert Controll { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            completionHandler()
+        }))
+        DispatchQueue.main.async{
+            self.viewController?.present(alertController, animated: true, completion: nil)
+        }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -988,16 +1349,25 @@ javascript confirm 팝업 윈도우 처리에 대한 가이드
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript Confirm Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
-    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        completionHandler(true)
-    }))
-    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
-        completionHandler(false)
-    }))
-    self.viewController?.present(alertController, animated: true, completion: nil)
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript Confirm Controll { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            completionHandler(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
+            completionHandler(false)
+        }))
+        self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -1018,23 +1388,32 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 
 {% code lineNumbers="true" %}
 ```swift
-// MARK: - Javascript InputText Controll { UIWebViewDelegate }
-func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
-    let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
-    alertController.addTextField { (textField) in
-        textField.text = defaultText
-    }
-    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
-        if let text = alertController.textFields?.first?.text {
-            completionHandler(text)
-        } else {
-            completionHandler(defaultText)
+// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    // MARK: - Javascript InputText Controll { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
+        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
+        alertController.addTextField { (textField) in
+            textField.text = defaultText
         }
-    }))
-    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
-        completionHandler(nil)
-    }))
-    self.viewController?.present(alertController, animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            if let text = alertController.textFields?.first?.text {
+                completionHandler(text)
+            } else {
+                completionHandler(defaultText)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
+            completionHandler(nil)
+        }))
+        self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -1056,10 +1435,13 @@ mailto scheme 처리에 방법에 대한 안내
 `func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void)`
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>import MessageUI
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>// ... import ...
+</strong><strong>import MessageUI
 </strong><strong>
 </strong><strong>class WebContentViewController:..., ..., MFMailComposeViewControllerDelegate {
-</strong>
+</strong>    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
     // MARK: - mailto: { UIWebViewDelegate }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
         // check url
@@ -1136,6 +1518,9 @@ mailto scheme 처리에 방법에 대한 안내
         // 반드시 dismiss 해야 함!
 <strong>        controller.dismiss(animated: true, completion: nil)
 </strong>    }
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
 </code></pre>
 
@@ -1153,34 +1538,44 @@ tel scheme 처리에 방법에 대한 안내
 `func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void)`
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift">// MARK: - tel: { UIWebViewDelegate }
-func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
-    // check url
-    guard let url = navigationAction.request.url else {
-        self.error(stackMessage: "scheme -> url is null")
-        decisionHandler(.allow)
-        return
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+class SampleViewController: UIViewController, UIWebViewDelegate {
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    // MARK: - tel: { UIWebViewDelegate }
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        // check url
+        guard let url = navigationAction.request.url else {
+            self.error(stackMessage: "scheme -> url is null")
+            decisionHandler(.allow)
+            return
+        }
+        // check sheme
+        guard let scheme = url.scheme else {
+            decisionHandler(.allow)
+            return
+        }
+        // tel
+        if scheme == "tel" {
+<strong>            handleTelLink(url: url)
+</strong><strong>            decisionHandler(.cancel)
+</strong>            return
+        }
     }
-    // check sheme
-    guard let scheme = url.scheme else {
-        decisionHandler(.allow)
-        return
+    
+<strong>    private func handleTelLink(url: URL) {
+</strong>        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    // tel
-    if scheme == "tel" {
-<strong>        handleTelLink(url: url)
-</strong><strong>        decisionHandler(.cancel)
-</strong>        return
-    }
-}
-
-<strong>private func handleTelLink(url: URL) {
-</strong>    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-}
-
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+}    
 </code></pre>
 {% endtab %}
 {% endtabs %}
+
+
 
 
 
