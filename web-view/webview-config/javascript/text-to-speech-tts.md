@@ -160,43 +160,52 @@ function postSpeakCallback(response) {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
-class TreasureKitJavascriptInterface {
-    @JavascriptInterface
     class TreasureKitJavascriptInterface {
-        fun postMessage(message: String) {     
-            // message를 JSON-Object로 변환
-            // JSONObject -> request
-            // requestType에 따라 실행
-            JSONObject(message).let {
-                val request = it.getString("request")
-                val action = it.getString("action")
-                val callback = it.getStsring("callback")
-                if (request == "postSpeak" && action == "start") {
-                    val parameter = it.getJSONObject("parameter")
-                    val spaekId = parameter.getString("speakId")
-                    val speakText = parameter.getString("speakText")
-                    val speechRate = parameter.getFloat("speechRate")
-                    val pitch = parameter.getFloat("pitch")
-                    // TTS Start
-                    // Start 액션 이후 callback에 결과를 전달합니다.
-                }
-                if (request == "postSpeak" && action == "pause") {
-                    // TTS Pause
-                    // 액션 이후 callback에 결과를 전달합니다.
-                }
-                if (request == "postSpeak" && action == "resume") {
-                    // TTS Resume
-                    // 액션 이후 callback에 결과를 전달합니다.
-                }
-                if (request == "postSpeak" && action == "stop") {
-                    // TTS Stop
-                    // 액션 이후 callback에 결과를 전달합니다.
+        @JavascriptInterface
+        class TreasureKitJavascriptInterface {
+            fun postMessage(message: String) {     
+                // message를 JSON-Object로 변환
+                // JSONObject -> request
+                // requestType에 따라 실행
+                JSONObject(message).let {
+                    val request = it.getString("request")
+                    val action = it.getString("action")
+                    val callback = it.getStsring("callback")
+                    if (request == "postSpeak" && action == "start") {
+                        val parameter = it.getJSONObject("parameter")
+                        val spaekId = parameter.getString("speakId")
+                        val speakText = parameter.getString("speakText")
+                        val speechRate = parameter.getFloat("speechRate")
+                        val pitch = parameter.getFloat("pitch")
+                        // TTS Start
+                        // Start 액션 이후 callback에 결과를 전달합니다.
+                    }
+                    if (request == "postSpeak" && action == "pause") {
+                        // TTS Pause
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    }
+                    if (request == "postSpeak" && action == "resume") {
+                        // TTS Resume
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    }
+                    if (request == "postSpeak" && action == "stop") {
+                        // TTS Stop
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    }
                 }
             }
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -205,39 +214,48 @@ class TreasureKitJavascriptInterface {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
 
-public class TreasureKitJavascriptInterface {
-    @JavascriptInterface
-    public void postMessage(String message) {
-        try {
-            JSONObject jsonObject = new JSONObject(message);
-            String request = jsonObject.getString("request");
-            String action = jsonObject.getString("action");
-            if ("postSpeak".equals(request)) {
-                if ("start".equals(action)) {
-                    JSONObject parameter = jsonObject.getJSONObject("parameter");
-                    String speakId = parameter.getString("speakId");
-                    String speakText = parameter.getString("speakText");
-                    float speechRate = Float.parseFloat(parameter.getString("speechRate"));
-                    float pitch = Float.parseFloat(parameter.getString("pitch"));
-                    // TTS Start
-                    // 액션 이후 callback에 결과를 전달합니다.
-                } else if ("pause".equals(action)) {
-                    // TTS Pause
-                    // 액션 이후 callback에 결과를 전달합니다.
-                } else if ("resume".equals(action)) {
-                    // TTS Resume
-                    // 액션 이후 callback에 결과를 전달합니다.
-                } else if ("stop".equals(action)) {
-                    // TTS STOP
-                    // 액션 이후 callback에 결과를 전달합니다.
+    public class TreasureKitJavascriptInterface {
+        @JavascriptInterface
+        public void postMessage(String message) {
+            try {
+                JSONObject jsonObject = new JSONObject(message);
+                String request = jsonObject.getString("request");
+                String action = jsonObject.getString("action");
+                if ("postSpeak".equals(request)) {
+                    if ("start".equals(action)) {
+                        JSONObject parameter = jsonObject.getJSONObject("parameter");
+                        String speakId = parameter.getString("speakId");
+                        String speakText = parameter.getString("speakText");
+                        float speechRate = Float.parseFloat(parameter.getString("speechRate"));
+                        float pitch = Float.parseFloat(parameter.getString("pitch"));
+                        // TTS Start
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    } else if ("pause".equals(action)) {
+                        // TTS Pause
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    } else if ("resume".equals(action)) {
+                        // TTS Resume
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    } else if ("stop".equals(action)) {
+                        // TTS STOP
+                        // 액션 이후 callback에 결과를 전달합니다.
+                    }
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}

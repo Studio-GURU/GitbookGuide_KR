@@ -70,33 +70,36 @@ function openOuterWebBrowser() {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-// ... other code ...
-// <code>
-// ... other code ...
-WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
-class TreasureKitJavascriptInterface {
-    @JavascriptInterface
     class TreasureKitJavascriptInterface {
-        fun postMessage(message: String) {     
-            // message를 JSON-Object로 변환
-            // JSONObject -> request
-            // JSONObject -> parameter.openUrl
-            // requestType에 따라 실행
-            JSONObject(message).let {
-                val request = it.getString("request")
-                val parameter = it.getJSONObject("parameter")
-                val openUrl = parameter.getString("openUrl")
-                if(request == "openOutWebBrowser") {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
+        @JavascriptInterface
+        class TreasureKitJavascriptInterface {
+            fun postMessage(message: String) {     
+                // message를 JSON-Object로 변환
+                // JSONObject -> request
+                // JSONObject -> parameter.openUrl
+                // requestType에 따라 실행
+                JSONObject(message).let {
+                    val request = it.getString("request")
+                    val parameter = it.getJSONObject("parameter")
+                    val openUrl = parameter.getString("openUrl")
+                    if(request == "openOutWebBrowser") {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(openUrl)))
+                    }
                 }
             }
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
-// ... other code ...
-// <code>
-// ... other code ...
 ```
 {% endcode %}
 {% endtab %}
@@ -104,33 +107,35 @@ class TreasureKitJavascriptInterface {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-// ... other code ...
-// <code>
-// ... other code ...
-webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
-
-public class TreasureKitJavascriptInterface {
-    @JavascriptInterface
-    public void postMessage(String message) {
-        try {
-            JSONObject jsonObject = new JSONObject(message);
-            String request = jsonObject.getString("request");
-            JSONObject parameter = jsonObject.getJSONObject("parameter");
-            String openUrl = parameter.getString("openUrl");
-
-            if ("openOutWebBrowser".equals(request)) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(openUrl));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
+    
+    public class TreasureKitJavascriptInterface {
+        @JavascriptInterface
+        public void postMessage(String message) {
+            try {
+                JSONObject jsonObject = new JSONObject(message);
+                String request = jsonObject.getString("request");
+                JSONObject parameter = jsonObject.getJSONObject("parameter");
+                String openUrl = parameter.getString("openUrl");
+    
+                if ("openOutWebBrowser".equals(request)) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(openUrl));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
-// ... other code ...
-// <code>
-// ... other code ...
 ```
 {% endcode %}
 {% endtab %}

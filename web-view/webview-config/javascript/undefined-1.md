@@ -72,31 +72,40 @@ function openOuterWebBrowser() {
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
+// ... import ...
+class SampleActivity: AppCompatActivity() {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
-class TreasureKitJavascriptInterface {
-    @JavascriptInterface
     class TreasureKitJavascriptInterface {
-        fun postMessage(message: String) {     
-            // message를 JSON-Object로 변환
-            // JSONObject -> request
-            // requestType에 따라 실행
-            JSONObject(contractMessage).let {
-                val request = it.getString("request")
-                val callback = it.getString("callback")
-                if(request == "getDeviceADID") {
-                    // 광고 아이디를 javascript를 통해 callback에 전달합니다.
-                    val params = JSONObject().apply {
-                        put("deviceADID", "${광고아이디}")
+        @JavascriptInterface
+        class TreasureKitJavascriptInterface {
+            fun postMessage(message: String) {     
+                // message를 JSON-Object로 변환
+                // JSONObject -> request
+                // requestType에 따라 실행
+                JSONObject(contractMessage).let {
+                    val request = it.getString("request")
+                    val callback = it.getString("callback")
+                    if(request == "getDeviceADID") {
+                        // 광고 아이디를 javascript를 통해 callback에 전달합니다.
+                        val params = JSONObject().apply {
+                            put("deviceADID", "${광고아이디}")
+                        }
+                        val paramString = if (params != null) "'${params.toString().replace("\"", "\\\"")}'" else ""
+                        weakWebView.get()?.evaluateJavascript(
+                            "(function(){$callback($paramString);})();", null
+                        )
                     }
-                    val paramString = if (params != null) "'${params.toString().replace("\"", "\\\"")}'" else ""
-                    weakWebView.get()?.evaluateJavascript(
-                        "(function(){$callback($paramString);})();", null
-                    )
                 }
             }
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -105,36 +114,44 @@ class TreasureKitJavascriptInterface {
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
+public class SampleActivity extends AppCompatActivity {
+    // ... other code ...
+    // <code>
+    // ... other code ...
+    webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
 
-public class TreasureKitJavascriptInterface {
-    @JavascriptInterface
-    public void postMessage(String message) {
-        try {
-            JSONObject jsonObject = new JSONObject(message);
-            String request = jsonObject.getString("request");
-            String callback = jsonObject.getString("callback");
-
-            if ("getDeviceADID".equals(request)) {
-                JSONObject params = new JSONObject();
-                try {
-                    params.put("deviceADID", "광고아이디"); // 실제 광고 ID로 변경 필요
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    public class TreasureKitJavascriptInterface {
+        @JavascriptInterface
+        public void postMessage(String message) {
+            try {
+                JSONObject jsonObject = new JSONObject(message);
+                String request = jsonObject.getString("request");
+                String callback = jsonObject.getString("callback");
+    
+                if ("getDeviceADID".equals(request)) {
+                    JSONObject params = new JSONObject();
+                    try {
+                        params.put("deviceADID", "광고아이디"); // 실제 광고 ID로 변경 필요
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+    
+                    String paramString = "'" + params.toString().replace("\"", "\\\"") + "'";
+                    WebView webView = weakWebView.get();
+                    if (webView != null) {
+                        webView.post(() -> webView.evaluateJavascript(
+                            "(function(){" + callback + "(" + paramString + ");})();", null
+                        ));
+                    }
                 }
-
-                String paramString = "'" + params.toString().replace("\"", "\\\"") + "'";
-                WebView webView = weakWebView.get();
-                if (webView != null) {
-                    webView.post(() -> webView.evaluateJavascript(
-                        "(function(){" + callback + "(" + paramString + ");})();", null
-                    ));
-                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
+    // ... other code ...
+    // <code>
+    // ... other code ...
 }
 ```
 {% endcode %}
@@ -205,4 +222,6 @@ class ViewController: WKScriptMessageHandler {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 
