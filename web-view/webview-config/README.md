@@ -32,9 +32,11 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
 {% tab title="KOTLIN" %}
 <pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
 class SampleActivity: AppCompatActivity() {
+
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     with(webView.settings) {
 <strong>        // ---------- 필수 ---------- //
 </strong><strong>        domStorageEnabled = true // DOM 스토리지 활성화
@@ -61,7 +63,8 @@ class SampleActivity: AppCompatActivity() {
     }
 <strong>    // 웹뷰의 오버스크롤을 제한합니다.
 </strong><strong>    ${WebView}.overScrollMode = View.OVER_SCROLL_NEVER
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
 }
@@ -71,9 +74,11 @@ class SampleActivity: AppCompatActivity() {
 {% tab title="JAVA" %}
 <pre class="language-java" data-line-numbers><code class="lang-java">// ... import ...
 public class SampleActivity extends AppCompatActivity {
+
     // ... other code ...
     // &#x3C;code>
     // ... other code ...   
+    
     WebSettings webSettings = wView.getSettings();    
 <strong>    // ---------- 필수 ---------- //
 </strong><strong>    webSettings.setDomStorageEnabled(true); // DOM 스토리지 활성화
@@ -99,7 +104,8 @@ public class SampleActivity extends AppCompatActivity {
     }    
 <strong>    // 웹뷰의 오버스크롤을 제한합니다.
 </strong><strong>    ${WebView}.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
 }
@@ -111,9 +117,11 @@ public class SampleActivity extends AppCompatActivity {
 {% tab title="iOS(WKWebView)" %}
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 class SampleViewController: UIViewController {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     // ---------- 필수 ---------- //
     // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
     let configuration = WKWebViewConfiguration()
@@ -134,7 +142,8 @@ class SampleViewController: UIViewController {
 <strong>    ${WKWebView}.allowsBackForwardNavigationGestures = true
 </strong>    // 웹뷰의 오버스크롤을 제한합니다.
 <strong>    ${WKWebView}.scrollView.bounces = false
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
 }
@@ -152,31 +161,49 @@ class SampleViewController: UIViewController {
 
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}
-{% code lineNumbers="true" %}
-```kotlin
-// 뒤로가기가 가능할 경우 HistoryBack 처리
-// 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
-if (${WebView}.canGoBack() && ${WebView}.copyBackForwardList().size > 0) {
-    ${WebView}.goBack()
-} else {
-    // Activity 종료 처리 또는 View 종료 처리 로직 추가
-}
-```
-{% endcode %}
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
+class SampleActivity: AppCompatActivity() {
+
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+    
+<strong>    // 뒤로가기가 가능할 경우 HistoryBack 처리
+</strong><strong>    // 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
+</strong><strong>    if (${WebView}.canGoBack() &#x26;&#x26; ${WebView}.copyBackForwardList().size > 0) {
+</strong><strong>        ${WebView}.goBack()
+</strong><strong>    } else {
+</strong><strong>        // Activity 종료 처리 또는 View 종료 처리 로직 추가
+</strong><strong>    }
+</strong>   
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...    
+}    
+</code></pre>
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
-{% code lineNumbers="true" %}
-```swift
-// 뒤로가기가 가능할 경우 HistoryBack 처리
-// 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
-if ${WKWebView}.canGoBack && ${WKWebView}.backForwardList.backList.count > 0 {
-    ${WKWebView}.goBack()
-} else {
-    // 화면 종료 처리
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+class SampleViewController: UIViewController {
+    
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
+        
+<strong>    // 뒤로가기가 가능할 경우 HistoryBack 처리
+</strong><strong>    // 더이상 뒤로가기를 할 수 없는 경우 화면 종료 처리
+</strong><strong>    if ${WKWebView}.canGoBack &#x26;&#x26; ${WKWebView}.backForwardList.backList.count > 0 {
+</strong><strong>        ${WKWebView}.goBack()
+</strong><strong>    } else {
+</strong><strong>        // 화면 종료 처리
+</strong><strong>    }
+</strong>    
+    // ... other code ...
+    // &#x3C;code>
+    // ... other code ...
 }
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -202,9 +229,11 @@ if ${WKWebView}.canGoBack && ${WKWebView}.backForwardList.backList.count > 0 {
 {% tab title="KOTLIN" %}
 <pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
 class SampleActivity: AppCompatActivity() {
+
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 <strong>        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
@@ -212,6 +241,7 @@ class SampleActivity: AppCompatActivity() {
         // &#x3C;code>
         // ... other code ...
     }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
@@ -222,9 +252,11 @@ class SampleActivity: AppCompatActivity() {
 {% tab title="JAVA" %}
 <pre class="language-java" data-line-numbers><code class="lang-java">// ... import ...
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -233,6 +265,7 @@ public class SampleActivity extends AppCompatActivity {
         // &#x3C;code>
         // ... other code ...
     }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
@@ -255,9 +288,11 @@ import UIKit
 import WebKit
 
 class SampleViewController: UIViewController {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...    
+    
 <strong>    private let preventedView = UITextField()
 </strong>    private lazy var webView: WKWebView = {
         let view = WKWebView()
@@ -293,7 +328,8 @@ class SampleViewController: UIViewController {
 </strong><strong>            self.preventedView.layer.sublayers?.last?.addSublayer(self.webView.layer)
 </strong><strong>        }
 </strong><strong>    }
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
 }
@@ -322,9 +358,11 @@ WebView에서 `window.open()`을 처리하려면 **WebChromeClient**를 설정�
 ```kotlin
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.webChromeClient = object : WebChromeClient() {
         override fun onCreateWindow(
             view: WebView?,
@@ -349,6 +387,7 @@ class SampleActivity: AppCompatActivity() {
             return true
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -364,9 +403,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import ...
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.setWebChromeClient(new WebChromeClient() {
         @Override
         public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
@@ -388,6 +429,7 @@ public class SampleActivity extends AppCompatActivity {
             return true;
         }
     });
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -569,9 +611,11 @@ JavaScript의 `window.prompt()`를 WebView에서 처리하려면, `WebChromeClie
 ```kotlin
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.webChromeClient = object : WebChromeClient() {
         override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
             // JavaScript prompt를 대체할 커스텀 입력 다이얼로그 생성
@@ -599,6 +643,7 @@ class SampleActivity: AppCompatActivity() {
             return true // prompt가 처리되었음을 WebView에 알림
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -614,9 +659,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import ...
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.setWebChromeClient(new WebChromeClient() {
         @Override
         public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
@@ -652,6 +699,7 @@ public class SampleActivity extends AppCompatActivity {
             return true; // prompt가 처리되었음을 WebView에 알림
         }
     });
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -686,9 +734,11 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>// ... import ...
 </strong><strong>class SampleViewController: ..., ..., UIAdaptivePresentationControllerDelegate {
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     // MARK: - Javascript window.open { WKUIDelegate }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
         let viewControllerToPresent = UIViewController()
@@ -720,7 +770,8 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 <strong>    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
 </strong><strong>        // 팝업 종료 처리
 </strong><strong>    }
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
 }
@@ -744,14 +795,17 @@ WKWebView javascript window.close() 명령어 처리 방법에 대한 안내
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
-    // MARK: - window.close { UIWebViewDelegate }
+    
+    // MARK: - window.close { UIWebViewDelegate }    
     func webViewDidClose(_ webView: WKWebView) {
         webView.removeFromSuperView()
         //webView = nil
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -777,9 +831,11 @@ Javascript alert 팝업 윈도우 처리에 대한 가이드
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript Alert Controll { UIWebViewDelegate }
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
@@ -790,6 +846,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
             self.viewController?.present(alertController, animated: true, completion: nil)
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -815,9 +872,11 @@ javascript confirm 팝업 윈도우 처리에 대한 가이드
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript Confirm Controll { UIWebViewDelegate }
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
@@ -829,6 +888,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
         }))
         self.viewController?.present(alertController, animated: true, completion: nil)
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -852,9 +912,11 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     // MARK: - Javascript InputText Controll { UIWebViewDelegate }
 <strong>    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
 </strong>        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
@@ -873,6 +935,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
         }))
         self.viewController?.present(alertController, animated: true, completion: nil)
     }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
@@ -899,9 +962,11 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
 {% tab title="KOTLIN" %}
 <pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import code ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...    
+    
     private fun actionIntentTask(viewContext: Context, webView: WebView?, url: String): Boolean {
         val actionWebView = webView ?: return false
         val actionActivity = viewContext as? Activity ?: return false
@@ -954,6 +1019,7 @@ class SampleActivity: AppCompatActivity() {
         }
 <strong>        return false
 </strong>    }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
@@ -966,9 +1032,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import code ...   
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     private boolean actionIntentTask(Context viewContext, WebView webView, String url) {
         final WebView actionWebView = webView;
         if (actionWebView == null) {
@@ -1032,6 +1100,7 @@ public class SampleActivity extends AppCompatActivity {
         }
         return false;
     }
+    
     // ... other code ...
     // </code>
     // ... other code ...
@@ -1053,9 +1122,11 @@ schem market 처리 방식을 안내합니다.
 ```kotlin
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     private fun actionMarketTask(viewContext: Context, url: String): Boolean {
         val activity = viewContext as? Activity ?: return false
         kotlin.runCatching {
@@ -1076,6 +1147,7 @@ class SampleActivity: AppCompatActivity() {
         }
         return true
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1091,9 +1163,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import code ...
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     private boolean actionMarketTask(Context viewContext, String url) {
         if (!(viewContext instanceof Activity)) {
             return false;
@@ -1122,6 +1196,7 @@ public class SampleActivity extends AppCompatActivity {
         }
         return true;
     }
+    
     // ... other code ...
     // </code>
     // ... other code ...
@@ -1141,9 +1216,11 @@ public class SampleActivity extends AppCompatActivity {
 ```kotlin
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     private fun actionMailToTask(viewContext: Context, uri: Uri): Boolean {
         val activity = viewContext as? Activity ?: return false
         kotlin.runCatching {
@@ -1154,6 +1231,7 @@ class SampleActivity: AppCompatActivity() {
         }
         return true
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1169,9 +1247,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import code ...
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     private boolean actionMailToTask(Context viewContext, Uri uri) {
         if (!(viewContext instanceof Activity)) {
             return false;
@@ -1191,6 +1271,7 @@ public class SampleActivity extends AppCompatActivity {
         }
         return true;
     }
+    
     // ... other code ...
     // </code>
     // ... other code ...
@@ -1225,9 +1306,11 @@ WKWebView javascript window.open() 명령어 처리 방법에 대한 안내
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript window.open { WKUIDelegate }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {    
         let viewControllerToPresent = UIViewController()
@@ -1255,6 +1338,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
         self.viewController.present(viewControllerToPresent, animated: true);
         return modalView
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1280,14 +1364,17 @@ WKWebView javascript window.close() 명령어 처리 방법에 대한 안내
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - window.close { UIWebViewDelegate }
     func webViewDidClose(_ webView: WKWebView) {
         webView.removeFromSuperView()
         //webView = nil
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1313,9 +1400,11 @@ Javascript alert 팝업 윈도우 처리에 대한 가이드
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript Alert Controll { UIWebViewDelegate }
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor () -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
@@ -1326,6 +1415,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
             self.viewController?.present(alertController, animated: true, completion: nil)
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1354,6 +1444,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript Confirm Controll { UIWebViewDelegate }
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (Bool) -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
@@ -1365,6 +1456,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
         }))
         self.viewController?.present(alertController, animated: true, completion: nil)
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1390,9 +1482,11 @@ javascript 텍스트 입력이 필요한 팝업 윈도우 처리에 대한 가�
 ```swift
 // ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - Javascript InputText Controll { UIWebViewDelegate }
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping @MainActor (String?) -> Void) {
         let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .actionSheet)
@@ -1411,6 +1505,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
         }))
         self.viewController?.present(alertController, animated: true, completion: nil)
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -1439,9 +1534,11 @@ mailto scheme 처리에 방법에 대한 안내
 </strong><strong>import MessageUI
 </strong><strong>
 </strong><strong>class WebContentViewController:..., ..., MFMailComposeViewControllerDelegate {
-</strong>    // ... other code ...
+</strong>    
+    // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     // MARK: - mailto: { UIWebViewDelegate }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
         // check url
@@ -1518,6 +1615,7 @@ mailto scheme 처리에 방법에 대한 안내
         // 반드시 dismiss 해야 함!
 <strong>        controller.dismiss(animated: true, completion: nil)
 </strong>    }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
@@ -1540,9 +1638,11 @@ tel scheme 처리에 방법에 대한 안내
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 class SampleViewController: UIViewController, UIWebViewDelegate {
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
+    
     // MARK: - tel: { UIWebViewDelegate }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
         // check url
@@ -1567,6 +1667,7 @@ class SampleViewController: UIViewController, UIWebViewDelegate {
 <strong>    private func handleTelLink(url: URL) {
 </strong>        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...

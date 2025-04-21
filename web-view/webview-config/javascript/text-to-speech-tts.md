@@ -23,8 +23,8 @@ icon: js
 <script type="text/javascript">
 // TTS Start
 function postSpeakStart() {
-	// speakid 값은 테스트를 위해 임시값 사용
-	const rand_0_100 = Math.floor(Math.random() * 101);
+  // speakid 값은 테스트를 위해 임시값 사용
+  const rand_0_100 = Math.floor(Math.random() * 101);
   let request = {
       request: "postSpeak",
       action: "start",
@@ -162,9 +162,11 @@ function postSpeakCallback(response) {
 ```kotlin
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
     class TreasureKitJavascriptInterface {
@@ -203,6 +205,7 @@ class SampleActivity: AppCompatActivity() {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -216,9 +219,11 @@ class SampleActivity: AppCompatActivity() {
 ```java
 // ... import ...
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
 
     public class TreasureKitJavascriptInterface {
@@ -253,6 +258,7 @@ class SampleActivity: AppCompatActivity() {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -270,13 +276,17 @@ class SampleActivity: AppCompatActivity() {
 ```swift
 // ... import ...
 class ViewController: WKScriptMessageHandler {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     innerWebView.configuration.userContentController.add(self, name: "treasureComics")
+    
     // ... other code ...
     // <code>
     // ... other code ...    
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "treasureComics", let messageBody = message.body as? String {
             do {
@@ -318,6 +328,7 @@ class ViewController: WKScriptMessageHandler {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...

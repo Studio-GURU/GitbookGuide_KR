@@ -70,9 +70,11 @@ function openOuterWebBrowser() {
 {% code lineNumbers="true" %}
 ```kotlin
 class SampleActivity: AppCompatActivity() {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     WebView.addJavascriptInterface(TreasureKitJavascriptInterface(), "treasureComics")
 
     class TreasureKitJavascriptInterface {
@@ -100,6 +102,7 @@ class SampleActivity: AppCompatActivity() {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -112,9 +115,11 @@ class SampleActivity: AppCompatActivity() {
 {% code lineNumbers="true" %}
 ```java
 public class SampleActivity extends AppCompatActivity {
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     webView.addJavascriptInterface(new TreasureKitJavascriptInterface(this), "treasureComics");
 
     public class TreasureKitJavascriptInterface {
@@ -146,6 +151,7 @@ public class SampleActivity extends AppCompatActivity {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
@@ -163,14 +169,18 @@ public class SampleActivity extends AppCompatActivity {
 ```swift
 // ... import ...
 class ViewController: WKScriptMessageHandler {
+
     // ... other code ...
     // <code>
     // ... other code ...
+
     // userContentController 설정
     WKWebView.configuration.userContentController.add(self, name: "treasureComics")
+    
     // ... other code ...
     // <code>
     // ... other code ...
+    
     // MARK: - webview content javascript interface message handler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "treasureComics", let messageBody = message.body as? String {
@@ -212,6 +222,7 @@ class ViewController: WKScriptMessageHandler {
             }
         }
     }
+    
     // ... other code ...
     // <code>
     // ... other code ...
