@@ -63,42 +63,56 @@ https://api-{env}.treasurecomics.com/external/open/{channel}/recentView?sign=172
 ```json
 [
   {
-    "title": "용을 키우는 10가지 방법",
-    "description": null,
-    "thumbnail": "https://s.treasurecomics.com/images/test/webtoon/cw4357a295d0/thumbnail_1718174618.jpg",
-    "contentType": "웹툰",
-    "contentCName": "cw4357a295d0",
-    "contentEpisodeTitle": "1화",
-    "episodeNo": 1,
-    "genre": "드라마,공포/스릴러",
-    "link": "https://test.treasurecomics.com/gateway/toss?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fcontent%2Flist%2Fcw4357a295d0",
-    "returnUrl": "https://test.treasurecomics.com/content/list/cw4357a295d0",
-    "isWaitFree": true,
-    "waitFreeInfo": {
-	    chargedTicket: true,
-	    baseDate: "2024-09-27T03:00:00Z",
-	    chargedDate: "2024-09-27T03:00:00Z"
-    },
-    "freeEpisode": 3
-  },
-    {
-    "title": "내 인생에서 사라져 주세요",
-    "description": "마지막이라고 생각했을 때 다시 찾아온 기회,이번엔 놓치지 않겠어!",
-    "thumbnail": "https://s.treasurecomics.com/images/test/novel/cnc0e5f2fa7a/posterThumbnail_1723080834.jpg",
+    "title": "당씨고아",
+    "description": "복수를 가슴에 품고, 어떻게든 살아남기 위해 수단과 방법을 가리지 않는 당상원의 일대기.",
+    "thumbnail": "https://s.treasurecomics.com/images/prod/novel/cn2b641081a4/posterThumbnail_1740011920.jpg",
     "contentType": "웹소설",
-    "contentCName": "cnc0e5f2fa7a",
-    "contentEpisodeTitle": "1화",
-    "episodeNo": 1,
-    "genre": "로맨스판타지",
-    "link": "https://bitbunny-test.treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2Fbitbunny-test.treasurecomics.com%2Fcontent%2Flist%2Fcnc0e5f2fa7a",
-    "returnUrl": "https://bitbunny-test.treasurecomics.com/content/list/cnc0e5f2fa7a",
+    "contentCName": "cn2b641081a4",
+    "contentEpisodeTitle": "2화",
+    "episodeNo": 2,
+    "genre": "무협",
+    "link": "https://treasurecomics.com/gateway/common?returnUrl=https%3A%2F%2F.treasurecomics.com%2Fcontent%2Flist%2Fcn2b641081a4",
+    "returnUrl": "https://treasurecomics.com/content/list/cn2b641081a4",
+    "isWaitFree": false,
+    "freeEpisode": 25
+  },
+  {
+    "title": "열애, 해줘요",
+    "description": "구애보다 열애가 하고 싶은 ‘10년 짝사랑녀’ 구열애, ‘최강 츤데레남’ 최강국을 낚을 수 있을까?",
+    "thumbnail": "https://s.treasurecomics.com/images/prod/webtoon/cw5fbc01c678/posterThumbnail_1738590019.jpg",
+    "contentType": "웹툰",
+    "contentCName": "cw5fbc01c678",
+    "contentEpisodeTitle": "2화",
+    "episodeNo": 2,
+    "genre": "로맨스",
+    "link": "https://treasurecomics.com/gateway/common?returnUrl=https%3A%2F%treasurecomics.com%2Fcontent%2Flist%2Fcw5fbc01c678",
+    "returnUrl": "https://treasurecomics.com/content/list/cw5fbc01c678",
     "isWaitFree": true,
     "waitFreeInfo": {
       "chargedTicket": true,
-      "baseDate": "2025-03-19T05:00:01.650Z",
-      "chargedDate": "2025-03-19T05:00:01.650Z"
+      "baseDate": "2025-04-20T07:58:46.847Z",
+      "chargedDate": "2025-04-20T07:58:46.847Z"
     },
-    "freeEpisode": 5
+    "freeEpisode": 3
+  },
+  {
+    "title": "사모님은 챔피언",
+    "description": "1년안에 남자 꼬시기 vs 격투 여왕! 난 둘 다 해야지!",
+    "thumbnail": "https://s.treasurecomics.com/images/prod/webtoon/cw4fb3561bdd/posterThumbnail_1741847040.jpg",
+    "contentType": "웹툰",
+    "contentCName": "cw4fb3561bdd",
+    "contentEpisodeTitle": "2화",
+    "episodeNo": 2,
+    "genre": "로맨스",
+    "link": "https://treasurecomics.com/gateway/common?returnUrl=https%3A%2F%treasurecomics.com%2Fcontent%2Flist%2Fcw4fb3561bdd",
+    "returnUrl": "https://treasurecomics.com/content/list/cw4fb3561bdd",
+    "isWaitFree": true,
+    "waitFreeInfo": {
+      "chargedTicket": true,
+      "baseDate": "2025-04-20T07:58:43.325Z",
+      "chargedDate": "2025-04-20T07:58:43.325Z"
+    },
+    "freeEpisode": 14
   }
 ]
 ```
