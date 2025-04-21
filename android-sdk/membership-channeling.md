@@ -107,6 +107,11 @@ dependencies {
 <pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        
+        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
+    
         SceneConfig.Builder(
             context = this, 
             appId = "{발급받은 appId}", 
@@ -130,6 +135,10 @@ dependencies {
             )
         )
         .build()?.initialize()
+        
+        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
     }
 }
 </code></pre>

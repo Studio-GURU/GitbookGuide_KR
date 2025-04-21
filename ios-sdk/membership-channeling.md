@@ -84,6 +84,11 @@ import TreasureIslandSceneKit
 @main
 struct PartnerApp: App {
     init() {
+    
+        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
+    
         // SceneKit
         let sceneKit = SceneKit.Builder(
             appId: "{발급받은 appId}", 
@@ -96,6 +101,10 @@ struct PartnerApp: App {
         .build()
         // 보물섬 SDK 초기화
         treasureKit.initialize()
+        
+        // ... other code ...
+        // &#x3C;code>
+        // ... other code ...
     }
     var body: some Scene {
         WindowGroup {
