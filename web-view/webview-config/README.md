@@ -282,7 +282,9 @@ public class SampleActivity extends AppCompatActivity {
 스크린 캡쳐 방지 기능은 실기기에서만 동작 합니다.
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+{% code lineNumbers="true" %}
+```swift
+// ... import ...
 import Foundation
 import UIKit
 import WebKit
@@ -290,18 +292,17 @@ import WebKit
 class SampleViewController: UIViewController {
     
     // ... other code ...
-    // &#x3C;code>
+    // <code>
     // ... other code ...    
     
-<strong>    private let preventedView = UITextField()
-</strong>    private lazy var webView: WKWebView = {
+    private lazy var webView: WKWebView = {
         let view = WKWebView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-<strong>    override func viewDidAppear(_ animated: Bool) {
-</strong>        super.viewDidAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.view.addSubview(self.webView)
         NSLayoutConstraint.activate([
             self.webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -313,28 +314,33 @@ class SampleViewController: UIViewController {
         self.applySecureContent()
     }
 
-<strong>    func applySecureContent() {
-</strong><strong>        DispatchQueue.main.async {
-</strong><strong>            self.webView.addSubview(self.preventedView)
-</strong><strong>            self.preventedView.backgroundColor = .clear
-</strong><strong>            self.preventedView.isSecureTextEntry = true
-</strong><strong>            self.preventedView.isUserInteractionEnabled = false
-</strong><strong>            self.preventedView.translatesAutoresizingMaskIntoConstraints = false
-</strong><strong>            self.preventedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-</strong><strong>            self.preventedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-</strong><strong>            self.preventedView.leftView = UIView(frame: CGRect(x: 0, y: 0, width: self.preventedView.frame.self.width, height: self.preventedView.frame.self.height))
-</strong><strong>            self.preventedView.leftViewMode = .always
-</strong><strong>            self.webView.layer.superlayer?.addSublayer(self.preventedView.layer)
-</strong><strong>            self.preventedView.layer.sublayers?.last?.addSublayer(self.webView.layer)
-</strong><strong>        }
-</strong><strong>    }
-</strong>    
+    func applySecureContent() {
+        DispatchQueue.main.async {
+            let secureField = UITextField()
+            // secureField 크기를 웹뷰의 크기와 동일하게 설정합니다.
+            secureField.frame = self.webview.bounds
+            // secureField의 보안을 설정합니다.
+            secureField.isSecureTextEntry = true
+            // secureField의 상호작용을 비활성화합니다.
+            secureField.isUserInteractionEnabled = false
+            // secureField의 배경색을 투명하게 설정합니다.
+            secureField.backgroundColor = .clear
+            // 웹뷰에 secureField를 추가합니다.
+            self.webview.addSubview(secureField)
+            // 웹뷰 레이어에 secureField의 레이어를 추가합니다.
+            self.webview.layer.superlayer?.addSublayer(secureField.layer)
+            // secureField의 레이어를 웹뷰의 레이어 위에 추가합니다.
+            secureField.layer.sublayers?.last?.addSublayer(self.webview.layer)
+        }
+    }
+    
     // ... other code ...
-    // &#x3C;code>
+    // <code>
     // ... other code ...
 }
 
-</code></pre>
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
