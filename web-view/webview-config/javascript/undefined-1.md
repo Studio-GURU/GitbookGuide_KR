@@ -168,20 +168,18 @@ public class SampleActivity extends AppCompatActivity {
 {% endtab %}
 
 {% tab title="iOS" %}
-{% code lineNumbers="true" %}
-```swift
-// ... import ...
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 class ViewController: WKScriptMessageHandler {
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
     
     // userContentController 설정
     WKWebView.configuration.userContentController.add(self, name: "treasureComics")
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
     
     // MARK: - webview content javascript interface message handler
@@ -200,8 +198,8 @@ class ViewController: WKScriptMessageHandler {
                 let request = (json["request"] as? String) ?? ""
                 let callback = (json["callback"] as? String) ?? ""
                 if request == "getDeviceADID" {
-                    var param: [String: Any] = [:]
-                    param["deviceADID"] = "$광고아이디값"
+                    var params: [String: Any] = [:]
+                    params["deviceADID"] = "$광고아이디값$"
                     var paramString: String = ""
                     if params != nil {
                         guard let json = try? JSONSerialization.data(withJSONObject: params!, options: .fragmentsAllowed) else {
@@ -215,8 +213,8 @@ class ViewController: WKScriptMessageHandler {
                         paramString = paramStringify.replacingOccurrences(of: "\"", with: "\\\"")
                         paramString = "'\(paramString)'"
                         DispatchQueue.main.async {
-                            $WebView.evaluateJavaScript("(function(){\(callback)(\(paramString));})();")
-                        }
+<strong>                            $WebView.evaluateJavaScript("(function(){\(callback)(\(paramString));})();")
+</strong>                        }
                     }                
                 }
             } catch {
@@ -226,11 +224,10 @@ class ViewController: WKScriptMessageHandler {
     }
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
 }
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
