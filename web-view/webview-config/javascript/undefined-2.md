@@ -197,9 +197,9 @@ class ViewController: WKScriptMessageHandler {
                 let request = (json["request"] as? String) ?? ""
                 let callback = (json["callback"] as? String) ?? ""
                 if request == "getExtraData" {
-                    var param: [String: Any] = [:]
-                    param["phone"] = "$전화번호"
-                    param["age"] = "$나이"
+                    var params: [String: Any] = [:]
+                    params["phone"] = "$전화번호$"
+                    params["age"] = "$나이$"
                     var paramString: String = ""
                     if params != nil {
                         guard let json = try? JSONSerialization.data(withJSONObject: params!, options: .fragmentsAllowed) else {
