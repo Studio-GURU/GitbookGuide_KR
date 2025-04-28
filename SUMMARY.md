@@ -40,6 +40,7 @@
     * [\[ API \] 추천 컨텐츠 리워드 지급 가능 여부 조회 ( Client )](web-view/start/api/rewardcheck_client.md)
     * [\[ API \] 최근 본 작품 조회 ( Client )](web-view/start/api/recentview_client.md)
     * [\[ API \] 인기 작품 조회 ( Client )](web-view/start/api/top_client.md)
+    * [\[ API \] 회원 탈퇴](web-view/start/api/withdraw.md)
     * [채널회원 연동 방식](web-view/start/api/channeling.md)
     * [채널회원 미연동 방식](web-view/start/api/standard.md)
 * [웹뷰 설정 가이드](web-view/webview-config/README.md)
