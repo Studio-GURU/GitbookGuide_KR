@@ -1,6 +1,6 @@
 ---
 description: 매체사 유저의 보물섬 탈퇴가 필요할 시 호출하는 API 입니다.
-icon: mobile-notch
+icon: right-from-bracket
 ---
 
 # \[ API ] 회원 탈퇴

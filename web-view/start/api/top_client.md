@@ -1,6 +1,6 @@
 ---
 description: 보물섬의 인기 컨텐츠를 조회하는 API 입니다.
-icon: mobile
+icon: arrow-trend-up
 ---
 
 # \[ API ] 인기 작품 조회 ( Client )
