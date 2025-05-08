@@ -7,6 +7,14 @@ icon: list-timeline
 
 ***
 
+## Version 25.5.1.27
+
+**release date. 2025.5.8**
+
+✓ 메모리 최적화
+
+***
+
 ## Version 25.3.3.25
 
 **release date. 2025.3.20**

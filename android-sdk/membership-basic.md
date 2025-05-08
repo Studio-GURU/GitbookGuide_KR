@@ -64,7 +64,7 @@ TreasureIsland screen launch
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureislandx-scene:{SDK-VERSION}'
+  implementation 'com.treasurecomics.sdk:scene:{SDK-VERSION}'
 }
 ```
 {% endcode %}

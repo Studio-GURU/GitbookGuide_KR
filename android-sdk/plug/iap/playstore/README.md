@@ -31,13 +31,13 @@ icon: google-play
 
 ***
 
-인앱 구매(treasureisland-plug-purchase) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+인앱 구매(plug-purchase) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
 {% endhint %}
 
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-purchase:{SDK-VERSION}'
+  implementation 'com.treasurecomics.sdk:plug-purchase:{SDK-VERSION}'
 }
 ```
 {% endcode %}

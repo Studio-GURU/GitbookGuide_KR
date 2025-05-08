@@ -67,7 +67,7 @@ dependencyResolutionManagement {
     google()
     mavenCentral()
     maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
+      url "https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/"
     }
   }
 }
@@ -89,7 +89,7 @@ dependencyResolutionManagement {
     google()
     mavenCentral()
     maven {
-      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/")
+      url = uri("https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/")
     }
   }
 }
@@ -108,7 +108,7 @@ allprojects {
     google()
     mavenCentral()
     maven {
-      url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
+      url "https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/"
     }
   }
 }

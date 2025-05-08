@@ -30,13 +30,13 @@ icon: bell-ring
 
 ***
 
-알림서비스(treasureisland-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+알림서비스(plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
 {% endhint %}
 
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-notify:{SDK-VERSION}'
+  implementation 'com.treasurecomics.sdk:plug-notify:{SDK-VERSION}'
 }
 ```
 {% endcode %}
