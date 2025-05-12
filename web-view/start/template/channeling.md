@@ -33,10 +33,10 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 
 ```
 메인화면
-https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/main
 
 오늘의추천
-https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommandtion/{channel}
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/recommandtion/{channel}
 
 ```
 
