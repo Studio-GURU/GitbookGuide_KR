@@ -123,9 +123,9 @@ $ pod init
 
 ***
 
-✓ pod '**TreasureIslandXFoundationKit**', '{SDK-VERSION}'
+✓ pod '**TreasureComicsFoundationKit**', '{SDK-VERSION}'
 
-✓ pod '**TreasureIslandXSceneKit**', '{SDK-VERSION}'
+✓ pod '**TreasureComicsSceneKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -136,8 +136,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # TreasureIsland SDK
-  pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
-  pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
+  pod 'TreasureComicsFoundationKit', '{SDK-VERSION}'
+  pod 'TreasureComicsSceneKit', '{SDK-VERSION}'
 end
 ```
 {% endcode %}
@@ -152,7 +152,26 @@ $ pod install
 
 workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치 되었는지 확인 합니다.
 
-<div align="left"><figure><img src="../.gitbook/assets/apple_cocoapod_01 (3).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2025-05-19 오전 10.37.36.png" alt=""><figcaption></figcaption></figure></div>
+
+{% hint style="danger" %}
+**Rsync 권한 오류(XCode 15이상 사용시 발생)**
+
+***
+
+* **Build Phase Run Script**나 `rsync`, `cp`, `mkdir`, `codesign` 등의 shell 도구 사용 시 시스템이 sandbox 권한을 엄격히 검사합니다.
+* 기본적으로 **User Script Sandboxing**이 활성화(`ENABLE_USER_SCRIPT_SANDBOXING=YES`)되어 있어, **Xcode 외부 도구나 경로 접근이 제한**됩니다.
+
+***
+
+✓ **Xcode Build 설정에서 비활성화**
+
+→ Xcode 프로젝트 `.xcodeproj` 또는 `.xcworkspace`에서 해당 설정을 **명시적으로 꺼야** 합니다.
+
+→ `Project → Build Settings → ENABLE_USER_SCRIPT_SANDBOXING`를 `NO`로 설정
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/스크린샷 2025-05-09 오후 10.22.38.png" alt=""><figcaption><p> <mark style="color:red;"><strong><code>Project → Build Settings → ENABLE_USER_SCRIPT_SANDBOXING</code></strong><strong>를</strong><strong> </strong><strong><code>NO</code></strong><strong>로 설정</strong></mark></p></figcaption></figure>
 
 ### ![](../.gitbook/assets/swiftpackage.png) SWIFT PACKAGE
 
@@ -169,9 +188,9 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 ***
 
-<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIslandX-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureComics-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
 
-<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureIslandX-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
+<mark style="color:green;">✓</mark> [https://github.com/Studio-GURU/TreasureComics-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -180,25 +199,19 @@ workspace를 통해 프로젝트를 열고 보물섬 SDK 모듈이 정상 설치
 
 <figure><img src="../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
 
-#### Package 추가(**TreasureIsland-iOS-FounedationKit)**
+#### Package 추가(**TreasureComics-iOS-Basement-FounedationKit)**
 
-✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-FoundationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-FoundationKit.git)
+✓ [**https://github.com/Studio-GURU/TreasureComics-iOS-Basement-FoundationKit**](https://github.com/Studio-GURU/TreasureComics-iOS-Basement-FoundationKit)
 
-**⬇ 오른쪽 상단에 SwiftPackage 주소를 입력합니다.**
+Package 추가(**TreasureComics-iOS-Basement-SceneKit)**
 
-<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오전 10.54.16.png" alt=""><figcaption></figcaption></figure>
-
-#### Package 추가(**TreasureIsland-iOS-SceneKit)**
-
-✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-SceneKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-ServiceKit.git)
-
-<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오후 12.07.19.png" alt=""><figcaption></figcaption></figure>
+✓ [**https://github.com/Studio-GURU/TreasureComics-iOS-Basement-SceneKit.git**](https://github.com/Studio-GURU/TreasureComics-iOS-Basement-SceneKit.git)
 
 #### 모듈 설치 확인
 
 ✓ Package Dependencies 항목에 추가한 모듈이 있는지 확인 합니다.
 
-<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오전 10.56.19.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left" data-full-width="false"><figure><img src="../.gitbook/assets/스크린샷 2025-05-19 오전 11.18.02.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 

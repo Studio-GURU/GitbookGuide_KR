@@ -29,7 +29,7 @@ Future<AddOnResult<List<RecommendationContentData>>> comicsRecommendationContent
 
 {% code lineNumbers="true" %}
 ```dart
-final result = await FlutterTreasureislandXAddon().comicsRecommendationContent(
+final result = await TreasureComicsAddon().comicsRecommendationContent(
     ${signKey}, 
     ${adid}, 
     ${isAdult}

@@ -269,7 +269,7 @@ Profile.Builder().register() 호출을 통한 프로필 등록
 
 {% tabs %}
 {% tab title="KOTLIN" %}
-<pre class="language-kotlin"><code class="lang-kotlin">// 빌더 인스턴스를 생성합니다.(signKey 필수)
+<pre class="language-kotlin"><code class="lang-kotlin">// Sign 생성 가이드를 통해 생성된 SignKey를 이용하여 인스턴스를 생성합니다.
 <strong>val builder = Profile.Builder(signKey = ${signKey})
 </strong>// 성별을 설정합니다.(옵션)
 builder.withGender(gender = Profile.Gender.MALE 또는 Profile.Gender.FEMALE)
@@ -285,7 +285,7 @@ builder.withBirthYear(birthYear = 2000)
 
 {% tab title="JAVA" %}
 ```java
-// 빌더 인스턴스를 생성합니다.(signKey 필수)
+// Sign 생성 가이드를 통해 생성된 SignKey를 이용하여 인스턴스를 생성합니다.
 Profile.Builder builder = new Profile.Builder(${signKey});
 // 성별을 설정합니다.(옵션)
 builder.withGender(Profile.Gender.MALE 또는 Profile.Gender.FEMALE);

@@ -25,10 +25,10 @@ Future<AddOnResult<List<RecentContentData>>> comicsRecentContent(String signKey)
 
 {% code lineNumbers="true" %}
 ```dart
-import 'package:flutter_treasureislandx_addon/flutter_treasureislandx_addon.dart';
-import 'package:flutter_treasureislandx_addon/models/recent_content_data.dart';
+import 'package:treasurecomics_addon/treasurecomics_addon.dart';
+import 'package:treasurecomics_addon/models/recent_content_data.dart';
 
-final result = await FlutterTreasureislandXAddon().comicsRecentContent(${signKey});
+final result = await TreasureComicsAddon().comicsRecentContent(${signKey});
 print("recent { success: ${result.success}, message: ${result.message}, response: ${result.response} }");
 ```
 {% endcode %}

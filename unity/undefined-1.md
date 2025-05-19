@@ -35,9 +35,9 @@ void RecommendationContents(
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_IOS
-using TreasureIslandXPlugin.iOS;
+using TreasureComicsPlugin.iOS;
 #elif UNITY_ANDROID
-using TreasureIslandXPlugin.Android;
+using TreasureComicsPlugin.Android;
 #endif
 public class ButtonRecommendationContentScript : MonoBehaviour
 {

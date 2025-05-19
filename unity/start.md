@@ -94,7 +94,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 ### Unity Package Manager (Git)
 
 ```
-https://github.com/Studio-GURU/TreasureIslandX-Unity-Package.git
+https://github.com/Studio-GURU/TreasureComics-Unity-Package.git
 ```
 
 Window → Unity Package Manager를 실행합니다.
@@ -108,7 +108,7 @@ Unity Package Manager → **install package from git URL**
 GitHub URL을 입력합니다.
 
 ```
-https://github.com/Studio-GURU/TreasureIslandX-Unity-Package.git
+https://github.com/Studio-GURU/TreasureComics-Unity-Package
 ```
 
 ***
@@ -139,7 +139,7 @@ https://github.com/Studio-GURU/TreasureIslandX-Unity-Package.git
 
 Android 관련 의존성을 추가 합니다.
 
-<pre><code><strong>implementation "kr.co.studioguru.sdk:treasureislandx-bridge:$android-sdk-version"
+<pre><code><strong>implementation "com.treasurecomics.sdk:bridge-unity:$android-sdk-version"
 </strong></code></pre>
 
 <pre class="language-gradle" data-line-numbers><code class="lang-gradle">apply plugin: 'com.android.library'
@@ -149,7 +149,7 @@ apply from: '../shared/keepUnitySymbols.gradle'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 <strong>    // 의존성을 추가 합니다.
-</strong><strong>    implementation "kr.co.studioguru.sdk:treasureislandx-bridge:$version"
+</strong><strong>    implementation "com.treasurecomics.sdk:bridge-unity:$version"
 </strong>}
 ...
 ...
@@ -159,7 +159,7 @@ dependencies {
 
 Android 관련 의존성 Repository URL을 설정 합니다.
 
-<pre><code><strong>https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/
+<pre><code><strong>https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/
 </strong></code></pre>
 
 <pre class="language-gradle" data-line-numbers><code class="lang-gradle">...
@@ -171,7 +171,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 <strong>        // 의존성 관련 Repository URL 설정
-</strong><strong>        maven { url = uri("https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/") }
+</strong><strong>        maven { url = uri("https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/") }
 </strong>        flatDir {
             dirs "${project(':unityLibrary').projectDir}/libs"
         }

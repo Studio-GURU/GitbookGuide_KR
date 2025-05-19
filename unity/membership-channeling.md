@@ -51,16 +51,16 @@ Profile with <mark style="color:red;">**SignKey & Register**</mark>
 
 iOS / Android 별도의 Namespace를 사용합니다.
 
-**✓ iOS** → **TreasureIslandXPlugin.iOS**
+**✓ iOS** → **TreasureComicsPlugin.iOS**
 
-**✓ Android** → **TreasureIslandXPlugin.Android**
+**✓ Android** → **TreasureComicsPlugin.Android**
 
 {% code lineNumbers="true" %}
 ```csharp
 #if UNITY_IOS
-using TreasureIslandXPlugin.iOS;
+using TreasureComicsPlugin.iOS;
 #elif UNITY_ANDROID
-using TreasureIslandXPlugin.Android;
+using TreasureComicsPlugin.Android;
 #endif
 ```
 {% endcode %}
@@ -127,12 +127,12 @@ public class StatusbarOptionModel {
 
 // usage
 <strong>#if UNITY_IOS
-</strong>TreasureIslandXPlugin.iOS.StatusbarOptionModel model = new(
+</strong>TreasureComicsPlugin.iOS.StatusbarOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
 <strong>#elif UNITY_ANDROID
-</strong>TreasureIslandXPlugin.Android.StatusbarOptionModel model = new(
+</strong>TreasureComicsPlugin.Android.StatusbarOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
@@ -153,12 +153,12 @@ public class NotificationOptionModel {
 
 // usage
 <strong>#if UNITY_IOS
-</strong>TreasureIslandXPlugin.iOS.NotificationOptionModel model = new(
+</strong>TreasureComicsPlugin.iOS.NotificationOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
 <strong>#elif UNITY_ANDROID
-</strong>TreasureIslandXPlugin.Android.NotificationOptionModel model = new(
+</strong>TreasureComicsPlugin.Android.NotificationOptionModel model = new(
   channelName: "보물섬",
   notificationIconName: "app_icon"
 );
@@ -183,9 +183,9 @@ public class NotificationOptionModel {
 
 <pre class="language-csharp" data-line-numbers><code class="lang-csharp"><strong>using UnityEngine;
 </strong><strong>#if UNITY_IOS
-</strong><strong>using TreasureIslandXPlugin.iOS;
+</strong><strong>using TreasureComicsPlugin.iOS;
 </strong><strong>#elif UNITY_ANDROID
-</strong><strong>using TreasureIslandXPlugin.Android;
+</strong><strong>using TreasureComicsPlugin.Android;
 </strong><strong>#endif
 </strong>public class ButtonInitScript : MonoBehaviour
 {
@@ -283,9 +283,9 @@ public class ProfileModel {
 using UnityEngine;
 using System;
 <strong>#if UNITY_IOS
-</strong><strong>using TreasureIslandXPlugin.iOS;
+</strong><strong>using TreasureComicsPlugin.iOS;
 </strong><strong>#elif UNITY_ANDROID
-</strong><strong>using TreasureIslandXPlugin.Android;
+</strong><strong>using TreasureComicsPlugin.Android;
 </strong><strong>#endif
 </strong>public class ButtonProifleScript : MonoBehaviour
 {
@@ -338,9 +338,9 @@ public class LaunchModel{
 // usage
 <strong>using UnityEngine;
 </strong><strong>#if UNITY_IOS
-</strong><strong>using TreasureIslandXPlugin.iOS;
+</strong><strong>using TreasureComicsPlugin.iOS;
 </strong><strong>#elif UNITY_ANDROID
-</strong><strong>using TreasureIslandXPlugin.Android;
+</strong><strong>using TreasureComicsPlugin.Android;
 </strong><strong>#endif
 </strong>public class ButtonLaunchScript : MonoBehaviour
 {

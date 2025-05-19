@@ -35,7 +35,7 @@ import {
   WaitFreeData,
   RecommendationContentData,
   comicsRecommendationContent
-} from 'react-treasureislandx-addon'
+} from 'treasurecomics-addon'
 
 comicsRecommendationContent(${signKey}, ${adid}, ${isAdult})
   .then((result: Array<RecommendationContentData>) => {

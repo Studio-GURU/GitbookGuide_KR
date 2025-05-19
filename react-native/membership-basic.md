@@ -67,7 +67,7 @@ import {
   NotificationConfig,
   comicsInitialize,  
   comicsLaunch,
-} from 'react-treasureislandx-addon';
+} from 'treasurecomics-addon';
 ```
 
 <table><thead><tr><th width="217">Module Name</th><th width="124">Type</th><th width="165">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>StatusBarConfig</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>NotificationConfig</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr><tr><td><code>comicsWithInitialize</code></td><td>function</td><td>초기화 함수</td><td></td></tr></tbody></table>
@@ -95,7 +95,7 @@ import {
   NotificationConfig,
   comicsInitialize,  
   comicsLaunch,
-} from 'react-treasureislandx-addon';
+} from 'treasurecomics-addon';
 
 function App(): React.JSX.Element {
   useEffect(() => {
@@ -192,7 +192,7 @@ function comicsLaunch(
 )
 
 // usage
-import { comicsLaunch } from 'react-treasureislandx-addon';
+import { comicsLaunch } from 'treasurecomics-addon';
 ..
 ..
 const handleButtonPress = () => {

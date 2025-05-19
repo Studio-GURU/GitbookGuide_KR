@@ -33,9 +33,9 @@ void RecentContents(
 using UnityEngine;
 using System.Collections.Generic;
 #if UNITY_IOS
-using TreasureIslandXPlugin.iOS;
+using TreasureComicsPlugin.iOS;
 #elif UNITY_ANDROID
-using TreasureIslandXPlugin.Android;
+using TreasureComicsPlugin.Android;
 #endif
 public class ButtonRecentContentScript : MonoBehaviour
 {

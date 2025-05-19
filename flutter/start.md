@@ -25,7 +25,7 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 Flutter Package
 
-https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
+https://dart.cloudsmith.io/studio-guru/treasurecomics-flutter/
 {% endstep %}
 
 {% step %}
@@ -98,13 +98,13 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ***
 
-https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
+https://dart.cloudsmith.io/studio-guru/treasurecomics-flutter/
 {% endhint %}
 
 ### CloudSmith 저장소 등록 하기
 
 ```sh
-dart pub add flutter_treasureislandx_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
+dart pub add treasurecomics_addon:${version} --hosted-url https://dart.cloudsmith.io/studio-guru/treasurecomics-flutter/
 ```
 
 #### **pubspec.yaml 파일에 패키지 확인**
@@ -114,8 +114,8 @@ dart pub add flutter_treasureislandx_addon:${version} --hosted-url https://dart.
     sdk: flutter
   ...
   ...
-<strong>  flutter_treasureislandx_addon:
-</strong><strong>    hosted: https://dart.cloudsmith.io/studio-guru/treasureislandx-flutter/
+<strong>  treasurecomics_addon:
+</strong><strong>    hosted: https://dart.cloudsmith.io/studio-guru/treasurecomics-flutter/
 </strong><strong>    version: ${version}
 </strong>  ...
   ...
@@ -140,7 +140,7 @@ Android Maven Repository URL
 
 ***
 
-https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/
+https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/
 {% endhint %}
 
 
@@ -150,7 +150,7 @@ https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/
         google()
         mavenCentral()
         maven {
-<strong>            url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
+<strong>            url "https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/"
 </strong>        }
     }
 }

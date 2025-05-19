@@ -32,7 +32,7 @@ const comicsRecentContent = async (
 import {
   RecentContentData,
   comicsRecentContent
-} from 'react-treasureislandx-addon'
+} from 'treasurecomics-addon'
 
 comicsRecentContent(${signKey})
   .then((result: Array<RecentContentData>) => {

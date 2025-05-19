@@ -89,7 +89,7 @@ struct PartnerApp: App {
 </strong>        // TreasureKit 인스턴스 생성
         .build()
         // 보물섬 SDK 초기화
-        treasureKit.initialize()
+        sceneKit.initialize()
         
         // ... other code ...
         // &#x3C;code>
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </strong>        // TreasureKit 인스턴스 생성
         .build()
         // 보물섬 SDK 초기화
-        treasureKit.initialize()        
+        sceneKit.initialize()
         return true
     }
 }

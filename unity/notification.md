@@ -32,13 +32,13 @@ icon: bell-ring
 
 ***
 
-알림서비스(treasureislandx-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+알림서비스(tresurecomics-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
 {% endhint %}
 
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
-  implementation 'kr.co.studioguru.sdk:treasureislandx-plug-notify:{SDK-VERSION}'
+    implementation 'com.treasurecomics.sdk:plug-notify:{SDK-VERSION}'
 }
 ```
 {% endcode %}
@@ -53,7 +53,7 @@ dependencies {
 
 ## 연동 순서
 
-1. **TreasureIslandXPlugNotificationKit** 모듈 설치하기&#x20;
+1. **TreasureIslandComicsNotifyKit** 모듈 설치하기&#x20;
 
 **✓ 모듈 적용 후 SDK 관련 추가 작업은 필요하지 않습니다.**
 
@@ -70,7 +70,7 @@ dependencies {
 
 ***
 
-**✓** pod '**TreasureIslandXPlugNotificationKit**', '{SDK-VERSION}'
+**✓** pod '**TreasureComicsPlugNotifyKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -81,7 +81,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # 보물섬 알림 서비스 SDK(Notififatioin PLUG)
-  pod 'TreasureIslandXPlugNotificationKit', '{SDK-VERSION}'
+  pod 'TreasureComicsPlugNotifyKit', '{SDK-VERSION}'
 end
 ```
 {% endcode %}
@@ -99,7 +99,7 @@ $ pod install
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-Plug-NotificationKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-NotificationKit.git)
+✓ [**https://github.com/Studio-GURU/TreasureComics-iOS-Plug-NotifyKit.git**](https://github.com/Studio-GURU/TreasureComics-iOS-Plug-NotifyKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -107,8 +107,6 @@ $ pod install
 **⬇ Xcode -> File -> Add Package Dependencies...**&#x20;
 
 <figure><img src="../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/스크린샷 2025-03-20 오후 12.02.44.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

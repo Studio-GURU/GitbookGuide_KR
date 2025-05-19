@@ -88,21 +88,21 @@ OS와의 호환성을 위해 최신 버전으로 업데이트하는 것을 권�
 
 ***
 
-https://npm.cloudsmith.io/studio-guru/treasureisland-reactnative/
+https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 {% endhint %}
 
 ```sh
 # yarn
 # yarn 저장소 등록
-$ yarn config set registry https://npm.cloudsmith.io/studio-guru/treasureislandx-reactnative/
+$ yarn config set registry https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 # yarn 모둘 추가
-$ yarn add react-treasureislandx-addon@version
+$ yarn add treasurecomics-addon@latest
 
 # npm
 # npm 저장소 등록
-$ npm config set registry https://npm.cloudsmith.io/studio-guru/treasureislandx-reactnative/
+$ npm config set registry https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 # npm 모둘 추가
-$ npm install react-treasureislandx-addon@version
+$ npm install treasurecomics-addon@latest
 ```
 
 패키지가 설치되면 node\_module 폴더에 저장이 되며, package.json에 추가됩니다.
@@ -113,7 +113,7 @@ $ npm install react-treasureislandx-addon@version
     ....
     code
     ....
-    "react-treasureislandx-addon": ".."
+    "treasurecomics-addon": "${version 정보}"
   },
 ```
 {% endcode %}
@@ -147,7 +147,7 @@ allprojects {
         google()
         mavenCentral()
         maven {
-            url "https://dl.cloudsmith.io/public/studio-guru/treasureislandx-android/maven/"
+            url "https://dl.cloudsmith.io/public/studio-guru/treasurecomics-android/maven/"
         }
     }
 }

@@ -27,7 +27,7 @@ icon: credit-card
 
 {% stepper %}
 {% step %}
-**TreasureIslandPlugPurchaseKit** 모듈 설치하기
+**TreasureComicsPlugPurchaseKit** 모듈 설치하기
 
 ✓ Cocoa Pod
 
@@ -56,11 +56,11 @@ icon: credit-card
 
 ***
 
-✓ pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
+✓ pod 'TreasureComicsFoundationKit', '{SDK-VERSION}'
 
-✓ pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
+✓ pod 'TreasureComicsSceneKit', '{SDK-VERSION}'
 
-✓ pod '**TreasureIslandXPlugPurchaseKit**', '{SDK-VERSION}'
+✓ pod '**TreasureComicsPlugPurchaseKit**', '{SDK-VERSION}'
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -71,10 +71,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 target '{TARGET-PROJECT}' do
   use_frameworks!
   # 보물섬 필수 SDK
-  pod 'TreasureIslandXFoundationKit', '{SDK-VERSION}'
-  pod 'TreasureIslandXSceneKit', '{SDK-VERSION}'
+  pod 'TreasureComicsFoundationKit', '{SDK-VERSION}'
+  pod 'TreasureComicsSceneKit', '{SDK-VERSION}'
   # 보물섬 구매 서비스 SDK(PurchaseKit PLUG)
-  pod 'TreasureIslandXPlugPurchaseKit', '{SDK-VERSION}'
+  pod 'TreasureComicsPlugPurchaseKit', '{SDK-VERSION}'
 end
 ```
 {% endcode %}
@@ -92,7 +92,7 @@ $ pod install
 
 ***
 
-✓ [https://github.com/Studio-GURU/TreasureIslandX-iOS-Plug-PurchaseKit.git](https://github.com/Studio-GURU/TreasureIsland-iOS-Plug-PurchaseKit.git)
+✓ [**https://github.com/Studio-GURU/TreasureComics-iOS-Plug-PurchaseKit.git**](https://github.com/Studio-GURU/TreasureComics-iOS-Plug-PurchaseKit.git)
 {% endhint %}
 
 #### Package Dependency 설정
@@ -100,8 +100,6 @@ $ pod install
 **⬇ Xcode** → **File** → **Add Package Dependencies...**&#x20;
 
 <figure><img src="../../../.gitbook/assets/apple_swift_package_01.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/스크린샷 2025-03-20 오후 12.03.51.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

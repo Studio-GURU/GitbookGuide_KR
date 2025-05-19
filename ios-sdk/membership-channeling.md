@@ -100,7 +100,7 @@ struct PartnerApp: App {
 </strong>        // TreasureKit 인스턴스 생성
         .build()
         // 보물섬 SDK 초기화
-        treasureKit.initialize()
+        sceneKit.initialize()
         
         // ... other code ...
         // &#x3C;code>
@@ -133,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </strong>        // TreasureKit 인스턴스 생성
         .build()
         // 보물섬 SDK 초기화
-        treasureKit.initialize()        
+        sceneKit.initialize()        
         return true
     }
 }
@@ -200,33 +200,11 @@ Profile.Builder().register() 호출을 통한 프로필 등록
 
 ***
 
-### SignKey 생성 하기
-
-{% hint style="info" %}
-**signature 생성 (**<mark style="color:red;">**HmacSHA256 생성에 필요한 Key는 영업팀을 통해 전달 됩니다.**</mark>**)**
-
-***
-
-<mark style="color:red;">**{} 표현은 변수 입니다 ({}값이 포함되지 않도록 주의 바랍니다.)**</mark>
-
-**{timeStamp}{nonce}{암호화된User식별자}**
-
-위 값을 HmacSHA256 Hash → Base64 Url Encodeing을 통해 Signature를 생성합니다.
-
-***
-
-* timeStamp → unix timestamp seconds
-* nonce → 문자열 32자(임의로 생성된 문자열 32자)
-* user 식별자 → 회원 구분이 가능한 식별자
-{% endhint %}
-
-<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp, nonce, userid  값은 <strong>signature 생성에 사용된 값</strong>을 전달 합니다.</mark></p></td></tr></tbody></table>
-
 ### Profile.Builder
 
 ```swift
-// SignKey를 이용하여 인스턴스를 생성합니다.
-Profile.Builder(signKey: AccountUtils.accountTicket())
+// Sign 생성 가이드를 통해 생성된 SignKey를 이용하여 인스턴스를 생성합니다.
+Profile.Builder(signKey: ${signKey})
     // 성별을 설정합니다.(옵션)
     .withGender(gender: Profile.Gender.male 또는 Profile.Gender.female)
     // 태어난 연도를 설정합니다.(옵션)
