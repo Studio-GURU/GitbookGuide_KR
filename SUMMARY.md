@@ -112,13 +112,13 @@
 
 ## Unity
 
-* [릴리즈 노트](unity/undefined.md)
+* [릴리즈 노트](unity/release.md)
 * [시작하기](unity/start.md)
 * [채널회원 미연동 방식](unity/membership-basic.md)
 * [채널회원 연동 방식](unity/membership-channeling.md)
 * [Sign 생성](unity/sign.md)
-* [추천 컨텐츠 목록 조회](unity/undefined-1.md)
-* [최근 본 작품 조회](unity/undefined-2.md)
+* [추천 컨텐츠 목록 조회](unity/undefined.md)
+* [최근 본 작품 조회](unity/undefined-1.md)
 * [보물섬 알림 서비스](unity/notification.md)
 * [보물섬 인앱 구매 서비스](unity/iap.md)
 * [Untitled](unity/untitled.md)

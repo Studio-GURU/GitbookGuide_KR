@@ -1,30 +1,28 @@
 ---
-description: 보물섬이 제공하는 "오늘의추천" 페이지를 사용하지 않고, 별도 화면을 구성하려면 API 이용하시면 됩니다.
+description: 사용자가 최근 본 작품을 조회하는 API 로 채널회원이 연동되어 있는 방식에서만 동작합니다.
 icon: list
 ---
 
-# 추천 컨텐츠 목록 조회
+# 최근 본 작품 조회
 
 ## API
 
 {% code lineNumbers="true" %}
 ```csharp
-void RecommendationContents(
+void RecentContents(
     string signKey, 
-    string? adid, 
-    bool? isAdult, 
-    ITaskListener<RecommendationContentModel[]> callback
-)
+    ITaskListener<RecentContentModel[]> callback
+) 
 ```
 {% endcode %}
 
-<table><thead><tr><th width="146">Name</th><th width="143">Type</th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>signature</td><td>string</td><td>required</td><td><a data-mention href="../android-sdk/sign.md">sign.md</a></td></tr><tr><td>adid</td><td>string</td><td>option</td><td>광고 식별값(ADID, IDFA)</td></tr><tr><td>isAdult</td><td>boolean</td><td>option</td><td> 성인 여부</td></tr></tbody></table>
+<table><thead><tr><th width="146">Name</th><th width="143">Type</th><th width="118">Required</th><th>Description</th></tr></thead><tbody><tr><td>signature</td><td>string</td><td>required</td><td><a data-mention href="../android-sdk/sign.md">sign.md</a></td></tr></tbody></table>
 
 ***
 
-## Response(RecommendationContentModel)
+## Response(RecentContentModel)
 
-<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>sequence</td></tr><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 세로 )</td></tr><tr><td><code>subThumbnail</code></td><td>string</td><td>썸네일 이미지 경로 ( 가로 )</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품 키</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>회차 번호</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크 ( 참고용 )</td></tr><tr><td><code>order</code></td><td>number</td><td>노출 우선 순위 ( 같은 값이 존재할 수 있습니다 )</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>추천일 ( YYYY-MM-DD )</td></tr><tr><td><code>freeEpisode</code></td><td>number</td><td>무료 회차 수</td></tr><tr><td><code>isRewardAvailable</code></td><td>boolean</td><td>포인트 지급 가능 여부</td></tr><tr><td><code>minReward</code></td><td>number</td><td>지급 가능 최소 금액 ( 지급 불가능일 경우 0으로 반환 )</td></tr><tr><td><code>maxReward</code></td><td>number</td><td>지급 가능 최대 금액 ( 지급 불가능일 경우 0으로 반환 )</td></tr></tbody></table>
+<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>title</code></td><td>string</td><td>제목</td></tr><tr><td><code>description</code></td><td>string</td><td>내용</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>이미지 경로</td></tr><tr><td><code>contentType</code></td><td>string</td><td>웹툰 | 웹소설</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>작품 키</td></tr><tr><td><code>contentEpisodeTitle</code></td><td>string</td><td>마지막으로 본 에피소드 제목</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>마지막으로 본 에피소드 회차</td></tr><tr><td><code>genre</code></td><td>string</td><td>장르</td></tr><tr><td><code>link</code></td><td>string</td><td><p>제공되는 링크 뒤에 sign 붙여서 전달</p><p>예)<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>최종 이동 링크 ( 참고용 )</td></tr><tr><td><code>isWaitFree</code></td><td>boolean</td><td>기다리면 무료 작품 여부</td></tr><tr><td><code>waitFreeInfo(optional)</code></td><td>object</td><td>기다리면 무료 티켓 정보</td></tr><tr><td></td><td></td><td><p><code>{</code><br>  <code>chargedTicket: boolean,</code><br>  <code>baseDate: Date,</code><br>  <code>chargedDate: Date</code><br><code>}</code></p><ul><li><mark style="background-color:purple;">chargedTicket: 기다리면 무료 티켓 소지 여부</mark></li><li><mark style="background-color:purple;">baseDate: 티켓 계산 기준 날짜</mark></li><li><mark style="background-color:purple;">chargeDate: 티켓 충전 날짜</mark></li></ul></td></tr><tr><td><code>freeEpisode</code></td><td>number</td><td>무료 회차 수</td></tr></tbody></table>
 
 ***
 
@@ -32,29 +30,24 @@ void RecommendationContents(
 
 {% code lineNumbers="true" %}
 ```csharp
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 #if UNITY_IOS
 using TreasureComicsPlugin.iOS;
 #elif UNITY_ANDROID
 using TreasureComicsPlugin.Android;
 #endif
-public class ButtonRecommendationContentScript : MonoBehaviour
+public class ButtonRecentContentScript : MonoBehaviour
 {
     public void OnClickButton() {
         TaskListenerImplementation implementation = new();
-        ComicsScript.RecommendationContents(
-            signKey: ${signKey}, 
-            adid: ${adid}, 
-            isAdult: ${isAdult}, 
-            callback: implementation
-        );
+        ComicsScript.RecentContents(signKey: ${signKey}, callback: implementation);
     }
-    public class TaskListenerImplementation : ITaskListener<RecommendationContentModel[]>
+    public class TaskListenerImplementation : ITaskListener<RecentContentModel[]>
     {
-        public void OnSuccess(RecommendationContentModel[] result)
+        public void OnSuccess(RecentContentModel[] result)
         {
-            foreach (RecommendationContentModel item in result)
+            foreach (RecentContentModel item in result)
             {
                 Debug.Log($"---------------------------->>>>>> {item.title}");
             }
@@ -62,7 +55,7 @@ public class ButtonRecommendationContentScript : MonoBehaviour
 
         public void OnFailure(string message)
         {
-            Debug.Log("RecommendationContents Failed: " + message);
+            Debug.Log("Initialization Failed: " + message);
         }
     }
 }
