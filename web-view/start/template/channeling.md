@@ -26,7 +26,7 @@ icon: user-group
 https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
 
 오늘의추천
-https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommandtion/{channel}
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommendation/{channel}
 ```
 
 **Test 대역**
@@ -36,7 +36,7 @@ https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=
 https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/main
 
 오늘의추천
-https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/recommandtion/{channel}
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/recommendation/{channel}
 
 ```
 
