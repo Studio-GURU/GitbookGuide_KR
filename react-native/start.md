@@ -92,17 +92,11 @@ https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 {% endhint %}
 
 ```sh
-# yarn
-# yarn 저장소 등록
-$ yarn config set registry https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
-# yarn 모둘 추가
-$ yarn add treasurecomics-addon@latest
+# yarn 방식으로 모듈 추가
+$ yarn add treasurecomics-addon@latest --registry=https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 
-# npm
-# npm 저장소 등록
-$ npm config set registry https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
-# npm 모둘 추가
-$ npm install treasurecomics-addon@latest
+# npm 방식으로 모듈 추가
+$ npm install treasurecomics-addon@latest --registry=https://npm.cloudsmith.io/studio-guru/treasurecomics-reactnative/
 ```
 
 패키지가 설치되면 node\_module 폴더에 저장이 되며, package.json에 추가됩니다.
