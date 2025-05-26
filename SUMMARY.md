@@ -24,6 +24,7 @@
 
 * [Postback API 가이드](postback-api.md)
 * [\[ API \] 회원 탈퇴](withdraw.md)
+* [\[ API \] 가입 가능 여부 조회](withdrawcheck.md)
 * [\[ API \] 회원 코인 조회](cashbalance.md)
 * [Token 생성](token.md)
 
