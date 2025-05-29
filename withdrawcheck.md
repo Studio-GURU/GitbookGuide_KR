@@ -18,10 +18,10 @@ icon: mobile-notch
 
 ```
 테스트
-POST https://api-test.treasurecomics.com/external/account/withdraw/check
+GET https://api-test.treasurecomics.com/external/account/withdraw/check
 
 라이브
-POST https://api.treasurecomics.com/external/account/withdraw/check
+GET https://api.treasurecomics.com/external/account/withdraw/check
 ```
 
 ### Security
