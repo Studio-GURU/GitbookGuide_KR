@@ -55,7 +55,7 @@ Authorization: Basic Token
 
 ### **Response**
 
-<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Require</th><th>Description</th></tr></thead><tbody><tr><td><code>isLoginAble</code></td><td>boolean</td><td>true</td><td>가입 가능 여부</td></tr><tr><td><code>message</code></td><td>string</td><td>false</td><td>재가입 가능 일자 안내 메세지</td></tr><tr><td><code>withdrawDateTime</code></td><td>string</td><td>false</td><td>탈퇴 일자</td></tr></tbody></table>
+<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Require</th><th>Description</th></tr></thead><tbody><tr><td><code>isLoginAble</code></td><td>boolean</td><td>true</td><td>가입 가능 여부</td></tr><tr><td><code>message</code></td><td>string</td><td>false</td><td>재가입 가능 일자 안내 메세지</td></tr><tr><td><code>withdrawDateTime</code></td><td>string</td><td>false</td><td>탈퇴 일자 ( YYYYMMDDHHmmss  )</td></tr></tbody></table>
 
 **Response Code**
 
@@ -67,7 +67,7 @@ Authorization: Basic Token
   {
     "isLoginAble": false,
     "message": "2025년 6월 2일 16시 34분 이후 재가입 가능합니다.",
-    "withdrawDateTime": "2025-05-26T16:34:02+09:00"
+    "withdrawDateTime": "20250526163402"
   }
   
   // 가입 가능 시
