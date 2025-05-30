@@ -125,7 +125,9 @@ class SampleViewController: UIViewController {
     // ---------- 필수 ---------- //
     // WKWebView의 설정을 관리하는 객체를 생성합니다. 이를 통해 JavaScript 실행, 쿠키 저장, 콘텐츠 접근 정책 등을 설정할 수 있습니다.
     let configuration = WKWebViewConfiguration()
-    // JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
+    // 비디오 재생이 자동으로 전체화면으로 전환되지 않도록 합니다.
+<strong>    configuration.allowsInlineMediaPlayback = true
+</strong>    // JavaScript에서 window.open()을 사용하여 새로운 창을 자동으로 열 수 있도록 허용합니다.
 <strong>    configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
 </strong>    // 기본적인 웹사이트 데이터 저장소를 설정합니다.
     // 캐시, 쿠키, 세션 저장 등의 데이터를 관리하는 역할을 합니다.
