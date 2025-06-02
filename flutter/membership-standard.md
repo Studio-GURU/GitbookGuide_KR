@@ -65,11 +65,10 @@ import 'package:treasurecomics_addon/treasurecomics_addon.dart';
 import 'package:treasurecomics_addon/models/environment_config.dart';
 import 'package:treasurecomics_addon/models/membership_config.dart';
 import 'package:treasurecomics_addon/models/notification_config.dart';
-import 'package:treasurecomics_addon/models/statusbar_config.dart';
 ```
 {% endcode %}
 
-<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>environment_config.dart</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>membership_config.dart</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>statusbar_config.dart</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>notification_config.datd</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
+<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>environment_config.dart</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>membership_config.dart</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>notification_config.datd</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
 
 ### comicsWithInitialize
 
@@ -78,7 +77,6 @@ import 'package:treasurecomics_addon/models/statusbar_config.dart';
 | `appId`              | 연동앱의 고유 식별자                            |
 | `appSecret`          | 연동앱의 고유 식별자 검증키                        |
 | `allowDebug`         | 로그 출력 여부 (optional / default: false)   |
-| `statusBarConfig`    | 상태창 색상 설정(optional / only android)     |
 | `notificationConfig` | 푸시 알림(기다무) 설정(optional / only android) |
 | `environment`        | 접속 환경(optional / default: Live)        |
 
@@ -90,11 +88,9 @@ import 'package:treasurecomics_addon/models/statusbar_config.dart';
 import 'package:treasurecomics_addon/models/environment_config.dart';
 import 'package:treasurecomics_addon/models/membership_config.dart';
 import 'package:treasurecomics_addon/models/notification_config.dart';
-import 'package:treasurecomics_addon/models/statusbar_config.dart';
 
 // 앱의 시작점에 아래 코드를 참고하여 초기화를 진행합니다.
 Future&#x3C;void> initComics() async {
-    final statusbarConfig = StatusbarConfig(statusBarColor: "#FFFF00", isWindowLight: false);
     final notificationConfig = NotificationConfig(channelName: "플러터", smallIconResourceName: "ic_flutter_notify");
     final result = await FlutterTreasureislandAddon().comicsInitialize(
         // AppID
@@ -105,8 +101,6 @@ Future&#x3C;void> initComics() async {
 <strong>        Membership.Basic,
 </strong>        // Log
         true,
-        // Statusbar config
-        statusbarConfig,
         // Notification config
         notificationConfig,
         // Environment
@@ -115,27 +109,6 @@ Future&#x3C;void> initComics() async {
     print("comicsInitialize { success: ${result.success}, message: ${result.message} }");
   }
 </code></pre>
-
-### StatusBarConfig
-
-{% code lineNumbers="true" %}
-```dart
-// define
-class StatusbarConfig {
-  // StatusBar 색상을 설정 합니다.색상 HEX값을 사용합니다. #FFFFFF
-  final String statusBarColor;
-  // true: StatusBar 요소의 색상이 밝게 표시 됩니다.(어두운 배경일 경우 사용)
-  // false: StatusBar 요소의 색상이 어둡게 표시 됩니다.(밝은 배경일 경우 사용)
-  final bool isWindowLight;
-}
-
-// usage
-final statusbarConfig = StatusbarConfig(
-  statusBarColor: "#FFFFFF", 
-  isWindowLight: false
-);
-```
-{% endcode %}
 
 ### NotificationConfig
 

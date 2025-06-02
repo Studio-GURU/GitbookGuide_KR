@@ -63,14 +63,13 @@ Application 시작시 초기화를 진행합니다.
 import {
   Environment,
   Membership,
-  StatusBarConfig,
   NotificationConfig,
   comicsInitialize,  
   comicsLaunch,
 } from 'treasurecomics-addon';
 ```
 
-<table><thead><tr><th width="217">Module Name</th><th width="124">Type</th><th width="165">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>StatusBarConfig</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>NotificationConfig</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr><tr><td><code>comicsWithInitialize</code></td><td>function</td><td>초기화 함수</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="217">Module Name</th><th width="124">Type</th><th width="165">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td><mark style="color:red;"><strong>Basic</strong></mark> / Channeling</td></tr><tr><td><code>NotificationConfig</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr><tr><td><code>comicsWithInitialize</code></td><td>function</td><td>초기화 함수</td><td></td></tr></tbody></table>
 
 ### comicsInitialize
 
@@ -80,7 +79,6 @@ import {
 | `appSecret`          | 연동앱의 고유 식별자 검증키                        |
 | `membership`         | 연동앱의 회원 정책 설정(**Basic** / Channeling)  |
 | `allowDebug`         | 로그 출력 여부 (optional / default: false)   |
-| `statusBarConfig`    | 상태창 색상 설정(optional / only android)     |
 | `notificationConfig` | 푸시 알림(기다무) 설정(optional / only android) |
 | `environment`        | 접속 환경(optional / default: Live)        |
 
@@ -101,7 +99,6 @@ function App(): React.JSX.Element {
   useEffect(() => {
     const init = async () => {
       console.log('App mounted');
-      const statusBarConfig = new StatusBarConfig('#FFFFFF', false);
       const notificationConfig = new NotificationConfig(
         '보물섬X리액트', 
         require('./assets/icon/ic_notify.png')
@@ -114,9 +111,7 @@ function App(): React.JSX.Element {
         // membership
 <strong>        Membership.Basic
 </strong>        // allowDebug
-        true, 
-        // StatusBarConfig
-        statusBarConfig,
+        true,
         // NotificationConfig
         notificationConfig,
         // environment
@@ -128,24 +123,6 @@ function App(): React.JSX.Element {
     init();
   }, []);
 </code></pre>
-
-### StatusBarConfig
-
-{% code lineNumbers="true" %}
-```typescript
-// define
-class StatusBarConfig {
-  // StatusBar 색상을 설정 합니다.색상 HEX값을 사용합니다. #FFFFFF
-  statusBarColor: string;
-  // true: StatusBar 요소의 색상이 밝게 표시 됩니다.(어두운 배경일 경우 사용)
-  // false: StatusBar 요소의 색상이 어둡게 표시 됩니다.(밝은 배경일 경우 사용)
-  isWindowLight: boolean;
-}
-
-// usage
-const statusBarConfig = new StatusBarConfig('#FFFFFF', false);
-```
-{% endcode %}
 
 ### NotificationConfig
 

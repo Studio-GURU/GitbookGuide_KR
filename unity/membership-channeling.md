@@ -106,38 +106,12 @@ public InitModel(
     Membership membership,
     bool allowLog,
     Environment environment,
-    NotificationOptionModel notificationOption,
-    StatusbarOptionModel statusbarOption
+    NotificationOptionModel notificationOption
 )
 ```
 {% endcode %}
 
-<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td>Basic / <mark style="color:red;"><strong>Channeling</strong></mark></td></tr><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>NotificationOptionModel</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr><tr><td><code>StatusbarOptionModel</code></td><td>data class</td><td>푸시알림 설정</td><td>Only Android</td></tr></tbody></table>
-
-### StatusbarOptionModel
-
-<pre class="language-csharp" data-line-numbers><code class="lang-csharp">// define
-public class StatusbarOptionModel {
-  // StatusBar 색상을 설정 합니다.색상 HEX값을 사용합니다. #FFFFFF
-  public string statusbarColor;
-  // true: StatusBar 요소의 색상이 밝게 표시 됩니다.(어두운 배경일 경우 사용)
-  // false: StatusBar 요소의 색상이 어둡게 표시 됩니다.(밝은 배경일 경우 사용)
-  public bool isWindwoLight = false;  
-}
-
-// usage
-<strong>#if UNITY_IOS
-</strong>TreasureComicsPlugin.iOS.StatusbarOptionModel model = new(
-  channelName: "보물섬",
-  notificationIconName: "app_icon"
-);
-<strong>#elif UNITY_ANDROID
-</strong>TreasureComicsPlugin.Android.StatusbarOptionModel model = new(
-  channelName: "보물섬",
-  notificationIconName: "app_icon"
-);
-<strong>#endif
-</strong></code></pre>
+<table><thead><tr><th width="300">Module Name</th><th width="122">Type</th><th width="147">Description</th><th>Etc</th></tr></thead><tbody><tr><td><code>Membership</code></td><td>enum</td><td>회원 정책 설정</td><td>Basic / <mark style="color:red;"><strong>Channeling</strong></mark></td></tr><tr><td><code>Environment</code></td><td>enum</td><td>접속 환경 설정</td><td>default : Live</td></tr><tr><td><code>NotificationOptionModel</code></td><td>data class</td><td>상태창 색상 설정 </td><td>Only Android</td></tr></tbody></table>
 
 ### NotificationOptionModel
 
@@ -173,7 +147,6 @@ public class NotificationOptionModel {
 | `appSecret`          | 연동앱의 고유 식별자 검증키                                                       |
 | `membership`         | 연동앱의 회원 정책 설정(Basic / <mark style="color:red;">**Channeling**</mark>) |
 | `allowDebug`         | 로그 출력 여부 (optional / **default: false**)                              |
-| `statusBarConfig`    | 상태창 색상 설정(optional / **only android**)                                |
 | `notificationConfig` | 푸시 알림(기다무) 설정(optional / **only android**)                            |
 | `environment`        | 접속 환경(optional / **default: Live**)                                   |
 
@@ -201,10 +174,6 @@ public class NotificationOptionModel {
             notificationOption: new NotificationOptionModel(
                 channelName: "보물섬",
                 notificationIconName: "app_icon"                          
-            ),
-            statusbarOption: new StatusbarOptionModel(
-                statusbarColor: "#FFFFFF",
-                isWindwoLight: false
             )
         );
 <strong>        TaskListenerImplementation taskImplementation = new();

@@ -120,13 +120,6 @@ dependencies {
 </strong>        )
         // option 로그 출력 여부를 설정합니다.
         .withAllowLog(allowLog = true)
-        // option 상태창의 색상을 설정 합니다.
-        .withStatusBarOption(
-            config = SceneConfig.StatusBarOption(
-                statusBarColor = Color.parseColor("#FF6103"),
-                isWindowLight = false
-            )
-        )
         // option 푸시 알림 설정
         .withNotificationOption(
             config = SceneConfig.NotificationOption(
@@ -187,19 +180,6 @@ SDK 로그 출력 여부를 설정 합니다.
 | Name       | Type    | Description            |
 | ---------- | ------- | ---------------------- |
 | `allowLog` | boolean | 로그 출력 여부 (`기본값 false`) |
-
-#### 🎈withStatusBarColor(config: TreasureConfig.StatusBarOption)
-
-화면의 상단 상태창의 색상을 설정합니다.
-
-**✓ 기본값 → 보물섬의 기본값이 사용됩니다.**
-
-⬇ TreasureConfig.StatusBarOption
-
-| Name             | Type                        | Description                                                                                                         |
-| ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `statusBarColor` | **'@'ColorInt**(`nullable`) | <p>상태창 배경 색상<br><code>기본값: Color.WHITE</code></p>                                                                   |
-| `isWindowLight`  | boolean(`nullable`)         | <p>상태창 텍스트 색상 설정<br><code>기본값: false</code><br><code>true: 어두운 색상의 텍스트</code><br><code>false: 밝은 색상의 텍스트</code></p> |
 
 #### 🎈withNotificationOption(config: TreasureConfig.NotificationOption)
 
