@@ -16,7 +16,17 @@ hidden: true
 
 ***
 
-### 2. 요청 방식
+### 2. Security
+
+{% hint style="danger" %}
+**IPSec 또는 방화벽 구성을 위한 IP 정보가 필요한 경우 아래의 내용을 참고 하세요.**
+{% endhint %}
+
+<table><thead><tr><th width="344">대역</th><th>IPAddress</th></tr></thead><tbody><tr><td><strong>TEST</strong></td><td>210.97.114.140</td></tr><tr><td></td><td>13.209.193.6</td></tr><tr><td><strong>LIVE</strong></td><td>3.37.74.240</td></tr></tbody></table>
+
+***
+
+### 3. 요청 방식
 
 * **Method**: `POST`
 * **Content-Type**: `application/json`
@@ -24,7 +34,7 @@ hidden: true
 
 ***
 
-### 3. 요청 파라미터
+### 4. 요청 파라미터
 
 | parameter       | type    | require | description                  |
 | --------------- | ------- | ------- | ---------------------------- |
@@ -34,7 +44,7 @@ hidden: true
 
 ***
 
-### 4. 요청 예시
+### 5. 요청 예시
 
 ```
 {
@@ -46,7 +56,7 @@ hidden: true
 
 ***
 
-### 5. 응답 형식
+### 6. 응답 형식
 
 응답값은 성공 또는 실패 여부를 반환해야 합니다.
 
