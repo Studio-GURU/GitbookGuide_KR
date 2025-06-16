@@ -13,6 +13,10 @@ icon: hand-point-right
 
 * **커스텀 설정을 위한 데이터를 가져오는 API 가이드입니다.**
 
+{% hint style="warning" %}
+**API 연동시 앱 성능향상, 네트워크 절약, 사용자 경험 개선을 위해 이미지 캐싱 사용을 권장하고 있습니다.**
+{% endhint %}
+
 {% content-ref url="recommendation.md" %}
 [recommendation.md](recommendation.md)
 {% endcontent-ref %}

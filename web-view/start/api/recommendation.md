@@ -149,6 +149,62 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ***
 
+## 이미지 캐싱
+
+{% hint style="info" %}
+**앱 성능 향상**, **네트워크 절약**, **사용자 경험 개선을 위해 "thumbnail", "subThumbnail" 항목에 대해 이미지 캐싱 처리를 권장하고 있습니다.**
+
+***
+
+### <mark style="color:red;">보물섬은 이미지 변경시 이미지 URL이 변경됩니다. URL을 기준으로 캐싱 정책을 구성 하기기 바랍니다.</mark>
+{% endhint %}
+
+### ✅ 1. **빠른 이미지 로딩 (퍼포먼스 향상)**
+
+이미지를 네트워크에서 매번 불러오면 로딩 시간이 길어지고 UI가 느려질 수 있습니다.\
+→ 캐시에 저장해두면 디스크나 메모리에서 **즉시 로딩** 가능
+
+***
+
+### ✅ 2. **네트워크 트래픽 절약**
+
+같은 이미지를 여러 번 다운로드하면 사용자 데이터 요금이 낭비되고, 서버 비용도 증가합니다.\
+→ 캐싱은 **중복 다운로드 방지**에 효과적입니다.
+
+***
+
+### ✅ 3. **오프라인 지원**
+
+인터넷이 없는 환경에서도 이미 본 이미지는 캐시에서 로드 가능\
+→ 뉴스 앱, 쇼핑 앱, 갤러리 앱 등에 매우 유용
+
+***
+
+### ✅ 4. **배터리 사용 최적화**
+
+불필요한 네트워크 요청은 CPU와 무선 칩을 많이 사용하게 되어 배터리 소모가 큽니다.\
+→ 캐시는 **배터리 절약**에도 도움이 됩니다.
+
+***
+
+### ✅ 5. **UX(사용자 경험) 개선**
+
+* 이미지가 **깜빡이지 않고** 부드럽게 뜹니다.
+* 리스트 스크롤 시 **끊김 없이 로딩**됩니다.
+* 사용자가 **앱이 빠르다고 느끼는** 중요한 포인트입니다.
+
+### ✅ 6. 캐싱 처리 예시
+
+* Android
+  * [Glide](https://bumptech.github.io/glide/doc/caching.html)
+  * [Coil](https://coil-kt.github.io/coil/image_loaders/#caching)
+  * [Picasso](https://square.github.io/picasso/) (Automatic memory and disk caching.)
+* iOS
+  * [KingFisher](https://swiftpackageindex.com/onevcat/kingfisher/master/documentation/kingfisher/commontasks_cache)
+  * [SDWebImages](https://github.com/SDWebImage/SDWebImageSwiftUI?tab=readme-ov-file#customization-and-configuration-setup)
+
+
+
 ## 추천 컨텐츠 목록 구현 화면 예시
 
 <div align="left"><figure><img src="../../../.gitbook/assets/bms_recommendation_2.png" alt="" width="375"><figcaption></figcaption></figure></div>
