@@ -284,9 +284,7 @@ public class SampleActivity extends AppCompatActivity {
 스크린 캡쳐 방지 기능은 실기기에서만 동작 합니다.
 {% endhint %}
 
-{% code lineNumbers="true" %}
-```swift
-// ... import ...
+<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 import Foundation
 import UIKit
 import WebKit
@@ -294,7 +292,7 @@ import WebKit
 class SampleViewController: UIViewController {
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...    
     
     private lazy var webView: WKWebView = {
@@ -302,9 +300,9 @@ class SampleViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.view.addSubview(self.webView)
         NSLayoutConstraint.activate([
             self.webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -313,13 +311,21 @@ class SampleViewController: UIViewController {
             self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         self.webView.load(URLRequest(url: URL(string: "https://www.harustory.co.kr")!))
-        self.applySecureContent()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !isSecure {
+            self.applySecureContent()
+        }
+    }
+
+    var isSecure = false
     func applySecureContent() {
         DispatchQueue.main.async {
             let secureField = UITextField()
-            // secureField 크기를 웹뷰의 크기와 동일하게 설정합니다.
+<strong>            secureField.isEnabled = false
+</strong>            // secureField 크기를 웹뷰의 크기와 동일하게 설정합니다.
             secureField.frame = self.webview.bounds
             // secureField의 보안을 설정합니다.
             secureField.isSecureTextEntry = true
@@ -329,20 +335,21 @@ class SampleViewController: UIViewController {
             secureField.backgroundColor = .clear
             // 웹뷰에 secureField를 추가합니다.
             self.webview.addSubview(secureField)
-            // 웹뷰 레이어에 secureField의 레이어를 추가합니다.
-            self.webview.layer.superlayer?.addSublayer(secureField.layer)
-            // secureField의 레이어를 웹뷰의 레이어 위에 추가합니다.
+<strong>            secureField.removeFromSuperview()
+</strong>            // 웹뷰 레이어에 secureField의 레이어를 추가합니다.
+<strong>            self.webview.layer.superlayer?.insertSublayer(secureField.layer, at:0)
+</strong>            // secureField의 레이어를 웹뷰의 레이어 위에 추가합니다.
             secureField.layer.sublayers?.last?.addSublayer(self.webview.layer)
+            isSecure = true
         }
     }
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
 }
 
-```
-{% endcode %}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
