@@ -31,10 +31,10 @@
 ## WEB VIEW
 
 * [시작하기](web-view/start/README.md)
-  * [템플릿 연동](web-view/start/template/README.md)
-    * [채널회원 연동 방식](web-view/start/template/channeling.md)
-    * [채널회원 미연동 방식](web-view/start/template/standard.md)
-  * [커스텀 연동 \[ API 연동 \]](web-view/start/api/README.md)
+  * [연동하기](web-view/start/template/README.md)
+    * [채널회원 연동 방식 ( 권장 )](web-view/start/template/channeling.md)
+    * [채널회원 미연동 방식 ( 자체 회원 체계가 없을 시 사용 )](web-view/start/template/standard.md)
+  * [\[ 선택 \] API로 추가 진입점 구성](web-view/start/api/README.md)
     * [\[ API \] 추천 컨텐츠 목록 조회](web-view/start/api/recommendation.md)
     * [\[ API \] 최근 본 작품 조회](web-view/start/api/recently.md)
     * [\[ API \] 추천 컨텐츠 목록 조회 ( Client )](web-view/start/api/recommendaition_client.md)
@@ -51,6 +51,30 @@
     * [추가 정보 수집 요청](web-view/webview-config/javascript/undefined-2.md)
     * [Text To Speech(TTS)](web-view/webview-config/javascript/text-to-speech-tts.md)
 * [Sign 생성](web-view/sign.md)
+
+## Web VIEW ( version 2 )
+
+* [시작하기](web-view-version-2/start/README.md)
+  * [템플릿 연동](web-view-version-2/start/template/README.md)
+    * [채널회원 연동 방식](web-view-version-2/start/template/channeling.md)
+    * [채널회원 미연동 방식](web-view-version-2/start/template/standard.md)
+  * [커스텀 연동 \[ API 연동 \]](web-view-version-2/start/api/README.md)
+    * [\[ API \] 추천 컨텐츠 목록 조회](web-view-version-2/start/api/recommendation.md)
+    * [\[ API \] 최근 본 작품 조회](web-view-version-2/start/api/recently.md)
+    * [\[ API \] 추천 컨텐츠 목록 조회 ( Client )](web-view-version-2/start/api/recommendaition_client.md)
+    * [\[ API \] 추천 컨텐츠 리워드 지급 가능 여부 조회 ( Client )](web-view-version-2/start/api/rewardcheck_client.md)
+    * [\[ API \] 최근 본 작품 조회 ( Client )](web-view-version-2/start/api/recentview_client.md)
+    * [\[ API \] 인기 작품 조회 ( Client )](web-view-version-2/start/api/top_client.md)
+    * [\[ API \] 회원 탈퇴](web-view-version-2/start/api/withdraw.md)
+    * [채널회원 연동 방식](web-view-version-2/start/api/channeling.md)
+    * [채널회원 미연동 방식](web-view-version-2/start/api/standard.md)
+* [웹뷰 설정 가이드](web-view-version-2/webview-config/README.md)
+  * [자바스크립트 통신](web-view-version-2/webview-config/javascript/README.md)
+    * [외부 웹 브라우저 오픈 요청](web-view-version-2/webview-config/javascript/undefined.md)
+    * [기기 광고 식별값 수집 요청](web-view-version-2/webview-config/javascript/undefined-1.md)
+    * [추가 정보 수집 요청](web-view-version-2/webview-config/javascript/undefined-2.md)
+    * [Text To Speech(TTS)](web-view-version-2/webview-config/javascript/text-to-speech-tts.md)
+* [Sign 생성](web-view-version-2/sign.md)
 
 ## ANDROID SDK
 

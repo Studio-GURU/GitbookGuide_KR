@@ -3,7 +3,7 @@ description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
 icon: user
 ---
 
-# 채널회원 미연동 방식 ( 자체 회원 체계가 없을 시 사용 )
+# 채널회원 미연동 방식
 
 ***
 
@@ -30,9 +30,8 @@ icon: user
 ```
 메인
 https://{channel}.treasurecomics.com/main
-
-오늘 뭐볼까 ( 상시 운영되는 프로모션 페이지 )
-https://{channel}.treasurecomics.com/today-feed
+오늘의 추천
+https://{channel}.treasurecomics.com/recommendation/{channel}
 ```
 
 **Test 대역**
@@ -40,9 +39,8 @@ https://{channel}.treasurecomics.com/today-feed
 ```
 메인
 https://{channel}-test.treasurecomics.com/main
-
-오늘 뭐볼까 ( 상시 운영되는 프로모션 페이지 )
-https://{channel}-test.treasurecomics.com/today-feed
+오늘의 추천
+https://{channel}-test.treasurecomics.com/recommendation/{channel}
 ```
 
 **✓** `{channel}` 값은 **별도 전달** 됩니다.

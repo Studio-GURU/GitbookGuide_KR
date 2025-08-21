@@ -15,31 +15,20 @@ icon: star-shooting
 
 ## 연동 방식
 
-템플릿 적립과 API 적립 **두 가지 방법 중 하나를 선택**하여, 하단 [연동 가이드](./#undefined-3)를 참고해 주세요.
+### **템플릿 연동**
 
-### &#x20;  **템플릿 연동**
-
-<img src="../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-17 001.jpeg" alt="" data-size="original">
+<figure><img src="../../.gitbook/assets/IMG_3586.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
-보물섬에서 제공하는 **기본 연동 메인 웹페이지**로 웹뷰로 로드하여 사용합니다.\
+보물섬에서 제공하는 **기본 연동 메인 웹페이지를** 웹뷰로 로드하여 사용합니다.\
 **빠르고 간편하게 적용**할 수 있습니다.
-
-
-
-### &#x20; **커스텀 연동 (API 연동)**
-
-![](<../../.gitbook/assets/KakaoTalk_Photo_2025-02-28-16-31-18 002.jpeg>)
-
-API를 통해 보물섬의 추천 컨텐츠를 조회하여 **자체 UI ( 네이티브 혹은 웹페이지 )** 에 원하시는 형태로 적용 할 수 있습니다.\
-기존 App의 디자인 및 기능처럼 **일관된 경험 제공**이 가능합니다.
 
 ***
 
 ## 연동 가이드
 
-* 원하는 연동 방식에 맞춰, 아래의 가이드를 확인해주세요 !
+* 추가로 희망하는 경우 API를 활용한 추가 진입점 구성을 지원합니다.
 
 {% content-ref url="template/" %}
 [template](template/)
@@ -67,7 +56,7 @@ OS와의 호환성을 위하여 명시된 플랫폼의 요구사항을 확인 �
 
 ✓ Android 5.0(API Level 21) 이상을 권장합니다.
 
-✓ Google Play 타겟 API 수준 -> Compile SDK Version 34(:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
+✓ Google Play 타겟 API 수준 -> Compile SDK Version 34 (:link:[Google Play의 대상 API 수준 요구사항 충족](https://developer.android.com/google/play/requirements/target-sdk?hl=ko))
 
 ***
 

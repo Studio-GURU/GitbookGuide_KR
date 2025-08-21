@@ -3,9 +3,7 @@ description: 보물섬 채널링 서비스 연동을 위한 방법을 안내합�
 icon: user-group
 ---
 
-# 채널회원 연동 방식 ( 권장 )
-
-
+# 채널회원 연동 방식
 
 ***
 
@@ -24,21 +22,27 @@ icon: user-group
 **Live 대역**
 
 ```
-오늘 뭐볼까 ( 상시 운영되는 프로모션 페이지 )
-https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/today-feed
-
 메인화면
 https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/main
+
+오늘의 추천
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/recommendation/{channel}
+
+오늘 뭐볼까
+https://{channel}.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}.treasurecomics.com/today-feed
 ```
 
 **Test 대역**
 
 ```
-오늘 뭐볼까 ( 상시 운영되는 프로모션 페이지 )
-https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/today-feed
-
 메인화면
 https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/main
+
+오늘의 추천
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/recommendation/{channel}
+
+오늘 뭐볼까
+https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&returnUrl=https://{channel}-test.treasurecomics.com/today-feed
 ```
 
 **✓** **returnUrl 은 UrlEncode된 값으로 전달 합니다.**
@@ -49,7 +53,7 @@ https://{channel}-test.treasurecomics.com/gateway/common?sign={sign-value}&retur
 
 
 
-<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td>sign</td><td>string</td><td>true</td><td><a data-mention href="../../sign.md">sign.md</a></td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td><p>성인여부</p><p>0 : 성인 X</p><p>1 : 성인</p></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="116">Name</th><th width="141">Type</th><th width="127">Required</th><th>Description</th></tr></thead><tbody><tr><td>sign</td><td>string</td><td>true</td><td><a data-mention href="../../../web-view/sign.md">sign.md</a></td></tr><tr><td>isAdult</td><td>number</td><td>false</td><td><p>성인여부</p><p>0 : 성인 X</p><p>1 : 성인</p></td></tr></tbody></table>
 
 ### 사용 예시
 
