@@ -284,7 +284,36 @@ public class SampleActivity extends AppCompatActivity {
 스크린 캡쳐 방지 기능은 실기기에서만 동작 합니다.
 {% endhint %}
 
-<pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
+<pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>import Foundation
+</strong><strong>import UIKit
+</strong><strong>
+</strong><strong>class SecureField : UITextField {
+</strong><strong>    
+</strong><strong>    override init(frame: CGRect) {
+</strong><strong>        super.init(frame: .zero)
+</strong><strong>        self.isSecureTextEntry = true
+</strong><strong>        self.translatesAutoresizingMaskIntoConstraints = false
+</strong><strong>    }
+</strong><strong>    
+</strong><strong>    override var inputView: UIView? {
+</strong><strong>        get { return super.inputView }
+</strong><strong>        set { super.inputView = newValue }
+</strong><strong>    }
+</strong><strong>
+</strong><strong>    required init?(coder: NSCoder) {
+</strong><strong>        fatalError("init(coder:) has not been implemented")
+</strong><strong>    }
+</strong><strong>    
+</strong><strong>    override var canBecomeFirstResponder: Bool {false}
+</strong><strong>    override func becomeFirstResponder() -> Bool {false}
+</strong><strong>    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+</strong><strong>        return false
+</strong><strong>    }
+</strong><strong>}
+</strong>
+
+
+// ... import ...
 import Foundation
 import UIKit
 import WebKit
@@ -320,30 +349,29 @@ class SampleViewController: UIViewController {
         }
     }
 
-    var isSecure = false
-    func applySecureContent() {
-        DispatchQueue.main.async {
-            let secureField = UITextField()
-<strong>            secureField.isEnabled = false
-</strong>            // secureField 크기를 웹뷰의 크기와 동일하게 설정합니다.
-            secureField.frame = self.webview.bounds
-            // secureField의 보안을 설정합니다.
-            secureField.isSecureTextEntry = true
-            // secureField의 상호작용을 비활성화합니다.
-            secureField.isUserInteractionEnabled = false
-            // secureField의 배경색을 투명하게 설정합니다.
-            secureField.backgroundColor = .clear
-            // 웹뷰에 secureField를 추가합니다.
-            self.webview.addSubview(secureField)
-<strong>            secureField.removeFromSuperview()
-</strong>            // 웹뷰 레이어에 secureField의 레이어를 추가합니다.
-<strong>            self.webview.layer.superlayer?.insertSublayer(secureField.layer, at:0)
-</strong>            // secureField의 레이어를 웹뷰의 레이어 위에 추가합니다.
-            secureField.layer.sublayers?.last?.addSublayer(self.webview.layer)
-            isSecure = true
-        }
-    }
-    
+<strong>    var isSecure = false
+</strong><strong>    func applySecureContent() {
+</strong><strong>        DispatchQueue.main.async {
+</strong><strong>            let secureField = SecureField()
+</strong><strong>            secureField.isEnabled = false
+</strong><strong>            // secureField 크기를 웹뷰의 크기와 동일하게 설정합니다.
+</strong><strong>            secureField.frame = self.webview.bounds
+</strong><strong>            // secureField의 보안을 설정합니다.
+</strong><strong>            secureField.isSecureTextEntry = true
+</strong><strong>            // secureField의 상호작용을 비활성화합니다.
+</strong><strong>            secureField.isUserInteractionEnabled = false
+</strong><strong>            // secureField의 배경색을 투명하게 설정합니다.
+</strong><strong>            secureField.backgroundColor = .clear
+</strong><strong>            // 웹뷰에 secureField를 추가합니다.
+</strong><strong>            self.webview.addSubview(secureField)
+</strong><strong>            // 웹뷰 레이어에 secureField의 레이어를 추가합니다.
+</strong><strong>            self.webview.layer.superlayer?.insertSublayer(secureField.layer, at:1)
+</strong><strong>            // secureField의 레이어를 웹뷰의 레이어 위에 추가합니다.
+</strong><strong>            secureField.layer.sublayers?.last?.addSublayer(self.webview.layer)
+</strong><strong>            isSecure = true
+</strong><strong>        }
+</strong><strong>    }
+</strong>    
     // ... other code ...
     // &#x3C;code>
     // ... other code ...
