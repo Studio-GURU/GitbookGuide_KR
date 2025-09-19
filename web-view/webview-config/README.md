@@ -28,9 +28,33 @@ WebView 구성에 필요한 **예제 코드**이며, 실 프로젝트에서는 *
 
 {% tabs %}
 {% tab title="ANDROID(WebView)" %}
+## 광고 수익 창출을 위한 WebView API 통합
+
+### 기본 요건 <a href="#prerequisites" id="prerequisites"></a>
+
+*   [Google 모바일 광고 SDK](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start?hl=ko#import_the_mobile_ads_sdk) 버전 20.6.0 이상
+
+    <pre class="language-gradle"><code class="lang-gradle">dependencies {
+    <strong>  implementation("com.google.android.gms:play-services-ads:24.6.0")
+    </strong>}
+    </code></pre>
+* Android API 수준 21 이상
+*   다음 `<meta-data>` 태그를 `AndroidManifest.xml` 파일에 추가하면 `APPLICATION_ID` 검사를 건너뜁니다. 이 단계를 놓치고 `<meta-data>` 태그를 제공하지 않으면 앱 시작 시 Google 모바일 광고 SDK에서 [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException?hl=ko)이 발생합니다.
+
+    ```xml
+    <!-- Bypass APPLICATION_ID check for web view APIs for ads -->
+     <meta-data
+         android:name="com.google.android.gms.ads.INTEGRATION_MANAGER"
+         android:value="webview"/>
+    ```
+
 {% tabs %}
 {% tab title="KOTLIN" %}
 <pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
+import android.webkit.CookieManager;
+import android.webkit.WebView;
+import com.google.android.gms.ads.MobileAds;
+
 class SampleActivity: AppCompatActivity() {
 
     // ... other code ...
@@ -62,7 +86,11 @@ class SampleActivity: AppCompatActivity() {
         }
     }
 <strong>    // 웹뷰의 오버스크롤을 제한합니다.
-</strong><strong>    ${WebView}.overScrollMode = View.OVER_SCROLL_NEVER
+</strong><strong>    ${WebView}.overScrollMode = View.OVER_SCROLL_NEVER    
+</strong><strong>    // Chrome의 쿠키 정책을 준수하려면 WebView 인스턴스에서 서드 파티 쿠키를 사용 설정하세요.
+</strong><strong>    CookieManager.getInstance().setAcceptThirdPartyCookies(${WebView}, true)
+</strong><strong>    // Register the web view.
+</strong><strong>    MobileAds.registerWebView(${webView});
 </strong>    
     // ... other code ...
     // &#x3C;code>
@@ -73,6 +101,10 @@ class SampleActivity: AppCompatActivity() {
 
 {% tab title="JAVA" %}
 <pre class="language-java" data-line-numbers><code class="lang-java">// ... import ...
+import android.webkit.CookieManager;
+import android.webkit.WebView;
+import com.google.android.gms.ads.MobileAds;
+
 public class SampleActivity extends AppCompatActivity {
 
     // ... other code ...
@@ -104,6 +136,10 @@ public class SampleActivity extends AppCompatActivity {
     }    
 <strong>    // 웹뷰의 오버스크롤을 제한합니다.
 </strong><strong>    ${WebView}.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+</strong><strong>    // Chrome의 쿠키 정책을 준수하려면 WebView 인스턴스에서 서드 파티 쿠키를 사용 설정하세요.
+</strong><strong>    CookieManager.getInstance().setAcceptThirdPartyCookies(${webView}, true);
+</strong><strong>    // Register the web view.
+</strong><strong>    MobileAds.registerWebView(${webView});
 </strong>    
     // ... other code ...
     // &#x3C;code>
@@ -115,6 +151,25 @@ public class SampleActivity extends AppCompatActivity {
 {% endtab %}
 
 {% tab title="iOS(WKWebView)" %}
+## 광고 수익 창출을 위한 WebView API 통합
+
+### 기본 요건 <a href="#prerequisites" id="prerequisites"></a>
+
+* [Google 모바일 광고 SDK ](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start?hl=ko#import_the_mobile_ads_sdk)버전 9.6.0 이상
+  * Swift Package
+    * [https://github.com/googleads/swift-package-manager-google-mobile-ads.git](https://github.com/googleads/swift-package-manager-google-mobile-ads.git)
+  * CocoaPods
+    * ```
+      pod 'Google-Mobile-Ads-SDK'
+      ```
+*   다음 키와 문자열 값으로 `Info.plist` 파일을 업데이트합니다. 이렇게 하면 웹 뷰 외부에서 광고를 구현하는 개발자에게 적용되는 `GADApplicationIdentifier` 값에 대해 Google 모바일 광고 SDK에서 실행하는 검사를 우회할 수 있습니다. 이 단계를 놓치고 `GADApplicationIdentifier`를 제공하지 않으면 앱 시작 시 Google 모바일 광고 SDK에서 `GADInvalidInitializationException`이 발생합니다.
+
+    ```
+    <!-- Indicate Google Mobile Ads SDK usage is only for web view APIs for ads -->
+    <key>GADIntegrationManager</key>
+    <string>webview</string>
+    ```
+
 <pre class="language-swift" data-line-numbers><code class="lang-swift">// ... import ...
 class SampleViewController: UIViewController {
     
@@ -144,6 +199,8 @@ class SampleViewController: UIViewController {
 <strong>    ${WKWebView}.allowsBackForwardNavigationGestures = true
 </strong>    // 웹뷰의 오버스크롤을 제한합니다.
 <strong>    ${WKWebView}.scrollView.bounces = false
+</strong><strong>    // Register the web view.
+</strong><strong>    MobileAds.shared.register(${WKWebView})    
 </strong>    
     // ... other code ...
     // &#x3C;code>
