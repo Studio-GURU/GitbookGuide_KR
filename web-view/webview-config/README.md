@@ -454,14 +454,16 @@ WebView에서 `window.open()`을 처리하려면 **WebChromeClient**를 설정�
 
 {% tabs %}
 {% tab title="KOTLIN" %}
-{% code lineNumbers="true" %}
-```kotlin
-// ... import ...
+<pre class="language-kotlin" data-line-numbers><code class="lang-kotlin">// ... import ...
 class SampleActivity: AppCompatActivity() {
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
+    
+<strong>    val modalWebView = WebView(context)
+</strong><strong>    // modalWebview 기본설정
+</strong>    
     
     webView.webChromeClient = object : WebChromeClient() {
         override fun onCreateWindow(
@@ -475,8 +477,8 @@ class SampleActivity: AppCompatActivity() {
             popupWebView?.webChromeClient = WebChromeClient()
             // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
             val webViewDialog = Dialog(view.context)
-            webViewDialog?.setContentView(newWebView)
-            webViewDialog?.setOnDismissListener {
+<strong>            webViewDialog?.setContentView(modalWebView)
+</strong>            webViewDialog?.setOnDismissListener {
                 popupWebView?.removeAllViews()
                 popupWebView?.destroy()
             }
@@ -489,11 +491,10 @@ class SampleActivity: AppCompatActivity() {
     }
     
     // ... other code ...
-    // <code>
+    // &#x3C;code>
     // ... other code ...
 }
-```
-{% endcode %}
+</code></pre>
 
 
 {% endtab %}
