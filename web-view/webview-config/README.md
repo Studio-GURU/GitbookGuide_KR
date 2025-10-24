@@ -462,9 +462,8 @@ class SampleActivity: AppCompatActivity() {
     // ... other code ...
     
 <strong>    val modalWebView = WebView(context)
-</strong><strong>    // modalWebview 기본설정
+</strong><strong>    // modalWebview 기본설정을 추가합니다.    
 </strong>    
-    
     webView.webChromeClient = object : WebChromeClient() {
         override fun onCreateWindow(
             view: WebView?,
@@ -477,7 +476,7 @@ class SampleActivity: AppCompatActivity() {
             popupWebView?.webChromeClient = WebChromeClient()
             // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
             val webViewDialog = Dialog(view.context)
-<strong>            webViewDialog?.setContentView(modalWebView)
+<strong>            webViewDialog?.setContentView(popupWebView)
 </strong>            webViewDialog?.setOnDismissListener {
                 popupWebView?.removeAllViews()
                 popupWebView?.destroy()
