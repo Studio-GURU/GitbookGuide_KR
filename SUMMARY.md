@@ -33,6 +33,7 @@
 * [시작하기](web-view/start/README.md)
   * [연동하기](web-view/start/template/README.md)
     * [채널회원 연동 방식 ( 권장 )](web-view/start/template/channeling.md)
+    * [오락 채널회원 연동 방식(브릿지-아웃브라우징)](web-view/start/template/channeling-1.md)
     * [채널회원 미연동 방식 ( 자체 회원 체계가 없을 시 사용 )](web-view/start/template/standard.md)
   * [\[ 선택 \] API로 추가 진입점 구성](web-view/start/api/README.md)
     * [\[ API \] 추천 컨텐츠 목록 조회](web-view/start/api/recommendation.md)
