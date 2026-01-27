@@ -461,7 +461,7 @@ class SampleActivity: AppCompatActivity() {
     // &#x3C;code>
     // ... other code ...
     
-<strong>    val modalWebView = WebView(context)
+<strong>    val modalWebView = WebView(##activity##)
 </strong><strong>    // modalWebview 기본설정을 추가합니다.    
 </strong>    
     webView.webChromeClient = object : WebChromeClient() {
@@ -471,20 +471,22 @@ class SampleActivity: AppCompatActivity() {
             isUserGesture: Boolean,
             resultMsg: Message?
         ): Boolean {
-            val popupWebView = WebView(view?.context!!)
+            val popupWebView = WebView(##activity##)
             popupWebView?.webViewClient = WebViewClient()
             popupWebView?.webChromeClient = WebChromeClient()
             // 새 창을 다룰 수 있도록 WebView를 포함하는 Dialog 생성
-            val webViewDialog = Dialog(view.context)
+            val webViewDialog = Dialog(##activity##)
 <strong>            webViewDialog?.setContentView(popupWebView)
 </strong>            webViewDialog?.setOnDismissListener {
                 popupWebView?.removeAllViews()
                 popupWebView?.destroy()
             }
-            webViewDialog?.show()
             val transport = resultMsg?.obj as? WebView.WebViewTransport
             transport?.webView = newWebView
+            
             resultMsg?.sendToTarget()
+            webViewDialog?.show()
+            
             return true
         }
     }
@@ -511,21 +513,23 @@ public class SampleActivity extends AppCompatActivity {
     webView.setWebChromeClient(new WebChromeClient() {
         @Override
         public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-            Context context = view.getContext();
-            WebView popupWebView = new WebView(context);
+            WebView popupWebView = new WebView(##activity##);
             popupWebView.setWebViewClient(new WebViewClient());
             popupWebView.setWebChromeClient(new WebChromeClient());
             // 새 창을 다룰 수 있도록 Dialog에 WebView 추가
-            Dialog webViewDialog = new Dialog(context);
+            Dialog webViewDialog = new Dialog(##activity##);
             webViewDialog.setContentView(popupWebView);
             webViewDialog.setOnDismissListener(dialog -> {
                 popupWebView.removeAllViews();
                 popupWebView.destroy();
             });
-            webViewDialog.show();
+
             WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
             transport.setWebView(popupWebView);
+            
             resultMsg.sendToTarget();
+            webViewDialog.show();
+            
             return true;
         }
     });
