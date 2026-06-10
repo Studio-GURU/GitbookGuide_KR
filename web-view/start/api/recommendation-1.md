@@ -80,7 +80,6 @@ RSS 2.0 XML. 커스텀 필드는 `tc` 네임스페이스(`xmlns:tc="https://trea
 {% tabs %}
 {% tab title="200" %}
 {% code lineNumbers="true" %}
-````xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:tc="https://treasurecomics.com/rss/recommendation">
@@ -125,7 +124,6 @@ RSS 2.0 XML. 커스텀 필드는 `tc` 네임스페이스(`xmlns:tc="https://trea
   </channel>
 </rss>
 ```
-````
 {% endcode %}
 {% endtab %}
 {% endtabs %}
