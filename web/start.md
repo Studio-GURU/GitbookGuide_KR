@@ -12,7 +12,7 @@ icon: star-shooting
 
 일반적인 브라우져를 통해 서비스 연동시 참고 바랍니다.
 
-[WEB VIEW(인앱 브라우져)](../web-view-v1/start.md) 또는 [ANDROID SDK](broken-reference), [iOS SDK](broken-reference) 연동 방식은 별도 가이드를 참고 바랍니다.
+[WEB VIEW(인앱 브라우져)](../web-view-v1/start.md) 또는 [ANDROID SDK](https://app.gitbook.com/s/Mo15hIP6otwRQkPhYpHM/android-sdk), [iOS SDK](https://app.gitbook.com/s/Mo15hIP6otwRQkPhYpHM/ios-sdk) 연동 방식은 별도 가이드를 참고 바랍니다.
 
 ***
 

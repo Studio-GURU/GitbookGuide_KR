@@ -37,7 +37,7 @@
     * [채널회원 미연동 방식 ( 자체 회원 체계가 없을 시 사용 )](web-view/start/template/standard.md)
   * [\[ 선택 \] API로 추가 진입점 구성](web-view/start/api/README.md)
     * [\[ API \] 추천 컨텐츠 목록 조회](web-view/start/api/recommendation.md)
-    * [\[ API \] 추천 컨텐츠 목록 조회\_RSS](web-view/start/api/recommendation-1.md)
+    * [\[ API \] 추천 컨텐츠 목록 조회\_RSS](web-view/start/api/recommendation-rss.md)
     * [\[ API \] 최근 본 작품 조회](web-view/start/api/recently.md)
     * [\[ API \] 추천 컨텐츠 목록 조회 ( Client )](web-view/start/api/recommendaition_client.md)
     * [\[ API \] 추천 컨텐츠 리워드 지급 가능 여부 조회 ( Client )](web-view/start/api/rewardcheck_client.md)

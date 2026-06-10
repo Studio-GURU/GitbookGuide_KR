@@ -1,5 +1,23 @@
 ---
 description: 보물섬은 어떤 서비스인가요?
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
 ---
 
 # 제품 안내
@@ -50,6 +68,6 @@ description: 보물섬은 어떤 서비스인가요?
 
 ## 구현 하기
 
-<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>WEB VIEW</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/web_cover.png">web_cover.png</a></td><td><a href="web/start.md">start.md</a></td></tr><tr><td>ANDROID SDK</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/icons8-안드로이드-os-512.png">icons8-안드로이드-os-512.png</a></td><td></td></tr><tr><td>iOS SDK</td><td><a href="broken-reference">Broken link</a></td><td></td><td><a href=".gitbook/assets/ios_cover (1).png">ios_cover (1).png</a></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>WEB VIEW</td><td><a href="https://app.gitbook.com/s/Mo15hIP6otwRQkPhYpHM/web-view">WEB VIEW</a></td><td></td><td><a href=".gitbook/assets/web_cover.png">web_cover.png</a></td><td><a href="web/start.md">start.md</a></td></tr><tr><td>ANDROID SDK</td><td><a href="https://app.gitbook.com/s/Mo15hIP6otwRQkPhYpHM/android-sdk">ANDROID SDK</a></td><td></td><td><a href=".gitbook/assets/icons8-안드로이드-os-512.png">icons8-안드로이드-os-512.png</a></td><td></td></tr><tr><td>iOS SDK</td><td><a href="https://app.gitbook.com/s/Mo15hIP6otwRQkPhYpHM/ios-sdk">iOS SDK</a></td><td></td><td><a href=".gitbook/assets/ios_cover (1).png">ios_cover (1).png</a></td><td></td></tr></tbody></table>
 
 ***
