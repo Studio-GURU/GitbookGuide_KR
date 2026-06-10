@@ -58,7 +58,7 @@ curl -H "Authorization: Basic {별도 전달받은 토큰}" \
 
 RSS 2.0 XML. 커스텀 필드는 `tc` 네임스페이스(`xmlns:tc="https://treasurecomics.com/rss/recommendation"`)로 제공됩니다.
 
-> RSS 본문 특성상 모든 값은 XML 텍스트 노드입니다. 아래 **타입**은 값의 논리적 타입을 의미합니다. **빈 값** 컬럼: `O` = 비어 있을 수 있음(`<tag></tag>`) · `X` = 항상 값 존재.
+> RSS 본문 특성상 모든 값은 XML 텍스트 노드입니다. 아래 **타입**은 값의 논리적 타입을 의미합니다.&#x20;
 
 **Channel 필드**
 
