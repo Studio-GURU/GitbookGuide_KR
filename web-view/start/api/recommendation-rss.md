@@ -66,7 +66,7 @@ RSS 2.0 XML. 커스텀 필드는 `tc` 네임스페이스(`xmlns:tc="https://trea
 
 **Item 표준 필드**
 
-<table><thead><tr><th width="238">Fields</th><th width="155">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>title</code></td><td>string</td><td>콘텐츠 제목</td></tr><tr><td><code>link</code></td><td>string (URL)</td><td>랜딩 URL (게이트웨이 리다이렉트 URL)</td></tr><tr><td><code>description</code></td><td>string</td><td>콘텐츠 소개</td></tr><tr><td><code>guid</code></td><td>string</td><td>콘텐츠 단위 식별자 (<code>contentCName</code>). <code>isPermaLink="false"</code>. 동일 guid는 <strong>upsert(덮어쓰기)</strong> 처리.</td></tr><tr><td><code>pubDate</code></td><td>string (RFC 1123)</td><td>추천일(<code>recommendationDate</code>) 기준 (UTC)</td></tr></tbody></table>
+<table><thead><tr><th width="238">Fields</th><th width="155">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>title</code></td><td>string</td><td>콘텐츠 제목</td></tr><tr><td><code>link</code></td><td>string (URL)</td><td>랜딩 URL (게이트웨이 리다이렉트 URL)</td></tr><tr><td><code>description</code></td><td>string</td><td>콘텐츠 소개</td></tr><tr><td><code>guid</code></td><td>string</td><td>콘텐츠 단위 식별자. <code>isPermaLink="false"</code>. 동일 guid는 <strong>upsert(덮어쓰기)</strong> 처리.</td></tr><tr><td><code>pubDate</code></td><td>string (RFC 1123)</td><td>추천일(<code>recommendationDate</code>) 기준 (UTC)</td></tr></tbody></table>
 
 **Item 커스텀 필드 (`tc:` 네임스페이스)**
 
